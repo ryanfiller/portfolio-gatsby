@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: ryanfiller/portfolio-gatsby
+
+media_folder: static/images
+
+collections:
+  - name: blog
+    label: Blog
+    folder: blog
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+
+  - name: portfolio
+    label: Portfolio
+    folder: portfolio
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
