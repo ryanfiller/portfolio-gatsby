@@ -1,0 +1,89 @@
+body.homepage {
+
+    .header {
+        display: none;
+    }
+
+    .site-wrap, .site {
+        min-height: 100vh;
+    }
+
+    .site {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-content {
+        flex: 1;
+        display: flex;
+
+        @include tablet-break {
+            flex-direction: column;
+        }
+
+        div {
+            flex: 1;
+            position: relative;
+
+            @include tablet-break {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &:nth-child(1) {background-color:deepskyblue;}
+            &:nth-child(2) {background-color:lime;}
+            &:nth-child(3) {background-color:indigo;}
+
+            a {
+                color: $color-white;
+                text-decoration: none;
+                font-size: 3rem;
+                text-transform: uppercase;
+                @include font-condensed;
+                text-align: center;
+                display: block;
+                width: 100%;
+                position: absolute;
+                bottom: 10rem;
+
+                @include tablet-break {
+                    position: initial;
+                }
+            }
+        }
+    }
+
+    .logo {
+        width: 50vw;
+        position: absolute;
+        z-index: 1;
+        top: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            * {
+                fill: $color-white;
+            }
+
+            @include tablet-break {
+                height: auto;
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+
+        @include tablet-break {
+            transform: none;
+            position: initial;
+            width: 100%;
+            padding: 2rem;
+            background-color: $color-black;
+        }
+    }
+}

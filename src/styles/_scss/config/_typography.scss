@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500,700");
+
+@mixin font-sans-serif() {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+@mixin font-condensed() {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+}
+
+@mixin text-link {
+    color: $color-blue;
+    text-decoration: none;
+
+    &:hover {
+        color: $color-orange;
+    }
+}
+
+body {
+    @include font-sans-serif;
+}
+
+.page-content {
+    font-size: 2rem;
+    line-height: 1.6em;
+
+    p a {
+        color: $color-black;
+        text-decoration: none;
+        border-bottom: 2px $color-orange dotted;
+
+        &:hover {
+            color: $color-blue;
+            border-bottom: 2px $color-blue dotted;
+        }
+
+        @include tablet-break {
+            border-bottom: 0;
+            background: $color-orange;
+            padding: 0 .25em;
+            color: $color-white;
+            &:hover {
+                border-bottom: 0;
+                background-color: $color-blue;
+                color: $color-white;
+            }
+        }
+    }
+
+    ol {
+        list-style: none;
+        counter-reset: li;
+        li {
+            counter-increment: li;
+            &:before {
+                content: counter(li);
+                color: $color-blue;
+                position: relative;
+                left: -.5em;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        li {
+            &:before {
+                content: '\2022';
+                color: $color-blue;
+                position: relative;
+                left: -.5em;
+            }
+        }
+    }
+}
+
+h2 {
+    @include font-condensed;
+    color: $color-blue;
+    @include font-size(2.25em, 2em, 1.75em);
+}
+
+h3 {
+    @include font-condensed;
+    color: $color-light-gray;
+    @include font-size(2.5em, 2em, 1.5em);
+}
+
+h4 {
+    @include font-sans-serif;
+    color: $color-gray;
+    font-weight: bold;
+    @include font-size(1.5em, 1em, 1em);
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+blockquote {
+    font-size: 1.25em;
+    line-height: 1.75em;
+    border-left: 1.5em solid $color-blue;
+    padding-left: .5em;
+    margin: $spacing 2em $spacing 0;
+    position: relative;
+
+    &:before {
+        content: '\201C';
+        @include font-condensed;
+        color: $color-white;
+        position: absolute;
+        font-size: 4em;
+        top: 0.5em;
+        left: -0.33em;
+        line-height: 0;
+    }
+
+    cite {
+        color: $color-gray;
+        display: block;
+        text-align: right;
+        margin-top: .75em;
+        font-size: .75em;
+
+        &:before {
+            content: '\2014';
+            margin-right: .5em;
+        }
+    }
+}
