@@ -1,0 +1,20 @@
+.meta {
+    margin-bottom: $spacing/4;
+
+    &__date {
+        &:after {
+            content: '|';
+            margin: 0 .5em;
+        }
+    }
+
+    &__tag {
+        &:after {
+            content: ', ';
+        }
+
+        &:last-of-type:after {
+            display: none;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'ryanfiller.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -12,5 +12,9 @@ module.exports = {
         // modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-  ],
+    `gatsby-plugin-sass`,
+    `gatsby-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
+  ]
 };

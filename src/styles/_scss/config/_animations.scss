@@ -1,0 +1,191 @@
+$transition: 0.2s;
+
+a, a * {
+    transition: $transition;
+}
+
+svg, svg * {
+    transition: $transition;
+}
+
+.button {
+    transition: $transition;
+}
+
+.navicon {
+    &--top {
+        transition: top $transition ease $transition,
+                    transform $transition ease 0s;
+
+        .open & {
+            transition: top $transition ease 0s,
+                        transform $transition ease $transition;
+        }
+    }
+
+    &--middle {
+        transition: opacity 0s ease $transition;
+
+        .open & {
+            transition: opacity 0s ease $transition;
+        }
+    }
+
+    &--bottom {
+        transition: bottom $transition ease $transition,
+                    transform $transition ease 0s;
+
+        .open & {
+            transition: bottom $transition ease 0s,
+                        transform $transition ease $transition;
+        }
+    }
+}
+
+@mixin glitch($color:$color-black, $background:$color-white) {
+
+    @keyframes noise-anim{
+        $steps: 20;
+        @for $i from 0 through $steps{
+            #{percentage($i*(1/$steps))}{
+              clip: rect(random(100)+px,9999px,random(100)+px,0);
+            }
+        }
+    }
+
+    @keyframes noise-anim-2{
+        $steps: 20;
+        @for $i from 0 through $steps{
+            #{percentage($i*(1/$steps))}{
+            clip: rect(random(100)+px,9999px,random(100)+px,0);
+            }
+        }
+    }
+
+    color: $color;
+    position: relative;
+
+    &:before{
+        content: attr(data-text);
+        position: absolute;
+        left: -1px;
+        // text-shadow:2px 0 rgba(0, 255, 255, 0.25);
+        top: 0;
+        color: $color;
+        background: $background;
+        overflow:h idden;
+        clip: rect(0,900px,0,0);
+        animation: noise-anim-2 4s infinite linear alternate-reverse;
+    }
+
+    &:after{
+        content: attr(data-text);
+        position: absolute;
+        left: 1px;
+        // text-shadow:-2px 0 rgba(255, 0, 0, 0.25);
+        top: 0;
+        color: $color;
+        background: $background;
+        overflow: hidden;
+        clip: rect(0,900px,0,0);
+        animation: noise-anim 2s infinite linear alternate-reverse;
+    }
+}
+
+@mixin float {
+    position: relative;
+    top: -1px;
+    transition: $transition;
+}
+
+@mixin social-hover($brand-color) {
+    overflow: hidden;
+    position: relative;
+
+    svg {
+        position: relative;
+        z-index: 10;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin-top: 100%;
+        z-index: 5;
+        background: $brand-color;
+        transition: margin $transition;
+    }
+
+    &:hover {
+        &:after {
+            margin-top: 0;
+        }
+    }
+}
+
+.social {
+
+    &--codepen {
+        @include social-hover(#fcd000);
+    }
+
+    &--dribbble {
+        @include social-hover(#ea4c89);
+    }
+
+    &--facebook {
+        @include social-hover(#3b5998);
+    }
+
+    &--flickr {
+        @include social-hover(#ff0084);
+    }
+
+    &--github {
+        @include social-hover(#6cc644);
+    }
+
+    &--google {
+        @include social-hover(#dd4b39);
+    }
+
+    &--instagram {
+        @include social-hover(#c13584);
+        &:after {
+            background:
+                radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+                radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+                radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+                radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+                radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+                radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+                radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+                linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+        }
+    }
+
+    &--linkedin {
+        @include social-hover(#0077b5);
+    }
+
+    &--tumblr {
+        @include social-hover(#35465c);
+    }
+
+    &--twitter {
+        @include social-hover(#1da1f2);
+    }
+
+    &--vimeo {
+        @include social-hover(#1ab7ea);
+    }
+
+    &--youtube {
+        @include social-hover(#cd201f);
+    }
+}
