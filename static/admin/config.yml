@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: /ryanfiller/portfolio-gatsby
+  repo: ryanfiller/portfolio-gatsby
 
 media_folder: static/assets
 
