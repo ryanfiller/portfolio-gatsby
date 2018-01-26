@@ -24,6 +24,7 @@ const TemplateWrapper = ({ children }) => (
         paddingTop: 0,
       }}
     >
+      {/* <img src ="https://api.hub.jhu.edu/factory/sites/default/files/styles/landscape/public/godzilla.jpg?itok=VHTGHzTl" /> */}
       {children()}
     </div>
     <Footer />
