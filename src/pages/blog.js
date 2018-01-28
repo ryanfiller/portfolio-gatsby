@@ -6,7 +6,7 @@ const BlogList = ({ data }) => {
   return (
     <div>
 
-    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+    <h4>this the the blog list page</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           <Link

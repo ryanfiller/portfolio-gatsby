@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link'
+import Logo from './logo'
 import Nav from './nav'
 
 
@@ -8,8 +9,7 @@ export default class Header extends Component {
     return (
         <header className="header">
 
-            <a href="/" className="header__logo">
-            </a>
+            <Logo />
 
             <Nav content={this.props.content}/>
 

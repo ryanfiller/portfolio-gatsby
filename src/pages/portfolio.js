@@ -6,7 +6,7 @@ const PortfolioList = ({ data }) => {
   return (
     <div>
 
-    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+    <h4>the is the portfolio page</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.fields.slug}>
