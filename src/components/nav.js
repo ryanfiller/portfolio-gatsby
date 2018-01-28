@@ -1,28 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Link from 'gatsby-link'
 
-export default () => {
-  const mainPages = ['about', 'portfolio', 'blog'];
+export default class Nav extends Component {
+  render() {
     return (
       <ul>
-        {mainPages.map((page) =>
-            <Link className="link" to={page}>{page}</Link>
+        {console.log(this.props.content)}
+        {Array.from(this.props.content).map(({node}, index) =>
+            <Link className="link" 
+            key={index}
+            to={node.frontmatter.title}>
+              {node.frontmatter.title}
+            </Link>
           )}
       </ul>
     )
   }
-
-// this query works but cannot be used for reasons
-export const query = graphql`
-  query NavQuery {
-    allFile(
-      filter: {sourceInstanceName: {regex: "/^content$/"}}
-    ) {
-      edges {
-        node {
-          sourceInstanceName
-        }
-      }
-    }
-  }
-`
+}

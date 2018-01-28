@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Link from 'gatsby-link'
 import Nav from './nav'
 
-const Header = () => (
-  <header className="header">
 
-    <a href="/" className="header__logo">
-    </a>
+export default class Header extends Component {
+  render() {
+    return (
+        <header className="header">
 
-    <Nav />
+            <a href="/" className="header__logo">
+            </a>
 
-    <div className="navicon">
-        <div className="navicon--top"></div>
-        <div className="navicon--middle"></div>
-        <div className="navicon--bottom"></div>
-    </div>
+            <Nav content={this.props.content}/>
 
-    </header>
-)
+            <div className="navicon">
+                <div className="navicon--top"></div>
+                <div className="navicon--middle"></div>
+                <div className="navicon--bottom"></div>
+            </div>
 
-export default Header
+        </header>
+    )
+  }
+}

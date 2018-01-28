@@ -3,8 +3,6 @@ import Link from 'gatsby-link'
 
 const IndexPage = ({ data }) => {
 
-  console.log(data);
-
   return (
     <div>
 
