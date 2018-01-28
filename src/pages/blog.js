@@ -9,11 +9,15 @@ const BlogList = ({ data }) => {
     <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <h3>
-            {node.frontmatter.title}{" "}
-            <span color="#BBB">— {node.frontmatter.date}</span>
-          </h3>
-          <p>{node.excerpt}</p>
+          <Link
+              to={node.fields.slug}
+            >
+            <h3>
+              {node.frontmatter.title}{" "}
+              <span color="#BBB">— {node.frontmatter.date}</span>
+            </h3>
+            <p>{node.excerpt}</p>
+          </Link>
         </div>
       ))}
 
@@ -36,6 +40,9 @@ query BlogListQuery {
           date
           _PARENT
           parent
+        }
+        fields {
+          slug
         }
       }
     }
