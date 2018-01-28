@@ -2,9 +2,19 @@ backend:
   name: github
   repo: ryanfiller/portfolio-gatsby
 
+publish_mode: editorial_workflow
+
 media_folder: static/images
 
 collections:
+  - name: pages
+    label: Pages
+    folder: pages
+    create: false
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+
   - name: blog
     label: Blog
     folder: blog
