@@ -1,12 +1,44 @@
-import React from "react";
-import Link from "gatsby-link";
+import React, { Component } from 'react';
+import Link from 'gatsby-link'
 
-const Portfolio = () => (
+const PortfolioList = ({ data }) => {
+
+  return (
     <div>
-      <h1>Hi from the second page</h1>
-      <p>Blog</p>
-      <Link to="/">Go back to the homepage</Link>
+
+    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <h3>
+            {node.frontmatter.title}{" "}
+            <span color="#BBB">— {node.frontmatter.date}</span>
+          </h3>
+          <p>{node.excerpt}</p>
+        </div>
+      ))}
+
     </div>
-  )
-  
-  export default Portfolio
+  );
+};
+
+export default PortfolioList
+
+export const query = graphql`
+query PortfolioListQuery {
+  allMarkdownRemark(
+    filter: {id: {regex: "/portfolio//"}}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          date
+          _PARENT
+          parent
+        }
+      }
+    }
+  }
+}
+`

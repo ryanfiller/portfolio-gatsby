@@ -44,7 +44,7 @@ export default TemplateWrapper
 export const query = graphql`
 query NavQuery {
   allMarkdownRemark(
-    filter: {id: {regex: "/content/"}}
+    filter: {id: {regex: "/content//"}}
   ) {
     edges {
       node {

@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Link from 'gatsby-link'
 
-const Blog = () => (
-  <div>
-    <h1>Hi from the second page</h1>
-    <p>Blog</p>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
-)
+const BlogList = ({ data }) => {
 
-export default Blog
+  return (
+    <div>
+
+    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <h3>
+            {node.frontmatter.title}{" "}
+            <span color="#BBB">— {node.frontmatter.date}</span>
+          </h3>
+          <p>{node.excerpt}</p>
+        </div>
+      ))}
+
+    </div>
+  );
+};
+
+export default BlogList
+
+export const query = graphql`
+query BlogListQuery {
+  allMarkdownRemark(
+    filter: {id: {regex: "/blog//"}}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          date
+          _PARENT
+          parent
+        }
+      }
+    }
+  }
+}
+`
