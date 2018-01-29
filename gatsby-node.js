@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           if(node.fields.slug.includes('blog')){
             template = `./src/templates/blog-item.js`;
-          } else if (node.fields.slug.includes('portfolio')) {
+          } else if (node.fields.slug.includes('work')) {
             template = `./src/templates/portfolio-item.js`;
           }
             createPage({

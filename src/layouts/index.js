@@ -40,6 +40,7 @@ export default TemplateWrapper
 export const query = graphql`
 query NavQuery {
   allMarkdownRemark(
+		sort: { order: ASC, fields: [frontmatter___order] }
     filter: {id: {regex: "/content//"}}
   ) {
     edges {

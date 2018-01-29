@@ -28,7 +28,7 @@ export default PortfolioList
 export const query = graphql`
 query PortfolioListQuery {
   allMarkdownRemark(
-    filter: {id: {regex: "/portfolio//"}}
+    filter: {id: {regex: "/work//"}}
   ) {
     edges {
       node {
