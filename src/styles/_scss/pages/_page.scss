@@ -1,0 +1,189 @@
+body.page, body.portfolio-item {
+
+     .page-content {
+        position: relative;
+        background: $color-white;
+        padding-top: (2*$spacing);
+        padding-bottom: (4*$spacing);
+        @include container;
+        @include readable;
+
+        p {
+            margin: 0;
+            margin-bottom: $spacing;
+        }
+
+        img.none {
+            display: block;
+            margin: 0 auto;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+        }
+
+        img.left,figure.left {
+            float: left;
+            margin: 0 $spacing $spacing -1*$spacing;
+            width: 50%;
+        }
+
+        img.right, figure.right {
+            float: right;
+            margin: 0 -1*$spacing $spacing $spacing;
+            width: 50%;
+        }
+
+        img.full {
+            display: block;
+            width: calc(100% + (2 * #{$spacing}));
+            height: auto;
+            margin: 0 -1*$spacing $spacing -1*$spacing;
+        }
+
+        img.left, img.right, img.full {
+            @include phone-break {
+                width: calc(100% + (2 * #{$spacing}));
+                height: auto;
+                margin: 0 -1*$spacing $spacing -1*$spacing;
+            }
+        }
+
+        img.small {
+            width: 25%;
+            @include desktop-break {
+                &.left {
+                    margin-left: 0;
+                }
+                &.right {
+                    margin-right: 0;
+                }
+            }
+            @include tablet-break {
+                width: 25%;
+                &.left {
+                    margin: 0 $spacing 0 0;
+                }
+                &.right {
+                    margin: 0 0 $spacing 0;
+                }
+            }
+
+            @include phone-break {
+                width: 50%;
+            }
+        }
+
+        figure.compare {
+            position: relative;
+
+            img {
+                width: 100%;
+                display: block;
+
+                &:first-child {
+                    position: absolute;
+                    opacity: 0;
+                    transition: $transition;
+                }
+
+                &:last-child {
+                    opacity: 1;
+                    transition: $transition;
+                }
+            }
+
+            &:hover {
+                img {
+
+                    &:first-child {
+                        opacity: 1;
+                    }
+
+                    &:last-child {
+                        opacity: 0;
+                    }
+                }
+
+            }
+
+            figcaption {
+                background-color: $color-gray;
+                font-size: .75em;
+                padding: .125em;
+                text-align: center;
+                color: $color-white;
+                &:after {
+                    content: ' (Hover)';
+                }
+            }
+
+            @include tablet-break {
+                width: calc(100% + (2 * #{$spacing}));
+                height: auto;
+                margin: 0 -1*$spacing $spacing -1*$spacing;
+                display: flex;
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+
+                img, img:first-child {
+                    position: initial;
+                    width: 50%;
+                    height: 50vw;
+                    opacity: 1;
+                    transition: 0s;
+                }
+
+                figcaption {
+                    width: 100%;
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        iframe {
+            margin-bottom: $spacing;
+        }
+
+        .videoWrapper {
+    	position: relative;
+    	padding-bottom: 56.25%; /* 16:9 */
+    	padding-top: 25px;
+    	height: 0;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .back-link {
+        clear: both;
+        font-size: 1em;
+        margin: 0 auto;
+        margin-top: 2*$spacing;
+        display: block;
+        text-align: center;
+        @include font-sans-serif;
+        color: $color-blue;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:before{
+            content: ' ▸▸';
+            display: inline-block;
+            position: relative;
+            top: .125em;
+            transform: rotate(180deg);
+        }
+
+        &:hover {
+            color: $color-orange;
+        }
+    }
+}

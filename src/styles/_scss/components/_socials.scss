@@ -1,0 +1,28 @@
+.socials {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    width: auto;
+    display: flex;
+
+    li {
+        list-style: none;
+
+        .social {
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            height: auto;
+
+            svg {
+                fill: $color-white;
+                display: block;
+                width: auto;
+
+                path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+}

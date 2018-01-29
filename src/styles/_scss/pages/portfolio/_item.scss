@@ -1,0 +1,120 @@
+body.portfolio-item {
+    .page-content {
+        padding: 0;
+        max-width: 100%;
+
+        .portfolio-swiper {
+            width: 100vw;
+            height: 56.25vw;
+
+            @include phone-break {
+                height: 177.77vw;
+            }
+        }
+
+        .portfolio-text {
+            position: relative;
+            background: $color-white;
+            padding-top: (2*$spacing);
+            padding-bottom: (4*$spacing);
+            @include container;
+            @include readable;
+        }
+
+        @include desktop-break {
+            display: flex;
+            height: 50vw;
+            position: relative;
+
+            .portfolio-swiper {
+                width: 50%;
+                height: 50vw;
+                position: relative;
+                z-index: 3;
+            }
+
+            .portfolio-text {
+                width: 50%;
+                overflow-y: scroll;
+                position: relative;
+                z-index: 1;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                height: 8rem;
+                width: 100%;
+                z-index: 2;
+                background: linear-gradient(to top, $color-white, transparent);
+                pointer-events: none;
+            }
+
+            .portfolio-header {
+                padding-top: 10rem;
+            }
+        }
+
+        header {
+            padding-top: 3*$spacing;
+            padding-bottom: 4*$spacing;
+            position: relative;
+
+            .portfolio-header {
+                margin: 0;
+                @include font-condensed;
+                font-size: 4em;
+                line-height: 1em;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .meta {
+                margin-top: 1em;
+                text-align: center;
+
+                .meta__date {
+                    display: none;
+                }
+
+                .meta__tag {
+                    font-size: 1.5em;
+                    color: $color-light-gray;
+                }
+
+                .meta__link {
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: .75em;
+                    text-decoration: none;
+                    color: $color-blue;
+
+                    &:hover {
+                        color: $color-orange;
+                    }
+                }
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                border-right: 2px solid $color-orange;
+                border-bottom: 2px solid $color-orange;;
+                margin: 0 auto;
+                transform: rotate(45deg);
+                margin-top: 2rem;
+            }
+        }
+
+        .thumbnail-credit {
+            display: block;
+            text-align: center;
+            font-size: .75em;
+            color: $color-light-gray;
+        }
+    }
+}
