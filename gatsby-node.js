@@ -31,9 +31,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       `
   ).then(result => {
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          if(node.fields.slug.includes('blog')){
+            template = `./src/templates/blog-item.js`;
+          } else if (node.fields.slug.includes('portfolio')) {
+            template = `./src/templates/portfolio-item.js`;
+          }
             createPage({
             path: node.fields.slug,
-            component: path.resolve(`./src/templates/blog-item.js`),
+            component: path.resolve(template),
             context: {
                 // Data passed to context is available in page queries as GraphQL variables.
                 slug: node.fields.slug,
