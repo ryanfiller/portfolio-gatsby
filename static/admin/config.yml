@@ -9,7 +9,7 @@ media_folder: static/images
 collections:
   - name: pages
     label: Pages
-    folder: pages
+    folder: src/pages/content
     create: false
     fields:
       - { name: date, label: Date, widget: date }
@@ -17,7 +17,7 @@ collections:
 
   - name: blog
     label: Blog
-    folder: blog
+    folder: src/pages/blog
     create: true
     fields:
       - { name: date, label: Date, widget: date }
@@ -25,7 +25,7 @@ collections:
 
   - name: portfolio
     label: Portfolio
-    folder: portfolio
+    folder: src/pages/portfolio
     create: true
     fields:
       - { name: date, label: Date, widget: date }
