@@ -33,14 +33,14 @@ query PortfolioListQuery {
     edges {
       node {
         id
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           _PARENT
           parent
-        }
-        fields {
-          slug
         }
       }
     }

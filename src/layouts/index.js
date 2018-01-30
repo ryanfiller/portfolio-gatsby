@@ -41,7 +41,7 @@ export const query = graphql`
 query NavQuery {
   allMarkdownRemark(
 		sort: { order: ASC, fields: [frontmatter___order] }
-    filter: {id: {regex: "/content//"}}
+    filter: {id: {regex: "/pages//"}}
   ) {
     edges {
       node {

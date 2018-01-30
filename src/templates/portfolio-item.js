@@ -15,8 +15,8 @@ export default ({data}) => {
 };
 
 export const query = graphql`
-  query portfolioPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query portfolioPostQuery {
+    markdownRemark {
       html
       frontmatter {
         title

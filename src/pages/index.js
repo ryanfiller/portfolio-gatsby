@@ -10,18 +10,6 @@ const IndexPage = ({ data }) => {
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       
-      <div>
-        <Link to="/about/">about</Link>
-      </div>
-      <div>
-        <Link to="/about/">blog</Link>    
-      </div>
-      <div>
-        <Link to="/about/">portfolio</Link>
-      </div>   
-      <div>
-        <Link to="/counter/">counter</Link>
-      </div>  
     </div>
   );
 };

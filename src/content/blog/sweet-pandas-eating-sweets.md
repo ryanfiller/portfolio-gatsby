@@ -1,6 +1,8 @@
 ---
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
+template: "blog-item"
+path: blog/pandafarts
 ---
 
 Pandas are really sweet.

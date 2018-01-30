@@ -6,7 +6,6 @@ export default class Nav extends Component {
     return (
       <nav className="nav" role="navigation">
         <ul className="nav__list">
-          {console.log(this.props.content)}
           {Array.from(this.props.content).map(({node}, index) =>
             <li className="nav__link">
               <Link key={index} to={node.frontmatter.title}>

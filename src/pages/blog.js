@@ -9,9 +9,7 @@ const BlogList = ({ data }) => {
     <h4>this the the blog list page</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link
-              to={node.fields.slug}
-            >
+          <Link to={node.fields.slug}>
             <h3>
               {node.frontmatter.title}{" "}
               <span color="#BBB">— {node.frontmatter.date}</span>
@@ -35,14 +33,14 @@ query BlogListQuery {
     edges {
       node {
         id
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           _PARENT
           parent
-        }
-        fields {
-          slug
         }
       }
     }
