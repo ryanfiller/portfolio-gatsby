@@ -7,8 +7,8 @@ export default class Nav extends Component {
       <nav className="nav" role="navigation">
         <ul className="nav__list">
           {Array.from(this.props.content).map(({node}, index) =>
-            <li className="nav__link">
-              <Link key={index} to={node.frontmatter.title}>
+            <li className="nav__link" key={index}>
+              <Link to={node.frontmatter.title}>
                 {node.frontmatter.title}
               </Link>
             </li>

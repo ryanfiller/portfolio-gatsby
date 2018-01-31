@@ -22,7 +22,6 @@ const TemplateWrapper = ({ data, children }) => (
     <Header content={data.allMarkdownRemark.edges} />
 
     <div>
-      {/* <img src ="https://api.hub.jhu.edu/factory/sites/default/files/styles/landscape/public/godzilla.jpg?itok=VHTGHzTl" /> */}
       {children()}
     </div>
 
