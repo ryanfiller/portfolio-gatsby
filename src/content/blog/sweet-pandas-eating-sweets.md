@@ -5,7 +5,7 @@ template: "blog-item"
 path: blog/pandafarts
 ---
 
-Pandas are really sweet.
+### Pandas are really sweet.
 
 Here's a video of a panda eating sweets.
 
