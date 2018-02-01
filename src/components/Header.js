@@ -9,11 +9,11 @@ export default class Header extends Component {
     return (
         <header className="header">
 
-            <div className="header__pre">
+            <div className="header-pre">
                 <Socials />
             </div>
 
-            <div className="header__main">
+            <div className="header-main">
             <Logo />
 
                 <Nav content={this.props.content}/>

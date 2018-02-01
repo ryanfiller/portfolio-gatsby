@@ -1,13 +1,19 @@
 .header {
-    background-color: $color-black;
-    padding: 1rem;
-    @include container;
-    font-size: 2rem;
 
-    &__main {
+    &-pre {
+        background-color: $color-dark-gray;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &-main {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: $color-black;
+        padding: 1rem;
+        @include container;
+        font-size: 2rem;
     }
 
     &__logo {
