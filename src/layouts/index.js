@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
 import '../styles/styles.scss'
 
-import Nav from '../components/nav'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const TemplateWrapper = ({ data, children }) => (
   <div>
@@ -19,7 +18,7 @@ const TemplateWrapper = ({ data, children }) => (
       ]}
     />
 
-    <Header content={data.allMarkdownRemark.edges} />
+    <Header />
 
     <div>
       {children()}
@@ -35,21 +34,3 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
-
-export const query = graphql`
-query NavQuery {
-  allMarkdownRemark(
-		sort: { order: ASC, fields: [frontmatter___order] }
-    filter: {id: {regex: "/pages//"}}
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-        }
-      }
-    }
-  }
-}
-`

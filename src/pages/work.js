@@ -9,7 +9,7 @@ const PortfolioList = ({ data }) => {
     <h4>the is the portfolio page</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link to={node.fields.slug}>
+          <Link to={node.frontmatter.path}>
             <h3>
               {node.frontmatter.title}{" "}
               <span color="#BBB">— {node.frontmatter.date}</span>
@@ -33,14 +33,9 @@ query PortfolioListQuery {
     edges {
       node {
         id
-        fields {
-          slug
-        }
         frontmatter {
           title
-          date
-          _PARENT
-          parent
+          path
         }
       }
     }

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link'
 
+const pages = ['work', 'blog', 'about', 'contact']
+
 export default class Nav extends Component {
   render() {
     return (
       <nav className="nav" role="navigation">
         <ul className="nav__list">
-          {Array.from(this.props.content).map(({node}, index) =>
+          {pages.map((page, index) =>
             <li className="nav__link" key={index}>
-              <Link to={node.frontmatter.title}>
-                {node.frontmatter.title}
+              <Link to={page}>
+                {page}
               </Link>
             </li>
           )}

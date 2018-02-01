@@ -11,13 +11,15 @@ export default ({data}) => {
   );
 };
 
-export const query = graphql`
-  query blogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+export const postQuery = graphql`
+  query BlogPost($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path} }) {
       html
       frontmatter {
+        path
         title
+        template
       }
     }
   }
-`;
+`
