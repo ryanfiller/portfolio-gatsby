@@ -1,51 +1,34 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require('path');
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
+exports.createPages = ({boundActionCreators, graphql}) => {
+  const {createPage} = boundActionCreators;
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-    const { createPage } = boundActionCreators
-    return new Promise((resolve, reject) => {
-      graphql(`
-        {
-          allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-              }
-            }
+  return graphql(`{
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+          id
+          frontmatter {
+            path
+            title
+            template
           }
         }
-      `
-  ).then(result => {
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          if(node.fields.slug.includes('blog')){
-            template = `./src/templates/blog-item.js`;
-          } else if (node.fields.slug.includes('portfolio')) {
-            template = `./src/templates/portfolio-item.js`;
-          }
-            createPage({
-            path: node.fields.slug,
-            component: path.resolve(template),
-            context: {
-                // Data passed to context is available in page queries as GraphQL variables.
-                slug: node.fields.slug,
-            },
-            })
-        })
-        resolve()
+      }
+    }
+  }`)
+  .then(res => {
+    if(res.errors) {
+      return Promise.reject(res.errors);
+    }
+
+    res.data.allMarkdownRemark.edges.forEach(({node}) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: path.resolve('./src/templates/' + node.frontmatter.template + '.js')
       })
     })
-  }
+
+  })
+}

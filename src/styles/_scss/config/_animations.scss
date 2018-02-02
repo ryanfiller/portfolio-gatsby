@@ -102,7 +102,7 @@ svg, svg * {
     overflow: hidden;
     position: relative;
 
-    svg {
+    svg, img {
         position: relative;
         z-index: 10;
     }
