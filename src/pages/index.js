@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import PortfolioGrid from '../components/portfolio-grid.js'
+import PortfolioGrid from '../components/portfolioGrid.js'
 
 const IndexPage = ({ data }) => {
 
