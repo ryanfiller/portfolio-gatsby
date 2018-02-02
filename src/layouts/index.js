@@ -8,7 +8,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 const TemplateWrapper = ({ data, children }) => (
-  <div>
+  <div className="site">
 
     <Helmet
       title="ryanfiller.com"

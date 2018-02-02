@@ -1,14 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import PortfolioGrid from '../components/portfolio-grid.js'
 
 const IndexPage = ({ data }) => {
 
   return (
     <div>
 
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
+      <h1>ryan filler</h1>
+      <p>Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+      <p>Bibendum | Magna | Tellus</p>
+
+      <PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
       
     </div>
   );
@@ -17,19 +20,19 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-          excerpt
+query PortfolioListQuery {
+  allMarkdownRemark(
+    filter: {id: {regex: "/work//"}}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          path
         }
       }
     }
   }
-`;
+}
+`

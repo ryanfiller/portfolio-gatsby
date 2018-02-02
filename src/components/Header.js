@@ -7,23 +7,17 @@ import Nav from './nav'
 export default class Header extends Component {
   render() {
     return (
-        <header className="header">
+        <header className="header" id="header">
 
-            <div className="header-pre">
-                <Socials />
-            </div>
+        <Logo />
 
-            <div className="header-main">
-            <Logo />
+        <Nav/>
 
-                <Nav content={this.props.content}/>
-
-                <div className="navicon">
-                    <div className="navicon--top"></div>
-                    <div className="navicon--middle"></div>
-                    <div className="navicon--bottom"></div>
-                </div>
-            </div>
+        <div className="navicon">
+            <div className="navicon--top"></div>
+            <div className="navicon--middle"></div>
+            <div className="navicon--bottom"></div>
+        </div>
 
         </header>
     )
