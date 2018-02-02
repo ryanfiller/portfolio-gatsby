@@ -14,13 +14,15 @@ export default ({data}) => {
   );
 };
 
-export const query = graphql`
-  query portfolioPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+export const postQuery = graphql`
+  query PortfolioPost($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path} }) {
       html
       frontmatter {
+        path
         title
+        template
       }
     }
   }
-`;
+`

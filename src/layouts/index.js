@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
 import '../styles/styles.scss'
 
-import Nav from '../components/nav'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const TemplateWrapper = ({ data, children }) => (
-  <div>
+  <div className="site">
 
     <Helmet
       title="ryanfiller.com"
@@ -19,10 +18,9 @@ const TemplateWrapper = ({ data, children }) => (
       ]}
     />
 
-    <Header content={data.allMarkdownRemark.edges} />
+    <Header />
 
     <div>
-      {/* <img src ="https://api.hub.jhu.edu/factory/sites/default/files/styles/landscape/public/godzilla.jpg?itok=VHTGHzTl" /> */}
       {children()}
     </div>
 
@@ -36,20 +34,3 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
-
-export const query = graphql`
-query NavQuery {
-  allMarkdownRemark(
-    filter: {id: {regex: "/content//"}}
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-        }
-      }
-    }
-  }
-}
-`
