@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import '../styles/styles.scss'
+// import '../styles/styles.scss'
+import '../config/normalize.css'
 
-import Header from '../components/header'
+import SiteHeader from '../components/siteHeader'
 import Footer from '../components/footer'
 
 const TemplateWrapper = ({ data, children }) => (
@@ -18,7 +19,7 @@ const TemplateWrapper = ({ data, children }) => (
       ]}
     />
 
-    <Header />
+    <SiteHeader />
 
     <div>
       {children()}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
+import SVG  from 'react-inlinesvg';
 
 export default class Logo extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class Logo extends Component {
       <Link className="link"
         className="header__logo" 
         to="/">
-           <img src="../images/svgs/logo.svg" />
+          <SVG src="../images/svgs/logo.svg" />
         </Link>
     )
   }
