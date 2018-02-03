@@ -1,3 +1,9 @@
+@mixin block-active{
+    .portfolio-block__content {
+        max-height: 100%;
+    }
+}
+
 .portfolio-block {
     display: flex;
     flex-direction: column;
@@ -9,11 +15,18 @@
     padding: $spacing;
 
     &:hover {
-      background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
+        @include block-active;
+        background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
     }
 
-    &__image {
+    @include tablet-break {
+        @include block-active;
+    }
+
+    &__logo {
         display: block;
+        height: 50%;
+        width: auto;
     }
 
     &__content {
@@ -21,10 +34,6 @@
         color: $color-white;
         max-height: 0;
         overflow: hidden;
-
-        .portfolio-block:hover & {
-            max-height: 100%;
-        }
     }
 }
 
