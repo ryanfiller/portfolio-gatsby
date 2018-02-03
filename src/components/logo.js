@@ -7,7 +7,7 @@ export default class Logo extends Component {
       <Link className="link"
         className="header__logo" 
         to="/">
-           <img src="../images/svgs/rf.svg" />
+           <img src="../images/svgs/logo.svg" />
         </Link>
     )
   }

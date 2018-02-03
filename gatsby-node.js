@@ -13,6 +13,8 @@ exports.createPages = ({boundActionCreators, graphql}) => {
             path
             title
             template
+            logo
+            color
           }
         }
       }
