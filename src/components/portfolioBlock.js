@@ -14,6 +14,8 @@ export default class PortfolioBlock extends Component {
         <div className="portfolio-block__content">
           {this.props.card.frontmatter.title}
 
+          {this.props.card.frontmatter.category}
+
           <span className="portfolio-block__link">
             Read More
           </span>

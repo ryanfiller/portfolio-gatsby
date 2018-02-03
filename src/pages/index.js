@@ -32,6 +32,7 @@ query PortfolioListQuery {
           path
           logo
           color
+          category
         }
       }
     }
