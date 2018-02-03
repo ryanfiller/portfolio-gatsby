@@ -3,12 +3,12 @@
   display: flex;
   flex-wrap: wrap;
 
-  &__block {
+  & > * {
     flex: 1;
     min-width: 33.333%;
     height: 33vw;
-    border: 1px solid $color-orange;
 
+    
     &:nth-child(4n-2), &:nth-child(4n-1) {
       min-width: 66.666%;
     }

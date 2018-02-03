@@ -3,8 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    background-color: currentColor;
+    background-blend-mode: luminosity; //multiply or luminosity?
+    background-size: cover;
+    padding: $spacing;
+
+    &:hover {
+      background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
+    }
+
+    &__image {
+        display: block;
+    }
+
+    &__content {
+        text-align: center;
+        color: $color-white;
+        max-height: 0;
+        overflow: hidden;
+
+        .portfolio-block:hover & {
+            max-height: 100%;
+        }
+    }
 }
 
 // @mixin grid-block-active {
