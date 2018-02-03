@@ -30,6 +30,8 @@ query PortfolioListQuery {
         frontmatter {
           title
           path
+          logo
+          color
         }
       }
     }

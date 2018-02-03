@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  .portfolio-card {
+  &__block {
     flex: 1;
     min-width: 33.333%;
     height: 33vw;

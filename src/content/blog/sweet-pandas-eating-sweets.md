@@ -3,6 +3,8 @@ title: 'This is the title'
 date: '2017-08-10'
 template: 'blog-item'
 path: '/blog/pandas'
+logo: 'asdfsadf'
+color: '#E86724'
 ---
 
 ### Pandas are really sweet.

@@ -7,7 +7,7 @@ const PortfolioList = ({ data }) => {
     <div>
 
     <h4>the is the portfolio page</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      {/* {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.frontmatter.path}>
             <h3>
@@ -17,7 +17,7 @@ const PortfolioList = ({ data }) => {
             <p>{node.excerpt}</p>
           </Link>
         </div>
-      ))}
+      ))} */}
 
     </div>
   );
@@ -25,20 +25,20 @@ const PortfolioList = ({ data }) => {
 
 export default PortfolioList
 
-export const query = graphql`
-query PortfolioListQuery {
-  allMarkdownRemark(
-    filter: {id: {regex: "/work//"}}
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          path
-        }
-      }
-    }
-  }
-}
-`
+// export const query = graphql`
+// query PortfolioListQuery {
+//   allMarkdownRemark(
+//     filter: {id: {regex: "/work//"}}
+//   ) {
+//     edges {
+//       node {
+//         id
+//         frontmatter {
+//           title
+//           path
+//         }
+//       }
+//     }
+//   }
+// }
+// `
