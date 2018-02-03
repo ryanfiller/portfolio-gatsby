@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'ryanfiller.com',
+    siteUrl: `https://www.ryanfiller.com`
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-netlify-cms`,

@@ -13,6 +13,10 @@ export default class PortfolioBlock extends Component {
         <img className="portfolio-block__logo" src="../images/portfolio/steel-tek/steel-tek.svg" />
         <div className="portfolio-block__content">
           {this.props.card.frontmatter.title}
+
+          <span className="portfolio-block__link">
+            Read More
+          </span>
         </div>
       </Link>
     )
