@@ -2,22 +2,32 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link'
 
 import styled from 'styled-components';
-import styles, { colors } from '../config/styles.js';
+import styles, { colors, breaks } from '../config/styles.js';
 
-import Socials from './socials';
 import RfLogo from './rfLogo'
 import Navigation from './navigation'
+import Navicon from './navicon'
 
 const Header = styled.header`
     background-color: ${colors.black};
     display: flex;
-    justify-conten: space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
     ${styles.container}
 
     .logo {
         max-width: 20rem;
+    }
+
+    @media only screen and (max-width: ${breaks.phone}) {
+        .nav {
+            display: none;
+        }
+        
+        .navicon {
+            display: block;
+        }
     }
 `;
 
@@ -26,15 +36,8 @@ export default class SiteHeader extends Component {
         return (
             <Header className="header" id="header">
                 <RfLogo />
-
                 <Navigation />
-
-                <div className="navicon">
-                    <div className="navicon--top"></div>
-                    <div className="navicon--middle"></div>
-                    <div className="navicon--bottom"></div>
-                </div>
-
+                <Navicon />
             </Header>
         )
     }

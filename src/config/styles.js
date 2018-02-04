@@ -12,13 +12,15 @@ injectGlobal`
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
 
-    svg {
+    svg, a {
       transition: .2s;
     }
   }
 `;
 
 module.exports = {
+
+  transition: '.2s',
 
   padding: '2rem',
 
@@ -49,23 +51,16 @@ module.exports = {
   container: {
     paddingLeft: '2rem',
     paddingRight: '2rem',
-  }
+  },
+
+  readable: {
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    maxWidth: '80rem',
+    marginLeft: 'auto',
+    marginRight:' auto'
+  },
 };
-
-// $readable-width: 80rem;
-
-// @mixin container {
-//     padding-left: $spacing;
-//     padding-right: $spacing;
-// }
-
-// @mixin readable {
-//     @include container;
-//     max-width: $readable-width;
-//     margin-left: auto;
-//     margin-right: auto;
-// }
-
 
 // color-blue: #3f7cac;
 // color-orange: #f89c7d;
