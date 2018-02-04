@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 export default class PortfolioBlock extends Component {
   render() {
 
-    let color = {
+    var color = {
       color: this.props.card.frontmatter.color,
     };
 

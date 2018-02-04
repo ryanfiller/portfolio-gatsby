@@ -1,36 +1,43 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Socials from './socials'
+
 import styled from 'styled-components';
-import styles, { colors } from '../config/styles.js';
+import styles, { colors, breaks, fonts } from '../config/styles.js';
 
 const Footer = styled.footer`
     background-color: ${colors.black};
     color: ${colors.white};
     display: flex;
-    justify-conten: space-between;
+    justify-content: space-between;
     align-items: center;
-    ${styles.container}
+
+    .copyright {
+        ${styles.container}
+        ${fonts.condensed}
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    @media only screen and (max-width: ${breaks.phone}) {
+        display: block;
+
+        .copyright {
+            text-align: center;
+            font-size: 1.25rem;
+            padding: .25em;
+        }
+    }
+    
 `;
 
 const SiteFooter = () => (
     <Footer className="footer" id="footer">
-        <aside className="footer-pre footer-contact">
-            <header className="footer-contact__header js-expander">
-                Get in Touch
-            </header>
-            <div className="footer-contact__container js-expandee">
-            </div>
-        </aside>
-        <main className="footer-main">
-            <a href="/" className="footer__logo">
-            </a>
-        </main>
-        <aside className="footer-post">
-            <div className="copyright">
-                Copyright 2012 - { new Date().getFullYear() }
-            </div>
-        </aside>
+        <div className="copyright">
+            &copy; Copyright 2012 - { new Date().getFullYear() }
+        </div>
+        <Socials />
     </Footer>
 )
 
