@@ -5,24 +5,29 @@ import styled from 'styled-components';
 import styles, { colors } from '../config/styles.js';
 
 import Socials from './socials';
-import Logo from './logo'
-import Nav from './nav'
+import RfLogo from './rfLogo'
+import Navigation from './navigation'
 
 const Header = styled.header`
     background-color: ${colors.black};
     display: flex;
     justify-conten: space-between;
     align-items: center;
+    padding: 1rem;
     ${styles.container}
+
+    .logo {
+        max-width: 20rem;
+    }
 `;
 
 export default class SiteHeader extends Component {
     render() {
         return (
             <Header className="header" id="header">
-                <Logo />
+                <RfLogo />
 
-                <Nav/>
+                <Navigation />
 
                 <div className="navicon">
                     <div className="navicon--top"></div>

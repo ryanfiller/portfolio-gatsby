@@ -11,6 +11,10 @@ injectGlobal`
     font-size: 12px;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
+
+    svg {
+      transition: .2s;
+    }
   }
 `;
 
@@ -27,6 +31,12 @@ module.exports = {
       fontFamily: '"Dosis", sans-serif',
       fontWeight: '400'
     }
+  },
+
+  breaks: {
+    large: '1350px',
+    tablet: '1024px',
+    phone: '500px'
   },
 
   colors: {

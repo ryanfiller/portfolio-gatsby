@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-// import '../styles/styles.scss'
 import '../config/normalize.css'
 
 import SiteHeader from '../components/siteHeader'
-import Footer from '../components/footer'
+import SiteFooter from '../components/siteFooter'
 
 const TemplateWrapper = ({ data, children }) => (
-  <div className="site">
+  <div className="site" id="site">
 
     <Helmet
       title="ryanfiller.com"
@@ -25,8 +24,8 @@ const TemplateWrapper = ({ data, children }) => (
       {children()}
     </div>
 
-    <Footer />
-    
+    <SiteFooter />
+
   </div>
 )
 

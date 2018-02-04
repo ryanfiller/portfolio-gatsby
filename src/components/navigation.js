@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link'
+import Link from 'gatsby-link';
+
+import styled from 'styled-components';
+import styles, { colors, fonts } from '../config/styles.js';
 
 const pages = ['blog', 'about']
 
-export default class Nav extends Component {
+export default class Navigation extends Component {
   render() {
     return (
       <nav className="nav" role="navigation">
