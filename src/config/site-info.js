@@ -24,7 +24,7 @@ module.exports = {
         color: '#fcd000'
       },
       {
-        url: 'https://github.com/ryanfiller89',
+        url: 'https://github.com/ryanfiller',
         name: 'Github',
         color: '#6cc644'
       },
