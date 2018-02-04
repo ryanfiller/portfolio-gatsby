@@ -27,6 +27,11 @@ const Footer = styled.footer`
             text-align: center;
             font-size: 1.25rem;
             padding: .25em;
+
+            &:before {
+                content: '\00a9';
+                margin-right: .125em;
+            }
         }
     }
     
@@ -35,7 +40,7 @@ const Footer = styled.footer`
 const SiteFooter = () => (
     <Footer className="footer" id="footer">
         <div className="copyright">
-            &copy; Copyright 2012 - { new Date().getFullYear() }
+            Copyright 2012 - { new Date().getFullYear() }
         </div>
         <Socials />
     </Footer>

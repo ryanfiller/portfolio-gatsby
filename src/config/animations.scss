@@ -1,13 +1,5 @@
 $transition: 0.2s;
 
-a, a * {
-    transition: $transition;
-}
-
-svg, svg * {
-    transition: $transition;
-}
-
 .button {
     transition: $transition;
 }
