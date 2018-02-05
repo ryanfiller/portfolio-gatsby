@@ -24,6 +24,13 @@ module.exports = {
 
   padding: '2rem',
 
+  colors: {
+    white: '#fcfaf6',
+    black: '#1e2223',
+    blue: '#3f7cac',
+    orange: '#f89c7d'
+  },
+
   fonts: {
     sansSerif: {
       fontFamily: '"Raleway", sans-serif',
@@ -39,13 +46,6 @@ module.exports = {
     large: '1350px',
     tablet: '1024px',
     phone: '500px'
-  },
-
-  colors: {
-    white: '#fcfaf6',
-    black: '#1e2223',
-    blue: '#3f7cac',
-    orange: '#f89c7d'
   },
 
   container: {
@@ -69,3 +69,17 @@ module.exports = {
 // color-gray: lighten($color-black, 10%);
 // color-light-gray: lighten($color-gray, 25%);
 // color-dark-gray: darken($color-gray, 5%);
+
+// @mixin font-size($desktop-size: 1.5em, $tablet-size: 1.25em, $phone-size: 1em) {
+
+//   font-size: $desktop-size;
+//   line-height: 1.25em;
+
+//   @include tablet-break {
+//     font-size: $tablet-size;
+//   }
+
+//   @include phone-break {
+//     font-size: $phone-size;
+//   }
+// }
