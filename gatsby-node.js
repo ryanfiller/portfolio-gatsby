@@ -16,6 +16,7 @@ exports.createPages = ({boundActionCreators, graphql}) => {
             logo
             color
             category
+            published
           }
         }
       }

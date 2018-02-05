@@ -27,6 +27,7 @@ const Block = styled.a`
         color: ${colors.white};
         max-height: 0;
         overflow: hidden;
+        transition: .2s;
     }
   }
 

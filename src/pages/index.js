@@ -20,22 +20,25 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-query PortfolioListQuery {
-  allMarkdownRemark(
-    filter: {id: {regex: "/work//"}}
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          path
-          logo
-          color
-          category
+  query PortfolioListQuery {
+    allMarkdownRemark(
+      filter: {
+        id: { regex: "/work//" },
+        frontmatter: { published: { eq: true } }
+      },
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            path
+            color
+            category
+          }
         }
       }
     }
   }
-}
 `
