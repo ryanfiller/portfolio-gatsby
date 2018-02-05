@@ -3,6 +3,8 @@ title: 'This is the title'
 date: '2017-08-10'
 template: 'blog-item'
 path: '/blog/pandas'
+
+published: true
 ---
 
 ### Pandas are really sweet.
