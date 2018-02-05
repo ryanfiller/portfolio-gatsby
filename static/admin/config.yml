@@ -30,3 +30,4 @@ collections:
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { label: "Tags",name: "tags", widget: "list", default: ["news"]}
