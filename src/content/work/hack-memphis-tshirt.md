@@ -1,7 +1,7 @@
 ---
 title: 'Hack Memphis 2016'
 date: '2016-09-00'
-path: '/hack-memphis'
+path: '/hack-memphis-tshirt'
 template: 'portfolio-item'
 color: '#E86724'
 client_link: hackmemphis.com, http://www.hackmemphis.com

@@ -1,7 +1,7 @@
 ---
 title: 'Indie Memphis Postcards'
 date: '2016-11-00'
-path: '/indie-memphis'
+path: '/indie-memphis-postcard'
 template: 'portfolio-item'
 color: '#EE1C25'
 client_link: indiememphis.com, http://www.indiememphis.com

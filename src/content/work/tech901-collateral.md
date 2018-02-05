@@ -1,7 +1,7 @@
 ---
 title: 'Tech 901'
 date: '2015-11-09'
-path: '/tech-901'
+path: '/tech901-collateral'
 template: 'portfolio-item'
 color: '#82be42'
 client_link: tech901.org, http://www.tech901.org

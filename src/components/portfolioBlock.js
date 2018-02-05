@@ -57,7 +57,7 @@ export default class PortfolioBlock extends Component {
       href={this.props.card.frontmatter.path}
       style={color}
       className="portfolio-block">
-          <img className="portfolio-block__logo" src="../images/portfolio/steel-tek/steel-tek.svg" />
+          <img className="portfolio-block__logo" src={`../images/portfolio${this.props.card.frontmatter.path}/logo-white.svg`} />
           <div className="portfolio-block__content">
             {this.props.card.frontmatter.title}
 
