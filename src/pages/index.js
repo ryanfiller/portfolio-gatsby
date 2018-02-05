@@ -23,7 +23,7 @@ export const query = graphql`
   query PortfolioListQuery {
     allMarkdownRemark(
       filter: {
-        id: { regex: "/work//" },
+        id: { regex: "/portfolio//" },
         frontmatter: { published: { eq: true } }
       },
     ) {
