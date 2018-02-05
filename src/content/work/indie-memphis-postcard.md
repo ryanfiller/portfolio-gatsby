@@ -4,7 +4,7 @@ date: '2016-11-00'
 path: '/indie-memphis'
 template: 'portfolio-item'
 color: '#EE1C25'
-client-link: indiememphis.com, http://www.indiememphis.com
+client_link: indiememphis.com, http://www.indiememphis.com
 
 published: true
 ---

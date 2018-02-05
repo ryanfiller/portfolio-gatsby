@@ -4,7 +4,7 @@ date: 'YYYY-MM-DD'
 path: '/styles'
 template: 'portfolio-item'
 color: 'rebeccapurple'
-client-link: short-title, http://www.long-title.com
+client_link: short-title, http://www.long-title.com
 
 category: 'design'
 tags:

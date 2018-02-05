@@ -4,7 +4,7 @@ date: '2016-09-00'
 path: '/hack-memphis'
 template: 'portfolio-item'
 color: '#E86724'
-client-link: hackmemphis.com, http://www.hackmemphis.com
+client_link: hackmemphis.com, http://www.hackmemphis.com
 
 published: true
 ---

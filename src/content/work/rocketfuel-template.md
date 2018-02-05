@@ -4,7 +4,7 @@ date: '2018-02-00'
 path: '/rocketfuel-template'
 template: 'portfolio-item'
 color: '#0079c2'
-client-link: gorocketfuel.com, http://www.gorocketfuel.com
+client_link: gorocketfuel.com, http://www.gorocketfuel.com
 
 published: true
 ---
