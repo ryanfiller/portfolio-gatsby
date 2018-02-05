@@ -4,7 +4,7 @@ import Link, { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { colors, breaks, fonts } from '../config/styles.js';
 
-const Block = styled.article`
+const Block = styled.a`
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -52,8 +52,8 @@ export default class PortfolioBlock extends Component {
     };
 
     return (
-      <Block onClick={ () => navigateTo('/example')} 
-      to={this.props.card.frontmatter.path}
+      <Block onClick={ (e) => (e.preventDefault(), navigateTo(this.props.card.frontmatter.path))} 
+      href={this.props.card.frontmatter.path}
       style={color}
       className="portfolio-block">
           <img className="portfolio-block__logo" src="../images/portfolio/steel-tek/steel-tek.svg" />
