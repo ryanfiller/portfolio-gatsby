@@ -20,14 +20,46 @@ collections:
     folder: src/content/blog
     create: true
     fields:
+      - {label: published, name: Published, widget: boolean, default: false}
+      - { name: template, widget: hidden, default: blog-item}
+
+      - { name: title, label: Title, widget: string }
+      - { name: excerpt, label: excerpt, widget: text }
+      - { name: banner, label: Banner, widget: image }
+      - { name: path, label: Url, widget: string }
       - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
+
+      - { name: category, label: Category, widget: string }
+      - { name: tags, label: Tags, widget: list}
+
+      - { name: body, label: Body, widget: markdown }
 
   - name: portfolio
     label: Portfolio
     folder: src/content/portfolio
     create: true
     fields:
+      - {label: published, name: Published, widget: boolean, default: false}
+      - { name: template, widget: hidden, default: portfolio-item}
+
+      - { name: title, label: Title, widget: string }
+      - { name: path, label: Url, widget: string }
       - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { label: "Tags",name: "tags", widget: "list", default: ["news"]}
+
+      - { name: category, label: Category, widget: string }
+      - { name: tags, label: Tags, widget: list}
+
+      - { name: client, label: Client, widget: string }
+      - { name: clienturl, label: Client Url, widget: string }
+      - { name: color, label: Brand Color, widget: string }
+
+      - { name: logocolor, label: White Logo, widget: image }
+      - { name: logowhite, label: Color Logo, widget: image }
+
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+            - {label: Image, name: image, widget: image}
+
+      - { name: body, label: Body, widget: markdown }
