@@ -1,6 +1,9 @@
 ---
 title: 'Markdown Template'
 date: 'YYYY-MM-DD'
+category: draw
+tags: 
+    - test tag
 path: '/styles'
 template: 'portfolio-item'
 color: 'rebeccapurple'

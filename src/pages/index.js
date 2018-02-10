@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import PortfolioFilter from '../components/portfolioFilter.js'
 import PortfolioGrid from '../components/portfolioGrid.js'
 
 const IndexPage = ({ data }) => {
@@ -9,8 +10,8 @@ const IndexPage = ({ data }) => {
 
       <h1>ryan filler</h1>
       <p>Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      <p>Bibendum | Magna | Tellus</p>
 
+      <PortfolioFilter categories={data.allMarkdownRemark.edges} />
       <PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
       
     </div>
@@ -36,6 +37,7 @@ export const query = graphql`
             path
             color
             category
+            tags
             logowhite
           }
         }

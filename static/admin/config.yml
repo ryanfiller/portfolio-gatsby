@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 
 media_folder: static/images/uploads
-public_folder: /images/uploads
+public_folder: images/uploads
 
 collections:
   - name: pages
@@ -54,8 +54,8 @@ collections:
       - { name: clienturl, label: Client Url, widget: string }
       - { name: color, label: Brand Color, widget: string }
 
-      - { name: logocolor, label: White Logo, widget: image }
-      - { name: logowhite, label: Color Logo, widget: image }
+      - { name: logocolor, label: Color Logo, widget: image }
+      - { name: logowhite, label: White Logo, widget: image }
 
       - label: "Images"
         name: "images"

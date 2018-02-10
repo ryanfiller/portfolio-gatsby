@@ -11,8 +11,8 @@ tags:
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-logocolor: /images/uploads/hack-memphis-logo-white.svg
-logowhite: /images/uploads/hack-memphis-logo-color.svg
+logocolor: /images/uploads/hack-memphis-logo-color.svg
+logowhite: /images/uploads/hack-memphis-logo-white.svg
 images:
   - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
