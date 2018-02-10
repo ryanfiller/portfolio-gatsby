@@ -4,7 +4,8 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: static/images
+media_folder: static/images/uploads
+public_folder: /images/uploads
 
 collections:
   - name: pages
@@ -20,7 +21,7 @@ collections:
     folder: src/content/blog
     create: true
     fields:
-      - {label: published, name: Published, widget: boolean, default: false}
+      - { name: published,label: Published, widget: boolean, default: false}
       - { name: template, widget: hidden, default: blog-item}
 
       - { name: title, label: Title, widget: string }
@@ -39,7 +40,7 @@ collections:
     folder: src/content/portfolio
     create: true
     fields:
-      - {label: published, name: Published, widget: boolean, default: false}
+      - { name: published,label: Published, widget: boolean, default: false}
       - { name: template, widget: hidden, default: portfolio-item}
 
       - { name: title, label: Title, widget: string }

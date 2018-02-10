@@ -80,7 +80,7 @@ export default class PortfolioBlock extends Component {
       style={color}
       className="portfolio-block">
           <div className="portfolio-block__logo">
-            <img src={`../images/portfolio${this.props.card.frontmatter.path}/logo-white.svg`} />
+            <img src={this.props.card.frontmatter.logowhite} />
           </div>
           <div className="portfolio-block__content">
             <h2 className="portfolio-block__title">
