@@ -1,13 +1,20 @@
 ---
-title: 'Indie Memphis Postcards'
-date: '2016-11-00'
-category: draw
-path: '/indie-memphis-postcard'
-template: 'portfolio-item'
-color: '#EE1C25'
-client_link: indiememphis.com, http://www.indiememphis.com
-
 published: true
+template: portfolio-item
+title: Indie Memphis Postcards
+path: /indie-memphis-postcard
+date: 2016-11-01T00:00:00-05:00
+category: draw
+tags:
+  - inking
+  - digital coloring
+client: indiememphis.com
+clienturl: 'http://indiememphis.com/'
+color: '#c53f36'
+logocolor: /images/uploads/indie-memphis-color.svg
+logowhite: /images/uploads/indie-memphis-white.svg
+images:
+  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
 
 Indie Memphis is a local organization that hosts a several independent film festivals throughout the year. For their fall 2016 festival, RocketFuel exchanged a sponsorship for the opportunity to created a series of leave-behinds in the form of postcards. To match the theme of "Film for All," the theme of the postcards was to choose from a long lineage of film history.
