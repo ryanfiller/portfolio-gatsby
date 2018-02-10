@@ -11,7 +11,7 @@ const Grid = styled.div`
 
   & > * {
     flex: 1;
-    min-height: 33vw;
+    height: 33.333vw;
     
     min-width: 33.333%;
     &:nth-child(4n-2), &:nth-child(4n-1) {

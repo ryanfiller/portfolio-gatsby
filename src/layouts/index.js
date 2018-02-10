@@ -20,6 +20,8 @@ const TemplateWrapper = ({ data, children }) => (
 
     <SiteHeader />
 
+
+
     <div>
       {children()}
     </div>
