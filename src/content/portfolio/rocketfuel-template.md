@@ -1,13 +1,17 @@
 ---
-title: 'RocketFuel Templated CMS'
-date: '2018-02-00'
-category: dev
-path: '/rocketfuel-template'
-template: 'portfolio-item'
-color: '#0079c2'
-client_link: gorocketfuel.com, http://www.gorocketfuel.com
-
 published: true
+template: portfolio-item
+title: RocketFuel Templated CMS
+path: /rocketfuel-template
+date: 2018-02-01T00:00:00-06:00
+category: dev
+client: gorocketfuel.com
+clienturl: 'http://www.gorocketfuel.com/'
+color: '#0079c2'
+logocolor: /images/uploads/rocketfuel-color.svg
+logowhite: /images/uploads/rocketfuel-white.svg
+images:
+  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
 
 empire, doyles, carondelet, trumbo, alexander investment partners, st marys
