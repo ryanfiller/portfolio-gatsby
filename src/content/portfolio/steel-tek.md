@@ -1,13 +1,20 @@
 ---
-title: 'Steel°Tek'
-date: '2016-07-00'
-category: design
-path: '/steel-tek'
-template: 'portfolio-item'
-color: '#56c6d0'
-client_link: steel-tek.com, http://www.steel-tek.com
-
 published: true
+template: portfolio-item
+title: Steel•Tek
+path: /steel-tek
+date: 2016-07-04T00:00:00-05:00
+category: design
+tags:
+  - art direction
+  - interaction design
+client: steel-tek.com
+clienturl: 'http://www.steel-tek.com/'
+color: '#56c6d0'
+logocolor: /images/uploads/steeltek-logo-color.svg
+logowhite: /images/uploads/steeltek-logo-white.svg
+images:
+  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
 
 Steel•Tek is a subsidy of [B&K Industries](http://www.bkproducts.com/){:target="_blank"} that specializes in non-threaded, push fit plumbing parts. Unlike most B&K products, Steel•Tek pipes are made as components for home DIY construction rather than traditional plumbing.
