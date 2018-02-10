@@ -1,5 +1,7 @@
 import React from "react";
 
+import MarkdownBlock from '../components/markdownBlock'
+
 export default ({data}) => {
   const post = data.markdownRemark;
   return (
@@ -9,7 +11,7 @@ export default ({data}) => {
       <h1>{post.frontmatter.title}</h1>
       <h1>{post.frontmatter.title}</h1>
       <h1>{post.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <MarkdownBlock post={post.html}/>
     </div>
   );
 };
