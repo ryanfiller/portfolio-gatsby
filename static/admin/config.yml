@@ -30,8 +30,8 @@ collections:
       - { name: path, label: Url, widget: string }
       - { name: date, label: Date, widget: date }
 
-      - { name: category, label: Category, widget: string }
-      - { name: tags, label: Tags, widget: list}
+      - { name: category, label: Category, widget: string, required: false }
+      - { name: tags, label: Tags, widget: list, required: false}
 
       - { name: body, label: Body, widget: markdown }
 
@@ -48,13 +48,13 @@ collections:
       - { name: date, label: Date, widget: date }
 
       - { name: category, label: Category, widget: string }
-      - { name: tags, label: Tags, widget: list}
+      - { name: tags, label: Tags, widget: list, required: false}
 
-      - { name: client, label: Client, widget: string }
-      - { name: clienturl, label: Client Url, widget: string }
+      - { name: client, label: Client, widget: string, required: false }
+      - { name: clienturl, label: Client Url, widget: string, required: false }
       - { name: color, label: Brand Color, widget: string }
 
-      - { name: logocolor, label: Color Logo, widget: image }
+      - { name: logocolor, label: Color Logo, widget: image, required: false }
       - { name: logowhite, label: White Logo, widget: image }
 
       - label: "Images"
