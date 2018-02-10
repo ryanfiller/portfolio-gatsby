@@ -11,10 +11,10 @@ tags:
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-logocolor: /static/images/hack-memphis-logo-white.svg
-logowhite: /static/images/hack-memphis-logo-color.svg
+logocolor:
+logowhite:
 images:
-  - image: /static/images/screen-shot.png
+  - image:
 ---
 
 ![color options](/assets/images/portfolio/hack-memphis-2016/logo.png){:class="right small"}
