@@ -1,13 +1,21 @@
 ---
-title: 'Tech 901'
+published: true
+template: portfolio-item
+title: Tech 901
+path: /tech901-collateral
 date: '2015-11-09'
 category: design
-path: '/tech901-collateral'
-template: 'portfolio-item'
+tags:
+  - digital illustration
+  - apparel design
+  - email marketing
+client: tech901.org
+clienturl: 'http://tech901.org/'
 color: '#82be42'
-client_link: tech901.org, http://www.tech901.org
-
-published: true
+logocolor: /images/uploads/tech901-logo-color.svg
+logowhite: /images/uploads/tech901-logo-white.svg
+images:
+  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
 
 Tech901 is a Memphis startup seeking to jump-start the city's tech economy through training programs to bolster the city's technology workforce to ten thousand over the next fifteen years.
