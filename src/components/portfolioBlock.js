@@ -11,6 +11,7 @@ const Block = styled.a`
   justify-content: center;
   align-items: center;
   background-color: currentColor;
+  background-position: center center;
   background-blend-mode: luminosity; //multiply or luminosity?
   background-size: cover;
   padding: ${style.padding};
@@ -51,13 +52,47 @@ const Block = styled.a`
       margin: 0;
       margin-bottom: ${style.padding}/2;
     }
+
+    &__meta {
+      font-size: 1.25em;
+      line-height: 1.125em;
+      display: block;
+      margin-bottom: ${style.padding}/2;
+
+      span {
+          display: inline-block;
+      }
+    }
+  }
+
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-image: url('images/site-assets/screendoor.png');
+    background-position: center center;
+    z-index: 1;
+    opacity: 0;
+    transition: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
   }
 
   &:hover {
+    &:before {
+      opacity: 1;
+    }
     .portfolio-block__content {
       max-height: 100%;
     }
-    /* background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif'); */
+    /* background-image:url('https://media2.giphy.com/media/9CffOPMLx0Hf2/giphy.gif');     */
+    background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
   }
 
   @media only screen and (max-width: ${breaks.phone}) {

@@ -21,12 +21,14 @@ const Grid = styled.div`
     @media only screen and (max-width: ${breaks.tablet}) {
       &:nth-child(even), &:nth-child(odd) {
         min-width: 50%;
+        height: 50vw;
       }
     }
 
     @media only screen and (max-width: ${breaks.phone}) {
       &:nth-child(even), &:nth-child(odd) {
         min-width: 100%;
+        height: 75vw;
       }
     }
   }
