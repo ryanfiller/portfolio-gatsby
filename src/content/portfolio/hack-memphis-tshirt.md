@@ -3,7 +3,7 @@ published: true
 template: portfolio-item
 title: Hack Memphis 2016
 path: /hack-memphis-tshirt
-date: 2016-09-01T00:00:00-05:00
+date: 2016-09-01T05:00:00.000Z
 category: draw
 tags:
   - digital illustration
@@ -11,10 +11,10 @@ tags:
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-logocolor:
-logowhite:
+logocolor: /images/uploads/hack-memphis-logo-white.svg
+logowhite: /images/uploads/hack-memphis-logo-color.svg
 images:
-  - image:
+  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
 ---
 
 ![color options](/assets/images/portfolio/hack-memphis-2016/logo.png){:class="right small"}
