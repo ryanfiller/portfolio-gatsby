@@ -57,7 +57,7 @@ const Block = styled.a`
     .portfolio-block__content {
       max-height: 100%;
     }
-    background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
+    /* background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif'); */
   }
 
   @media only screen and (max-width: ${breaks.phone}) {
@@ -74,6 +74,13 @@ export default class PortfolioBlock extends Component {
       color: this.props.card.frontmatter.color,
     };
 
+    let tags;
+    if(this.props.card.frontmatter.tags != null){
+      tags = this.props.card.frontmatter.tags.map(function(name, index){
+        return <span className="tag" key={ index }>{name}</span>;
+      })
+    }
+
     return (
       <Block onClick={ (e) => (e.preventDefault(), navigateTo(this.props.card.frontmatter.path))} 
       href={this.props.card.frontmatter.path}
@@ -87,11 +94,9 @@ export default class PortfolioBlock extends Component {
               {this.props.card.frontmatter.title}
             </h2>
             <div className="meta">
-              {this.props.card.frontmatter.category}
+              {this.props.card.frontmatter.category}  
+              {tags}       
             </div>
-
-            {this.props.card.frontmatter.category}
-
             <span className="portfolio-block__link">
               Read More
             </span>

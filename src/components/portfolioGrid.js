@@ -37,8 +37,8 @@ export default class PortfolioGrid extends Component {
     return (
       <Grid className="portfolio-grid">
         {this.props.portfolio.map(({ node }, index) => (
-        <PortfolioBlock card={node} key={index}/>
-      ))}
+         <PortfolioBlock card={node} key={index}/>
+        ))} 
       </Grid>
     )
   }
