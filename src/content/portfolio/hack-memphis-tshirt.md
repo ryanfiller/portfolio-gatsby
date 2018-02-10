@@ -1,5 +1,5 @@
 ---
-Published: true
+published: true
 template: portfolio-item
 title: Hack Memphis 2016
 path: /hack-memphis-tshirt
@@ -14,7 +14,7 @@ color: '#E86724'
 logocolor: /static/images/hack-memphis-logo-white.svg
 logowhite: /static/images/hack-memphis-logo-color.svg
 images:
-  - image: /static/images/screen shot 2018-02-10 at 10.40.24 am.png
+  - image: /static/images/screen-shot.png
 ---
 
 ![color options](/assets/images/portfolio/hack-memphis-2016/logo.png){:class="right small"}
