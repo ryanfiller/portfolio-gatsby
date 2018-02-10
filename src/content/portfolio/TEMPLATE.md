@@ -1,6 +1,7 @@
 ---
 title: 'Markdown Template'
 date: 'YYYY-MM-DD'
+category: draw
 path: '/styles'
 template: 'portfolio-item'
 color: 'rebeccapurple'

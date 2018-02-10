@@ -1,6 +1,7 @@
 ---
 title: 'RocketFuel Templated CMS'
 date: '2018-02-00'
+category: dev
 path: '/rocketfuel-template'
 template: 'portfolio-item'
 color: '#0079c2'

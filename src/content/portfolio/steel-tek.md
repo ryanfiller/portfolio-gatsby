@@ -1,6 +1,7 @@
 ---
 title: 'Steel°Tek'
 date: '2016-07-00'
+category: design
 path: '/steel-tek'
 template: 'portfolio-item'
 color: '#56c6d0'

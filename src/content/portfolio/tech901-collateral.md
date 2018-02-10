@@ -1,6 +1,7 @@
 ---
 title: 'Tech 901'
 date: '2015-11-09'
+category: design
 path: '/tech901-collateral'
 template: 'portfolio-item'
 color: '#82be42'
