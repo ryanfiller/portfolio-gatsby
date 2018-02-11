@@ -8,7 +8,7 @@
     background-position: center center;
     background-blend-mode: luminosity; //multiply or luminosity?
     background-size: cover;
-    padding: $spacing;
+    padding: $padding;
     box-sizing: border-box;
     text-decoration: none;
     position: relative;
@@ -16,7 +16,7 @@
     &__logo {
         flex: 1;
         width: 100%;
-        padding: 0 $spacing;
+        padding: 0 $padding;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,13 +54,13 @@
         text-transform: uppercase;
         text-align: center;
         line-height: 1em;
-        margin: $spacing/2 0;
+        margin: $padding/2 0;
     }
 
     &__meta {
         line-height: 1.125em;
         display: block;
-        margin-bottom: $spacing/2;
+        margin-bottom: $padding/2;
 
         span {
             display: inline-block;
