@@ -1,0 +1,13 @@
+.rf-logo {
+    display: block;
+
+    svg {
+        width: 100%;
+        height: auto;
+        fill: $color-white;
+
+        &:hover {
+            fill: $color-orange;
+        }
+    }
+}

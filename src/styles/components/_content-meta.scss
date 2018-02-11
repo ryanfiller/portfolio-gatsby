@@ -1,0 +1,30 @@
+.meta {
+    margin: $padding/4 0;
+
+    &__category {
+        display: block;
+        &:before {
+            content: '#';
+        }
+    }
+
+    &__date {
+        &:after {
+            content: '|';
+            margin: 0 .5em;
+        }
+    }
+
+    &__tag {
+        &:before {
+            content: '#';
+        }
+        &:after {
+            content: ', ';
+        }
+
+        &:last-of-type:after {
+            display: none;
+        }
+    }
+}

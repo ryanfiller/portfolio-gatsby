@@ -1,12 +1,50 @@
 $transition: 0.2s;
 
+a, a * {
+    transition: $transition;
+}
+
+svg, svg * {
+    transition: $transition;
+}
+
 .button {
     transition: $transition;
 }
 
+.navicon {
+    &--top {
+        transition: top $transition ease $transition,
+                    transform $transition ease 0s;
+
+        .open & {
+            transition: top $transition ease 0s,
+                        transform $transition ease $transition;
+        }
+    }
+
+    &--middle {
+        transition: opacity 0s ease $transition;
+
+        .open & {
+            transition: opacity 0s ease $transition;
+        }
+    }
+
+    &--bottom {
+        transition: bottom $transition ease $transition,
+                    transform $transition ease 0s;
+
+        .open & {
+            transition: bottom $transition ease 0s,
+                        transform $transition ease $transition;
+        }
+    }
+}
+
 @mixin glitch($color:$color-black, $background:$color-white) {
 
-    @keyframes noise-anim{
+    @keyframes noise-anim {
         $steps: 20;
         @for $i from 0 through $steps{
             #{percentage($i*(1/$steps))}{
@@ -15,7 +53,7 @@ $transition: 0.2s;
         }
     }
 
-    @keyframes noise-anim-2{
+    @keyframes noise-anim-2 {
         $steps: 20;
         @for $i from 0 through $steps{
             #{percentage($i*(1/$steps))}{
@@ -31,10 +69,11 @@ $transition: 0.2s;
         content: attr(data-text);
         position: absolute;
         left: -1px;
+        // text-shadow:2px 0 rgba(0, 255, 255, 0.25);
         top: 0;
         color: $color;
         background: $background;
-        overflow:hidden;
+        overflow:h idden;
         clip: rect(0,900px,0,0);
         animation: noise-anim-2 4s infinite linear alternate-reverse;
     }
@@ -43,6 +82,7 @@ $transition: 0.2s;
         content: attr(data-text);
         position: absolute;
         left: 1px;
+        // text-shadow:-2px 0 rgba(255, 0, 0, 0.25);
         top: 0;
         color: $color;
         background: $background;
@@ -52,11 +92,17 @@ $transition: 0.2s;
     }
 }
 
+@mixin float {
+    position: relative;
+    top: -1px;
+    transition: $transition;
+}
+
 @mixin social-hover($brand-color) {
     overflow: hidden;
     position: relative;
 
-    svg, img {
+    svg {
         position: relative;
         z-index: 10;
     }

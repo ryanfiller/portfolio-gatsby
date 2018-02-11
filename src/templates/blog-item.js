@@ -1,6 +1,6 @@
 import React from "react";
 
-import MarkdownBlock from '../components/markdownBlock'
+import MarkdownBlock from '../components/markdown-block'
 
 export default ({data}) => {
   const post = data.markdownRemark;
