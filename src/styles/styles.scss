@@ -1,1 +1,4 @@
-@import '_scss/style.scss';
+@import
+    'vendor/module',
+    'utility/module',
+    'config/module';

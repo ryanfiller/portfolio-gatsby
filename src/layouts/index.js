@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import '../config/normalize.css'
+import '../styles/styles.scss'
 
 import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
