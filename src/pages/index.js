@@ -45,3 +45,11 @@ export const query = graphql`
     }
   }
 `
+
+// childImageSharp {
+//   responsiveSizes(maxWidth: 400) {
+//     src
+//     srcSet
+//     sizes
+//   }
+// }
