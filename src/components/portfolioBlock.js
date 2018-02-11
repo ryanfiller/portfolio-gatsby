@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Link, { navigateTo } from 'gatsby-link'
 
+import ContentMeta from './contentMeta'
+
 import styled from 'styled-components'
 import style, { colors, breaks, fonts } from '../config/styles.js';
 
@@ -33,6 +35,11 @@ const Block = styled.a`
         display: block;
         max-width: 30vw;
         max-height: 15vw;
+
+        @media only screen and (max-width: ${breaks.phone}) {
+          max-height: 100%;
+          max-width: 75%;
+        }
       }
     }
 
@@ -42,6 +49,12 @@ const Block = styled.a`
         max-height: 0;
         overflow: hidden;
         transition: .4s;
+        font-size: 1.5rem;
+
+        @media only screen and (max-width: ${breaks.tablet}) {
+          max-height: none;
+          font-size: 1rem;
+        }
     }
 
     &__title {
@@ -49,18 +62,25 @@ const Block = styled.a`
       text-transform: uppercase;
       text-align: center;
       line-height: 1em;
-      margin: 0;
-      margin-bottom: ${style.padding}/2;
+      margin: ${style.padding}/2 0;
     }
 
     &__meta {
-      font-size: 1.25em;
       line-height: 1.125em;
       display: block;
       margin-bottom: ${style.padding}/2;
 
       span {
           display: inline-block;
+      }
+    }
+
+    &__link {
+
+      &:after{
+          content: ' ▸▸';
+          display: inline-block;
+          position: relative;
       }
     }
   }
@@ -95,11 +115,8 @@ const Block = styled.a`
     background-image:url('https://78.media.tumblr.com/a1758bfb457b4d83b6989c2e405cb748/tumblr_np564uq7sJ1ripbvlo1_500.gif');
   }
 
-  @media only screen and (max-width: ${breaks.phone}) {
-    .portfolio-block__content {
-      max-height: 100%;
-    }
-  }
+  
+
 `;
 
 export default class PortfolioBlock extends Component {
@@ -108,13 +125,6 @@ export default class PortfolioBlock extends Component {
     var color = {
       color: this.props.card.frontmatter.color,
     };
-
-    let tags;
-    if(this.props.card.frontmatter.tags != null){
-      tags = this.props.card.frontmatter.tags.map(function(name, index){
-        return <span className="tag" key={ index }>{name}</span>;
-      })
-    }
 
     return (
       <Block onClick={ (e) => (e.preventDefault(), navigateTo(this.props.card.frontmatter.path))} 
@@ -128,10 +138,10 @@ export default class PortfolioBlock extends Component {
             <h2 className="portfolio-block__title">
               {this.props.card.frontmatter.title}
             </h2>
-            <div className="meta">
-              {this.props.card.frontmatter.category}  
-              {tags}       
-            </div>
+            <ContentMeta 
+            category={this.props.card.frontmatter.category} 
+            tags={this.props.card.frontmatter.tags} 
+            />
             <span className="portfolio-block__link">
               Read More
             </span>
