@@ -24,6 +24,12 @@ $shadow-inset:
 
 @mixin image-overlay {
     position: relative;
+    
+    > * {
+        position: relative; 
+        z-index: 2;
+    }
+
     &:before {
         content: '';
         display: block;

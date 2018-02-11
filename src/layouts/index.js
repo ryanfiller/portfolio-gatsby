@@ -4,8 +4,8 @@ import Helmet from 'react-helmet'
 
 import '../styles/styles.scss'
 
-import SiteHeader from '../components/siteHeader'
-import SiteFooter from '../components/siteFooter'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const TemplateWrapper = ({ data, children }) => (
   <div className="site" id="site">
@@ -18,11 +18,11 @@ const TemplateWrapper = ({ data, children }) => (
       ]}
     />
 
-    <SiteHeader />
+    <Header />
 
     {children()}
 
-    <SiteFooter />
+    <Footer />
 
   </div>
 )
