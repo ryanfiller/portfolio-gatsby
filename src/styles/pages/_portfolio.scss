@@ -1,0 +1,49 @@
+.page-content-portfolio {
+    display: flex;
+    width: 100vw;
+
+    @include tablet-break {
+        display: block;
+        height: auto;
+    }
+
+    .portfolio-gallery {
+        width: 50vw;
+
+        @include tablet-break {
+            width: 100%;
+        }
+    }
+
+    .markdown {
+        width: 50vw;
+        overflow: scroll;
+        @include container;
+        @include readable;
+
+        @include tablet-break {
+            width: 100%;
+        }
+    }
+
+    & + footer {
+        position: relative;
+        
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            height: 8rem;
+            width: 50%;
+            z-index: 2;
+            background: linear-gradient(to top, $color-white, transparent);
+            pointer-events: none;
+
+            @include tablet-break {
+                display: none;
+            }
+        }
+    }
+}

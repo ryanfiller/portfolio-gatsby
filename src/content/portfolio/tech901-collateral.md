@@ -15,7 +15,7 @@ color: '#82be42'
 logocolor: /images/uploads/tech901-logo-color.svg
 logowhite: /images/uploads/tech901-logo-white.svg
 images:
-  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
+  - image: /images/uploads/screen-shot.png
 ---
 
 Tech901 is a Memphis startup seeking to jump-start the city's tech economy through training programs to bolster the city's technology workforce to ten thousand over the next fifteen years.

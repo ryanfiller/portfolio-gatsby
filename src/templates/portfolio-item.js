@@ -1,14 +1,17 @@
 import React from "react";
 
+import PortfolioGallery from '../components/portfolio-gallery'
 import MarkdownBlock from '../components/markdown-block'
 
 export default ({data}) => {
+
   const post = data.markdownRemark;
+
   return (
-    <div>
-      
+    <main className="page-content page-content-portfolio">
+      <PortfolioGallery {...post} />
       <MarkdownBlock post={post.html}/>
-    </div>
+    </main>
   );
 };
 
@@ -20,6 +23,10 @@ export const postQuery = graphql`
         path
         title
         template
+        color
+        images{
+          image
+        }
       }
     }
   }

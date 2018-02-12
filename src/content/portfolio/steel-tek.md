@@ -14,7 +14,7 @@ color: '#56c6d0'
 logocolor: /images/uploads/steeltek-logo-color.svg
 logowhite: /images/uploads/steeltek-logo-white.svg
 images:
-  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
+  - image: /images/uploads/screen-shot.png
 ---
 
 Steel•Tek is a subsidy of [B&K Industries](http://www.bkproducts.com/){:target="_blank"} that specializes in non-threaded, push fit plumbing parts. Unlike most B&K products, Steel•Tek pipes are made as components for home DIY construction rather than traditional plumbing.
