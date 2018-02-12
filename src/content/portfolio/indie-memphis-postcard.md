@@ -9,7 +9,7 @@ category:
 tags:
   - inking
   - digital coloring
-client: indiememphis.com
+client: 'indiememphis.com'
 clienturl: 'http://indiememphis.com/'
 color: '#c53f36'
 logocolor: /images/uploads/indie-memphis-color.svg

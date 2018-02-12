@@ -15,7 +15,63 @@
         }
     }
 
-    .markdown {
+    &__header {
+        padding-top: 3*$padding;
+        padding-bottom: 4*$padding;
+        position: relative;
+        text-align: center;
+        margin-top: 10rem;
+
+        @include tablet-break {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin: 0;
+            @include font-condensed;
+            font-size: 4em;
+            line-height: 1em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .meta {
+            margin-top: 1em;
+            text-align: center;
+
+            .meta__tag {
+                font-size: 2em;
+                color: $color-light-gray;
+            }
+        }
+
+        a {
+            font-size: 1.75em;
+            display: block;
+            margin: 0 auto;
+            margin-top: .75em;
+            text-decoration: none;
+            color: $color-blue;
+
+            &:hover {
+                color: $color-orange;
+            }
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            border-right: 2px solid $color-orange;
+            border-bottom: 2px solid $color-orange;;
+            margin: 0 auto;
+            transform: rotate(45deg);
+            margin-top: 2rem;
+        }
+    }
+
+    &__content {
         width: 50vw;
         overflow: scroll;
         @include container;
