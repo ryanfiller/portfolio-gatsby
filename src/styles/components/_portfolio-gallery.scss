@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     background-color: currentColor;
+    position: relative;
 
     .swiper {
         &-wrapper {
@@ -10,32 +11,12 @@
         }
 
         &-slide {
-            height: 100%;
             width: 100%;
             padding: 3.125rem;
+            padding-bottom: 6.25rem;
             position: relative;
 
-            .fallback {
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center center;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-
-            img {
-                display: none;
-            }
-
             @supports(object-fit: contain) {
-
-                .fallback {
-                    background-image: none !important;
-                }
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -52,15 +33,6 @@
         }
 
         &-button {
-            &-container {
-                width: 100%;
-                height: auto;
-                display: flex;
-                justify-content: space-between;
-                position: absolute;
-                bottom: 0;
-                z-index: 10;
-            }
 
             &-prev, &-next {
                 cursor: pointer;
@@ -70,6 +42,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: absolute;
+                z-index: 5;
 
                 @include tablet-break {
                     height: 2*$padding;
@@ -99,9 +73,16 @@
             }
 
             &-prev {
+                bottom: 0;
+                left: 0;
                 &:before, &:after {
                     transform: rotate(180deg);
                 }
+            }
+
+            &-next {
+                bottom: 0;
+                right: 0;
             }
         }
 

@@ -14,7 +14,8 @@ color: '#E86724'
 logocolor: /images/uploads/hack-memphis-logo-color.svg
 logowhite: /images/uploads/hack-memphis-logo-white.svg
 images:
-  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
+  - image: /images/uploads/screen-shot.png
+  - image: /images/site-assets/placeholder.png
 ---
 
 ![color options](/assets/images/portfolio/hack-memphis-2016/logo.png){:class="right small"}

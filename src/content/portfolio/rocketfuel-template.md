@@ -11,7 +11,7 @@ color: '#0079c2'
 logocolor: /images/uploads/rocketfuel-color.svg
 logowhite: /images/uploads/rocketfuel-white.svg
 images:
-  - image: /images/uploads/screen shot 2018-02-10 at 10.40.24 am.png
+  - image: /images/uploads/screen-shot.png
 ---
 
 empire, doyles, carondelet, trumbo, alexander investment partners, st marys

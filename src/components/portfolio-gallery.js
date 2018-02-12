@@ -1,20 +1,26 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
-import Img from 'gatsby-image';
 
 class PortfolioGallery extends React.Component {
   render() {
-    const params = {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
+
+    if(this.props.frontmatter.images.length > 1) {
+      var params = {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+      }
+    } else {
+      var params = {
+        loop: false,
+      }
     }
 
     var color = {
@@ -24,9 +30,9 @@ class PortfolioGallery extends React.Component {
     return(
       <div className="portfolio-gallery" style={color}>
         <Swiper {...params}>
-          {this.props.frontmatter.images.map(({ image }, index) => (
-            <div key={index} >
-              <Img src={image} />
+          {this.props.frontmatter.images.map(( {image}, index ) => (
+            <div key={index}>
+              <img src={image} />
             </div>
           ))} 
         </Swiper>
