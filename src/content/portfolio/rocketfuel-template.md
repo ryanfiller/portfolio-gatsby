@@ -4,7 +4,8 @@ template: portfolio-item
 title: RocketFuel Templated CMS
 path: /rocketfuel-template
 date: 2018-02-01T00:00:00-06:00
-category: dev
+category:
+  - dev
 client: gorocketfuel.com
 clienturl: 'http://www.gorocketfuel.com/'
 color: '#0079c2'

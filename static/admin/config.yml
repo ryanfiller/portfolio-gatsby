@@ -47,7 +47,7 @@ collections:
       - { name: path, label: Url, widget: string }
       - { name: date, label: Date, widget: date }
 
-      - { name: category, label: Category, widget: string }
+      - { name: category, label: Category, widget: list }
       - { name: tags, label: Tags, widget: list, required: false}
 
       - { name: client, label: Client, widget: string, required: false }

@@ -4,7 +4,9 @@ template: portfolio-item
 title: Steel•Tek
 path: /steel-tek
 date: 2016-07-04T00:00:00-05:00
-category: design
+category:
+  - design
+  - dev
 tags:
   - art direction
   - interaction design

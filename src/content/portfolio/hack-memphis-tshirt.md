@@ -4,7 +4,8 @@ template: portfolio-item
 title: Hack Memphis 2016
 path: /hack-memphis-tshirt
 date: 2016-09-01T05:00:00.000Z
-category: draw
+category:
+  - draw
 tags:
   - digital illustration
   - apparel design

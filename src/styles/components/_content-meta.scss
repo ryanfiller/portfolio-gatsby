@@ -2,9 +2,17 @@
     margin: $padding/4 0;
 
     &__category {
-        display: block;
-        &:before {
-            content: '#';
+        span {
+            &:before {
+                content: '#';
+            }
+            &:after {
+                content: ', ';
+            }
+
+            &:last-of-type:after {
+                display: none;
+            }
         }
     }
 
@@ -16,15 +24,17 @@
     }
 
     &__tag {
-        &:before {
-            content: '#';
-        }
-        &:after {
-            content: ', ';
-        }
+        span {
+            &:before {
+                content: '#';
+            }
+            &:after {
+                content: ', ';
+            }
 
-        &:last-of-type:after {
-            display: none;
+            &:last-of-type:after {
+                display: none;
+            }
         }
     }
 }

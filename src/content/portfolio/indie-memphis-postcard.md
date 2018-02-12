@@ -4,7 +4,8 @@ template: portfolio-item
 title: Indie Memphis Postcards
 path: /indie-memphis-postcard
 date: 2016-11-01T00:00:00-05:00
-category: draw
+category:
+  - draw
 tags:
   - inking
   - digital coloring

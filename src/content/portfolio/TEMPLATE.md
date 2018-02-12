@@ -1,23 +1,21 @@
 ---
-title: 'Markdown Template'
-date: 'YYYY-MM-DD'
-category: draw
-tags: 
-    - test tag
-path: '/styles'
-template: 'portfolio-item'
-color: 'rebeccapurple'
-client_link: short-title, http://www.long-title.com
-
-category: 'design'
+published: true
+template: portfolio-item
+title: Markdown Template
+path: /styles
+date: 0000-00-00T00:00:00-05:00
+category:
+  - test category
 tags:
-    - inking
-    - digital coloring
-
-slides:
-    # - alt text, desktop, [tablet], [phone]
-
-published: false
+  - test tag 1
+  - test tag 2
+client: www.ryanfiller.com
+clienturl: 'http://www.ryanfiller.com/'
+color: 'rebeccapurple'
+logocolor: /images/svgs/rf.svg
+logowhite: /images/svgs/logo.svg
+images:
+  - image: /images/uploads/screen-shot.png
 ---
 
 This should be a portfolio page. Short post. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.

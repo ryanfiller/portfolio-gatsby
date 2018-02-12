@@ -3,8 +3,10 @@ published: true
 template: portfolio-item
 title: Tech 901
 path: /tech901-collateral
-date: '2015-11-09'
-category: design
+date: 2015-11-09T00:00:00-05:00
+category:
+  - design
+  - draw
 tags:
   - digital illustration
   - apparel design

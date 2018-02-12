@@ -7,16 +7,25 @@ export default class ContentMeta extends Component {
     let tags;
     if(this.props.tags != null){
         tags = this.props.tags.map(function(name, index){
-            return <span className="meta__tag" key={ index }>{name}</span>;
+            return <span key={ index }>{name}</span>;
+        })
+    }
+
+    let categories;
+    if(this.props.category != null){
+        categories = this.props.category.map(function(name, index){
+            return <span key={ index }>{name}</span>;
         })
     }
 
     return (
         <p className="meta">
-            <span className="meta__category">
-                {this.props.category}
-            </span>  
-            {tags}
+            <div className="meta__category">
+                {categories}  
+            </div>
+            <div className="meta__tag">
+                {tags}
+            </div>
         </p>
     )
   }
