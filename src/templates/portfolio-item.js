@@ -8,10 +8,10 @@ export default ({data}) => {
   const post = data.markdownRemark;
 
   return (
-    <div>
+    <main className="page-content page-content-portfolio">
       <PortfolioGallery {...post} />
       <MarkdownBlock post={post.html}/>
-    </div>
+    </main>
   );
 };
 

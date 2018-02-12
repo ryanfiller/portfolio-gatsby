@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 const BlogList = ({ data }) => {
 
   return (
-    <div>
+    <main className="page-content">
 
     <h4>this the the blog list page</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -19,7 +19,7 @@ const BlogList = ({ data }) => {
         </div>
       ))}
 
-    </div>
+    </main>
   );
 };
 

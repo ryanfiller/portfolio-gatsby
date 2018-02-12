@@ -1,0 +1,26 @@
+.site {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    @include phone-break {
+        display: block;
+        height: auto;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .page-content {
+        width: 100%;
+        flex: 1;
+        overflow: scroll;
+    }
+
+    .footer {
+        width: 100%;
+    }
+}

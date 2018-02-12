@@ -6,7 +6,7 @@ import PortfolioGrid from '../components/portfolio-grid.js'
 const IndexPage = ({ data }) => {
 
   return (
-    <div>
+    <main className="page-content">
 
       <h1>ryan filler</h1>
       <p>Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
       <PortfolioFilter categories={data.allMarkdownRemark.edges} />
       <PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
       
-    </div>
+    </main>
   );
 };
 
@@ -45,11 +45,3 @@ export const query = graphql`
     }
   }
 `
-
-// childImageSharp {
-//   responsiveSizes(maxWidth: 400) {
-//     src
-//     srcSet
-//     sizes
-//   }
-// }
