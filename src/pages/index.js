@@ -23,6 +23,7 @@ export default IndexPage
 export const query = graphql`
   query PortfolioListQuery {
     allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date]},
       filter: {
         id: { regex: "/portfolio//" },
         frontmatter: { published: { eq: true } }

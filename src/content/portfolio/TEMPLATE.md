@@ -3,7 +3,7 @@ published: true
 template: portfolio-item
 title: Markdown Template
 path: /styles
-date: 0000-00-00T00:00:00-05:00
+date: 9999-00-00T00:00:00-05:00
 category:
   - test category
 tags:
