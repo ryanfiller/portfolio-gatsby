@@ -36,6 +36,8 @@ export const query = graphql`
             date
             path
             color
+            backgroundgif
+            gifattribution
             category
             tags
             logowhite

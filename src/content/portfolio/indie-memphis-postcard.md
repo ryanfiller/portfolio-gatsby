@@ -12,6 +12,8 @@ tags:
 client: 'indiememphis.com'
 clienturl: 'http://indiememphis.com/'
 color: '#c53f36'
+backgroundgif: /images/uploads/creature-from-the-black-lagoon.gif
+gifattribution: The Creature from the Black Lagoon, Universal Pictures
 logocolor: /images/uploads/indie-memphis-color.svg
 logowhite: /images/uploads/indie-memphis-white.svg
 images:

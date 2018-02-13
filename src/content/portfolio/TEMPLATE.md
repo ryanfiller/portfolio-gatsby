@@ -12,6 +12,8 @@ tags:
 client: www.ryanfiller.com
 clienturl: 'http://www.ryanfiller.com/'
 color: 'rebeccapurple'
+backgroundgif: /images/site-assets/placeholder.png
+gifattribution: It's Ollie!
 logocolor: /images/svgs/rf.svg
 logowhite: /images/svgs/logo.svg
 images:

@@ -52,7 +52,10 @@ collections:
 
       - { name: client, label: Client, widget: string, required: false }
       - { name: clienturl, label: Client Url, widget: string, required: false }
+      
       - { name: color, label: Brand Color, widget: string }
+      - { name: backgroundgif, label: Background Gif , widget: image }
+      - { name: gifattribution, label: Gif Attribution, widget: string, required: false }      
 
       - { name: logocolor, label: Color Logo, widget: image, required: false }
       - { name: logowhite, label: White Logo, widget: image }

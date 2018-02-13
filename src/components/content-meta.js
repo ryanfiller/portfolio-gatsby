@@ -19,14 +19,14 @@ export default class ContentMeta extends Component {
     }
 
     return (
-        <p className="meta">
+        <div className="meta">
             <div className="meta__category">
                 {categories}  
             </div>
             <div className="meta__tag">
                 {tags}
             </div>
-        </p>
+        </div>
     )
   }
 }

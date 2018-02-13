@@ -13,6 +13,8 @@ tags:
 client: steel-tek.com
 clienturl: 'http://www.steel-tek.com/'
 color: '#56c6d0'
+backgroundgif: /images/uploads/windows-98.gif
+gifattribution: Windows 98, Microsoft
 logocolor: /images/uploads/steeltek-logo-color.svg
 logowhite: /images/uploads/steeltek-logo-white.svg
 images:

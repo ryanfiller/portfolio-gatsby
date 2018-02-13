@@ -28,6 +28,9 @@ export default ({data}) => {
 
           {/* <a className="back-link" href="/{{ page.parent }}"> Back to {{ page.parent }}</a> */}
      
+          <cite className="page-content-portfolio__gif-credit">
+              Grid Page .gif Credit: <span>{post.frontmatter.gifattribution}</span>
+          </cite>
       </div>
     </main>
   );
@@ -44,6 +47,7 @@ export const postQuery = graphql`
         category
         tags
         color
+        gifattribution
         client
         clienturl
         images{

@@ -15,16 +15,23 @@
         }
     }
 
+    &__content {
+        padding-top: 6*$padding;
+        padding-bottom: 4*$padding;
+
+
+        @include tablet-break {
+            padding-top: 0;
+            padding-bottom: 2*$padding;
+        }
+    }
+
     &__header {
         padding-top: 3*$padding;
         padding-bottom: 4*$padding;
         position: relative;
         text-align: center;
-        margin-top: 10rem;
 
-        @include tablet-break {
-            margin-top: 0;
-        }
 
         h1 {
             margin: 0;
@@ -100,6 +107,17 @@
             @include tablet-break {
                 display: none;
             }
+        }
+    }
+
+    &__gif-credit {
+        @include font-condensed;
+        color: $color-dark-gray;
+        display: block;
+        text-align: center;
+
+        span { 
+            font-weight: bold;
         }
     }
 }

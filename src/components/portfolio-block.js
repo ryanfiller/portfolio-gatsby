@@ -5,16 +5,26 @@ import ContentMeta from './content-meta'
 
 
 export default class PortfolioBlock extends Component {
+
   render() {
 
-    var color = {
+    let color = {
       color: this.props.card.frontmatter.color,
+    };
+
+    let background = {
+      backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif + ")",      
+    }
+
+    let style = {
+      color: this.props.card.frontmatter.color,      
+      backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif + ")",      
     };
 
     return (
       <Link to={this.props.card.frontmatter.path} 
       href={this.props.card.frontmatter.path}
-      style={color}
+      style={style}
       className="portfolio-block">
           <div className="portfolio-block__logo">
             <img src={this.props.card.frontmatter.logowhite} />
