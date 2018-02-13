@@ -7,6 +7,9 @@ import '../styles/styles.scss'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+require("typeface-raleway")
+require("typeface-dosis")
+
 const TemplateWrapper = ({ data, children }) => (
   <div className="site" id="site">
 
