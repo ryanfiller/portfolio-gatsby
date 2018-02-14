@@ -31,7 +31,7 @@ export default class Form extends React.Component {
   render(state) {
     if(this.state.submitted != true) {
         return (
-            <div>
+            <div id="contact-form">
               <form
                 name="contact"
                 method="post"

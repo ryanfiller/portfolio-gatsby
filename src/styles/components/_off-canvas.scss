@@ -1,0 +1,67 @@
+body {
+    overflow-x: hidden;
+}
+
+.site {
+    position: relative;
+    transition: $transition;
+
+    &__content {
+        position: relative;
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: transparentize($color-black, .25);
+            z-index: 10;
+            transition: $transition;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .off-canvas {
+        transition: $transition*2;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 33.33vw;
+
+        @include tablet-break {
+            width: 80vw;
+        }
+    }
+
+    &.open {
+        transform: translateX(-33.33vw);
+
+        .overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #contact {
+            position: relative;
+            z-index: 100;
+        }
+
+        .navicon {
+            position: relative;
+            z-index: 100;
+        }
+    }
+}
+
+.mobile-nav-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparentize($color-black, .5);
+    z-index: 40;
+    display: none;
+}

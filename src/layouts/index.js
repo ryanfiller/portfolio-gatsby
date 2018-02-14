@@ -2,36 +2,95 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import '../styles/styles.scss'
-
 import Header from '../components/header'
 import Footer from '../components/footer'
+import OffCanvas from '../components/off-canvas'
 
+import '../styles/styles.scss'
 require("typeface-raleway")
 require("typeface-dosis")
 
-const TemplateWrapper = ({ data, children }) => (
-  <div className="site" id="site">
 
-    <Helmet
-      title="ryanfiller.com"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
+class TemplateWrapper extends React.Component {
 
-    <Header />
+  constructor({ data, children }) {
+    super({ data, children });
 
-    {children()}
+    this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
+    this.state = {
+        open: false,
+    };
+  }
 
-    <Footer />
+  toggleOffCanvas(e, target='') {
+    e.preventDefault();
+    this.setState({open: !this.state.open})
+    if (window.location.hash.length) {
+      window.location.hash = '';
+    } else {
+      window.location.hash = target;
+    }
+  }
 
-  </div>
-)
+  render() {
+    return (
+      <div className={this.state.open == false ? 'site' : 'site open' } id="site">
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+      <div className="site__content">
+
+        <div className="overlay" onClick={this.toggleOffCanvas}/>
+
+        <Helmet
+          title="ryanfiller.com"
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+
+        <Header toggleOffCanvas={this.toggleOffCanvas}/>
+
+        {this.props.children()}
+
+        <Footer />
+      </div>
+
+      <OffCanvas />
+
+      </div>
+    )
+  }
 }
+
+// const TemplateWrapper = ({ data, children }) => (
+  // <div className="site" id="site">
+
+  //   <div className="site__content">
+
+  //     <div className="overlay" />
+
+  //     <Helmet
+  //       title="ryanfiller.com"
+  //       meta={[
+  //         { name: 'description', content: 'Sample' },
+  //         { name: 'keywords', content: 'sample, something' },
+  //       ]}
+  //     />
+
+  //     <Header />
+
+  //     {children()}
+
+  //     <Footer />
+  //   </div>
+
+  //   <OffCanvas />
+
+  // </div>
+// )
+
+// TemplateWrapper.propTypes = {
+//   children: PropTypes.func,
+// }
 
 export default TemplateWrapper

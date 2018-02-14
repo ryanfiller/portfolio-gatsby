@@ -10,8 +10,6 @@ const IndexPage = ({ data }) => {
   return (
     <main className="page-content">
 
-    <Form />
-
       <h1>ryan filler</h1>
       <p>Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
 

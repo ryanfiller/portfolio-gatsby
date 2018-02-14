@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import Link, { navigateTo } from 'gatsby-link';
 
-const pages = ['blog', 'about']
-
+const pages = ['blog', 'about', 'contact']
 
 export default class Navigation extends Component {
   render() {
     return (
       <nav className="nav" role="navigation">
         <ul className="nav__list">
-          { pages.map((page, index) =>
-            <li className="nav__link" key={index}>
-              <Link to={page} data-text={page} activeClassName="active">
-                {page}
-              </Link>
-            </li>
+          { pages.map((page) =>
+            {if(page != 'contact'){
+              return(<li className="nav__link" key={page}>
+                <Link to={page} data-text={page} activeClassName="active">
+                  {page}
+                </Link>
+              </li>)
+            } else {
+              return(<li className="nav__link" key={page}>
+                <a href="#" data-text={page} id={page} onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} >
+                  {page}
+                </a>
+              </li>)
+            }}
           )}
         </ul>
       </nav>
