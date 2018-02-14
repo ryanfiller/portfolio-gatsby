@@ -119,5 +119,9 @@
         span { 
             font-weight: bold;
         }
+
+        @include phone-break {
+            display: none;
+        }
     }
 }
