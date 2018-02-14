@@ -9,7 +9,7 @@ category:
 client: gorocketfuel.com
 clienturl: 'http://www.gorocketfuel.com/'
 color: '#0079c2'
-backgroundgif: /images/uploads/apollo-11-again.gif
+backgroundgif: /images/uploads/apollo-11.gif
 gifattribution: Apollo 11, NASA Archive
 logocolor: /images/uploads/rocketfuel-color.svg
 logowhite: /images/uploads/rocketfuel-white.svg
