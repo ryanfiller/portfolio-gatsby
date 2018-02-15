@@ -10,6 +10,15 @@
         @include font-condensed;
         font-size: 1rem;
         text-transform: uppercase;
+
+        a {
+            color: $color-white;
+            text-decoration: none;
+
+            &:hover {
+                color: $color-orange;
+            }
+        }
     }
 
     @include phone-break {

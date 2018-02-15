@@ -29,8 +29,12 @@ body {
         top: 0;
         left: 100%;
         width: 33.33vw;
+        padding: $padding;
+        background-color: $color-blue;
+        box-sizing: border-box;
+        height: 100%;
 
-        @include tablet-break {
+        @include phone-break {
             width: 80vw;
         }
     }
