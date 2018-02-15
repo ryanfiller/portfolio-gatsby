@@ -12,36 +12,6 @@ svg, svg * {
     transition: $transition;
 }
 
-.navicon {
-    &--top {
-        transition: top $transition ease $transition,
-                    transform $transition ease 0s;
-
-        .open & {
-            transition: top $transition ease 0s,
-                        transform $transition ease $transition;
-        }
-    }
-
-    &--middle {
-        transition: opacity 0s ease $transition;
-
-        .open & {
-            transition: opacity 0s ease $transition;
-        }
-    }
-
-    &--bottom {
-        transition: bottom $transition ease $transition,
-                    transform $transition ease 0s;
-
-        .open & {
-            transition: bottom $transition ease 0s,
-                        transform $transition ease $transition;
-        }
-    }
-}
-
 @mixin glitch($color:$color-black, $background:$color-white) {
 
     @keyframes noise-anim {

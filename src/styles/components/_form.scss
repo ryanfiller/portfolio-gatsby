@@ -6,6 +6,10 @@
         margin: 0;
         font-size: 1.5rem;
 
+        @include phone-break {
+            height: auto;
+        }
+
         .form__row {
             height: 3em;
             width: 100%;
@@ -19,6 +23,7 @@
 
             &--flex {
                 flex: 1;
+                min-height: 20rem;
             }
         }
 

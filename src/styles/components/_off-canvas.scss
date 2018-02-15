@@ -6,6 +6,12 @@ body {
     position: relative;
     transition: $transition;
 
+    $navicon-width: 40px;
+
+    .navicon {
+        width: $navicon-width;
+    }
+
     &__content {
         position: relative;
         
@@ -35,12 +41,16 @@ body {
         height: 100%;
 
         @include phone-break {
-            width: 80vw;
+            width: calc(100% - ((2 * #{$padding})) - #{$navicon-width});
         }
     }
 
     &.open {
         transform: translateX(-33.33vw);
+
+        @include phone-break {
+            transform: translateX(-100%) translateX(2*$padding) translateX($navicon-width);
+        }
 
         .overlay {
             opacity: 1;

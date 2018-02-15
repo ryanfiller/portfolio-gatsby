@@ -69,7 +69,10 @@ export default class Form extends React.Component {
           );
     } else {
         return(
-            <div>it worked</div>
+            <div class="contact-form__message">
+                Message sent!
+                <a onClick={this.setState({submitted: false})}>Send Another?</a>
+            </div>
         );
     }
   }
