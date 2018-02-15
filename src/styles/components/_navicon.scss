@@ -33,7 +33,10 @@
         bottom: 0;
     }
 
-    &.open {
+    .site.open & {
+        position: relative;
+        z-index: 100;
+
         .top {
             transition: top $transition ease 0s, transform $transition ease $transition;
             top: calc(50% - .125rem);

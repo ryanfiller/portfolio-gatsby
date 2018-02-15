@@ -62,35 +62,4 @@ class TemplateWrapper extends React.Component {
   }
 }
 
-// const TemplateWrapper = ({ data, children }) => (
-  // <div className="site" id="site">
-
-  //   <div className="site__content">
-
-  //     <div className="overlay" />
-
-  //     <Helmet
-  //       title="ryanfiller.com"
-  //       meta={[
-  //         { name: 'description', content: 'Sample' },
-  //         { name: 'keywords', content: 'sample, something' },
-  //       ]}
-  //     />
-
-  //     <Header />
-
-  //     {children()}
-
-  //     <Footer />
-  //   </div>
-
-  //   <OffCanvas />
-
-  // </div>
-// )
-
-// TemplateWrapper.propTypes = {
-//   children: PropTypes.func,
-// }
-
 export default TemplateWrapper

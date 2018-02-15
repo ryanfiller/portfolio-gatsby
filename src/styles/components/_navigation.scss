@@ -27,6 +27,14 @@
       &:hover {
         color: $color-orange;
       }
+
+      &#contact {
+        #site.open & {
+          position: relative;
+          z-index: 100;
+          color: $color-orange;
+        }
+      }
     }
   }
 }
