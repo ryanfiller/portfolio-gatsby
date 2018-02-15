@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link, { navigateTo } from 'gatsby-link'
+import Link from 'gatsby-link'
 
 export default class ContentMeta extends Component {
   render() {
