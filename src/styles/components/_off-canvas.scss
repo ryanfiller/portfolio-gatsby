@@ -1,8 +1,10 @@
-body {
-    overflow-x: hidden;
-}
+// body {
+//     overflow-x: hidden;
+//     overflow-y: scroll;
+// }
 
 .site {
+    overflow: hidden;
     position: relative;
     transition: $transition;
 
@@ -46,6 +48,7 @@ body {
     }
 
     &.open {
+        overflow: visible;
         transform: translateX(-33.33vw);
 
         @include phone-break {
