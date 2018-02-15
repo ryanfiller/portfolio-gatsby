@@ -1,6 +1,5 @@
 .navicon {
     align-self: stretch;
-    width: 40px;
     height: auto;
     position: relative;
     margin-left: 2rem;
@@ -33,7 +32,10 @@
         bottom: 0;
     }
 
-    &.open {
+    .site.open & {
+        position: relative;
+        z-index: 100;
+
         .top {
             transition: top $transition ease 0s, transform $transition ease $transition;
             top: calc(50% - .125rem);
