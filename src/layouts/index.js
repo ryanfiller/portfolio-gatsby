@@ -26,7 +26,7 @@ class TemplateWrapper extends React.Component {
     e.preventDefault();
     this.setState({open: !this.state.open})
     if (window.location.hash.length) {
-      window.location.hash = '';
+      window.history.back()
     } else {
       window.location.hash = target;
     }
@@ -36,26 +36,27 @@ class TemplateWrapper extends React.Component {
     return (
       <div className={this.state.open == false ? 'site' : 'site open' } id="site">
 
-      <div className="site__content">
-
-        <div className="overlay" onClick={this.toggleOffCanvas}/>
-
         <Helmet
-          title="ryanfiller.com"
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        />
+            title="ryanfiller.com"
+            meta={[
+              { name: 'description', content: 'Sample' },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+          />
 
-        <Header toggleOffCanvas={this.toggleOffCanvas}/>
+        <OffCanvas />
 
-        {this.props.children()}
+        <div className="site__content">
 
-        <Footer />
-      </div>
+          <div className="overlay" onClick={this.toggleOffCanvas} />
 
-      <OffCanvas />
+          <Header toggleOffCanvas={this.toggleOffCanvas}/>
+
+          {this.props.children()}
+
+          <Footer />
+        </div>
+
 
       </div>
     )

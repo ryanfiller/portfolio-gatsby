@@ -4,8 +4,8 @@
 // }
 
 .site {
-    overflow: hidden;
     position: relative;
+    will-change: transform;
     transition: $transition;
 
     $navicon-width: 40px;
@@ -32,23 +32,35 @@
     }
 
     .off-canvas {
+        display: none;
         transition: $transition*2;
         position: absolute;
         top: 0;
         left: 100%;
         width: 33.33vw;
-        padding: $padding;
         background-color: $color-blue;
         box-sizing: border-box;
         height: 100%;
 
+        .nav {
+            display: none;
+
+            #contact {
+                display: none;
+            }
+        }
+
         @include phone-break {
             width: calc(100% - ((2 * #{$padding})) - #{$navicon-width});
+
+            .nav {
+                display: block;
+            }
         }
     }
 
     &.open {
-        overflow: visible;
+        // overflow: visible;
         transform: translateX(-33.33vw);
 
         @include phone-break {
@@ -58,6 +70,10 @@
         .overlay {
             opacity: 1;
             pointer-events: auto;
+        }
+
+        .off-canvas {
+            display: block;
         }
     }
 }

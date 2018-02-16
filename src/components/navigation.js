@@ -17,7 +17,7 @@ export default class Navigation extends Component {
               </li>)
             } else {
               return(<li className="nav__link" key={page}>
-                <a href="#" data-text={page} id={page} onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} >
+                <a href="#contact-form" data-text={page} id={page} onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} >
                   {page}
                 </a>
               </li>)
