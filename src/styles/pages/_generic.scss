@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    @include phone-break {
+    @include tablet-break {
         display: block;
         height: auto;
     }
