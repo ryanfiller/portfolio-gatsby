@@ -37,6 +37,7 @@ export default class Form extends React.Component {
                 method="post"
                 action="/thanks/"
                 data-netlify="true"
+                netlify
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
