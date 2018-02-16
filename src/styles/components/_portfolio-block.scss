@@ -7,7 +7,7 @@
     background-color: currentColor;
     background-position: center center;
     background-blend-mode: luminosity; //multiply or luminosity?
-    background-size: 0px;
+    background-size: cover;
     padding: $padding;
     box-sizing: border-box;
     text-decoration: none;
@@ -96,7 +96,6 @@
     }
 
     &:hover, &:focus {
-        background-size: cover;
         &:before {
             opacity: .5;
         }

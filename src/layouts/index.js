@@ -15,47 +15,59 @@ class TemplateWrapper extends React.Component {
 
   constructor({ data, children }) {
     super({ data, children });
-
+    this.onKeydown = this.onKeydown.bind(this)
     this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
     this.state = {
         open: false,
     };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.onKeydown)
+  }
+
+  onKeydown(e) {
+    if (e.keyCode === 27) {
+      this.setState({open: false});
+   }
+ }
+
   toggleOffCanvas(e, target='') {
     e.preventDefault();
     this.setState({open: !this.state.open})
     if (window.location.hash.length) {
-      window.location.hash = '';
+      window.history.back()
     } else {
       window.location.hash = target;
     }
   }
 
+
   render() {
     return (
-      <div className={this.state.open == false ? 'site' : 'site open' } id="site">
-
-      <div className="site__content">
-
-        <div className="overlay" onClick={this.toggleOffCanvas}/>
+      <div className={this.state.open == false ? 'site' : 'site open' } id="site" >
 
         <Helmet
-          title="ryanfiller.com"
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        />
+            title="ryanfiller.com"
+            meta={[
+              { name: 'description', content: 'Sample' },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+          />
 
-        <Header toggleOffCanvas={this.toggleOffCanvas}/>
+        <OffCanvas />
 
-        {this.props.children()}
+        <div className="site__content">
 
-        <Footer />
-      </div>
+          <div className="overlay" onClick={this.toggleOffCanvas} />
 
-      <OffCanvas />
+          <Header toggleOffCanvas={this.toggleOffCanvas}/>
+
+          {this.props.children()}
+
+          <Footer />
+        </div>
+
 
       </div>
     )

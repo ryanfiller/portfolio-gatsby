@@ -5,6 +5,7 @@
         flex-direction: column;
         margin: 0;
         font-size: 1.5rem;
+        padding: $padding;
 
         @include phone-break {
             height: auto;
@@ -84,10 +85,6 @@
             border-radius: 0;
             -webkit-appearance: none;
             font-size: 1.25em;
-
-            &:focus {
-                border: 0;
-            }
         }
     }
 

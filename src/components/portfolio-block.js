@@ -6,25 +6,40 @@ import ContentMeta from './content-meta'
 
 export default class PortfolioBlock extends Component {
 
+      constructor(props) {
+        super(props);
+        this.handleMouseHover = this.handleMouseHover.bind(this);
+        this.state = {
+          isHovering: false,
+        };
+      }
+
+      handleMouseHover() {
+        this.setState(this.toggleHoverState);
+      }
+
+      toggleHoverState(state) {
+        return {
+          isHovering: !state.isHovering,
+        };
+      }
+
   render() {
 
     let color = {
       color: this.props.card.frontmatter.color,
     };
 
-    let background = {
-      backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif + ")",      
-    }
-
-    let style = {
+    let colorAndBackground = {
       color: this.props.card.frontmatter.color,      
       backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif + ")",      
     };
 
     return (
       <Link to={this.props.card.frontmatter.path} 
-      href={this.props.card.frontmatter.path}
-      style={style}
+      onMouseEnter={this.handleMouseHover}
+      onMouseLeave={this.handleMouseHover}
+      style={ this.state.isHovering ? colorAndBackground : color}
       className="portfolio-block">
           <div className="portfolio-block__logo">
             <img src={this.props.card.frontmatter.logowhite} />
