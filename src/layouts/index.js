@@ -15,12 +15,22 @@ class TemplateWrapper extends React.Component {
 
   constructor({ data, children }) {
     super({ data, children });
-
+    this.onKeydown = this.onKeydown.bind(this)
     this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
     this.state = {
         open: false,
     };
   }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.onKeydown)
+  }
+
+  onKeydown(e) {
+    if (e.keyCode === 27) {
+      this.setState({open: false});
+   }
+ }
 
   toggleOffCanvas(e, target='') {
     e.preventDefault();
@@ -32,9 +42,10 @@ class TemplateWrapper extends React.Component {
     }
   }
 
+
   render() {
     return (
-      <div className={this.state.open == false ? 'site' : 'site open' } id="site">
+      <div className={this.state.open == false ? 'site' : 'site open' } id="site" >
 
         <Helmet
             title="ryanfiller.com"
