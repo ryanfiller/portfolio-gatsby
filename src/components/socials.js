@@ -19,7 +19,7 @@ export default class Socials extends Component {
             target="_blank"
             style={{color: social.color}}
             >
-              <SVG src={`../images/svgs/socials/${social.name.toLowerCase()}.svg`}/>
+              <SVG src={`../images/socials/${social.name.toLowerCase()}.svg`}/>
             </a>
           </li>
         )}

@@ -6,7 +6,7 @@ export default class Logo extends Component {
   render() {
     return (
         <Link className="rf-logo" to="/">
-          <SVG src="../images/svgs/logo.svg" />
+          <SVG src="../images/logo.svg" />
         </Link>
     )
   }
