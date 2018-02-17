@@ -4,10 +4,19 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    font-size: 2rem;
     @include container;
 
     .rf-logo {
-        max-width: 20rem;
+        font-size: 1em;
+
+        @include tablet-break {
+            font-size: .65em;
+        }
+
+        @include phone-break {
+            font-size: 1em;
+        }
     }
 
     @include phone-break {
