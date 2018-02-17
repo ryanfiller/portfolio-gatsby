@@ -10,6 +10,8 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.reloadForm = this.reloadForm.bind(this)    
   }
 
   handleChange = (e) => {
@@ -27,6 +29,10 @@ export default class Form extends React.Component {
 
     e.preventDefault();
   };
+
+  reloadForm() {
+      this.setState({submitted: false});
+  }
 
   render(state) {
     if(this.state.submitted != true) {
@@ -73,7 +79,7 @@ export default class Form extends React.Component {
         return(
             <div className="contact-form__message">
                 Message sent!
-                <a onClick={this.setState({submitted: false})}>Send Another?</a>
+                <a onClick={this.reloadForm}>Send Another?</a>
             </div>
         );
     }
