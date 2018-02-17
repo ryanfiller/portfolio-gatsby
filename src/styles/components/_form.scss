@@ -22,9 +22,10 @@
                 margin-bottom: 0;
             }
 
-            &--flex {
+            &--tall {
                 flex: 1;
                 min-height: 20rem;
+                max-height: 25rem;
             }
         }
 

@@ -57,7 +57,7 @@ export default class Form extends React.Component {
                       <label htmlFor="subject">Subject</label>
                   </div>
                     
-                  <div className="form__row form__row--flex">
+                  <div className="form__row form__row--tall">
                       <textarea type="text" name="_message" required placeholder="Message..."></textarea>
                       <label htmlFor="message">Message</label>
                   </div>
@@ -70,7 +70,7 @@ export default class Form extends React.Component {
           );
     } else {
         return(
-            <div class="contact-form__message">
+            <div className="contact-form__message">
                 Message sent!
                 <a onClick={this.setState({submitted: false})}>Send Another?</a>
             </div>
