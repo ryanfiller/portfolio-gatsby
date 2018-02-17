@@ -53,17 +53,17 @@ export default class Form extends React.Component {
                   </div>
 
                   <div className="form__row">
-                      <input type="email" name="_replyto" placeholder="Email *" required onChange={this.handleChange} />
+                      <input type="email" name="email" placeholder="Email *" required onChange={this.handleChange} />
                       <label htmlFor="email">Email</label>
                   </div>
 
                   <div className="form__row">
-                      <input type="text" name="_subject" placeholder="Subject *" required onChange={this.handleChange} />
+                      <input type="text" name="subject" placeholder="Subject *" required onChange={this.handleChange} />
                       <label htmlFor="subject">Subject</label>
                   </div>
                     
                   <div className="form__row form__row--tall">
-                      <textarea type="text" name="_message" required placeholder="Message..." onChange={this.handleChange}></textarea>
+                      <textarea type="text" name="message" required placeholder="Message..." onChange={this.handleChange}></textarea>
                       <label htmlFor="message">Message</label>
                   </div>
 
