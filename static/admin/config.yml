@@ -65,5 +65,9 @@ collections:
         widget: "list"
         fields:
             - {label: Image, name: image, widget: image}
+            - label: "Slide Type"
+              name: "slidetype"
+              widget: "select"
+              options: [desktop, tablet, phone]
 
       - { name: body, label: Body, widget: markdown }
