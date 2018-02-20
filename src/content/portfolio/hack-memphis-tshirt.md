@@ -18,8 +18,8 @@ logocolor: /images/uploads/hack-memphis-logo-color.svg
 logowhite: /images/uploads/hack-memphis-logo-white.svg
 images:
   - image: /images/uploads/screen-shot.png
-    slide-type: desktop
   - image: /images/site-assets/placeholder.png
+    slidetype: desktop
 ---
 
 ![color options](/assets/images/portfolio/hack-memphis-2016/logo.png){:class="right small"}
