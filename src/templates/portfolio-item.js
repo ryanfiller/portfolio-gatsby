@@ -10,7 +10,9 @@ export default ({data}) => {
 
   return (
     <main className="page-content page-content-portfolio">
-      <PortfolioGallery {...post} />
+
+      <PortfolioGallery images={post.frontmatter.images} color={post.frontmatter.color} />
+
       <div className="page-content-portfolio__content">
           <header className="page-content-portfolio__header">
               <h1>
@@ -52,6 +54,7 @@ export const postQuery = graphql`
         clienturl
         images{
           image
+          slidetype
         }
       }
     }
