@@ -4,7 +4,7 @@ import Swiper from 'react-id-swiper';
 class PortfolioGallery extends React.Component {
   render() {
 
-    if(this.props.frontmatter.images.length > 1) {
+    if(this.props.images.length > 1) {
       var params = {
         loop: true,
         pagination: {
@@ -24,13 +24,14 @@ class PortfolioGallery extends React.Component {
     }
 
     var color = {
-      color: this.props.frontmatter.color,
+      color: this.props.color,
     };
 
     return(
       <div className="portfolio-gallery" style={color}>
+      {console.log(this.props)}
         <Swiper {...params}>
-          {this.props.frontmatter.images.map(( {image}, index ) => (
+          {this.props.images.map(( {image, slidetype}, index ) => (
             <div key={index}>
               <img src={image} />
             </div>

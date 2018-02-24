@@ -35,45 +35,51 @@ export default class Form extends React.Component {
   }
 
   render(state) {
+
+    const Form = <form
+        id="contact-form"
+        name="contact"
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
+        >
+
+            <div className="form__row">
+                <input type="text" name="name" placeholder="Name *" required onChange={this.handleChange} />
+                <label htmlFor="name">Name</label>
+            </div>
+
+            <div className="form__row">
+                <input type="email" name="email" placeholder="Email *" required onChange={this.handleChange} />
+                <label htmlFor="email">Email</label>
+            </div>
+            
+            <div className="form__row form__row--tall">
+                <textarea type="text" name="message" required placeholder="Message..." onChange={this.handleChange}></textarea>
+                <label htmlFor="message">Message</label>
+            </div>
+
+            <div className="form__row">
+                <input name="bot-field" hidden />
+                <input className="button" type="submit" value="Send" />
+            </div>
+        </form>;
+
+    const Sent = <div className="contact-form__message">
+        Message sent!
+        <a onClick={this.reloadForm}>Send Another?</a>
+    </div>
+
+
     if(this.state.submitted != true) {
         return (
-            <form
-                id="contact-form"
-                name="contact"
-                method="post"
-                action="/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-
-                  <div className="form__row">
-                      <input type="text" name="name" placeholder="Name *" required onChange={this.handleChange} />
-                      <label htmlFor="name">Name</label>
-                  </div>
-
-                  <div className="form__row">
-                      <input type="email" name="email" placeholder="Email *" required onChange={this.handleChange} />
-                      <label htmlFor="email">Email</label>
-                  </div>
-                    
-                  <div className="form__row form__row--tall">
-                      <textarea type="text" name="message" required placeholder="Message..." onChange={this.handleChange}></textarea>
-                      <label htmlFor="message">Message</label>
-                  </div>
-
-                  <div className="form__row">
-                      <input name="bot-field" hidden />
-                      <input className="button" type="submit" value="Send" />
-                  </div>
-              </form>
+            Form
           );
     } else {
         return(
-            <div className="contact-form__message">
-                Message sent!
-                <a onClick={this.reloadForm}>Send Another?</a>
-            </div>
+            Sent
         );
     }
   }

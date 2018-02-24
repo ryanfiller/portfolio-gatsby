@@ -11,8 +11,9 @@ body {
     flex-direction: column;
 
     @include tablet-break {
-        display: block;
+        // display: block;
         height: auto;
+        min-height: 100vh;
     }
 
     .header {
