@@ -17,9 +17,9 @@ gifattribution: 'Ghost in the Shell, Bandai'
 logocolor: /images/uploads/hack-memphis-logo-color.svg
 logowhite: /images/uploads/hack-memphis-logo-white.svg
 images:
-  - image: /images/uploads/screen-shot.png
-  - image: /images/site-assets/placeholder.png
-    slidetype: desktop
+  - image: /images/uploads/hack-memphis-slider-shirt.png
+  - image: /images/uploads/hack-memphis-slider-design.jpg
+    slidetype: none
 ---
 
 <img src="/images/uploads/hack-memphis-logo.png" alt="Hack Memphis Logo" class="right small" /> HACKmemphis is is a yearly hackathon sponsored mainly by the <a href="http://www.memphistechnology.org/" target="_blank">Memphis Technology Foundation.</a> The event encourages developers, designers, and makers from all around the city to come together for a three day weekend of collaboration.

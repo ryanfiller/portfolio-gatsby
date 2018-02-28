@@ -10,8 +10,8 @@ export default class Header extends Component {
         return (
             <header className="header" id="header">
                 <Logo />
-                <Navigation toggleOffCanvas={this.props.toggleOffCanvas} />
-                <Navicon toggleOffCanvas={this.props.toggleOffCanvas} />
+                {/* <Navigation toggleOffCanvas={this.props.toggleOffCanvas} /> */}
+                {/* <Navicon toggleOffCanvas={this.props.toggleOffCanvas} /> */}
             </header>
         )
     }

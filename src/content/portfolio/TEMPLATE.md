@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 template: portfolio-item
 title: Markdown Template
 path: /styles
@@ -12,8 +12,8 @@ tags:
 client: www.ryanfiller.com
 clienturl: 'http://www.ryanfiller.com/'
 color: 'rebeccapurple'
-backgroundgif: /images/site-assets/placeholder.png
-gifattribution: It's Ollie!
+backgroundgif: /images/site-assets/dog-weapon.gif
+gifattribution: doggo!
 logocolor: /images/svgs/rf.svg
 logowhite: /images/svgs/logo.svg
 images:
