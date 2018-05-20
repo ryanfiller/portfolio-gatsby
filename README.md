@@ -1,3 +1,7 @@
 # portfolio site #3 for me
 
-[![Deploys to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+Gatsby JS
+Cyrpess.io
+Netlify CMS
+
+<!-- [![Deploys to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default) -->
