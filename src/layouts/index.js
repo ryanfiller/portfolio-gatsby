@@ -55,7 +55,7 @@ class TemplateWrapper extends React.Component {
             ]}
           />
 
-        <OffCanvas />
+        {/* <OffCanvas /> */}
 
         <div className="site__content">
 
