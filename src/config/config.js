@@ -1,65 +1,73 @@
-// import { injectGlobal } from 'styled-components';
+import { injectGlobal } from 'styled-components';
 
-// injectGlobal`
-//   /* I don't think I need these anymore */
-//   /* @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i"); */
-//   /* @import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500,700"); */
-//   body {
-//     margin: 0;
-//     font-size: 12px;
-//     font-family: 'Raleway', sans-serif;
-//     font-weight: 300;
-//   }
-// `;
+injectGlobal`
+	/* I don't think I need these anymore */
+	/* @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i"); */
+	/* @import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500,700"); */
+
+	html, body {
+		padding: 0;
+		margin: 0;
+	}
+
+	body {
+		font-size: 12px;
+		font-family: 'Raleway', sans-serif; /* sansSerif */
+		font-weight: 300;
+		background-color: #1e2223; /* black */
+	}
+	main, article, aside, blockquote, caption, header, footer {
+		display: block;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+`;
 
 module.exports = {
 
-  padding: '2rem',
+	padding: '2rem',
 
-  fonts: {
-    sansSerif: {
-      fontFamily: '"Raleway", sans-serif',
-      fontWeight: '300'
-    },
-    condensed: {
-      fontFamily: '"Dosis", sans-serif',
-      fontWeight: '400'
-    }
-  },
+	fonts: {
+		sansSerif: {
+			fontFamily: '"Raleway", sans-serif',
+			fontWeight: '300'
+		},
+		condensed: {
+			fontFamily: '"Dosis", sans-serif',
+			fontWeight: '400'
+		}
+	},
 
-  colors: {
-    white: '#fcfaf6',
-    black: '#1e2223',
-    blue: '#3f7cac',
-    orange: '#f89c7d'
-  },
+	colors: {
+		white: '#fcfaf6',
+		black: '#1e2223',
+		blue: '#3f7cac',
+		orange: '#f89c7d'
+	},
 
-  breaks: {
-    large: 1350,
-    tablet: 768,
-    phone: 430
-  },
+	breaks: {
+		large: 1350,
+		tablet: 768,
+		phone: 430
+	},
 
-  container: {
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-  }
+	container: function container() {
+		return `
+			padding-left: 2rem;
+			padding-right: 2rem;
+		`;
+	},
+
+	readable: function readable() {
+		return `
+			max-width: 80rem;
+			margin-left: auto;
+			margin-right: auto;
+		`;
+	}
 };
-
-// $readable-width: 80rem;
-
-// @mixin container {
-//     padding-left: $spacing;
-//     padding-right: $spacing;
-// }
-
-// @mixin readable {
-//     @include container;
-//     max-width: $readable-width;
-//     margin-left: auto;
-//     margin-right: auto;
-// }
-
 
 // color-blue: #3f7cac;
 // color-orange: #f89c7d;
