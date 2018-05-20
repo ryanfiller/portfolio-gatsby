@@ -14,10 +14,9 @@ describe('Check Elements Inside Header', function() {
 		.should('have.attr', 'href')
 	})
 
-	it('Check Mobile Nav', function() {
-		cy.viewport(breaks.phone, breaks.phone)
+	it('Check Mobile Navicon', function() {
+		cy.viewport(breaks.tablet, breaks.tablet)
 		.get('.navicon')
-		.should('be.visible')
 	})
 
 	it('Check Off Canvas', function() {
@@ -27,7 +26,7 @@ describe('Check Elements Inside Header', function() {
 	})
 
 	it('Check Off Canvas Mobile', function() {
-		cy.viewport(breaks.phone, breaks.phone)
+		cy.viewport(breaks.tablet, breaks.tablet)
 		.get('.navicon').click()
 		.wrap('.site.open')
 	})

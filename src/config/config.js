@@ -36,8 +36,8 @@ module.exports = {
 
   breaks: {
     large: 1350,
-    tablet: 1024,
-    phone: 500
+    tablet: 768,
+    phone: 430
   },
 
   container: {

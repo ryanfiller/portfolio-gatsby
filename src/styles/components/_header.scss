@@ -19,13 +19,13 @@
         }
     }
 
-    @include phone-break {
-        .nav {
-            display: none;
-        }
+    // @include phone-break {
+    //     .nav {
+    //         display: none;
+    //     }
         
-        .navicon {
-            display: block;
-        }
-    }
+    //     .navicon {
+    //         display: block;
+    //     }
+    // }
 }

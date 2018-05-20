@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Link, { navigateTo } from 'gatsby-link';
 
+import MediaQuery from 'react-responsive';
+import { breaks } from '../config/config';
+
 const pages = ['blog', 'about', 'contact']
 
 export default class Navigation extends Component {
@@ -22,14 +25,16 @@ export default class Navigation extends Component {
 						)
 					} else {
 						return(
-							<a href="" // font tab-index
-							onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
-							className="nav__link" 
-							key={page} 
-							data-text={page} 
-							id={page} >
-								{page}
-							</a>
+							<MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
+								<a href="" // font tab-index
+								onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
+								className="nav__link" 
+								key={page} 
+								data-text={page} 
+								id={page} >
+									{page}
+								</a>
+							</MediaQuery>
 						)
 					}}
 				)}

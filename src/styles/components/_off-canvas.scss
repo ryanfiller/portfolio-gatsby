@@ -42,20 +42,8 @@
         box-sizing: border-box;
         height: 100%;
 
-        .nav {
-            display: none;
-
-            #contact {
-                display: none;
-            }
-        }
-
         @include phone-break {
             width: calc(100% - ((2 * #{$padding})) - #{$navicon-width});
-
-            .nav {
-                display: block;
-            }
         }
     }
 
