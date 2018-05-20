@@ -14,13 +14,13 @@ export default class Header extends Component {
             <header className="header" id="header">
                 <Logo />
                 
-                <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
+                {/* <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
                     <Navigation toggleOffCanvas={this.props.toggleOffCanvas} />
                 </MediaQuery>
 
                 <MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
                     <Navicon toggleOffCanvas={this.props.toggleOffCanvas} />
-                </MediaQuery>
+                </MediaQuery> */}
             </header>
         )
     }
