@@ -54,12 +54,14 @@ class TemplateWrapper extends React.Component {
 					{ name: 'keywords', content: 'sample, something' },
 					]}
 				/>
-
 				<OffCanvas />
 
 				<div className="site__content">
 
-					<Overlay toggleOffCanvas={this.toggleOffCanvas} />
+					{this.state.open ? 
+						<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
+						: ''
+					}
 
 					<Header toggleOffCanvas={this.toggleOffCanvas}/>
 
