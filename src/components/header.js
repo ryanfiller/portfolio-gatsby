@@ -11,13 +11,17 @@ import Navicon from './navicon'
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-    background-color: ${ colors.black };
+    background-color: ${colors.black};
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     font-size: 2rem;
-    ${ container() }
+    ${container() }
+
+    .rf-logo {
+        font-size: 1.5em;
+    }
 `;
 
 export default class Header extends Component {

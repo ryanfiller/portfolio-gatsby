@@ -53,6 +53,8 @@ module.exports = {
 		phone: 430
 	},
 
+	transition: '.2s',
+
 	container: function container() {
 		return `
 			padding-left: 2rem;
