@@ -7,6 +7,41 @@ import { pages } from '../config/site-info';
 
 import styled from 'styled-components';
 
+export default class Navigation extends Component {
+
+	render() {
+		return (
+			<StyledNav className="nav" role="navigation">
+				{ pages.map((page) =>
+					{if(page != 'contact'){
+						return(
+							<a href="" // for tab-index
+							onClick={ () => navigateTo(page) } 
+							key={page} 
+							data-text={page} 
+							activeClassName="active">
+								{page}
+							</a>
+						)
+					} else {
+						return(
+							<MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
+								<a href="" // for tab-index
+								onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
+								key={page} 
+								data-text={page} 
+								id={page} >
+									{page}
+								</a>
+							</MediaQuery>
+						)
+					}}
+				)}
+			</StyledNav>
+		)
+	}
+}
+
 const StyledNav = styled.nav`
 	color: ${colors.white};
 	flex: 1;
@@ -50,38 +85,3 @@ const StyledNav = styled.nav`
 		}
 	}
 `;
-
-export default class Navigation extends Component {
-
-	render() {
-		return (
-			<StyledNav className="nav" role="navigation">
-				{ pages.map((page) =>
-					{if(page != 'contact'){
-						return(
-							<a href="" // for tab-index
-							onClick={ () => navigateTo(page) } 
-							key={page} 
-							data-text={page} 
-							activeClassName="active">
-								{page}
-							</a>
-						)
-					} else {
-						return(
-							<MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
-								<a href="" // for tab-index
-								onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
-								key={page} 
-								data-text={page} 
-								id={page} >
-									{page}
-								</a>
-							</MediaQuery>
-						)
-					}}
-				)}
-			</StyledNav>
-		)
-	}
-}

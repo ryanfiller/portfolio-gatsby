@@ -7,6 +7,19 @@ import { breaks, colors, transition } from '../config/config';
 
 import styled from 'styled-components';
 
+export default class Logo extends Component {
+	render() {
+		return (
+			<StyledLink href="" className="rf-logo" to="/">
+				<div className="r"><SVG src="../images/logo/r.svg" /></div>
+				<div className="yan"><SVG src="../images/logo/yan.svg" /></div>
+				<div className="f"><SVG src="../images/logo/f.svg" /></div>
+				<div className="iller"><SVG src="../images/logo/iller.svg" /></div>
+			</StyledLink>
+		)
+	}
+}
+
 const StyledLink = styled(Link)`
 	height: 1em;
 	width: auto;
@@ -101,16 +114,3 @@ const StyledLink = styled(Link)`
 		}
 	}
 `;
-
-export default class Logo extends Component {
-	render() {
-		return (
-			<StyledLink href="" className="rf-logo" to="/">
-				<div className="r"><SVG src="../images/logo/r.svg" /></div>
-				<div className="yan"><SVG src="../images/logo/yan.svg" /></div>
-				<div className="f"><SVG src="../images/logo/f.svg" /></div>
-				<div className="iller"><SVG src="../images/logo/iller.svg" /></div>
-			</StyledLink>
-		)
-	}
-}

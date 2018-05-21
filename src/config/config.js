@@ -53,6 +53,10 @@ module.exports = {
 		phone: 430
 	},
 
+	padding: '2rem',
+
+	naviconWidth: '40px',
+
 	transition: '.2s',
 
 	container: function container() {
