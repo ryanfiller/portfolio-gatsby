@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 import Link, { navigateTo } from 'gatsby-link';
 
-import { breaks, colors, fonts } from '../config/config';
+import { breaks, colors, fonts, container } from '../config/config';
 import { pages } from '../config/site-info';
 
 import styled from 'styled-components';
@@ -36,6 +36,17 @@ const StyledNav = styled.nav`
 				z-index: 100;
 				color: ${colors.orange};
 			}
+		}
+	}
+
+	.off-canvas & {
+		display: block;
+		${container}
+
+		a {
+			display: block;
+			padding: 1em 0;
+			margin: 0;
 		}
 	}
 `;
