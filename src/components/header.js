@@ -11,29 +11,14 @@ import Navicon from './navicon'
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-    /* ${ container() } */
+    background-color: ${ colors.black };
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    ${ container() }
 `;
-
-// .header {
-//     background-color: $color-black;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 1rem;
-//     font-size: 2rem;
-
-//     .rf-logo {
-//         font-size: 1em;
-
-//         @include tablet-break {
-//             font-size: .65em;
-//         }
-
-//         @include phone-break {
-//             font-size: 1em;
-//         }
-//     }
-// }
 
 export default class Header extends Component {
     render() {
