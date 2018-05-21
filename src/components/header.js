@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import MediaQuery from 'react-responsive';
 import Link from 'gatsby-link'
 
-import MediaQuery from 'react-responsive';
 import { breaks, colors, container } from '../config/config';
 
 import Logo from './logo'
