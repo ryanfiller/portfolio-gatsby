@@ -29,7 +29,6 @@ class PortfolioGallery extends React.Component {
 
     return(
       <div className="portfolio-gallery" style={color}>
-      {console.log(this.props)}
         <Swiper {...params}>
           {this.props.images.map(( {image, slidetype}, index ) => (
             <div key={index}>
