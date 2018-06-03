@@ -52,7 +52,7 @@ const StyledNav = styled.nav`
 	a {
 		text-decoration: none;
 		margin-left: 2rem;
-		${ fonts.condensed};
+		${fonts.condensed};
 		text-transform: uppercase;
 		font-size: 1em;
 		color: ${colors.white};
@@ -85,4 +85,20 @@ const StyledNav = styled.nav`
 			margin: 0;
 		}
 	}
+
+	.horizontal & {
+		@supports (display: grid) {
+			@media (min-width: ${breaks.tablet}px) {
+				width: 100%;
+                flex: initial;
+				display: block;
+
+				a {
+					display: block;
+					text-align: center;
+					margin: .5em;
+				}
+            }
+        }
+    }
 `;

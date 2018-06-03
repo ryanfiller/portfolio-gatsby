@@ -10,23 +10,24 @@ import styled from 'styled-components';
 export default class Logo extends Component {
 	render() {
 		return (
-			<StyledLink href="" className="rf-logo" to="/">
+			<StyledLogo href="" className="rf-logo" to="/">
 				<div className="r"><SVG src="../images/logo/r.svg" /></div>
 				<div className="yan"><SVG src="../images/logo/yan.svg" /></div>
 				<div className="f"><SVG src="../images/logo/f.svg" /></div>
 				<div className="iller"><SVG src="../images/logo/iller.svg" /></div>
-			</StyledLink>
+			</StyledLogo>
 		)
 	}
 }
 
-const StyledLink = styled(Link)`
+const StyledLogo = styled(Link)`
 	height: 1em;
 	width: auto;
 	display: flex;
 	justify-content: flex-start;
 	position: relative;
 	overflow: hidden;
+	font-size: 1.5em;
 
 		svg {
 			display: block;
@@ -113,4 +114,27 @@ const StyledLink = styled(Link)`
 			right: -1.25em;
 		}
 	}
+
+	.horizontal & {
+		@supports (display: grid) {
+			@media (min-width: ${breaks.tablet}px) {
+				font-size: 2.5em;
+
+                .r {
+					filter: drop-shadow( .25em 0px 0px ${colors.black} ); 
+					margin-right: -.7em;
+				}
+
+				.f {
+					transform: rotateY(180deg);
+					margin-right: 0;
+					margin-left: .15em;
+				}
+
+				.yan, .iller {
+					max-width: 0;
+				}
+            }
+        }
+    }
 `;

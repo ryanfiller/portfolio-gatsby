@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 template: portfolio-item
 title: Markdown Template
 path: /styles

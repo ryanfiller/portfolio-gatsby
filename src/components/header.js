@@ -37,7 +37,13 @@ const StyledHeader = styled.header`
     font-size: 2rem;
     ${container() }
 
-    .rf-logo {
-        font-size: 1.5em;
+    .horizontal & {
+		@supports (display: grid) {
+			@media (min-width: ${breaks.tablet}px) {
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: space-around;
+            }
+        }
     }
 `;

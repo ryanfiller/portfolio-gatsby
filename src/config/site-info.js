@@ -19,8 +19,9 @@ module.exports = {
 	location: 'Memphis',
 
 	pages: [
+		'work', 
+		'about',
 		'blog', 
-		'about', 
 		'contact'
 	],
 
