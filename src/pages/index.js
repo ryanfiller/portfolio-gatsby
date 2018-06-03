@@ -7,42 +7,42 @@ import Form from '../components/form.js'
 
 const IndexPage = ({ data }) => {
 
-  return (
-    <main className="page-content">
-    
-      <PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+	return (
+		<main className="page-content">
 
-    </main>
-  );
+			<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+
+		</main>
+	);
 };
 
 export default IndexPage
 
 export const query = graphql`
-  query HomepagePortfolioListQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date]},
-      filter: {
-        id: { regex: "/portfolio//" },
-        frontmatter: { published: { eq: true } }
-      },
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date
-            path
-            color
-            backgroundgif
-            gifattribution
-            category
-            tags
-            logowhite
-          }
-        }
-      }
-    }
-  }
+	query HomepagePortfolioListQuery {
+		allMarkdownRemark(
+			sort: { order: DESC, fields: [frontmatter___date]},
+			filter: {
+				id: { regex: "/portfolio//" },
+				frontmatter: { published: { eq: true } }
+			},
+		) {
+		edges {
+			node {
+				id
+					frontmatter {
+						title
+						date
+						path
+						color
+						backgroundgif
+						gifattribution
+						category
+						tags
+						logowhite
+					}
+				}
+			}
+		}
+	}
 `
