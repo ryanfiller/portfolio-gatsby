@@ -17,6 +17,10 @@ export default class IndexPage extends React.Component {
 		document.addEventListener('wheel', this.onScroll);
 	}
 
+	componentWillUnmount() {
+		document.removeEventListener('wheel', this.onScroll);
+	  }
+
 	onScroll(e, tablet) {
 		var container = document.getElementsByClassName('portfolio-grid');
 		var scroll_vert = 0;
