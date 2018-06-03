@@ -96,12 +96,6 @@ const StyledSite = styled.div`
 		display: flex;
 		flex-direction: column;
 
-		@media (min-width: ${breaks.tablet}px) {
-			display: block;
-			height: auto;
-			min-height: 100vh;
-		}
-
 		.header {
 			width: 100%;
 		}
