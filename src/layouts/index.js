@@ -56,7 +56,7 @@ export default class TemplateWrapper extends React.Component {
 		
 		return (
 			<StyledSite className={this.state.open == false ? `site ${orientation}` : `open site ${orientation}` } id="site">
-{console.log(this.props)}
+
 				<Helmet
 					title="ryanfiller.com"
 					meta={[
