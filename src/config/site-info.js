@@ -19,7 +19,7 @@ module.exports = {
 	location: 'Memphis',
 
 	pages: [
-		'work', 
+		'portfolio', 
 		'about',
 		'blog', 
 		'contact'
