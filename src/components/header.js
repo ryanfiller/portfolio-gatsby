@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
+import MediaQuery from 'react-responsive';
 import Link from 'gatsby-link'
 
-import MediaQuery from 'react-responsive';
-import { breaks } from '../config/config';
+import { breaks, colors, container } from '../config/config';
 
 import Logo from './logo'
 import Navigation from './navigation'
 import Navicon from './navicon'
 
+import styled from 'styled-components';
+
 export default class Header extends Component {
     render() {
         return (
-            <header className="header" id="header">
+            <StyledHeader className="header" id="header">
                 <Logo />
                 
-                {/* <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
+                <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
                     <Navigation toggleOffCanvas={this.props.toggleOffCanvas} />
                 </MediaQuery>
 
                 <MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
                     <Navicon toggleOffCanvas={this.props.toggleOffCanvas} />
-                </MediaQuery> */}
-            </header>
+                </MediaQuery>
+            </StyledHeader>
         )
     }
 }
+
+const StyledHeader = styled.header`
+    background-color: ${colors.black};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    ${container() }
+
+    .rf-logo {
+        font-size: 1.5em;
+    }
+`;

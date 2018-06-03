@@ -1,18 +1,9 @@
-// body {
-//     overflow-x: hidden;
-//     overflow-y: scroll;
-// }
-
 .site {
     position: relative;
     will-change: transform;
     transition: $transition;
 
     $navicon-width: 40px;
-
-    .navicon {
-        width: $navicon-width;
-    }
 
     &__content {
         position: relative;
@@ -64,15 +55,4 @@
             display: block;
         }
     }
-}
-
-.mobile-nav-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: transparentize($color-black, .5);
-    z-index: 40;
-    display: none;
 }

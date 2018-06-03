@@ -10,7 +10,7 @@ describe('Check Elements Inside Header', function() {
 
 	it('Check Nav', function() {
 		cy.get('.nav')
-		.children('.nav__link')
+		.children('a')
 		.should('have.attr', 'href')
 	})
 

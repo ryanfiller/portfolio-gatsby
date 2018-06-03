@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import OffCanvas from '../components/off-canvas'
+import Overlay from '../components/overlay'
 
 import '../styles/styles.scss'
 require("typeface-raleway")
@@ -53,12 +54,14 @@ class TemplateWrapper extends React.Component {
 					{ name: 'keywords', content: 'sample, something' },
 					]}
 				/>
-
 				<OffCanvas />
 
 				<div className="site__content">
 
-					<div className="overlay" onClick={this.toggleOffCanvas} />
+					{this.state.open ? 
+						<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
+						: ''
+					}
 
 					<Header toggleOffCanvas={this.toggleOffCanvas}/>
 
