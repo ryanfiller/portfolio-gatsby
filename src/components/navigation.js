@@ -15,18 +15,19 @@ export default class Navigation extends Component {
 				{ pages.map((page) =>
 					{if(page != 'contact'){
 						return(
-							<a href="" // for tab-index
-							onClick={ () => navigateTo(page) } 
+							<Link 
+							to={ page } 
 							key={page} 
 							data-text={page} 
 							activeClassName="active">
 								{page}
-							</a>
+							</Link>
 						)
 					} else {
 						return(
 							<MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
-								<a href="" // for tab-index
+								<a
+								href="#contact-form"
 								onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
 								key={page} 
 								data-text={page} 
@@ -51,7 +52,7 @@ const StyledNav = styled.nav`
 	a {
 		text-decoration: none;
 		margin-left: 2rem;
-		${ fonts.condensed};
+		${fonts.condensed};
 		text-transform: uppercase;
 		font-size: 1em;
 		color: ${colors.white};
@@ -84,4 +85,20 @@ const StyledNav = styled.nav`
 			margin: 0;
 		}
 	}
+
+	.horizontal & {
+		@supports (display: grid) {
+			@media (min-width: ${breaks.tablet}px) {
+				width: 100%;
+                flex: initial;
+				display: block;
+
+				a {
+					display: block;
+					text-align: center;
+					margin: .5em;
+				}
+            }
+        }
+    }
 `;

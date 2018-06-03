@@ -40,10 +40,9 @@ export default class Form extends React.Component {
         id="contact-form"
         name="contact"
         method="post"
-        action="/thanks/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
+        // onSubmit={this.handleSubmit}
         >
 
             <div className="form__row">
@@ -61,11 +60,13 @@ export default class Form extends React.Component {
                 <label htmlFor="message">Message</label>
             </div>
 
+            <div data-netlify-recaptcha />
+
             <div className="form__row">
                 <input name="bot-field" hidden />
-                <input className="button" type="submit" value="Send" />
+                <button className="button" type="submit" value="Send" onClick={ (e) => {this.handleSubmit(e)} }>Send</button>
             </div>
-        </form>;
+        </form>
 
     const Sent = <div className="contact-form__message">
         Message sent!
