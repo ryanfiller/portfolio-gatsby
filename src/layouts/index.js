@@ -133,7 +133,7 @@ const StyledSite = styled.div`
 						grid-column-start: 2;
 						grid-column-end: 3;
 						z-index: 10;
-						
+						box-shadow: 0px 0px 1.25rem ${colors.black};
 					}
 
 					.header {

@@ -8,7 +8,7 @@ const Portfolio = ({ data }) => {
 	return (
 		<main className="page-content">
 
-			<PortfolioFilter categories={data.allMarkdownRemark.edges} />
+			{/* <PortfolioFilter categories={data.allMarkdownRemark.edges} /> */}
 			<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
 
 		</main>
