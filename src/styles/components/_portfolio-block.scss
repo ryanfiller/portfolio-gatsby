@@ -95,12 +95,32 @@
         z-index: 2;
     }
 
-    &:hover, &:focus {
+    &:hover, &:focus {   
+        
         &:before {
             opacity: .5;
         }
         .portfolio-block__content {
             max-height: 100%;
+        }
+    }
+
+    @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+        transition: .2s;
+        clip-path: polygon(
+            0 0,
+            100% 0, 
+            100% 100%, 
+            0 100%
+        );
+
+        &:hover, &:focus {
+            clip-path: polygon(
+            1rem 2rem, 
+            calc(100% - 2rem) 1rem, 
+            calc(100% - 1rem) calc(100% - 2rem), 
+            2rem calc(100% - 1rem)
+        );
         }
     }
 }

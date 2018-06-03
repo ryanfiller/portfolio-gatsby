@@ -96,11 +96,11 @@ const StyledSite = styled.div`
 		display: flex;
 		flex-direction: column;
 
-		/* @include tablet-break {
-			// display: block;
+		@media (min-width: ${breaks.tablet}px) {
+			display: block;
 			height: auto;
 			min-height: 100vh;
-		} */
+		}
 
 		.header {
 			width: 100%;
@@ -118,13 +118,16 @@ const StyledSite = styled.div`
 	}
 
 	&.horizontal {
+		.site-content {
+			background-color: ${colors.black};
+		}
+
 		@supports (display: grid) {
 			@media (min-width: ${breaks.tablet}px) {
 				.site-content {
 					display: grid;
 					grid-template-columns: 80vw 20vw;
 					grid-template-rows: 1fr auto;
-					background: ${colors.black};
 
 					.header, .footer {
 						grid-column-start: 2;
