@@ -11,6 +11,9 @@ export default class IndexPage extends React.Component {
 
 	constructor({ data }) {
 		super({ data });
+		this.state = {
+			category: 'all',
+		};
 	}
 
 	componentDidMount() {
@@ -40,7 +43,7 @@ export default class IndexPage extends React.Component {
 		return (
 			<main className="page-content">
 	
-				<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
 	
 			</main>
 		);

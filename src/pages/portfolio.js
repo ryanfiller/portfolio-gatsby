@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import Dropdown from '../components/dropdown'
+import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'
 
 export default class Portfolio extends React.Component {
@@ -10,7 +10,7 @@ export default class Portfolio extends React.Component {
 		super({ data });
 		this.setFilter = this.setFilter.bind(this);
 		this.state = {
-			category: '',
+			category: 'all',
 		};
 	}
 
@@ -40,14 +40,14 @@ export default class Portfolio extends React.Component {
 
 		const { data } = this.props;
 
-		console.log(this.state)
+		console.log('state', this.state)
 
 		return (
 			<main className="page-content">
 
-				<Dropdown title={'Filter...'} items={this.getCategories(data.allMarkdownRemark.edges)} itemOnClick={this.setFilter} />
+				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
 
-				<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
 
 			</main>
 		);
