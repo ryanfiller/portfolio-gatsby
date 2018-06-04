@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
 
 
 
-export default class PortfolioFilter extends Component {
+export default class PortfolioFilter extends React.Component {
   render() {
     return (
       <div>

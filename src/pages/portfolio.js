@@ -1,22 +1,59 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import PortfolioFilter from '../components/portfolio-filter.js'
-import PortfolioGrid from '../components/portfolio-grid.js'
 
-const Portfolio = ({ data }) => {
+import Dropdown from '../components/dropdown'
+import PortfolioGrid from '../components/portfolio-grid'
 
-	return (
-		<main className="page-content">
+export default class Portfolio extends React.Component {
+	
+	constructor({ data }) {
+		super({ data });
+		this.setFilter = this.setFilter.bind(this);
+		this.state = {
+			category: '',
+		};
+	}
 
-			<PortfolioFilter categories={data.allMarkdownRemark.edges} />
-			
-			<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+	getCategories(data) {
+		var categories = [];
 
-		</main>
-	);
+		data.map(({ node }) => (
+			node.frontmatter.category.map((item) => {
+				categories.push(item);
+			})
+		));
+
+		return categories.filter(
+			(value, index, self) => { 
+				return self.indexOf(value) === index;
+			}
+		).sort();
+	}
+
+	setFilter(category) {
+		this.setState({
+			category: category,
+		});
+	}
+
+	render () {
+
+		const { data } = this.props;
+
+		console.log(this.state)
+
+		return (
+			<main className="page-content">
+
+				<Dropdown title={'Filter...'} items={this.getCategories(data.allMarkdownRemark.edges)} itemOnClick={this.setFilter} />
+
+				<PortfolioGrid portfolio={data.allMarkdownRemark.edges}/>
+
+			</main>
+		);
+	}
 };
 
-export default Portfolio
 
 export const query = graphql`
 	query PortfolioListQuery {
