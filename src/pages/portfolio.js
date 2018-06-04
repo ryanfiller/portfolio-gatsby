@@ -40,8 +40,6 @@ export default class Portfolio extends React.Component {
 
 		const { data } = this.props;
 
-		console.log('state', this.state)
-
 		return (
 			<main className="page-content">
 

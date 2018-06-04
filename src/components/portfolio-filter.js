@@ -17,7 +17,6 @@ export default class Dropdown extends React.Component {
 					</a>
                 </li>
                 {categories.map((item) => {
-                    console.log(item)
                     return (
                         <li key={item} onClick={() => setFilter(item)}>
 							<a href="#" tabindex="0" className={currentCategory === item ? 'current' : ''}>

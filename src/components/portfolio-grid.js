@@ -10,25 +10,15 @@ export default class PortfolioGrid extends Component {
 
 		const { currentCategory } = this.props;
 
-		if (currentCategory === 'all') {
-			return (
-				<StyledPfolioGrid className="portfolio-grid">
-					{this.props.portfolio.map(({ node }, index) => (
+		return (
+			<StyledPfolioGrid className="portfolio-grid">
+				{this.props.portfolio.map(({ node }, index) => (
+					currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
 						<PortfolioBlock card={node} key={index}/>
-					))} 
-				</StyledPfolioGrid>
-			)
-		} else {
-			return (
-				<StyledPfolioGrid className="portfolio-grid">
-					{this.props.portfolio.map(({ node }, index) => (
-						node.frontmatter.category.includes(currentCategory) ?
-							<PortfolioBlock card={node} key={index}/>
-						: ''
-					))} 
-				</StyledPfolioGrid>
-			)
-		}
+					: ''
+				))} 
+			</StyledPfolioGrid>
+		)
 	}
 }
 
