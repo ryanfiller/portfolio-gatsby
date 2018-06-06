@@ -36,53 +36,69 @@ const StyledDropdown = styled.ul`
 	list-style: none;
 	display: flex;
 	justify-content: center;
-	font-size: 2rem;
+	font-size: 1.75rem;
 	padding: 2em;
 	${container}
 	${readable}
+    ${fonts.sansSerif}
 
 	li {
 		text-align: center;
 		text-transform: uppercase;
 
 		a {
-			${fonts.condensed}
 			text-transform: uppercase;
 			text-decoration: none;
+            color: ${colors.blue};
 
 			&.current {
 				color: ${colors.orange};
+			}
+
+            &:hover {
+				color: ${colors.black};
 			}
 		}
 
 		&:after {
 			content: '|';
 			margin: 0 1em;
+
+            @media (max-width: ${breaks.tablet}px) {
+                margin: 0 .5em;
+            }
 		}
 
 		&:last-child:after {
 			display: none;
 		}
 	}
+
+    @media (max-width: ${breaks.phone}px) {
+        padding: 0;
+        margin: .5rem;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+
+        li {
+            width: 50%;
+            padding: .25rem;
+
+            a {
+                display: block;
+                padding: .66em;
+                color: ${colors.white};
+                background-color: ${colors.blue};
+
+                &.current {
+                    color: ${colors.white};
+				    background-color: ${colors.orange};
+			    }
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
 `
-
-
-{/* <nav class="subnav js-subnav-mobile">
-    <div class="subnav__title js-expander">
-        <span>Categories</span>
-    </div>
-    <ul class="subnav__list js-expandee">
-        {% for tag in tags %}
-            <li class="subnav__link {% if page.filter == tag %}active{% endif %}">
-                <a href="/{{ tag }}/">
-                    {{ tag }}
-                </a>
-            </li>
-        {% endfor %}
-        <li class="subnav__link {% if page.filter == tag %}active{% endif %}">
-            <a href="/{{ page.parent }}/">
-                all
-            </a>
-        </li>
-    </ul>
-</nav> */}

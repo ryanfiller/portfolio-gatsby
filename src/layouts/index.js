@@ -108,7 +108,10 @@ const StyledSite = styled.div`
 
 		.footer {
 			width: 100%;
-		}	
+		}
+		@media (max-width: ${breaks.phone}px) {
+			height: auto;
+		}
 	}
 
 	&.horizontal {
