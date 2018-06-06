@@ -116,11 +116,20 @@
 
         &:hover, &:focus {
             clip-path: polygon(
-            1rem 2rem, 
-            calc(100% - 2rem) 1rem, 
-            calc(100% - 1rem) calc(100% - 2rem), 
-            2rem calc(100% - 1rem)
-        );
+                1rem 2rem, 
+                calc(100% - 2rem) 1rem, 
+                calc(100% - 1rem) calc(100% - 2rem), 
+                2rem calc(100% - 1rem)
+            );
+        }
+
+        &:nth-child(odd):hover, &:nth-child(odd):focus {
+            clip-path: polygon(
+                2rem 1rem, 
+                calc(100% - 1rem) 2rem, 
+                calc(100% - 2rem) calc(100% - 1rem), 
+                2rem calc(100% - 2rem)
+            );
         }
     }
 }
