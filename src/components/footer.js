@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 import Socials from './socials'
 
 import { breaks, colors, fonts, container } from '../config/config';
-
 import styled from 'styled-components';
 
 

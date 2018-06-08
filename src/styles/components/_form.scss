@@ -77,16 +77,16 @@
         transition: $transition;
     }
 
-    .button {
-        @include button($color-orange);
-        @include font-condensed;
-        text-transform: uppercase;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        -webkit-appearance: none;
-        font-size: 1.25em;
-    }
+    // .button {
+    //     // @include button($color-orange);
+    //     @include font-condensed;
+    //     text-transform: uppercase;
+    //     padding: 0;
+    //     border: 0;
+    //     border-radius: 0;
+    //     -webkit-appearance: none;
+    //     font-size: 1.25em;
+    // }
 }
 
 .contact-form__message {

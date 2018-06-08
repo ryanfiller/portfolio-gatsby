@@ -1,5 +1,8 @@
 import React from "react";
 
+import { breaks, colors, fonts, container, transition } from '../config/config';
+import styled from 'styled-components';
+
 function encode(data) {
   return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -64,7 +67,9 @@ export default class Form extends React.Component {
 
             <div className="form__row">
                 <input name="bot-field" hidden />
-                <button className="button" type="submit" value="Send" onClick={ (e) => {this.handleSubmit(e)} }>Send</button>
+                <StyledButton color={colors.orange} type="submit" value="Send" onClick={ (e) => {this.handleSubmit(e)} }>
+                    <span>Send</span>
+                </StyledButton>
             </div>
         </form>
 
@@ -85,3 +90,47 @@ export default class Form extends React.Component {
     }
   }
 }
+
+
+const StyledButton = styled.button`
+    
+    background: ${props => props.color};
+    ${fonts.condensed}
+    text-transform: uppercase;
+    padding: .5em;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: 1.25em;
+    transition: ${transition};
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: ${colors.black};
+        transition: opacity ${transition};
+        opacity: 0;
+        mix-blend-mode: multiply;        
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        &:after {
+            opacity: .125;
+        }
+    }
+
+    span {
+        color: ${colors.white};
+        position: relative;
+        z-index: 2;
+    }
+`;
