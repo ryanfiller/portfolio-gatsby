@@ -2,44 +2,44 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 
 class PortfolioGallery extends React.Component {
-  render() {
+	render() {
 
-    if(this.props.images.length > 1) {
-      var params = {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-      }
-    } else {
-      var params = {
-        loop: false,
-      }
-    }
+		if (this.props.images.length > 1) {
+			var params = {
+				loop: true,
+				pagination: {
+					el: '.swiper-pagination',
+					type: 'bullets',
+					clickable: true
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev'
+				},
+			}
+		} else {
+			var params = {
+				loop: false,
+			}
+		}
 
-    var color = {
-      color: this.props.color,
-    };
+		var color = {
+			color: this.props.color,
+		};
 
-    return(
-      <div className="portfolio-gallery" style={color}>
-        <Swiper {...params}>
-          {this.props.images.map(( {image, slidetype}, index ) => (
-            <div key={index}>
-              <img src={image} />
-            </div>
-          ))} 
-        </Swiper>
-      </div>
-      
-    )
-  }
+		return (
+			<div className="portfolio-gallery" style={color}>
+				<Swiper {...params}>
+					{this.props.images.map(({ image, slidetype }, index) => (
+						<div key={index}>
+							<img src={image} />
+						</div>
+					))}
+				</Swiper>
+			</div>
+
+		)
+	}
 }
 
 export default PortfolioGallery;

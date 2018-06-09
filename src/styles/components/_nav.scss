@@ -1,0 +1,61 @@
+.nav {
+    color: $color-white;
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+
+	a {
+		text-decoration: none;
+		margin-left: 2rem;
+		@include font-condensed;
+		text-transform: uppercase;
+		font-size: 1em;
+		color: $color-white;
+
+		&.active {
+			color: $color-orange;
+		}
+
+		&:hover {
+			color: $color-orange;
+			cursor: pointer;
+		}
+
+		#site.open & {
+			color: $color-white;
+			
+			&#contact {
+				position: relative;
+				z-index: 100;
+				color: $color-orange;
+			}
+		}
+	}
+
+	.off-canvas & {
+		display: block;
+		@include container;
+
+		a {
+			display: block;
+			padding: 1em 0;
+			margin: 0;
+		}
+	}
+
+	.horizontal & {
+		@supports (display: grid) {
+			@media (min-width: $phone) {
+				width: 100%;
+                flex: initial;
+				display: block;
+
+				a {
+					display: block;
+					text-align: center;
+					margin: .5em;
+				}
+            }
+        }
+    }
+}

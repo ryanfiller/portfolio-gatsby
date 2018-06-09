@@ -11,8 +11,6 @@ import '../styles/styles.scss'
 
 require("typeface-raleway")
 require("typeface-dosis")
-import styled from 'styled-components';
-import config, { breaks, colors } from '../config/config';
 
 
 export default class TemplateWrapper extends React.Component {
@@ -55,7 +53,7 @@ export default class TemplateWrapper extends React.Component {
 		}
 		
 		return (
-			<StyledSite className={this.state.open == false ? `site ${orientation}` : `open site ${orientation}` } id="site">
+			<main className={this.state.open == false ? `site ${orientation}` : `open site ${orientation}` } id="site">
 
 				<Helmet
 					title="ryanfiller.com"
@@ -81,82 +79,7 @@ export default class TemplateWrapper extends React.Component {
 
 				</div>
 
-			</StyledSite>
+			</main>
 		)
 	}
 }
-
-const StyledSite = styled.div`
-
-	position: relative;
-    will-change: transform;
-    transition: ${config.transition};
-
-    &.open {
-        transform: translateX(-33.33vw);
-
-        @media (max-width: ${breaks.tablet}px) {
-			transform: 
-			translateX(-100%) translateX(${config.padding}) translateX(${config.naviconWidth}) translateX(${config.padding});
-        }
-    }
-
-	.site-content {
-		background-color: ${colors.white};
-		height: 100vh;
-		width: 100vw;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-
-		.page-content {
-			flex: 1;
-			overflow: scroll;
-		}
-
-		@media (max-width: ${breaks.phone}px) {
-			height: auto;
-		}
-	}
-
-	&.horizontal {
-		.site-content {
-			background-color: ${colors.black};
-		}
-
-		@supports (display: grid) {
-			@media (min-width: ${breaks.tablet}px) {
-				.site-content {
-					display: grid;
-					grid-template-columns: 80vw 20vw;
-					grid-template-rows: 1fr auto;
-
-					.header, .footer {
-						grid-column-start: 2;
-						grid-column-end: 3;
-						z-index: 10;
-						box-shadow: 0px 0px 1.25rem ${colors.black};
-					}
-
-					.header {
-						grid-row-start: 1;
-						grid-row-end: 2;
-					}
-
-					.footer {
-						grid-row-start: 2;
-						grid-row-end: 3;
-					}
-
-					.page-content {
-						grid-column-start: 1;
-						grid-column-end: 2;
-						grid-row-start: 1;
-						grid-row-end: 3;
-						overflow-x: scroll;
-					}
-				}
-			}
-		}
-	}
-`
