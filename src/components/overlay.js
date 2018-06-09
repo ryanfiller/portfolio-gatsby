@@ -22,4 +22,9 @@ const StyledOverlay = styled.header`
     background: ${colors.black};
     opacity: .5;
     z-index: 40;
+    
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
 `;

@@ -66,8 +66,10 @@ const StyledNav = styled.nav`
 			cursor: pointer;
 		}
 
-		&#contact {
-			#site.open & {
+		#site.open & {
+			color: ${colors.white};
+			
+			&#contact {
 				position: relative;
 				z-index: 100;
 				color: ${colors.orange};
