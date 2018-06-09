@@ -1,0 +1,19 @@
+.header {
+    background-color: $color-black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    @include container;
+
+    .horizontal & {
+		@supports (display: grid) {
+			@media (min-width: $phone) {
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: space-around;
+            }
+        }
+    }
+}
