@@ -12,7 +12,7 @@ import '../styles/styles.scss'
 require("typeface-raleway")
 require("typeface-dosis")
 import styled from 'styled-components';
-import { breaks, colors } from '../config/config';
+import config, { breaks, colors } from '../config/config';
 
 
 export default class TemplateWrapper extends React.Component {
@@ -88,6 +88,19 @@ export default class TemplateWrapper extends React.Component {
 
 const StyledSite = styled.div`
 
+	position: relative;
+    will-change: transform;
+    transition: ${config.transition};
+
+    &.open {
+        transform: translateX(-33.33vw);
+
+        @media (max-width: ${breaks.tablet}px) {
+			transform: 
+			translateX(-100%) translateX(${config.padding}) translateX(${config.naviconWidth}) translateX(${config.padding});
+        }
+    }
+
 	.site-content {
 		background-color: ${colors.white};
 		height: 100vh;
@@ -96,19 +109,11 @@ const StyledSite = styled.div`
 		display: flex;
 		flex-direction: column;
 
-		.header {
-			width: 100%;
-		}
-
 		.page-content {
-			width: 100%;
 			flex: 1;
 			overflow: scroll;
 		}
 
-		.footer {
-			width: 100%;
-		}
 		@media (max-width: ${breaks.phone}px) {
 			height: auto;
 		}
