@@ -124,7 +124,8 @@ const StyledForm = styled.form`
 
     input, textarea {
         ${fonts.sansSerif}
-        padding: ${padding}/4;
+        /* padding: ${config.padding}/4; */
+        padding: 2rem / 2;
         border: 2px solid transparent;
         border-radius: 0;
         -webkit-appearence: none;

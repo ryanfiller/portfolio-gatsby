@@ -21,7 +21,7 @@ module.exports = {
 	pages: [
 		'portfolio', 
 		'about',
-		// 'blog', 
+		'blog', 
 		'contact'
 	],
 
