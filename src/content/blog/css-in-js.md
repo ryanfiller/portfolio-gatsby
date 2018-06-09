@@ -28,6 +28,8 @@ missing scss fuctions, colors and math
 
 double mental model, never stop having to think about css
 
+shared styles, work stuff
+
 
 ## did it solve the problems
 
