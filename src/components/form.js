@@ -1,6 +1,6 @@
 import React from "react";
 
-import { breaks, colors, fonts, container, transition } from '../config/config';
+import config, { breaks, colors, fonts, container } from '../config/config';
 import styled from 'styled-components';
 
 function encode(data) {
@@ -39,7 +39,7 @@ export default class Form extends React.Component {
 
   render(state) {
 
-    const Form = <form
+    const Form = <StyledForm
         id="contact-form"
         name="contact"
         method="post"
@@ -71,7 +71,7 @@ export default class Form extends React.Component {
                     <span>Send</span>
                 </StyledButton>
             </div>
-        </form>
+        </StyledForm>
 
     const Sent = <div className="contact-form__message">
         Message sent!
@@ -91,6 +91,105 @@ export default class Form extends React.Component {
   }
 }
 
+const StyledForm = styled.form`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: ${config.padding};
+
+    @media (max-width: ${breaks.phone}px) {
+        height: auto;
+    }
+
+    .form__row {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: ${config.padding};
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--tall {
+            flex: 1;
+            min-height: 20rem;
+            max-height: 25rem;
+        }
+    }
+
+    input, textarea {
+        ${fonts.sansSerif}
+        padding: ${padding}/4;
+        border: 2px solid transparent;
+        border-radius: 0;
+        -webkit-appearence: none;
+        transition: ${config.transition};
+        flex: 1;
+        order: 1;
+
+            &:focus {
+                outline: none;
+                border: 2px solid ${colors.gray};
+                margin: 0;
+
+                &::-webkit-input-placeholder {
+                    transition: ${config.transition};
+                    color: transparent;
+                }
+                &::-moz-placeholder {
+                    transition: ${config.transition};
+                    color: transparent;
+                }
+                + label {
+                    max-height: ${config.padding};
+                }
+            }
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    label {
+        max-height: 0;
+        color: ${colors.white};
+        font-weight: bold;
+        background-color: ${colors.gray};
+        overflow: hidden;
+        font-size: .6em;
+        padding-left: 0.5rem;
+        flex: 1;
+        order: 2;
+        display: flex;
+        align-items: center;
+        transition: ${config.transition};
+    }
+`
+
+// .contact-form__message {
+//     margin-top: 25vh;
+//     color: $color-white;
+//     text-align: center;
+//     width: 100%;
+//     font-size: 1.5em;
+
+//     a {
+//         display: block;
+//         cursor: pointer;
+//         color: $color-orange;
+//         margin-top: $padding;
+
+//             &:hover {
+//                 color: $color-white;
+//             }
+//     }
+// }
+
 
 const StyledButton = styled.button`
     
@@ -102,7 +201,7 @@ const StyledButton = styled.button`
     border-radius: 0;
     -webkit-appearance: none;
     font-size: 1.25em;
-    transition: ${transition};
+    transition: ${config.transition};
     position: relative;
 
     &:after {
@@ -115,7 +214,7 @@ const StyledButton = styled.button`
         bottom: 0;
         left: 0;
         background: ${colors.black};
-        transition: opacity ${transition};
+        transition: opacity ${config.transition};
         opacity: 0;
         mix-blend-mode: multiply;        
     }

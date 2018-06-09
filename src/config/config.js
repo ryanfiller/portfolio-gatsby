@@ -44,7 +44,16 @@ module.exports = {
 		white: '#fcfaf6',
 		black: '#1e2223',
 		blue: '#3f7cac',
-		orange: '#f89c7d'
+		orange: '#f89c7d',
+		get gray () {
+			return LightenDarkenColor(this.black, 20);
+		},
+		get grayLight () {
+			return LightenDarkenColor(this.gray, 85);
+		},
+		get grayDark () {
+			return LightenDarkenColor(this.gray, -15);
+		}
 	},
 
 	breaks: {
@@ -82,3 +91,33 @@ module.exports = {
 // color-gray: lighten($color-black, 10%);
 // color-light-gray: lighten($color-gray, 25%);
 // color-dark-gray: darken($color-gray, 5%);
+
+function LightenDarkenColor(col, amt) {
+  
+    var usePound = false;
+  
+    if (col[0] == "#") {
+        col = col.slice(1);
+        usePound = true;
+    }
+ 
+    var num = parseInt(col,16);
+ 
+    var r = (num >> 16) + amt;
+ 
+    if (r > 255) r = 255;
+    else if  (r < 0) r = 0;
+ 
+    var b = ((num >> 8) & 0x00FF) + amt;
+ 
+    if (b > 255) b = 255;
+    else if  (b < 0) b = 0;
+ 
+    var g = (num & 0x0000FF) + amt;
+ 
+    if (g > 255) g = 255;
+    else if (g < 0) g = 0;
+ 
+    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+  
+}
