@@ -26,6 +26,8 @@ bem made scoping never an issue
 
 missing scss fuctions, colors and math
 
+double mental model, never stop having to think about css
+
 
 ## did it solve the problems
 
