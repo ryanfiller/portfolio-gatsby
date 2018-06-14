@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 
 import ContentMeta from './content-meta'
 
-
 export default class PortfolioBlock extends Component {
 
 	constructor(props) {
@@ -54,7 +53,7 @@ export default class PortfolioBlock extends Component {
 					/>
 					<span className="portfolio-block__link">
 						Read More
-            </span>
+            		</span>
 				</div>
 			</Link>
 		)
