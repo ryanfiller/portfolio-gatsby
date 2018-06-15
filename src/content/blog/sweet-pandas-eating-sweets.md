@@ -2,7 +2,7 @@
 template: blog-item
 title: The one about the pandas with the really really long title that goes on to lots and lots of lines
 excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-banner: /images/uploads/screen-shot.png
+thumbnail: /images/site-assets/placeholder.png
 path: /blog/pandas
 date: '2017-08-10'
 category:

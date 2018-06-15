@@ -2,7 +2,7 @@
 template: blog-item
 title: type grid stuff
 excerpt: asdf asdfasdf asdf as.
-banner: /images/uploads/screen-shot.png
+thumbnail: /images/uploads/screen-shot.png
 path: /blog/type-grid
 date: '2017-09-10'
 category: 

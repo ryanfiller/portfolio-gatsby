@@ -15,24 +15,27 @@ export default class PortfolioBlock extends Component {
 			<div className="blog-list">
 				{this.props.blog.map(({ node }, index) => (
 					<article className="blog-preview">
-						<span className="blog-preview__date">
-							{node.frontmatter.date}
-						</span>
-						<header className="blog-preview__header">
-							<Link to={node.frontmatter.path}>
-								{node.frontmatter.title}
-							</Link>
-						</header>
-						<ContentMeta
-							category={node.frontmatter.category}
-							tags={node.frontmatter.tags}
-						/>
-						<p>
-							{node.frontmatter.excerpt}
+						<img className="blog-preview__thumbnail" src={node.frontmatter.thumbnail} alt={node.frontmatter.title}/>
+						<div className="blog-preview__content">
+							<header className="blog-preview__header">
+								<Link to={node.frontmatter.path}>
+									{node.frontmatter.title}
+								</Link>
+							</header>
+							<span className="blog-preview__date">
+								{node.frontmatter.date}
+							</span>
+							<p className="blog-preview__excerpt">
+								{node.frontmatter.excerpt}
+							</p>
+							<ContentMeta
+								category={node.frontmatter.category}
+								tags={node.frontmatter.tags}
+							/>
 							<Link to={node.frontmatter.path}  className="blog-preview__link">
 								Read More
 							</Link>
-						</p>
+						</div>
 					</article>
 				))} 
 			</div>

@@ -62,13 +62,15 @@ svg, svg * {
     }
 }
 
-@mixin highlight {
+@mixin highlight($color:currentColor, $hover-color: currentColor, $background-color: $color-orange) {
+    color: $color;
     transition: color $transition * 2, background $transition;
-    background-image: linear-gradient(to right, $color-white 50%, $color-orange 50%);
+    background-image: linear-gradient(to right, transparent 50%, $background-color 50%);
     background-position: 0;
     background-size: 200%;
 
     &:hover {
+        color: $hover-color;
         background-position: -100%;
     }
 }

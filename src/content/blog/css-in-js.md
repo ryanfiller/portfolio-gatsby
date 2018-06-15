@@ -2,7 +2,7 @@
 template: blog-item
 title: CSS in JS
 excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-banner: /images/uploads/screen-shot.png
+thumbnail: /images/site-assets/placeholder-thumb.jpg
 path: /blog/whatever-whatever
 date: '2017-08-15'
 category: 
