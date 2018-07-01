@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "gatsby-link";
+import Headshot from '../components/headshot';
 
 const About = () => (
 	<main className="page-content">
 		<div className="temporary-about">
+			<Headshot />
 			<p>
 				I’m a designer, developer, and illustrator living and working in Memphis, Tennessee.      
 			</p>
