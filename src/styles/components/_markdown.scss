@@ -1,5 +1,7 @@
+@import '../vendor/prism-theme';
+
 .markdown {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.6em;
     background: $color-white;
 
@@ -79,11 +81,11 @@
     }
     
     blockquote {
-        font-size: 1.25em;
+        font-size: 1.125em;
         line-height: 1.75em;
         border-left: 1.5em solid $color-blue;
         padding-left: .5em;
-        margin: $padding 2em $padding 0;
+        margin: $padding 0;
         position: relative;
     
         &:before {
@@ -111,7 +113,7 @@
         }
     }
 
-    img.none {
+    img.center {
         display: block;
         margin: 0 auto;
         width: auto;
@@ -245,10 +247,12 @@
     }
 
     .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        width: calc(100% + (2 * #{$padding}));
+        margin: 0 -1*$padding $padding -1*$padding;
 
         iframe {
             position: absolute;

@@ -1,0 +1,48 @@
+.headshot {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0;
+    width: 25rem;
+    height: 25rem;
+
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    @supports(mix-blend-mode: multiply) {
+        background-color: $color-blue;
+        position: relative;
+        
+        img {
+            mix-blend-mode: hard-light;
+            filter: grayscale(100%) contrast(1);
+            transition: $transition;
+            opacity: .9;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background-image: url('/images/site-assets/headshot-transparent.png');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        &:hover {
+            cursor: help;
+
+            img {
+                filter: grayscale(100%) contrast(1.25);
+            }
+        }
+    }
+}

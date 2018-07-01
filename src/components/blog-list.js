@@ -15,7 +15,9 @@ export default class PortfolioBlock extends Component {
 			<div className="blog-list">
 				{this.props.blog.map(({ node }, index) => (
 					<article className="blog-preview">
-						<img className="blog-preview__thumbnail" src={node.frontmatter.thumbnail} alt={node.frontmatter.title}/>
+						<Link to={node.frontmatter.path}>
+							<img className="blog-preview__thumbnail" src={node.frontmatter.thumbnail} alt={node.frontmatter.title}/>
+						</Link>
 						<div className="blog-preview__content">
 							<header className="blog-preview__header">
 								<Link to={node.frontmatter.path}>

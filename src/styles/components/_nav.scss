@@ -19,6 +19,7 @@
 		&:hover {
 			color: $color-orange;
 			cursor: pointer;
+			@include glitch($color-orange, $color-black);
 		}
 
 		#site.open & {
