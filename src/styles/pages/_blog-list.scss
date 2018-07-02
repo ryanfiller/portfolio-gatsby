@@ -6,7 +6,6 @@
         display: flex;
         flex-wrap: wrap;
         padding: 2rem;
-        box-sizing: border-box;
     }
 
     .blog-preview {
@@ -16,7 +15,6 @@
         transition: $transition;
         color: $color-gray;
         padding: 2rem;
-        box-sizing: border-box;
         flex: 1;
         max-width: 33.333vw;
 
