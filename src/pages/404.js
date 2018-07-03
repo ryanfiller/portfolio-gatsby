@@ -11,6 +11,33 @@ export default class FourOhFour extends React.Component {
 		this.handleArrows = this.handleArrows.bind(this);
 	}
 
+	links = [
+		{
+			title: 'Go home',
+			navigate: () => {
+				navigateTo('/')
+			}
+		},
+		{
+			title: 'See my work',
+			navigate: () => {
+				navigateTo('/portfolio')
+			}
+		},
+		{
+			title: 'Go back',
+			navigate: () => {
+				window.history.back();
+			}
+		},
+		{
+			title: 'Read some blogs',
+			navigate: () => {
+				navigateTo('/blog')
+			}
+		}
+	]
+
 	componentDidMount() {
 		document.addEventListener('keydown', this.onKeydown)
 	}
@@ -25,27 +52,31 @@ export default class FourOhFour extends React.Component {
 		switch(e.which) {
 			case 38:
 			this.handleArrows('up');
-			// console.log('up', this.state.menu);
 			break;
 			
 			case 40:
 			this.handleArrows('down');
-			// console.log('down', this.state.menu);
 			break;
 			
 			case 37:
 			this.handleArrows('left');
-			// console.log('left', this.state.menu);
 			break;
 
 			case 39:
 			this.handleArrows('right');
-			// console.log('right', this.state.menu);
+			break;
+
+			case 13:
+			if(this.state.menu !== '') {
+				// console.log(
+				// 	this.links[this.state.menu].navigate
+				// );
+				this.links[this.state.menu].navigate();
+			}
 			break;
 
 			default: return; // regular keys
 		}
-		console.log(this.links)
 		e.preventDefault();
 	}
 
@@ -88,52 +119,25 @@ export default class FourOhFour extends React.Component {
 				menu: this.state.menu - 1,
 			})
 		}
-		
-		if (this.state.menu > this.links.length && this.state.menu % 2 === 0) {
+
+		if (this.state.menu >= this.links.length) {
 			this.setState({
-				menu: 2,
-			})
-		} else if (this.state.menu > this.links.length && this.state.menu % 2 !== 0) {
-			this.setState({
-				menu: 1,
+				menu: this.state.menu - this.links.length,
 			})
 		}
-		
-		if (this.state.menu <= 0 && this.state.menu % 2 === 0) {
-			counter = this.links.length;
-		} else if (this.state.menu < 0 && this.state.menu % 2 !== 0) {
-			counter = this.links.length - 1;
+
+		if (this.state.menu < 0) {
+			this.setState({
+				menu: this.state.menu + this.links.length,
+			})
 		}
+
+		// console.log(this.links[this.state.menu]);
 	}
 
   render() {
 
-	const links = [
-		{
-			title: 'Go home',
-			navigate: () => {
-				navigateTo('/')
-			}
-		},
-		{
-			title: 'See my work',
-			navigate: () => {
-				navigateTo('/portfolio')
-			}
-		},
-		{
-			title: 'Go back',
-			navigate: () => {
-				window.history.back();
-			}
-		},
-		{
-			title: 'Read some blogs',
-			navigate: () => {
-				navigateTo('/blog')
-			}
-		}
-	]
+	const links = this.links;
 	
 	return (
 		<main className="page-content error404">
