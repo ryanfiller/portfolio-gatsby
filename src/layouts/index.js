@@ -63,12 +63,7 @@ export default class TemplateWrapper extends React.Component {
 					]}
 				/>
 
-				{
-					// makes this not show on 404 page
-					this.props.location.key || this.props.location.hash ?
-						<OffCanvas />
-					: ''
-				}
+				<OffCanvas />
 
 				<div className="site-content">
 
@@ -78,17 +73,15 @@ export default class TemplateWrapper extends React.Component {
 						: ''
 					}
 
-					{
-						// makes this not show on 404 page
-						this.props.location.key || this.props.location.hash ?
-							<Header toggleOffCanvas={this.toggleOffCanvas} />
-						: ''
-					}
+					<Header toggleOffCanvas={this.toggleOffCanvas} />
 
 					{this.props.children()}
 
-				{console.log(this.props.location.key)}
-				{console.log(this.props.location)}
+				{console.log('this.props.location.key', this.props.location.key)}
+				{console.log('this.props.location.hash', this.props.location.hash)}
+				{console.log('this.props.location', this.props.location)}
+				{console.log('this.props.locatin', this.props)}
+
 					<Footer />
 
 				</div>

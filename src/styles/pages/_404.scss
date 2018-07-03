@@ -16,6 +16,12 @@ $gradient: darken($color, 0) 0%, darken($color, 0) $percentage;
     $gradient: $gradient, $darken $currentPercentage, $darken $nextPercentage;
 }
 
+body.error404 {
+    #header {
+        display: none;
+    }
+}
+
 .error404 {
     font-family: 'VT323', monospace;
     color: white;

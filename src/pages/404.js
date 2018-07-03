@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { navigateTo } from 'gatsby-link'
 
 export default class FourOhFour extends React.Component {
@@ -136,6 +137,11 @@ export default class FourOhFour extends React.Component {
 	
 	return (
 		<main className="page-content error404">
+		
+			<Helmet>
+				<body class="error404" />
+			</Helmet>
+
 			<h1 className="error404__header">
 				<span className="error404__header--code">Error: 404.</span>
 				<span className="error404__header--text">The page you were looking for isn't here.</span>
