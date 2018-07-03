@@ -22,15 +22,22 @@ $gradient: darken($color, 0) 0%, darken($color, 0) $percentage;
     margin: 0;
     padding: 0 $padding;
     max-width: 100%;
-    background-image: url("/images/site-assets/2001.gif");
+    // background-image: url("/images/site-assets/2001.gif");
+    background-image: url("/images/site-assets/grass.gif");
+    // background-image: url('https://i.imgur.com/ttpS0hk.gif');
+    // background-image: url('https://media3.giphy.com/media/GC7C2Fi902BDG/giphy.gif');
+    // background-image: url('https://media.giphy.com/media/3o7aCQsknNqt73ARA4/giphy.gif');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
     @include image-overlay;
+
+    &:before {
+        @include pixels;
+    }
 
     &__header {
         margin-bottom: 2*$padding;

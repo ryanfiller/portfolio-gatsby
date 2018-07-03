@@ -83,8 +83,7 @@
         position: absolute;
         top: -1px; right: -1px; bottom: -1px; left: -1px;
         background-color: transparentize($color-black, .25);
-        background-image: url('/images/site-assets/screendoor.png');
-        background-position: center center;
+        
         z-index: 1;
         opacity: 0;
         transition: 0s;

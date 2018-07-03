@@ -68,9 +68,6 @@ export default class FourOhFour extends React.Component {
 
 			case 13:
 			if(this.state.menu !== '') {
-				// console.log(
-				// 	this.links[this.state.menu].navigate
-				// );
 				this.links[this.state.menu].navigate();
 			}
 			break;
@@ -131,8 +128,6 @@ export default class FourOhFour extends React.Component {
 				menu: this.state.menu + this.links.length,
 			})
 		}
-
-		// console.log(this.links[this.state.menu]);
 	}
 
   render() {
@@ -141,31 +136,31 @@ export default class FourOhFour extends React.Component {
 	
 	return (
 		<main className="page-content error404">
-		<h1 className="error404__header">
-			<span className="error404__header--code">Error: 404.</span>
-			<span className="error404__header--text">The page you were looking for isn't here.</span>
-		</h1>
-		<ul className="error404-menu">
-			{links.map((item, index) => {
-				return (
-					<li className="error404-menu__link" key={index}>
-						<a className={ this.state.menu === index ? 'active' : '' }
-							onClick={ item.navigate }
-							onMouseOver={ () => {this.setMenu(index)} }
-						>
-							{ item.title }
-						</a>
-					</li>
-				)
-			})}
-			<div className="corner"></div>
-			<div className="corner"></div>
-			<div className="corner"></div>
-			<div className="corner"></div>
-			<div className="vertical"></div>
-			<div className="horizontal"></div>
-		</ul>
-	</main>
+			<h1 className="error404__header">
+				<span className="error404__header--code">Error: 404.</span>
+				<span className="error404__header--text">The page you were looking for isn't here.</span>
+			</h1>
+			<ul className="error404-menu">
+				{links.map((item, index) => {
+					return (
+						<li className="error404-menu__link" key={index}>
+							<a className={ this.state.menu === index ? 'active' : '' }
+								onClick={ item.navigate }
+								onMouseOver={ () => {this.setMenu(index)} }
+							>
+								{ item.title }
+							</a>
+						</li>
+					)
+				})}
+				<div className="corner"></div>
+				<div className="corner"></div>
+				<div className="corner"></div>
+				<div className="corner"></div>
+				<div className="vertical"></div>
+				<div className="horizontal"></div>
+			</ul>
+		</main>
 	)
   }
 };
