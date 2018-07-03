@@ -33,6 +33,7 @@ $gradient: darken($color, 0) 0%, darken($color, 0) $percentage;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
+    justify-content: center;
     @include image-overlay;
 
     &:before {
