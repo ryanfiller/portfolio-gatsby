@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link, { navigateTo } from 'gatsby-link'
 import Img from "gatsby-image";
 
 export default class Headshot extends Component {

@@ -83,6 +83,7 @@ $gradient: darken($color, 0) 0%, darken($color, 0) $percentage;
             }
 
             a {
+                cursor: pointer;
                 display: inline-block;
                 text-decoration: none;
                 color: white;
@@ -90,7 +91,7 @@ $gradient: darken($color, 0) 0%, darken($color, 0) $percentage;
                 font-size: 2.5em;
                 padding-left: 2*$padding;
 
-                &:hover {
+                &:focus, &.active {
                     &:before {
                         content: '';
                         display: block;
