@@ -6,14 +6,4 @@
     padding: 1rem;
     font-size: 2rem;
     @include container;
-
-    .horizontal & {
-		@supports (display: grid) {
-			@media (min-width: $phone) {
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: space-around;
-            }
-        }
-    }
 }

@@ -1,0 +1,33 @@
+.site {
+    position: relative;
+    will-change: transform;
+    transition: $transition;
+
+    &.open {
+        transform: translateX(-33.33vw);
+
+        @media (max-width: $tablet) {
+			transform: 
+			translateX(-100%) translateX($padding * 2) translateX($navicon-width);
+        }
+    }
+
+	.site-content {
+		background-color: $color-white;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+
+		.page-content {
+			flex: 1;
+			overflow: scroll;
+		}
+
+		@media (max-width: $phone) {
+			min-height: 100vh;
+			height: auto;
+		}
+	}
+}

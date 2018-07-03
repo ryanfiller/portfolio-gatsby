@@ -52,18 +52,4 @@
 			fill: currentColor;
 		}
 	}
-
-	.horizontal & {
-		@supports (display: grid) {
-			@media (min-width: $phone) {
-				li {
-					flex: 1;
-				}
-
-				.social {
-					width: 100%;
-				}
-			}
-		}
-	}
 }

@@ -43,20 +43,4 @@
 			margin: 0;
 		}
 	}
-
-	.horizontal & {
-		@supports (display: grid) {
-			@media (min-width: $phone) {
-				width: 100%;
-                flex: initial;
-				display: block;
-
-				a {
-					display: inline-block;
-					text-align: center;
-					margin: .5em;
-				}
-            }
-        }
-    }
 }

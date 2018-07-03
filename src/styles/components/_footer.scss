@@ -36,17 +36,4 @@
             }
         }
     }
-
-    .horizontal & {
-		@supports (display: grid) {
-			@media (min-width: $phone) {
-                display: block;
-                text-align: center;
-
-                .copyright {
-                    margin-bottom: 1em;
-                }
-            }
-        }
-    }
 }
