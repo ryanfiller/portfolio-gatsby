@@ -9,7 +9,6 @@
     background-blend-mode: luminosity; //multiply or luminosity?
     background-size: cover;
     padding: $padding;
-    box-sizing: border-box;
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -84,8 +83,7 @@
         position: absolute;
         top: -1px; right: -1px; bottom: -1px; left: -1px;
         background-color: transparentize($color-black, .25);
-        background-image: url('/images/site-assets/screendoor.png');
-        background-position: center center;
+        
         z-index: 1;
         opacity: 0;
         transition: 0s;
@@ -116,22 +114,22 @@
         );
 
         &:hover, &:focus {
-            // clip-path: polygon(
-            //     1rem 2rem, 
-            //     calc(100% - 2rem) 1rem, 
-            //     calc(100% - 1rem) calc(100% - 2rem), 
-            //     2rem calc(100% - 1rem)
-            // );
-        clip-path: url(#tv-shape);
+            clip-path: polygon(
+                1rem 2rem, 
+                calc(100% - 2rem) 1rem, 
+                calc(100% - 1rem) calc(100% - 2rem), 
+                2rem calc(100% - 1rem)
+            );
+        // clip-path: url(#tv-shape);
         }
 
-        // &:nth-child(odd):hover, &:nth-child(odd):focus {
-        //     clip-path: polygon(
-        //         2rem 1rem, 
-        //         calc(100% - 1rem) 2rem, 
-        //         calc(100% - 2rem) calc(100% - 1rem), 
-        //         2rem calc(100% - 2rem)
-        //     );
-        // }
+        &:nth-child(odd):hover, &:nth-child(odd):focus {
+            clip-path: polygon(
+                2rem 1rem, 
+                calc(100% - 1rem) 2rem, 
+                calc(100% - 2rem) calc(100% - 1rem), 
+                2rem calc(100% - 2rem)
+            );
+        }
     }
 }

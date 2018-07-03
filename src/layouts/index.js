@@ -62,19 +62,28 @@ export default class TemplateWrapper extends React.Component {
 					{ name: 'keywords', content: 'sample, something' },
 					]}
 				/>
-				<OffCanvas />
+
+				{
+					this.props.location.key ?
+						<OffCanvas />
+					: ''
+				}
 
 				<div className="site-content">
 
-					{this.state.open ? 
-						<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
+					{
+						this.state.open ? 
+							<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
 						: ''
 					}
 
-					<Header toggleOffCanvas={this.toggleOffCanvas} />
+					{
+						this.props.location.key ?
+							<Header toggleOffCanvas={this.toggleOffCanvas} />
+						: ''
+					}
 
 					{this.props.children()}
-
 					<Footer />
 
 				</div>
