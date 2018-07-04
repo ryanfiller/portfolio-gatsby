@@ -1,6 +1,6 @@
 @import '../vendor/prism-theme';
 
-.markdown {
+.markdown, .about-text {
     font-size: 1.5rem;
     line-height: 1.6em;
     background: $color-white;
@@ -16,20 +16,13 @@
         border-bottom: 2px $color-orange dotted;
 
         &:hover {
+            @include highlight;
             color: $color-blue;
-            border-bottom: 2px $color-blue dotted;
         }
 
         @include tablet-break {
             border-bottom: 0;
             background: $color-orange;
-            padding: 0 .25em;
-            color: $color-white;
-            &:hover {
-                border-bottom: 0;
-                background-color: $color-blue;
-                color: $color-white;
-            }
         }
     }
 

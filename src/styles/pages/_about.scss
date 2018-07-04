@@ -1,0 +1,25 @@
+.page-content.about-text {
+    padding: 5rem;
+    @include container;
+    @include readable;
+
+    .headshot {
+        float: right;
+        margin-left: $spacing/2;
+        margin-bottom: $spacing/2;
+        shape-outside: circle();
+    }
+
+    p:first-of-type:first-letter {
+        @include font-condensed;
+        // background-color: $color-blue;
+        // color: $color-white;
+        // float: left;
+        // font-size: 325%;
+        // line-height: .9em;
+        // padding: .125em .25em;
+        // margin-top: -.125em;
+        // margin-right: .125em;
+        initial-letter: 4;
+      }
+}

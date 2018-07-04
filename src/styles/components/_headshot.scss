@@ -3,11 +3,13 @@
     overflow: hidden;
     border-radius: 50%;
     margin: 0;
-    width: 25rem;
-    height: 25rem;
+    width: 100%;
+    max-width: 25rem;
+    height: auto;
 
     img {
         display: block;
+        border-radius: 50%;
         height: 100%;
         width: 100%;
     }
@@ -26,6 +28,7 @@
         &:before {
             content: '';
             display: block;
+            border-radius: 50%;
             position: absolute;
             top: 0;
             right: 0;
