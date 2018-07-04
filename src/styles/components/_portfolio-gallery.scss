@@ -41,8 +41,8 @@
 
             &-prev, &-next {
                 cursor: pointer;
-                padding: $padding/2 0;
-                width: 3*$padding;
+                padding: $spacing/2 0;
+                width: 3*$spacing;
                 background-color: $color-dark-gray;
                 display: flex;
                 justify-content: center;
@@ -51,7 +51,7 @@
                 z-index: 5;
 
                 @include tablet-break {
-                    height: 2*$padding;
+                    height: 2*$spacing;
                 }
 
                 @include phone-break {
@@ -64,10 +64,10 @@
                     text-shadow: $shadow;
                     width: 0;
                     height: 0;
-                    border-top: $padding/4 solid transparent;
-                    border-bottom: $padding/4 solid transparent;
+                    border-top: $spacing/4 solid transparent;
+                    border-bottom: $spacing/4 solid transparent;
 
-                    border-left: $padding/3 solid $color-white;
+                    border-left: $spacing/3 solid $color-white;
                 }
 
                 &:hover {
@@ -92,7 +92,7 @@
         }
 
         &-pagination {
-            height: 1.5*$padding;
+            height: 1.5*$spacing;
             width: auto;
             position: absolute;
             bottom: 0;
@@ -104,7 +104,7 @@
             align-items: center;
 
             @include tablet-break {
-                height: 2*$padding;
+                height: 2*$spacing;
             }
 
             @include phone-break {

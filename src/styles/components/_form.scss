@@ -10,7 +10,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        margin-bottom: $padding;
+        margin-bottom: $spacing;
 
         &:last-child {
             margin-bottom: 0;
@@ -25,7 +25,7 @@
 
     input, textarea {
         @include font-sans-serif;
-        padding: $padding/4;
+        padding: $spacing/4;
         border: 2px solid transparent;
         border-radius: 0;
         -webkit-appearence: none;
@@ -47,7 +47,7 @@
                     color: transparent;
                 }
                 + label {
-                    max-height: $padding;
+                    max-height: $spacing;
                 }
             }
     }
@@ -87,7 +87,7 @@
         display: block;
         cursor: pointer;
         color: $color-orange;
-        margin-top: $padding;
+        margin-top: $spacing;
 
             &:hover {
                 color: $color-white;

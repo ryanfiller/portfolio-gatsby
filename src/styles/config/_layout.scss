@@ -2,15 +2,15 @@ html {
     font-size: 12px;
 }
 
-$padding: 2rem;
+$spacing: 2rem;
 
 @include phone-break {
-    $padding: 1rem;
+    $spacing: 1rem;
 }
 
 @mixin container {
-    padding-left: $padding;
-    padding-right: $padding;
+    padding-left: $spacing;
+    padding-right: $spacing;
 }
 
 @mixin readable {

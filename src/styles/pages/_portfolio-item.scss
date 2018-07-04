@@ -16,19 +16,19 @@
     }
 
     &__content {
-        padding-top: 6*$padding;
-        padding-bottom: 4*$padding;
+        padding-top: 6*$spacing;
+        padding-bottom: 4*$spacing;
 
 
         @include tablet-break {
             padding-top: 0;
-            padding-bottom: 2*$padding;
+            padding-bottom: 2*$spacing;
         }
     }
 
     &__header {
-        padding-top: 3*$padding;
-        padding-bottom: 4*$padding;
+        padding-top: 3*$spacing;
+        padding-bottom: 4*$spacing;
         position: relative;
         text-align: center;
 
@@ -98,7 +98,7 @@
             position: absolute;
             bottom: 100%;
             right: 0;
-            height: $padding*3;
+            height: $spacing*3;
             width: 50%;
             z-index: 2;
             background: linear-gradient(to top, $color-white, transparent);

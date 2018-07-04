@@ -7,7 +7,7 @@
 
     p {
         margin: 0;
-        margin-bottom: $padding;
+        margin-bottom: $spacing;
     }
 
     p a {
@@ -85,7 +85,7 @@
         line-height: 1.75em;
         border-left: 1.5em solid $color-blue;
         padding-left: .5em;
-        margin: $padding 0;
+        margin: $spacing 0;
         position: relative;
     
         &:before {
@@ -123,28 +123,28 @@
 
     img.left,figure.left {
         float: left;
-        margin: 0 $padding $padding -1*$padding;
+        margin: 0 $spacing $spacing -1*$spacing;
         width: 50%;
     }
 
     img.right, figure.right {
         float: right;
-        margin: 0 -1*$padding $padding $padding;
+        margin: 0 -1*$spacing $spacing $spacing;
         width: 50%;
     }
 
     img.full {
         display: block;
-        width: calc(100% + (2 * #{$padding}));
+        width: calc(100% + (2 * #{$spacing}));
         height: auto;
-        margin: 0 -1*$padding $padding -1*$padding;
+        margin: 0 -1*$spacing $spacing -1*$spacing;
     }
 
     img.left, img.right, img.full {
         @include phone-break {
-            width: calc(100% + (2 * #{$padding}));
+            width: calc(100% + (2 * #{$spacing}));
             height: auto;
-            margin: 0 -1*$padding $padding -1*$padding;
+            margin: 0 -1*$spacing $spacing -1*$spacing;
         }
     }
 
@@ -161,10 +161,10 @@
         @include tablet-break {
             width: 25%;
             &.left {
-                margin: 0 $padding 0 0;
+                margin: 0 $spacing 0 0;
             }
             &.right {
-                margin: 0 0 $padding 0;
+                margin: 0 0 $spacing 0;
             }
         }
 
@@ -218,9 +218,9 @@
         }
 
         @include tablet-break {
-            width: calc(100% + (2 * #{$padding}));
+            width: calc(100% + (2 * #{$spacing}));
             height: auto;
-            margin: 0 -1*$padding $padding -1*$padding;
+            margin: 0 -1*$spacing $spacing -1*$spacing;
             display: flex;
             flex-direction: row-reverse;
             flex-wrap: wrap;
@@ -243,7 +243,7 @@
     }
 
     iframe {
-        margin-bottom: $padding;
+        margin-bottom: $spacing;
     }
 
     .video-wrapper {
@@ -251,8 +251,8 @@
         padding-bottom: 56.25%; /* 16:9 */
         padding-top: 25px;
         height: 0;
-        width: calc(100% + (2 * #{$padding}));
-        margin: 0 -1*$padding $padding -1*$padding;
+        width: calc(100% + (2 * #{$spacing}));
+        margin: 0 -1*$spacing $spacing -1*$spacing;
 
         iframe {
             position: absolute;
