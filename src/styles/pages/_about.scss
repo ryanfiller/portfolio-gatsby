@@ -11,7 +11,7 @@
     }
 
     p:first-of-type:first-letter {
-        @include font-condensed;
+        // @include font-condensed;
         // background-color: $color-blue;
         // color: $color-white;
         // float: left;
@@ -20,6 +20,6 @@
         // padding: .125em .25em;
         // margin-top: -.125em;
         // margin-right: .125em;
-        initial-letter: 4;
+        // initial-letter: 4;
       }
 }
