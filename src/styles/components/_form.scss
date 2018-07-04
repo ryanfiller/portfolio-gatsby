@@ -1,15 +1,9 @@
 .form {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     margin: 0;
     font-size: 1.5rem;
-    padding: $padding;
-
-    @include phone-break {
-        height: auto;
-    }
 
     &__row {
         height: 3em;

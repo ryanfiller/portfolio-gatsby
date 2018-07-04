@@ -2,10 +2,6 @@ html {
     font-size: 12px;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 $padding: 2rem;
 
 @include phone-break {
