@@ -1,9 +1,11 @@
 @mixin button($color, $hover:darken($color, 5%)) {
     display: block;
     cursor: pointer;
+    @include font-condensed;
     text-align: center;
-    @include text-link;
     color: $color-white;
+    text-transform: uppercase;
+    text-decoration: none;
     background-color: $color;
     padding: 1em 2em;
     border: 0;

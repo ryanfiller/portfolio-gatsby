@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 
 import ContentMeta from './content-meta'
 
-
 export default class PortfolioBlock extends Component {
 
 	constructor(props) {
@@ -41,6 +40,44 @@ export default class PortfolioBlock extends Component {
 				onMouseLeave={this.handleMouseHover}
 				style={this.state.isHovering ? colorAndBackground : color}
 				className="portfolio-block">
+				<svg width="0" height="0">
+					<defs>
+						<clipPath id="tv-shape">
+							<path d="M5,
+								5S17.5,
+								0,
+								36,
+								0,
+								67,
+								5,
+								67,
+								5s5,
+								12.5,
+								5,
+								31-5,
+								31-5,
+								31a98.6,
+								98.6,
+								0,
+								0,
+								1-31,
+								5A98.6,
+								98.6,
+								0,
+								0,
+								1,
+								5,
+								67,
+								98.6,
+								98.6,
+								0,
+								0,
+								1,
+								5,
+								5Z"/>
+						</clipPath>
+					</defs>
+				</svg>
 				<div className="portfolio-block__logo">
 					<img src={this.props.card.frontmatter.logowhite} />
 				</div>
@@ -54,7 +91,7 @@ export default class PortfolioBlock extends Component {
 					/>
 					<span className="portfolio-block__link">
 						Read More
-            </span>
+            		</span>
 				</div>
 			</Link>
 		)

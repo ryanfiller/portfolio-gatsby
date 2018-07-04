@@ -1,0 +1,93 @@
+$content-offset: 10rem;
+
+.page-content-blog {
+    .blog-banner {
+        font-size: 4rem;
+        background: $color-orange;
+        width: 100vw;
+        position: relative;
+        @include image-overlay;
+        padding-bottom:$content-offset;
+        overflow: hidden;
+    
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                @include pixels;
+                opacity: .5;
+            }
+    
+        &__text {
+            color: $color-white;
+            margin: 0;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            @include container;
+            padding: 2em 0;
+        }
+
+        &__title {
+            @include font-size;
+            @include font-condensed;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .meta {
+            margin-top: 1em;
+            font-size: .5em;
+        }
+    
+        &__image {
+            height: auto;
+            min-height: 100%;
+            width: auto;
+            min-width: 100vw;
+            object-fit: cover;
+            position: absolute;
+            right: 0;
+            left: 0;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
+
+    &__content {
+        background-color: $color-white;
+        padding: 2rem 0 3rem 0;
+        @include container;
+        @include readable;
+        margin-top: -1 * $content-offset;
+        position: relative;
+        z-index: 5;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+
+        &:before {
+            z-index: -2;
+            height: 1.25 * $content-offset;
+            box-shadow: 0 0 2rem .125rem transparentize($color-black, .5);
+        }
+
+        &:after {
+            z-index: -1;
+            background-color: $color-white;
+            height: 1.5 * $content-offset;
+        }
+    }
+}

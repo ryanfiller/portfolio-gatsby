@@ -1,11 +1,13 @@
-.markdown {
-    font-size: 2rem;
+@import '../vendor/prism-theme';
+
+.markdown, .about-text {
+    font-size: 1.5rem;
     line-height: 1.6em;
     background: $color-white;
 
     p {
         margin: 0;
-        margin-bottom: $padding;
+        margin-bottom: $spacing;
     }
 
     p a {
@@ -14,20 +16,13 @@
         border-bottom: 2px $color-orange dotted;
 
         &:hover {
+            @include highlight;
             color: $color-blue;
-            border-bottom: 2px $color-blue dotted;
         }
 
         @include tablet-break {
             border-bottom: 0;
             background: $color-orange;
-            padding: 0 .25em;
-            color: $color-white;
-            &:hover {
-                border-bottom: 0;
-                background-color: $color-blue;
-                color: $color-white;
-            }
         }
     }
 
@@ -79,11 +74,11 @@
     }
     
     blockquote {
-        font-size: 1.25em;
+        font-size: 1.125em;
         line-height: 1.75em;
         border-left: 1.5em solid $color-blue;
         padding-left: .5em;
-        margin: $padding 2em $padding 0;
+        margin: $spacing 0;
         position: relative;
     
         &:before {
@@ -111,7 +106,7 @@
         }
     }
 
-    img.none {
+    img.center {
         display: block;
         margin: 0 auto;
         width: auto;
@@ -121,28 +116,28 @@
 
     img.left,figure.left {
         float: left;
-        margin: 0 $padding $padding -1*$padding;
+        margin: 0 $spacing $spacing -1*$spacing;
         width: 50%;
     }
 
     img.right, figure.right {
         float: right;
-        margin: 0 -1*$padding $padding $padding;
+        margin: 0 -1*$spacing $spacing $spacing;
         width: 50%;
     }
 
     img.full {
         display: block;
-        width: calc(100% + (2 * #{$padding}));
+        width: calc(100% + (2 * #{$spacing}));
         height: auto;
-        margin: 0 -1*$padding $padding -1*$padding;
+        margin: 0 -1*$spacing $spacing -1*$spacing;
     }
 
     img.left, img.right, img.full {
         @include phone-break {
-            width: calc(100% + (2 * #{$padding}));
+            width: calc(100% + (2 * #{$spacing}));
             height: auto;
-            margin: 0 -1*$padding $padding -1*$padding;
+            margin: 0 -1*$spacing $spacing -1*$spacing;
         }
     }
 
@@ -159,10 +154,10 @@
         @include tablet-break {
             width: 25%;
             &.left {
-                margin: 0 $padding 0 0;
+                margin: 0 $spacing 0 0;
             }
             &.right {
-                margin: 0 0 $padding 0;
+                margin: 0 0 $spacing 0;
             }
         }
 
@@ -216,9 +211,9 @@
         }
 
         @include tablet-break {
-            width: calc(100% + (2 * #{$padding}));
+            width: calc(100% + (2 * #{$spacing}));
             height: auto;
-            margin: 0 -1*$padding $padding -1*$padding;
+            margin: 0 -1*$spacing $spacing -1*$spacing;
             display: flex;
             flex-direction: row-reverse;
             flex-wrap: wrap;
@@ -241,14 +236,16 @@
     }
 
     iframe {
-        margin-bottom: $padding;
+        margin-bottom: $spacing;
     }
 
     .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        width: calc(100% + (2 * #{$spacing}));
+        margin: 0 -1*$spacing $spacing -1*$spacing;
 
         iframe {
             position: absolute;

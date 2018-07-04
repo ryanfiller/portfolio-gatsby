@@ -14,7 +14,10 @@
 		text-align: center;
 		text-transform: uppercase;
 
-		a {
+		button {
+            background: none;
+            border: none;
+            @include font-sans-serif;
 			text-transform: uppercase;
 			text-decoration: none;
             color: $color-blue;

@@ -9,16 +9,16 @@ export default class Dropdown extends React.Component {
         return (
             <ul className="portfolio-filter">
                 <li className="default" key="all" onClick={() => setFilter('all')} className="default">
-                    <a href="#" tabindex="0" className={currentCategory === 'all' ? 'current' : ''}>
+                    <button tabIndex="0" className={currentCategory === 'all' ? 'current' : ''}>
 						all					
-					</a>
+					</button>
                 </li>
                 {categories.map((item) => {
                     return (
                         <li key={item} onClick={() => setFilter(item)}>
-							<a href="#" tabindex="0" className={currentCategory === item ? 'current' : ''}>
+							<button tabIndex="0" className={currentCategory === item ? 'current' : ''}>
 								{item}
-							</a>
+							</button>
                         </li>
                     )
                 })}

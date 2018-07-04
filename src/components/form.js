@@ -41,6 +41,7 @@ export default class Form extends React.Component {
     const Form = <form
         id="contact-form"
         className="form"
+        tabIndex="1"
         name="contact"
         method="post"
         data-netlify="true"

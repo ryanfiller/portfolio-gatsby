@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive';
-import Link, { navigateTo } from 'gatsby-link'
+import Link from 'gatsby-link'
 import SVG  from 'react-inlinesvg';
 
 export default class Logo extends Component {

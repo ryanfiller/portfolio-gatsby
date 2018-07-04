@@ -1,0 +1,89 @@
+.page-content--blog-list {
+    width: 100%;
+
+    .blog-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem;
+    }
+
+    .blog-preview {
+        font-size: 1.5rem;
+        width: 50%;
+        display: inline-block;
+        transition: $transition;
+        color: $color-gray;
+        padding: 2rem;
+        flex: 1;
+        max-width: 33.333vw;
+
+        @include tablet-break {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        @include phone-break {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &__content {
+            position: relative;
+        }
+
+        &__thumbnail {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        &__header {
+            display: block;
+            font-size: 1.5em;
+            margin-right: 2.75em;
+            
+            a {
+                display: inline;
+                font-size: 1em;
+                line-height: 1.25em;
+                text-align: left;
+                @include font-sans-serif;
+                text-decoration: none;
+                color: currentColor;
+                @include highlight;
+            }
+        }
+
+        &__date {
+            @include font-condensed;
+            position: absolute;
+            top: .80rem;
+            right: 0rem;
+            font-size: 1em;
+            line-height: 1em;
+        }
+
+        &__excerpt {
+            @include font-sans-serif;
+            font-size: 1em;
+            margin: 1rem 0;
+        }
+
+        .meta {
+            font-size: .8em;
+            @include font-condensed;
+            margin: 1.5rem 10em 0 0;
+        }
+
+        &__link {
+            color: currentColor;
+           @include highlight;
+           @include inline-link;
+           position: absolute;
+           right: 0;
+           bottom: 0;
+        }
+
+    }
+}

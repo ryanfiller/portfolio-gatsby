@@ -1,7 +1,8 @@
 module.exports = {
 	breaks: {
-		large: 1350,
+		// these must match config/_breakpoints.scss
+		large: 1200,
 		tablet: 768,
-		phone: 430
+		phone: 480
 	}
 };

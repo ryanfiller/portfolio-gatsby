@@ -19,6 +19,7 @@
 		&:hover {
 			color: $color-orange;
 			cursor: pointer;
+			@include glitch($color-orange, $color-black);
 		}
 
 		#site.open & {
@@ -33,29 +34,20 @@
 	}
 
 	.off-canvas & {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		@include container;
 
 		a {
-			display: block;
-			padding: 1em 0;
-			margin: 0;
+			font-size: 2em;
+			margin: .5em 0;
+
+			&:hover {
+				color: $color-orange;
+				cursor: pointer;
+				@include glitch($color-white, $color-blue);
+			}
 		}
 	}
-
-	.horizontal & {
-		@supports (display: grid) {
-			@media (min-width: $phone) {
-				width: 100%;
-                flex: initial;
-				display: block;
-
-				a {
-					display: block;
-					text-align: center;
-					margin: .5em;
-				}
-            }
-        }
-    }
 }
