@@ -20,7 +20,8 @@ export default class TemplateWrapper extends React.Component {
 		this.onKeydown = this.onKeydown.bind(this)
 		this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
 		this.state = {
-			open: false,
+			// open: false,
+			open: true,
 		};
 	}
 

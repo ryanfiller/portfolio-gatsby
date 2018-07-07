@@ -6,7 +6,7 @@
     font-size: 1.5rem;
 
     &__row {
-        height: 3em;
+        min-height: 3em;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -69,6 +69,18 @@
         display: flex;
         align-items: center;
         transition: $transition;
+    }
+
+    $var: calc(33vw - 4rem);
+
+    .recaptcha {
+        background: red;
+        div div { // ?? why it do this ??
+            transform-origin: top left;
+            transform: scale($var);
+            // width = 304px;
+            // desired with = 33vw - 2*$spacing
+        }
     }
 
     &__button {
