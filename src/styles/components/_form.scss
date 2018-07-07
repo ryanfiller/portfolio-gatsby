@@ -71,15 +71,11 @@
         transition: $transition;
     }
 
-    $var: calc(33vw - 4rem);
-
     .recaptcha {
-        background: red;
-        div div { // ?? why it do this ??
+        div {
             transform-origin: top left;
-            transform: scale($var);
-            // width = 304px;
-            // desired with = 33vw - 2*$spacing
+            display: block;
+            margin: 0 auto;
         }
     }
 
