@@ -22,11 +22,11 @@ export default class Form extends React.Component {
     console.log(this.state)
   };
 
-  handleRecaptcha = value => {
+  handleRecaptcha = (value) => {
     this.setState({ "recaptcha": value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -38,8 +38,25 @@ export default class Form extends React.Component {
     e.preventDefault();
   };
 
+  handleRecaptchaSize() {
+      var scaledElement = document.getElementById('recaptcha')
+      var targetWidth = document.getElementById('recaptcha').parentElement.offsetWidth
+      var scale = targetWidth / 304
+
+      if (scaledElement.offsetWidth < 304) {
+        scaledElement.style.cssText = `transform: scale(${scale})`
+      }
+  }
+
   reloadForm() {
       this.setState({submitted: false});
+  }
+
+  componentDidMount() {
+    this.handleRecaptchaSize()
+    window.addEventListener("resize", () => {
+        this.handleRecaptchaSize()
+    })
   }
 
   render(state) {
@@ -89,9 +106,9 @@ export default class Form extends React.Component {
                 <label htmlFor="message">Message</label>
             </div>
 
-            <div className="form__row">
+            <div className="form__row form__row--recaptcha">
                 <Recaptcha
-                    className="recaptcha"
+                    id="recaptcha"
                     theme="dark"
                     required
                     ref="recaptcha"

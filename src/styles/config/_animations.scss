@@ -36,6 +36,7 @@ svg, svg * {
     position: relative;
 
     &:before{
+        pointer-events: none;
         content: attr(data-text);
         position: absolute;
         left: -1px;
@@ -43,12 +44,13 @@ svg, svg * {
         top: 0;
         color: $color;
         background: $background;
-        overflow:h idden;
+        overflow:hidden;
         clip: rect(0,900px,0,0);
         animation: noise-anim-2 4s infinite linear alternate-reverse;
     }
 
     &:after{
+        pointer-events: none;
         content: attr(data-text);
         position: absolute;
         left: 1px;
