@@ -4,60 +4,62 @@ import Recaptcha from "react-google-recaptcha";
 const RECAPTCHA_KEY = "6LeZT2IUAAAAACs54WyysXeSztMT6xJMpr2bDr7n";
 
 function encode(data) {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
+	return Object.keys(data)
+		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+		.join("&");
 }
 
 export default class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+	constructor(props) {
+	super(props);
+	this.state = {};
 
-    this.reloadForm = this.reloadForm.bind(this)    
-  }
+	this.reloadForm = this.reloadForm.bind(this)    
+}
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state)
-  };
+handleChange = e => {
+	this.setState({ [e.target.name]: e.target.value });
+	console.log(this.state)
+};
 
-  handleRecaptcha = (value) => {
-    this.setState({ "recaptcha": value });
-  };
+handleRecaptcha = (value) => {
+	this.setState({ "recaptcha": value });
+};
 
-  handleSubmit = (e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
-    })
-    .then(() => this.setState({submitted: true}))
-    .catch(error => alert(error));
+handleSubmit = (e) => {
+	fetch("/", {
+		method: "POST",
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		body: encode({ "form-name": "contact", ...this.state })
+	})
+	.then(() => this.setState({submitted: true}))
+	.catch(error => alert(error));
 
-    e.preventDefault();
-  };
+	e.preventDefault();
+};
 
-  handleRecaptchaSize() {
-      var scaledElement = document.getElementById('recaptcha')
-      var targetWidth = document.getElementById('recaptcha').parentElement.offsetWidth
-      var scale = targetWidth / 304
+handleRecaptchaSize = () => {
+	var scaledElement = document.getElementById('recaptcha')
+	var targetWidth = document.getElementById('recaptcha').parentElement.offsetWidth
+	var scale = targetWidth / 304
 
-      if (scaledElement.offsetWidth < 304) {
-        scaledElement.style.cssText = `transform: scale(${scale})`
-      }
-  }
+	if (scaledElement.offsetWidth < 304) {
+		scaledElement.style.cssText = `transform: scale(${scale})`
+	}
+}
 
-  reloadForm() {
-      this.setState({submitted: false});
-  }
+reloadForm() {
+	this.setState({submitted: false});
+}
 
-  componentDidMount() {
-    this.handleRecaptchaSize()
-    window.addEventListener("resize", () => {
-        this.handleRecaptchaSize()
-    })
-  }
+componentDidMount() {
+	this.handleRecaptchaSize()
+	window.addEventListener("resize", this.handleRecaptchaSize())
+}
+
+componentWillUnmount() {
+	window.removeEventListener("resize", this.handleRecaptchaSize())
+}
 
   render(state) {
 
@@ -114,7 +116,7 @@ export default class Form extends React.Component {
                     ref="recaptcha"
                     name="recaptcha"
                     sitekey={RECAPTCHA_KEY}
-                    onChange={this.handleRecaptcha}
+					onChange={this.handleRecaptcha}
                 />
             </div>
 

@@ -70,7 +70,11 @@ export default class TemplateWrapper extends React.Component {
 					]}
 				/>
 
-				<OffCanvas navigateAndClose={this.navigateAndClose} currentPage={this.props.location.pathname}/>
+				{
+					this.state.open ? 
+						<OffCanvas navigateAndClose={this.navigateAndClose} currentPage={this.props.location.pathname}/>
+					: ''
+				}
 
 				<div className="site-content">
 
