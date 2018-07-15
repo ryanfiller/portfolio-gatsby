@@ -1,5 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.64 215.14">
-  <title>gradient</title>
-  <path d="M11.8,212.16a3,3,0,1,1-3-3A3,3,0,0,1,11.8,212.16Zm-3-41a6.89,6.89,0,1,0,6.89,6.89A6.89,6.89,0,0,0,8.82,171.19Zm0-17.17a7,7,0,1,0,7,7A7,7,0,0,0,8.82,154Zm0-16.83a7,7,0,1,0,7,7A7,7,0,0,0,8.82,137.19Zm0-18A8.17,8.17,0,1,0,17,127.38,8.17,8.17,0,0,0,8.82,119.21ZM17,94.32a8.17,8.17,0,1,0-10.44,7.84,8.17,8.17,0,1,0,4.54,0A8.17,8.17,0,0,0,17,94.32Zm.65-68.44A8.82,8.82,0,0,0,11,17.35a8.82,8.82,0,1,0-4.39,0,8.81,8.81,0,0,0,0,17.06,8.81,8.81,0,0,0,0,17.06,8.81,8.81,0,0,0-.12,17,8.82,8.82,0,1,0,4.64,0,8.81,8.81,0,0,0-.13-17,8.8,8.8,0,0,0,0-17.06A8.82,8.82,0,0,0,17.64,25.88ZM8.82,189.15a6,6,0,1,0,6,6A6,6,0,0,0,8.82,189.15Z" 
-  fill="#1e2223"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 17.6 129" style="enable-background:new 0 0 17.6 129;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1E2223;}
+</style>
+<g>
+	<title>gradient</title>
+	<g>
+		<rect x="-0.2" class="st0" width="18" height="32"/>
+	</g>
+	<g>
+		<rect x="-0.2" y="33.1" class="st0" width="18" height="16.3"/>
+	</g>
+	<g>
+		<rect x="1.1" y="51" class="st0" width="15.4" height="14"/>
+	</g>
+	<g>
+		<rect x="1.1" y="67.9" class="st0" width="15.4" height="14"/>
+	</g>
+	<g>
+		<rect x="1.1" y="84.9" class="st0" width="15.4" height="14"/>
+	</g>
+	<g>
+		<rect x="2.2" y="103" class="st0" width="13.3" height="12"/>
+	</g>
+	<g>
+		<rect x="5.5" y="123" class="st0" width="6.6" height="6"/>
+	</g>
+</g>
 </svg>

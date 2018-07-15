@@ -95,41 +95,42 @@
     }
 
     &:hover, &:focus {   
-        
+        box-shadow: inset 0px 0px 5rem $color-black;
         &:before {
             opacity: .5;
+            @include pixels;
         }
         .portfolio-block__content {
             max-height: 100%;
         }
     }
 
-    @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-        transition: .2s;
-        clip-path: polygon(
-            0 0,
-            100% 0, 
-            100% 100%, 
-            0 100%
-        );
+    // @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+    //     transition: .2s;
+    //     clip-path: polygon(
+    //         0 0,
+    //         100% 0, 
+    //         100% 100%, 
+    //         0 100%
+    //     );
 
-        &:hover, &:focus {
-            clip-path: polygon(
-                1rem 2rem, 
-                calc(100% - 2rem) 1rem, 
-                calc(100% - 1rem) calc(100% - 2rem), 
-                2rem calc(100% - 1rem)
-            );
-        // clip-path: url(#tv-shape);
-        }
+    //     &:hover, &:focus {
+    //         clip-path: polygon(
+    //             1rem 2rem, 
+    //             calc(100% - 2rem) 1rem, 
+    //             calc(100% - 1rem) calc(100% - 2rem), 
+    //             2rem calc(100% - 1rem)
+    //         );
+    //     // clip-path: url(#tv-shape);
+    //     }
 
-        &:nth-child(odd):hover, &:nth-child(odd):focus {
-            clip-path: polygon(
-                2rem 1rem, 
-                calc(100% - 1rem) 2rem, 
-                calc(100% - 2rem) calc(100% - 1rem), 
-                2rem calc(100% - 2rem)
-            );
-        }
-    }
+    //     &:nth-child(odd):hover, &:nth-child(odd):focus {
+    //         clip-path: polygon(
+    //             2rem 1rem, 
+    //             calc(100% - 1rem) 2rem, 
+    //             calc(100% - 2rem) calc(100% - 1rem), 
+    //             2rem calc(100% - 2rem)
+    //         );
+    //     }
+    // }
 }

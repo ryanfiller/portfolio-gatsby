@@ -12,7 +12,7 @@ export default class OffCanvas extends React.Component {
 		return (
 			<div className="off-canvas">
 				<MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
-					<Navigation />
+					<Navigation navigateAndClose={this.props.navigateAndClose} currentPage={this.props.currentPage} />
 				</MediaQuery>
 				<Form />
 			</div>

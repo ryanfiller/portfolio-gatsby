@@ -5,8 +5,12 @@
     margin: 0;
     font-size: 1.5rem;
 
+    &:focus {
+        outline: none;
+    }
+
     &__row {
-        height: 3em;
+        min-height: 3em;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -20,6 +24,10 @@
             flex: 1;
             min-height: 20rem;
             max-height: 25rem;
+        }
+
+        &--recaptcha {
+            min-height: 0;
         }
     }
 
@@ -69,6 +77,16 @@
         display: flex;
         align-items: center;
         transition: $transition;
+    }
+
+    #recaptcha {
+        transform-origin: top left;
+        
+        & > div > div {
+            transform-origin: top left;
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     &__button {
