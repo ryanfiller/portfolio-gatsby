@@ -45,6 +45,10 @@ export default class TemplateWrapper extends React.Component {
 		}
 	}
 
+	navigateAndClose(target) {
+
+	}
+
 	render() {
 
 		if (this.props.location.pathname === '/') {

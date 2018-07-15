@@ -20,7 +20,7 @@
         
         img {
             mix-blend-mode: hard-light;
-            filter: grayscale(100%) contrast(1);
+            filter: grayscale(100%);
             transition: $transition;
             opacity: .9;
         }
@@ -42,10 +42,7 @@
 
         &:hover {
             cursor: help;
-
-            img {
-                filter: grayscale(100%) contrast(1.25);
-            }
+            background-image: $rgb;
         }
     }
 }
