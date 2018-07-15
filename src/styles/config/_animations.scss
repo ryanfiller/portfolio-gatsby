@@ -62,6 +62,12 @@ svg, svg * {
         clip: rect(0,900px,0,0);
         animation: noise-anim 2s infinite linear alternate-reverse;
     }
+
+    @include tablet-break {
+        &:before, &:after {
+            display: none;
+        }
+    }
 }
 
 @mixin highlight($color:currentColor, $hover-color: currentColor, $background-color: $color-orange) {
