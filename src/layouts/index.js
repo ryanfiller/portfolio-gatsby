@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { navigateTo } from "gatsby-link"
 
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -19,9 +19,9 @@ export default class TemplateWrapper extends React.Component {
 		super({ data, children });
 		this.onKeydown = this.onKeydown.bind(this)
 		this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
+		this.navigateAndClose = this.navigateAndClose.bind(this)
 		this.state = {
-			// open: false,
-			open: true,
+			open: false,
 		};
 	}
 
@@ -45,8 +45,10 @@ export default class TemplateWrapper extends React.Component {
 		}
 	}
 
-	navigateAndClose(target) {
-
+	navigateAndClose(e, target) {
+		e.preventDefault();
+		this.setState({open: false}),
+		navigateTo(target);
 	}
 
 	render() {
@@ -68,7 +70,7 @@ export default class TemplateWrapper extends React.Component {
 					]}
 				/>
 
-				<OffCanvas />
+				<OffCanvas navigateAndClose={this.navigateAndClose} />
 
 				<div className="site-content">
 
@@ -78,7 +80,7 @@ export default class TemplateWrapper extends React.Component {
 						: ''
 					}
 
-					<Header toggleOffCanvas={this.toggleOffCanvas} />
+					<Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} />
 
 					{this.props.children()}
 

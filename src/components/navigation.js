@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
-import Link from 'gatsby-link';
 
 import { breaks } from '../config/config';
 import { pages } from '../config/site-info';
@@ -13,13 +12,14 @@ export default class Navigation extends Component {
 				{ pages.map((page) =>
 					{if(page != 'contact'){
 						return(
-							<Link 
-							to={ page } 
+							<a 
+							href={page}
+							onClick={(e) => {this.props.navigateAndClose(e, page)}}
 							key={page} 
 							data-text={page} 
-							activeClassName="active">
+							>
 								{page}
-							</Link>
+							</a>
 						)
 					} else {
 						return(

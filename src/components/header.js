@@ -15,7 +15,7 @@ export default class Header extends Component {
                 <Logo />
                 
                 <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
-                    <Navigation toggleOffCanvas={this.props.toggleOffCanvas} />
+                    <Navigation toggleOffCanvas={this.props.toggleOffCanvas} navigateAndClose={this.props.navigateAndClose} />
                 </MediaQuery>
 
                 <MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
