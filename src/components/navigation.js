@@ -16,7 +16,8 @@ export default class Navigation extends Component {
 							href={page}
 							onClick={(e) => {this.props.navigateAndClose(e, page)}}
 							key={page} 
-							data-text={page} 
+							data-text={page}
+							className={ this.props.currentPage.includes(page) ? 'active' : '' }
 							>
 								{page}
 							</a>

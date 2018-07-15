@@ -70,7 +70,7 @@ export default class TemplateWrapper extends React.Component {
 					]}
 				/>
 
-				<OffCanvas navigateAndClose={this.navigateAndClose} />
+				<OffCanvas navigateAndClose={this.navigateAndClose} currentPage={this.props.location.pathname}/>
 
 				<div className="site-content">
 
@@ -80,7 +80,7 @@ export default class TemplateWrapper extends React.Component {
 						: ''
 					}
 
-					<Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} />
+					<Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} currentPage={this.props.location.pathname}/>
 
 					{this.props.children()}
 
