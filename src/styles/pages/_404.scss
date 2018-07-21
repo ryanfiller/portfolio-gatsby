@@ -40,7 +40,10 @@ body.error404 {
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
-    @include image-overlay($rgb-pixels);
+    
+    .page-content {
+        @include image-overlay($rgb-pixels);
+    }
 
     &__header {
         margin-bottom: 2*$spacing;
@@ -68,7 +71,6 @@ body.error404 {
         padding: $spacing/2;
         display: block;
         position: relative;
-        z-index: 10;
         width: 100%;
         display: flex;
         flex-wrap: wrap;

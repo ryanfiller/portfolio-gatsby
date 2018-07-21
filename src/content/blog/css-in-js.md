@@ -3,7 +3,7 @@ template: blog-item
 title: CSS in JS
 excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 thumbnail: /images/site-assets/placeholder-thumb.jpg
-banner: /images/uploads/screen-shot.png
+banner: http://cdn8.bigcommerce.com/s-nkg4mv/images/stencil/1024x1024/products/1938/6665/sd16427-reeses-peanut-butter-big-cup-king-size-16-ct-2__55532.1505957112.jpg?c=2
 path: /blog/whatever-whatever
 date: '2017-08-15'
 category: 

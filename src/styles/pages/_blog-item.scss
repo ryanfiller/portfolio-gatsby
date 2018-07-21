@@ -1,13 +1,10 @@
-$content-offset: 10rem;
-
 .page-content-blog {
     .blog-banner {
-        font-size: 4rem;
+        @include font-size(2rem, 1.75rem, 1.5rem);
         background: $color-orange;
         width: 100vw;
         position: relative;
         @include image-overlay($rgb-pixels);
-        padding-bottom: $content-offset;
         overflow: hidden;
     
         &__text {
@@ -15,21 +12,101 @@ $content-offset: 10rem;
             margin: 0;
             position: relative;
             z-index: 3;
-            text-align: center;
             @include container;
-            padding: 2em 0;
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         &__title {
-            @include font-size;
-            @include font-condensed;
+            @include font-size(3em, 2.5em, 2em);
+            @include font-sans-serif;
             text-transform: uppercase;
             margin: 0;
+            width: 75%;
+            text-align: center;
         }
 
         .meta {
-            margin-top: 1em;
-            font-size: .5em;
+            text-align: center;
+            font-size: 1em;
+            margin: 0;
+            display: flex;
+
+            * {
+                font-size: 1em;
+                line-height: 1em;
+            }
+
+            div {
+                &:after {
+                    content: '|';
+                    margin: 0 .5em;
+                }
+
+                &:last-child:after {
+                    display: none;
+                }
+            }
+
+            @include tablet-break {
+                display: block;
+                
+                div {
+                    margin-bottom: .5em;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &__excerpt {
+            line-height: 1.25;
+            @include readable;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &__scroll-link {
+            color: $color-white;
+            height: 4rem;
+            width: 4rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 1rem;
+
+            &:before, &:after {
+                content: '';
+                display: block;
+                width: 0; 
+                height: 0; 
+                border-right: .5em solid transparent;
+                border-left: .5em solid transparent;
+                border-top: .5em solid currentColor;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                @include float;
+            }
+        
+            &:before {
+                top: .5em
+            }
+        
+            &:after {
+                top: 1em;
+            }
         }
     
         &__image {
@@ -40,19 +117,64 @@ $content-offset: 10rem;
             object-fit: cover;
             position: absolute;
             right: 0;
-            left: 0;
             left: 50%;
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
+            z-index: 0;
+        }
+
+        @supports (display: grid) {
+            @media (min-width: $tablet) {
+                &__text {
+                    display: grid;
+				    grid-template-columns: 75vw 25vw;
+                    grid-template-rows: auto 1fr;
+                }
+
+                &__title {
+                    text-align: left;
+                    @include container;
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+
+                .meta {
+                    display: block;
+                    text-align: right;
+                    @include container;
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+                    align-self: start;
+
+                    div:after {
+                        display: none;
+                    }
+
+                    &__date {
+                        font-size: 1.75em;
+                        margin-top: .75em;
+                        margin-bottom: .75em;
+                    }
+                }
+
+                &__excerpt {
+                    text-align: left;
+                    justify-self: start;
+                    @include container;
+                    margin-left: 0;
+                    margin-right: 0;
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
+            }
         }
     }
 
     &__content {
         background-color: $color-white;
-        padding: 2rem 0 3rem 0;
+        padding: 6rem 0 4rem 0;
         @include container;
         @include readable;
-        margin-top: -1 * $content-offset;
         position: relative;
         z-index: 5;
 
@@ -63,18 +185,6 @@ $content-offset: 10rem;
             top: 0;
             right: 0;
             left: 0;
-        }
-
-        &:before {
-            z-index: -2;
-            height: 1.25 * $content-offset;
-            box-shadow: 0 0 2rem .125rem transparentize($color-black, .5);
-        }
-
-        &:after {
-            z-index: -1;
-            background-color: $color-white;
-            height: 1.5 * $content-offset;
         }
     }
 }

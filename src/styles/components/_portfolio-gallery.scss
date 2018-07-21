@@ -63,19 +63,12 @@
                 &:before, &:after {
                     content: '';
                     display: block;
-                    text-shadow: $shadow;
                     width: 0;
                     height: 0;
                     border-top: $spacing/4 solid transparent;
                     border-bottom: $spacing/4 solid transparent;
 
                     border-left: $spacing/3 solid $color-white;
-                }
-
-                &:hover {
-                    &:before, &:after {
-                        @include float;
-                    }
                 }
             }
 
@@ -125,10 +118,6 @@
 
                 &-active {
                     background-color: $color-blue;
-                }
-
-                &:hover {
-                    @include float;
                 }
             }
         }
