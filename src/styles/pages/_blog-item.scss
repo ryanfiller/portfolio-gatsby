@@ -6,22 +6,9 @@ $content-offset: 10rem;
         background: $color-orange;
         width: 100vw;
         position: relative;
-        @include image-overlay;
-        padding-bottom:$content-offset;
+        @include image-overlay($rgb-pixels);
+        padding-bottom: $content-offset;
         overflow: hidden;
-    
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                z-index: 2;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                @include rgb-pixels;
-                opacity: .5;
-            }
     
         &__text {
             color: $color-white;

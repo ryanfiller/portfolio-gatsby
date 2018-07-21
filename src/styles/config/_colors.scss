@@ -18,9 +18,9 @@ $shadow-inset:
 
 $pixel: .25rem;
 
-$r: rgba(255,0,0,.15);
-$g: rgba(0,255,0,.15);
-$b: rgba(0,0,255,.15);
+$r: rgba(255,0,0,.4);
+$g: rgba(0,255,0,.4);
+$b: rgba(0,0,255,.4);
 $rgb: 
 repeating-linear-gradient(
     to bottom,
@@ -29,32 +29,27 @@ repeating-linear-gradient(
     $b 2*$pixel, $b 3*$pixel
 );
 
-@mixin pixels {
-    background-image: url('/images/site-assets/screendoor.png');
-    background-size: $pixel;
-}
+$pixels: url('/images/site-assets/screendoor.png');
 
-@mixin rgb-pixels {
-    background-image: url('/images/site-assets/screendoor.png'), $rgb;
-    background-size: $pixel;
-    mix-blend-mode: hard-light;
-}
+$rgb-pixels: $pixels, $rgb;
 
-@mixin image-overlay {
+@mixin image-overlay ($background: transparentize($color-dark-gray, .25)) {
     position: relative;
     
     > * {
         position: relative; 
-        z-index: 2;
+        z-index: 1;
     }
 
     &:before {
         content: '';
         display: block;
-        background-color: transparentize($color-dark-gray, .25);
+        background: $background;
+        background-size: $pixel;
         opacity: .5;
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
-        z-index: 1;
+        z-index: 2;
+        mix-blend-mode: overlay;
     }
 }

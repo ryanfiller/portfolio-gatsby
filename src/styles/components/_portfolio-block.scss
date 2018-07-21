@@ -77,28 +77,16 @@
         }
     }
     
+    @include image-overlay($pixels);
     &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1px; right: -1px; bottom: -1px; left: -1px;
-        background-color: transparentize($color-black, .25);
-        
-        z-index: 1;
         opacity: 0;
         transition: 0s;
-    }
-
-    > * {
-        position: relative;
-        z-index: 2;
     }
 
     &:hover, &:focus {   
         box-shadow: inset 0px 0px 5rem $color-black;
         &:before {
             opacity: .5;
-            @include pixels;
         }
         .portfolio-block__content {
             max-height: 100%;

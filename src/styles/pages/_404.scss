@@ -40,11 +40,7 @@ body.error404 {
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
-    @include image-overlay;
-
-    &:before {
-        @include rgb-pixels;
-    }
+    @include image-overlay($rgb-pixels);
 
     &__header {
         margin-bottom: 2*$spacing;

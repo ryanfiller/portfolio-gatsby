@@ -42,8 +42,7 @@
 
         &:hover {
             cursor: help;
-            background-image: $rgb;
-            @include pixels;
+            background-image: $rgb-pixels;
         }
     }
 }
