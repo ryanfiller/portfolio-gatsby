@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SVG  from 'react-inlinesvg';
 
-import config from '../config/site-info';
+import config from '../config/config';
 
 export default class Socials extends Component {
 

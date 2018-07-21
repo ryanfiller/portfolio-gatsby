@@ -43,7 +43,7 @@ body.error404 {
     @include image-overlay;
 
     &:before {
-        @include pixels;
+        @include rgb-pixels;
     }
 
     &__header {
