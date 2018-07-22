@@ -53,9 +53,9 @@ I've heard the grid spec jokingly dismissed as "oh, we're basically doing table 
 
 The modular grid is a created by combining a baseline grid, which is simply a line alongs the bottom of each letter spaced out by their leading (lineheight), with the page divided into a number of columns with gutters between them, usually also the same size as the leading.
 
-The power that CSS Grid has over traditional print, is of course the ability to change up a layout depending on screen size. Traditional design has been solving the problem for hundreds of years of how to design pages as a spread, a single page, and even sometimes down to half to a quarter of page for partial page ads. To their credit though, traditional page layouts use this to their strength. Baseline gride are calculated by taking into account the physical page size, the size of the page margins, and how many lines of text will fit evenly on the page. 
+The power that CSS Grid has over traditional print, is of course the ability to change up a layout depending on screen size. Traditional design has been solving the problem for hundreds of years of how to design pages as a spread, a single page, and even sometimes down to half to a quarter of page for partial page ads. To their credit though, traditional page layouts use this to their strength. Baseline grid are calculated by taking into account the physical page size, the size of the page margins, and how many lines of text will fit evenly on the page.
 
-Online text works quite differently. There's no existing HTML / CSS / Javascript / whatever tool that treats text like InDesign's overflowing linked text boxes, except maybe `column-count: #;` and event that isn't ideal because a user will end up scrolling to the bototm of the page only to scroll back up to read additional columns. Much like layout out text with `display: grid;` 
+Online text works quite differently. There's no existing HTML / CSS / Javascript / whatever tool that treats text like InDesign's overflowing linked text boxes, except maybe `css column-count: #;` and event that isn't ideal because a user will end up scrolling to the bototm of the page only to scroll back up to read additional columns. Much like layout out text with `display: grid;`
 
 ## A Quick Aside About Lineheight
 

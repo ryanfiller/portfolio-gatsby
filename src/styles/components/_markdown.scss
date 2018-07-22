@@ -235,6 +235,12 @@
         }
     }
 
+    pre {
+        width: calc(100% + (2 * #{$spacing}));
+        margin: 0 -1*$spacing $spacing -1*$spacing;
+        padding: $spacing;
+    }
+
     iframe {
         margin-bottom: $spacing;
     }
