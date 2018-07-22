@@ -18,13 +18,13 @@ tags:
 published: true
 ---
 
-SCSS is magical. As someone who came into web development through the front end, seeing things like nesting, variables, and mixins was a game changer for me. With the addition of learing <a href="http://getbem.com/" target="_blank">BEM</a> gone were the days of having a monolithic, hundreds-of-lines-long .css file and I was well on my way to writing maintainable component libraries.
+SCSS is magical. As someone who came into web development through the front end, seeing things like nesting, variables, and mixins was a game changer for me. With the addition of learning <a href="http://getbem.com/" target="_blank">BEM</a> gone were the days of having a monolithic, hundreds-of-lines-long .css file and I was well on my way to writing maintainable component libraries.
 
 Fast forward a few years and I in the middle of converting my personal site from <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> to <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>. CSS-in-JS is a divisive issue in the web-dev community right now, so I decided to try out <a href="https://www.styled-components.com/" target="_blank">💅Styled-Components</a> in order to have more of an informed opinion on it.
 
 ## The Alure of Switching in the First Place
 
-One of the first concept you learn when getting into maintainabilty and best practices is to separate your concerns. You don't want your frontend code mixed in with your backend logic, your content mixed with your display templates, or your styles mixed in with your structral markup.
+One of the first concept you learn when getting into maintainability and best practices is to separate your concerns. You don't want your frontend code mixed in with your backend logic, your content mixed with your display templates, or your styles mixed in with your structural markup.
 
 But is that last part really still true?
 
@@ -82,6 +82,8 @@ Recovering a deleted component from a single file is so much easier than have to
 ## CSS-in-JS sounds great. Why did you switch so many times?
 
 sourcemaps are garbage
+
+<img src="/images/uploads/css-in-js-gabbyandryandotcom.jpg" alt="dev tools screenshot" class="full" />
 
 bem made scoping never an issue
 
