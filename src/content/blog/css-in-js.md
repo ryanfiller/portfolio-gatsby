@@ -2,9 +2,9 @@
 template: blog-item
 title: You got CSS in my Javascript
 excerpt: I switched my website back and forth between SCSS and Styled-Components four times. Here are some thoughts on why I kept going back and forth and why I eventually chose what I did.
-thumbnail: /images/site-assets/placeholder-thumb.jpg
-banner: http://cdn8.bigcommerce.com/s-nkg4mv/images/stencil/1024x1024/products/1938/6665/sd16427-reeses-peanut-butter-big-cup-king-size-16-ct-2__55532.1505957112.jpg?c=2
-path: /blog/whatever-whatever
+thumbnail: /images/uploads/css-in-js-reeses.png
+banner: /images/uploads/css-in-js-reeses.png
+path: /blog/css-in-js
 date: '2017-08-15'
 category: 
   - code
