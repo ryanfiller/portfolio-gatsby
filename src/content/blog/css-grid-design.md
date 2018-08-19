@@ -1,11 +1,11 @@
 ---
 template: blog-item
 title: CSS Grid Design Thoughts 
-excerpt: Thoughts on on CSS Grid from someone who went to design school and learned about typographic grids
+excerpt: Thoughts on on CSS Grid from someone who went to design school and learned about typographic grids for print
 thumbnail: /images/uploads/css-grid-tron.jpg
 banner: /images/uploads/css-grid-tron.jpg
 path: /blog/css-type-grid
-date: '2017-09-10'
+date: '2017-08-19'
 category: 
   - code
 tags:

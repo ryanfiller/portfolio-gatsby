@@ -3,6 +3,7 @@
     @include font-sans-serif;
 
     &__date {
+        text-transform: uppercase;
         @include font-condensed;
         font-size: 1em;
         line-height: 1em;
