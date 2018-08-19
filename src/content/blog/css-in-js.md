@@ -7,7 +7,7 @@ banner: http://cdn8.bigcommerce.com/s-nkg4mv/images/stencil/1024x1024/products/1
 path: /blog/whatever-whatever
 date: '2017-08-15'
 category: 
-  - ???
+  - code
 tags:
   - scss
   - bem
