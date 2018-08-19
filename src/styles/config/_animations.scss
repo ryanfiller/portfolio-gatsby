@@ -73,7 +73,7 @@ svg, svg * {
     transition: color $transition * 2, background $transition;
     background-image: linear-gradient(to right, transparent 50%, $background-color 50%);
     background-position: 0;
-    background-size: 201%;
+    background-size: 200%;
 
     &:hover {
         color: $hover-color;
