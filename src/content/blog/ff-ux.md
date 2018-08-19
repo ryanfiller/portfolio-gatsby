@@ -13,7 +13,7 @@ tags:
   - red
   - yellow
 
-published: true
+published: false
 ---
 
 ## Final Fantasy 1
