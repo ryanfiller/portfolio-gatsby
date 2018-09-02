@@ -34,7 +34,7 @@ export const query = graphql`
 					frontmatter {
 						title
 						path
-						date(formatString: "MM.DD.YY")
+						date(formatString: "MMM.DD.YY")
 						category
 						tags
 						excerpt

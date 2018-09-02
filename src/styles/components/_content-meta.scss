@@ -2,6 +2,13 @@
     margin: $spacing/4 0;
     @include font-sans-serif;
 
+    &__date {
+        text-transform: uppercase;
+        @include font-condensed;
+        font-size: 1em;
+        line-height: 1em;
+    }
+
     &__category {
         span {
             &:before {
@@ -14,13 +21,6 @@
             &:last-of-type:after {
                 display: none;
             }
-        }
-    }
-
-    &__date {
-        &:after {
-            content: '|';
-            margin: 0 .5em;
         }
     }
 

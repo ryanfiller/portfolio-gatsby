@@ -40,7 +40,6 @@ svg, svg * {
         content: attr(data-text);
         position: absolute;
         left: -1px;
-        // text-shadow:2px 0 rgba(0, 255, 255, 0.25);
         top: 0;
         color: $color;
         background: $background;
@@ -54,7 +53,6 @@ svg, svg * {
         content: attr(data-text);
         position: absolute;
         left: 1px;
-        // text-shadow:-2px 0 rgba(255, 0, 0, 0.25);
         top: 0;
         color: $color;
         background: $background;
@@ -84,9 +82,16 @@ svg, svg * {
 }
 
 @mixin float {
-    position: relative;
-    top: -1px;
-    transition: $transition;
+    animation-name: floating;
+    animation-duration: $transition*2;
+    animation-iteration-count: infinite;
+    // position: relative;
+    
+    @keyframes floating {
+        from { margin-top: 0; }
+        50%  { margin-top: -.125em; }
+        to   { margin-top: 0; }    
+    }
 }
 
 @mixin social-hover($brand-color) {

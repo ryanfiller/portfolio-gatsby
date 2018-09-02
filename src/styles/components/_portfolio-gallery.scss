@@ -3,25 +3,13 @@
     margin: 0;
     background-color: currentColor;
     position: relative;
-
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        @include pixels;
-        opacity: .25;
-    }
+    @include image-overlay($pixels);
 
     .swiper {
-        position: relative;
-        z-index: 2;
-
         &-container {
             height: 100%;
+            position: relative;
+            z-index: 3;
         }
         
         &-wrapper {
@@ -75,19 +63,12 @@
                 &:before, &:after {
                     content: '';
                     display: block;
-                    text-shadow: $shadow;
                     width: 0;
                     height: 0;
                     border-top: $spacing/4 solid transparent;
                     border-bottom: $spacing/4 solid transparent;
 
                     border-left: $spacing/3 solid $color-white;
-                }
-
-                &:hover {
-                    &:before, &:after {
-                        @include float;
-                    }
                 }
             }
 
@@ -137,10 +118,6 @@
 
                 &-active {
                     background-color: $color-blue;
-                }
-
-                &:hover {
-                    @include float;
                 }
             }
         }

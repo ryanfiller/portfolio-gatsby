@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 
-import { breaks } from '../config/config';
-import { pages } from '../config/site-info';
+import { breaks, pages } from '../config/config';
 
 export default class Navigation extends Component {
 

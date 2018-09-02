@@ -46,7 +46,7 @@
             a {
                 display: inline;
                 font-size: 1em;
-                line-height: 1.25em;
+                line-height: 1.125em;
                 text-align: left;
                 @include font-sans-serif;
                 text-decoration: none;
@@ -56,12 +56,13 @@
         }
 
         &__date {
+            text-transform: uppercase;
             @include font-condensed;
+            font-size: 1em;
+            line-height: 1em;
             position: absolute;
             top: .80rem;
             right: 0rem;
-            font-size: 1em;
-            line-height: 1em;
         }
 
         &__excerpt {
