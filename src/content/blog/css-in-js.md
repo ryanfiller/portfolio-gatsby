@@ -5,7 +5,7 @@ excerpt: I switched my website back and forth between SCSS and Styled-Components
 thumbnail: /images/uploads/css-in-js-reeses.png
 banner: /images/uploads/css-in-js-reeses.png
 path: /blog/css-in-js
-date: '2017-08-15'
+date: '2017-09-02'
 category: 
   - code
 tags:
