@@ -21,6 +21,7 @@
         }
 
         @include tablet-break {
+            padding: 0 .125em;
             border-bottom: 0;
             background: $color-orange;
         }
