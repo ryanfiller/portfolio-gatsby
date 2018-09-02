@@ -5,7 +5,8 @@ export default class Headshot extends Component {
 	render() {
 		return (
             <figure className="headshot">
-                <img src="/images/site-assets/headshot.png" />
+				<Img outerWrapperClassName="hover" sizes={this.props.hover.sizes} />
+				<Img outerWrapperClassName="regular" sizes={this.props.regular.sizes} />
             </figure>
 		)
 	}

@@ -1,5 +1,10 @@
 $transition: 0.2s;
 
+//for blur-up
+img {
+    image-rendering: pixelated !important;
+}
+
 a, a * {
     transition: $transition;
 }

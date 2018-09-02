@@ -39,7 +39,6 @@ module.exports = {
 				// modulePath: `${__dirname}/src/cms/cms.js`,
 			},
 		},
-		`gatsby-transformer-remark`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -47,13 +46,7 @@ module.exports = {
 				path: `${__dirname}/src/content/`,
 			},
 		},
-		// {
-		//   resolve: `gatsby-source-filesystem`,
-		//   options: {
-		//     name: `images`,
-		//     path: `${__dirname}/static/images/`
-		//   }
-		// },
+		`gatsby-transformer-remark`,
 		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
@@ -89,6 +82,13 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sass`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+			  name: `img`,
+			  path: `${__dirname}/static/images/`
+			}
+		  },
 		`gatsby-image`,
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`
