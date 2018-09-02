@@ -41,7 +41,7 @@ Having the ability to specifically define how content and images span both rows 
 **Adobe InDesign Grid**
 - font-size 12pt
 - leading 16pt
-- basline grid 16pt increment
+- baseline grid 16pt increment
 - 4 column grid, 12pt gutter
 - 36pt margins
 
@@ -53,7 +53,7 @@ Having the ability to specifically define how content and images span both rows 
 - font-size: 12px; (.75rem)
 - line-height: 16px; (1rem)
 - grid-gap: 1rem;
-- columns: 6rem; except when its not
+- columns: 6rem; except when it's not
 - rows: 6 x auto;
 
 <div style="clear:both;"></div>
