@@ -12,7 +12,7 @@
   "dependencies": {
     "gatsby": "next",
     "gatsby-image": "next",
-    "gatsby-plugin-favicon": "next",
+    "gatsby-plugin-favicon": "^3.1.4",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-netlify-cms": "next",
     "gatsby-plugin-react-helmet": "next",
@@ -31,10 +31,12 @@
     "react-id-swiper": "^1.5.8",
     "react-inlinesvg": "^0.7.5",
     "react-responsive": "^4.1.0",
+    "styled-components": "^3.1.0-3",
     "typeface-dosis": "0.0.54",
     "typeface-raleway": "0.0.54"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.6.1",
     "cypress": "^2.1.0"
   }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
-import Link from 'gatsby-link'
+import styled from 'styled-components'
 
-import { breaks } from '../config/config';
+import { breaks, colors, containers } from '../config/styles';
 
 import Logo from './logo'
 import Navigation from './navigation'
@@ -11,7 +11,7 @@ import Navicon from './navicon'
 export default class Header extends Component {
     render() {
         return (
-            <header className="header" id="header">
+            <StyledHeader className="header" id="header">
                 <Logo />
                 
                 <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
@@ -21,7 +21,17 @@ export default class Header extends Component {
                 <MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
                     <Navicon toggleOffCanvas={this.props.toggleOffCanvas} />
                 </MediaQuery>
-            </header>
+            </StyledHeader>
         )
     }
 }
+
+const StyledHeader = styled.header`
+    background-color: ${colors.black};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    ${containers.container()}
+` 

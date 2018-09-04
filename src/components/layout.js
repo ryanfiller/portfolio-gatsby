@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { injectGlobal } from 'styled-components'
 import { navigateTo } from "gatsby-link"
 
 import Header from './header'
@@ -11,6 +12,22 @@ import Overlay from './overlay'
 
 require("typeface-raleway")
 require("typeface-dosis")
+
+injectGlobal`
+  html, body {
+		padding: 0;
+		margin: 0;
+		font-size: 12px;
+	}
+
+	main, article, aside, blockquote, caption, header, footer {
+		display: block;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+`
 
 
 export default class Layout extends React.Component {
