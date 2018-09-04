@@ -4,13 +4,6 @@ module.exports = {
 		siteUrl: `https://www.ryanfiller.com`
 	},
 	plugins: [
-		// `gatsby-plugin-layout`, // to not rerender header, footer, and nav
-		// {
-        //     resolve: `gatsby-plugin-layout`, // to not rerender header, footer, and nav
-        //     options: {
-        //         component: require.resolve(`./src/layouts/index`)
-        //     }
-        // },
 		`gatsby-plugin-sitemap`,
 		{
 			resolve: `gatsby-plugin-google-analytics`,

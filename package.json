@@ -14,7 +14,6 @@
     "gatsby-image": "next",
     "gatsby-plugin-favicon": "next",
     "gatsby-plugin-google-analytics": "next",
-    "gatsby-plugin-layout": "^1.0.0-rc.2",
     "gatsby-plugin-netlify-cms": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
