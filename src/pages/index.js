@@ -1,67 +1,39 @@
 import React from 'react';
+import { graphql } from 'gatsby'
 import Link from 'gatsby-link';
-import PortfolioFilter from '../components/portfolio-filter.js';
-import PortfolioGrid from '../components/portfolio-grid.js';
 
-import { breaks } from '../config/config';
+import Layout from '../components/layout'
+import PortfolioFilter from '../components/portfolio-filter'
+import PortfolioGrid from '../components/portfolio-grid'
 
-import Form from '../components/form.js';
+export default ({ data }) => {
+  return (
+	<Layout>
+		
+		{/* <PortfolioFilter /> */}
+		<PortfolioGrid 
+		// currentCategory={this.state.category} 
+		portfolio={data.allMarkdownRemark.edges}
+		/>
 
-export default class IndexPage extends React.Component {
-
-	constructor({ data }) {
-		super({ data });
-		this.state = {
-			category: 'all',
-		};
-	}
-
-	componentDidMount() {
-		document.addEventListener('wheel', this.onScroll);
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('wheel', this.onScroll);
-	  }
-
-	onScroll(e, tablet) {
-		var container = document.getElementsByClassName('portfolio-grid');
-		var scroll_vert = 0;
-
-		if (window.innerWidth > breaks.tablet) {
-			container[0].scrollLeft += e.deltaY;
-			container[0].scrollLeft += e.deltaX;
-
-			e.preventDefault();
-		}
-	}
-
-	render () {
-
-		const { data } = this.props;
-
-		return (
-			<main className="page-content">
-	
-				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
-	
-			</main>
-		);
-	}
+	</Layout>
+  );
 };
 
 export const query = graphql`
-	query HomepagePortfolioListQuery {
+	query HomepagePortfolioList {
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
-				id: { regex: "/portfolio//" },
+				fields: {slug: { regex: "/portfolio//" }},
 				frontmatter: { published: { eq: true } }
 			},
 		) {
-		edges {
-			node {
-				id
+			edges {
+				node {
+					fields {
+						slug
+					}
 					frontmatter {
 						title
 						date

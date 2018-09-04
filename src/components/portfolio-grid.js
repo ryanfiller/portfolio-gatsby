@@ -5,14 +5,17 @@ import PortfolioBlock from './portfolio-block.js'
 export default class PortfolioGrid extends Component {
 	render() {
 
-		const { currentCategory } = this.props;
+		const { portfolio, currentCategory } = this.props;
 
 		return (
 			<div className="portfolio-grid">
-				{this.props.portfolio.map(({ node }, index) => (
-					currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
-						<PortfolioBlock card={node} key={index}/>
-					: ''
+				{portfolio.map(({ node }, index) => (
+					<div>
+						asdfasdf
+					</div>
+					// currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
+					// 	<PortfolioBlock card={node} key={index}/>
+					// : ''
 				))} 
 			</div>
 		)

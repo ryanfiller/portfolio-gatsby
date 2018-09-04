@@ -12,11 +12,7 @@ export default class About extends React.Component {
 		
 		return (
 			<main className="page-content about-text">
-				<Headshot regular={data.headshot} hover={data.headshotHover} />
-
-				{/* <Img sizes={data.headshot.sizes} /> */}
-
-				{console.log(this.props.data)}
+				{/* <Headshot regular={data.headshot} hover={data.headshotHover} /> */}
 
 				<p>
 					I am a designer, developer, and illustrator living and working in Memphis, Tennessee.
@@ -38,17 +34,17 @@ export default class About extends React.Component {
 	}
 }
 
-export const pageQuery = graphql`
-  query HeadshotQuery {
-    headshot: imageSharp(id: { regex: "/headshot.png/" }) {
-		sizes(maxWidth: 500 ) {
-		  ...GatsbyImageSharpSizes
-		}
-	},
-	headshotHover: imageSharp(id: { regex: "/headshot-transparent.png/" }) {
-		sizes(maxWidth: 500 ) {
-		  ...GatsbyImageSharpSizes
-		}
-	}
-  }
-`
+// export const pageQuery = graphql`
+//   query HeadshotQuery {
+//     headshot: imageSharp(id: { regex: "/headshot.png/" }) {
+// 		sizes(maxWidth: 500 ) {
+// 		  ...GatsbyImageSharpSizes
+// 		}
+// 	},
+// 	headshotHover: imageSharp(id: { regex: "/headshot-transparent.png/" }) {
+// 		sizes(maxWidth: 500 ) {
+// 		  ...GatsbyImageSharpSizes
+// 		}
+// 	}
+//   }
+// `

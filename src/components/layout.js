@@ -2,10 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { navigateTo } from "gatsby-link"
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import OffCanvas from '../components/off-canvas'
-import Overlay from '../components/overlay'
+import Header from './header'
+import Footer from './footer'
+import OffCanvas from './off-canvas'
+import Overlay from './overlay'
 
 // import '../styles/styles.scss'
 
@@ -60,9 +60,10 @@ export default class Layout extends React.Component {
 		// }
 		
 		return (
-			<main 
-			// className={this.state.open === false ? `site ${orientation}` : `open site ${orientation}` } 
-			id="site">
+            <main 
+            // className={this.state.open === false ? `site ${orientation}` : `open site ${orientation}` } 
+            id="site">
+
 				<Helmet
 					title="ryanfiller.com"
 					meta={[
@@ -73,9 +74,9 @@ export default class Layout extends React.Component {
 
 				{
 					this.state.open ? 
-						<OffCanvas navigateAndClose={this.navigateAndClose} 
-						// currentPage={this.props.location.pathname}
-						/>
+                        <OffCanvas navigateAndClose={this.navigateAndClose} 
+                        // currentPage={this.props.location.pathname}
+                        />
 					: ''
 				}
 
@@ -87,11 +88,13 @@ export default class Layout extends React.Component {
 						: ''
 					}
 
-					<Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} 
-					// currentPage={this.props.location.pathname}
-					/>
+                    <Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} 
+                    // currentPage={this.props.location.pathname}
+                    />
 
-					{this.props.children}
+                    <main className="page-content">
+                        {this.props.children}
+                    </main>
 
 					<Footer />
 
