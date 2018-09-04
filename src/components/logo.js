@@ -124,20 +124,3 @@ const StyledLink = styled(Link)`
 	`)}
 	
 `
-// TODO: 
-// @include phone-break {
-	// .r {
-	// 	filter: drop-shadow( .25em 0px 0px $color-black ); 
-	// 	margin-right: -.7em;
-	// }
-
-	// .f {
-	// 	transform: rotateY(180deg);
-	// 	margin-right: 0;
-	// 	margin-left: .15em;
-	// }
-
-	// .yan, .iller {
-	// 	max-width: 0;
-	// }
-// }

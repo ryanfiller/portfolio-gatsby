@@ -7,8 +7,9 @@ export const colors = {
 
 export const transition = '.2s';
 
+export const naviconWidth = '40px';
+
 export const breaks = {
-    // these must match config/_breakpoints.scss
     large: 1200,
     tablet: 768,
     phone: 480,
