@@ -53,18 +53,18 @@
 	}
 }
 
-.page-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: $color-black;
-    opacity: .5;
-    z-index: 40;
+// .page-overlay {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     background: $color-black;
+//     opacity: .5;
+//     z-index: 40;
     
-    &.open {
-        opacity: 1;
-        pointer-events: auto;
-    }
-}
+//     &.open {
+//         opacity: 1;
+//         pointer-events: auto;
+//     }
+// }
