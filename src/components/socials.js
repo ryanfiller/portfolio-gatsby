@@ -1,28 +1,97 @@
 import React, { Component } from 'react';
 import SVG  from 'react-inlinesvg';
 
-import config from '../config/config';
+import styled from 'styled-components';
 
-export default class Socials extends Component {
+import { socialMedia } from '../config/config';
+import { colors, functions, transition } from '../config/styles';
+
+const Social = ( props ) => {
+	return (
+	<StyledSocial 
+		className={`social social--${props.social.name.toLowerCase()}`}
+		key={props.social.name} 
+		href={props.social.url}
+		target="_blank"
+		style={{color: props.social.color}}
+	>
+		<SVG src={`../images/socials/${props.social.name.toLowerCase()}.svg`}/>
+	</StyledSocial>
+	)
+}
+
+class SocialsList extends Component {
 
 	render() {
-
 		return (
-			<ul className="socials">
-				{config.socialMedia.map((social) =>
+			<StyledSocialList className="socials-list">
+				{socialMedia.map((social) => 
 					<li key={social.name}>
-					<a 
-					className={`social social--${social.name.toLowerCase()}`}
-					key={social.name} 
-					href={social.url}
-					target="_blank"
-					style={{color: social.color}}
-					>
-						<SVG src={`../images/socials/${social.name.toLowerCase()}.svg`}/>
-					</a>
+						<Social social={social}/>
 					</li>
 				)}
-			</ul> 
+			</StyledSocialList> 
 		)
 	}
 }
+
+export default SocialsList;
+
+const StyledSocial = styled.a`
+	width: 100%;
+	position: relative;
+	display: block;
+
+	svg {
+		fill: ${colors.white};
+		display: block;
+		height: auto;
+		width: 100%;
+		position: relative;
+		z-index: 2;
+		fill: currentColor;
+
+		${functions.phoneBreak(`
+			fill: ${colors.white};
+		`)}
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		background: currentColor;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin-top: 100%;
+		transition: ${transition};
+
+		${functions.phoneBreak(`
+			display: block;
+		`)}
+	}
+
+	&:hover:after {
+		margin-top: 0;
+	}
+`
+
+const StyledSocialList = styled.ul`
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+	li {
+		position: relative;
+		flex: 1;
+		width: auto;
+
+		${functions.phoneBreak(`
+			max-width: 2rem;
+		`)}
+	}
+`

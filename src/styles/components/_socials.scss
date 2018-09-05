@@ -1,12 +1,12 @@
 .socials {
-    display: flex;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+    // display: flex;
+	// list-style: none;
+	// padding: 0;
+	// margin: 0;
 	
-	li {
-		position: relative;
-	}
+	// li {
+	// 	position: relative;
+	// }
 
 	.social {
 		width: 1.75rem;
@@ -40,16 +40,16 @@
 		}
 	}
 
-	svg {
-		fill: $color-white;
-		display: block;
-		height: auto;
-		width: 100%;
-		position: relative;
-		z-index: 2;
+	// svg {
+	// 	fill: $color-white;
+	// 	display: block;
+	// 	height: auto;
+	// 	width: 100%;
+	// 	position: relative;
+	// 	z-index: 2;
 
-		@media(max-width: $tablet) {
-			fill: currentColor;
-		}
-	}
+	// 	@media(max-width: $tablet) {
+	// 		fill: currentColor;
+	// 	}
+	// }
 }

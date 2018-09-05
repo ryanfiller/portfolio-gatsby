@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import Socials from './socials'
+import SocialsList from './socials'
 
 const Footer = () => (
     <footer className="footer">
@@ -9,7 +9,7 @@ const Footer = () => (
             Copyright 2012 - { new Date().getFullYear() }, 
             Built with <a target="_blank" href="https://www.gatsbyjs.org/">GatbyJS</a> and <a target="_blank" href="https://www.netlifycms.org/">NetlifyCMS</a>
         </div>
-        <Socials />
+        <SocialsList />
     </footer>
 )
 
