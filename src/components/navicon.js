@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { colors, naviconWidth } from '../config/styles'
+import { colors, naviconWidth, transition } from '../config/styles'
 
 export default class Navicon extends Component {
     render() {
@@ -16,6 +16,7 @@ export default class Navicon extends Component {
 }
 
 const StyledNavicon = styled.div`
+    cursor: pointer;
     align-self: stretch;
     height: auto;
     position: relative !important;
@@ -34,18 +35,18 @@ const StyledNavicon = styled.div`
     .top {
         top: 0;
         transform: rotate(0deg);
-        transition: top $transition ease $transition, transform $transition ease 0s;
+        transition: top ${transition} ease ${transition}, transform ${transition} ease 0s;
     }
 
     .middle {
-        transition: opacity 0s ease $transition;
+        transition: opacity 0s ease ${transition};
         top: 50%;
         transform: translateY(-50%);
         opacity: 1;
     }
 
     .bottom {
-        transition: bottom $transition ease $transition, transform $transition ease 0s;
+        transition: bottom ${transition} ease ${transition}, transform ${transition} ease 0s;
         bottom: 0;
     }
 
@@ -54,18 +55,18 @@ const StyledNavicon = styled.div`
         z-index: 100;
 
         .top {
-            transition: top $transition ease 0s, transform $transition ease $transition;
+            transition: top ${transition} ease 0s, transform ${transition} ease ${transition};
             top: calc(50% - .125rem);
             transform: rotate(45deg);
         }
 
         .middle {
-            transition: opacity 0s ease $transition;
+            transition: opacity 0s ease ${transition};
             opacity: 0;
         }
 
         .bottom {
-            transition: bottom $transition ease 0s, transform $transition ease $transition;
+            transition: bottom ${transition} ease 0s, transform ${transition} ease ${transition};
             bottom: calc(50% - .125rem);
             transform: rotate(-45deg);
         }

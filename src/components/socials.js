@@ -43,16 +43,15 @@ const StyledSocial = styled.a`
 	display: block;
 
 	svg {
-		fill: ${colors.white};
 		display: block;
 		height: auto;
 		width: 100%;
 		position: relative;
 		z-index: 2;
-		fill: currentColor;
+		fill: ${colors.white};
 
 		${functions.phoneBreak(`
-			fill: ${colors.white};
+			fill: currentColor;
 		`)}
 	}
 

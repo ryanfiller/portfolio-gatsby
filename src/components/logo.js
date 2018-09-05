@@ -38,6 +38,7 @@ const StyledLink = styled(Link)`
 
 	.r, .yan, .f, .iller {
 		pointer-events: none;
+		transition: ${transition};
 	}
 
 	.r {

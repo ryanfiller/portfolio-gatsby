@@ -1,21 +1,21 @@
-.site {
-	position: relative;
-    will-change: transform;
-    transition: $transition;
+// .site {
+	// position: relative;
+    // will-change: transform;
+    // transition: $transition;
 
-    &.open {
-		transform: translateX(-33.33vw);
+    // &.open {
+	// 	transform: translateX(-33.33vw);
 		
-		@include tablet-break {
-			transform: translateX(-50vw);
-		}
+	// 	@include tablet-break {
+	// 		transform: translateX(-50vw);
+	// 	}
 
-        @include phone-break {
-			transform: 
-			translateX(-100%) translateX($spacing * 2) translateX($navicon-width);
-        }
-    }
-}
+    //     @include phone-break {
+	// 		transform: 
+	// 		translateX(-100%) translateX($spacing * 2) translateX($navicon-width);
+    //     }
+    // }
+// }
 
 .off-canvas {
 	display: none;

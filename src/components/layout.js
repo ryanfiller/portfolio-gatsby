@@ -1,7 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { injectGlobal } from 'styled-components'
 import { navigateTo } from "gatsby-link"
+
+import styled, { injectGlobal } from 'styled-components'
+
+import { functions, naviconWidth, transition } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -34,9 +37,9 @@ export default class Layout extends React.Component {
 
 	constructor({ data, children }) {
 		super({ data, children });
-		this.onKeydown = this.onKeydown.bind(this)
+		// this.onKeydown = this.onKeydown.bind(this)
 		this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
-		this.navigateAndClose = this.navigateAndClose.bind(this)
+		// this.navigateAndClose = this.navigateAndClose.bind(this)
 		this.state = {
 			open: false,
 		};
@@ -46,7 +49,7 @@ export default class Layout extends React.Component {
 		document.addEventListener('keydown', this.onKeydown)
 	}
 
-	onKeydown(e) {
+	onKeydown = (e) => {
 		if (e.keyCode === 27) {
 			this.setState({open: false});
 		}
@@ -55,18 +58,18 @@ export default class Layout extends React.Component {
 	toggleOffCanvas(e, target='') {
 		e.preventDefault();
 		this.setState({open: !this.state.open})
-		if (window.location.hash.length) {
-			window.history.back()
-		} else {
-			window.location.hash = target;
-		}
+		// if (window.location.hash.length) {
+		// 	window.history.back()
+		// } else {
+		// 	window.location.hash = target;
+		// }
 	}
 
-	navigateAndClose(e, target) {
-		// e.preventDefault();
-		// this.setState({open: false}),
-		// navigateTo(target);
-	}
+	// navigateAndClose(e, target) {
+	// 	e.preventDefault();
+	// 	this.setState({open: false}),
+	// 	navigateTo(target);
+	// }
 
 	render() {
 
@@ -75,10 +78,12 @@ export default class Layout extends React.Component {
         // } else {
 		// 	var orientation = 'vertical'
 		// }
+
+		var orientation = 'vertical'
 		
 		return (
-            <main 
-            // className={this.state.open === false ? `site ${orientation}` : `open site ${orientation}` } 
+            <StyledSite 
+            className={this.state.open === false ? `site ${orientation}` : `open site ${orientation}` } 
             id="site">
 
 				<Helmet
@@ -117,7 +122,26 @@ export default class Layout extends React.Component {
 
 				</div>
 
-			</main>
+			</StyledSite>
 		)
 	}
 }
+
+const StyledSite = styled.div`
+	position: relative;
+    will-change: transform;
+    transition: ${transition};
+
+    &.open {
+		transform: 
+			translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+
+		${functions.phoneBreak(`
+			transform: translateX(-50vw);
+		`)}
+
+		${functions.tabletBreak(`
+			transform: translateX(-33.33vw);
+		`)}
+    }
+`
