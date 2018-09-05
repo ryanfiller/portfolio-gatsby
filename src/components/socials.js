@@ -48,10 +48,10 @@ const StyledSocial = styled.a`
 		width: 100%;
 		position: relative;
 		z-index: 2;
-		fill: ${colors.white};
+		fill: currentColor;
 
 		${functions.phoneBreak(`
-			fill: currentColor;
+			fill: ${colors.white};
 		`)}
 	}
 
@@ -73,9 +73,11 @@ const StyledSocial = styled.a`
 		`)}
 	}
 
-	&:hover:after {
-		margin-top: 0;
-	}
+	${functions.phoneBreak(`
+		&:hover:after {
+			margin-top: 0;
+		}
+	`)}
 `
 
 const StyledSocialList = styled.ul`
