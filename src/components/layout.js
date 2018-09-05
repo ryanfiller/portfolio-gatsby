@@ -4,7 +4,7 @@ import { navigateTo } from "gatsby-link"
 
 import styled, { injectGlobal } from 'styled-components'
 
-import { functions, naviconWidth, transition } from '../config/styles'
+import { colors, functions, naviconWidth, transition } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -102,7 +102,7 @@ export default class Layout extends React.Component {
 					: ''
 				}
 
-				<div className="site-content">
+				<StyledContent className="site-content">
 
 					{
 						this.state.open ? 
@@ -120,7 +120,7 @@ export default class Layout extends React.Component {
 
 					<Footer />
 
-				</div>
+				</StyledContent >
 
 			</StyledSite>
 		)
@@ -144,4 +144,23 @@ const StyledSite = styled.div`
 			transform: translateX(-33.33vw);
 		`)}
     }
+`
+
+const StyledContent = styled.div`
+	background-color: ${colors.white};
+	min-height: 100vh;
+	height: auto;
+	width: 100vw;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	.page-content {
+		flex: 1;
+		overflow: scroll;
+	}
+
+	${functions.phoneBreak(`
+		height: 100vh;
+	`)}
 `

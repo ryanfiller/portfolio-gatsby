@@ -24,7 +24,7 @@ const StyledFooter = styled.footer`
     font-size: 1rem;
 
     .copyright {
-
+        padding: .25em;
         ${containers.container()}
         /* TODO */
         /* @include font-condensed; */
@@ -53,7 +53,6 @@ const StyledFooter = styled.footer`
 
         .copyright {
             text-align: left;
-            padding: .25em;
         }
     `)}
 `
