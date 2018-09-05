@@ -1,16 +1,59 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import styled from 'styled-components'
+
+import { colors, containers, functions } from '../config/styles';
 
 import SocialsList from './socials'
 
 const Footer = () => (
-    <footer className="footer">
-        <div className="footer__copyright">
+    <StyledFooter className="footer">
+        <div className="copyright">
             Copyright 2012 - { new Date().getFullYear() }, 
             Built with <a target="_blank" href="https://www.gatsbyjs.org/">GatbyJS</a> and <a target="_blank" href="https://www.netlifycms.org/">NetlifyCMS</a>
         </div>
         <SocialsList />
-    </footer>
+    </StyledFooter>
 )
 
-export default Footer
+export default Footer;
+
+const StyledFooter = styled.footer`
+    background-color: ${colors.black};
+    color: ${colors.white};
+    display: block;
+    font-size: 1rem;
+
+    .copyright {
+
+        ${containers.container()}
+        /* TODO */
+        /* @include font-condensed; */
+        text-transform: uppercase;
+        text-align: center;
+
+        &:before {
+            content: '\00a9';
+            margin-right: .125em;
+        }
+
+        a {
+            color: ${colors.white};
+            text-decoration: none;
+
+            &:hover {
+                color: ${colors.orange};
+            }
+        }
+    }
+
+    ${functions.phoneBreak(`
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .copyright {
+            text-align: left;
+            padding: .25em;
+        }
+    `)}
+`
