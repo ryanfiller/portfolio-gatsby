@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { navigateTo } from "gatsby-link"
 
 import styled, { injectGlobal } from 'styled-components'
 
@@ -65,12 +64,6 @@ export default class Layout extends React.Component {
 		// }
 	}
 
-	// navigateAndClose(e, target) {
-	// 	e.preventDefault();
-	// 	this.setState({open: false}),
-	// 	navigateTo(target);
-	// }
-
 	render() {
 
 		// if (this.props.location.pathname === '/') {
@@ -110,7 +103,7 @@ export default class Layout extends React.Component {
 						: ''
 					}
 
-                    <Header toggleOffCanvas={this.toggleOffCanvas} navigateAndClose={this.navigateAndClose} 
+                    <Header toggleOffCanvas={this.toggleOffCanvas}
                     // currentPage={this.props.location.pathname}
                     />
 

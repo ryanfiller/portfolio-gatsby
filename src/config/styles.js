@@ -7,13 +7,14 @@ export const colors = {
 
 export const transition = '.2s';
 
-export const naviconWidth = '40px';
-
 export const breaks = {
     large: 1200,
     tablet: 768,
     phone: 480,
 }
+
+export const naviconWidth = '40px';
+export const navBreak = breaks.tablet;
 
 export const functions = {
     phoneBreak: (styles) => {

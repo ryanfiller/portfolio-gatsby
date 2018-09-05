@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 import styled from 'styled-components'
 
-import { breaks, colors, containers } from '../config/styles';
+import { breaks, colors, containers, navBreak } from '../config/styles';
 
 import Logo from './logo'
 import Navigation from './navigation'
@@ -14,11 +14,11 @@ export default class Header extends Component {
             <StyledHeader className="header" id="header">
                 <Logo />
                 
-                <MediaQuery query={`(min-width: ${breaks.tablet}px)`}>
-                    <Navigation toggleOffCanvas={this.props.toggleOffCanvas} navigateAndClose={this.props.navigateAndClose} currentPage={this.props.currentPage} />
+                <MediaQuery query={`(min-width: ${navBreak}px)`}>
+                    <Navigation toggleOffCanvas={this.props.toggleOffCanvas} />
                 </MediaQuery>
 
-                <MediaQuery query={`(max-width: ${breaks.tablet}px)`}>
+                <MediaQuery query={`(max-width: ${navBreak}px)`}>
                     <Navicon toggleOffCanvas={this.props.toggleOffCanvas} />
                 </MediaQuery>
             </StyledHeader>
