@@ -5,6 +5,24 @@ export const colors = {
     black: '#1e2223',
 }
 
+require("typeface-raleway")
+require("typeface-dosis")
+
+export const fonts = {
+    sansSerif: () => {
+        return `
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+        `;
+    },
+    condensed: () => {
+        return `
+            font-family: 'Dosis', sans-serif;
+            font-weight: 400;
+        `;
+    }
+}
+
 export const transition = '.2s';
 
 export const breaks = {

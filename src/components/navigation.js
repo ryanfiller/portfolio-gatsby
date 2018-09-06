@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
-import { colors, containers, navBreak, transition } from '../config/styles';
+import { colors, containers, fonts, navBreak, transition } from '../config/styles';
 
 export default class Navigation extends Component {
 	render() {
@@ -70,8 +70,7 @@ const StyledNav = styled.nav`
 const StyledNavLink = styled.a`
 	text-decoration: none;
 	margin-left: 2rem;
-	/* TODO */
-	/* @include font-condensed; */
+	${fonts.condensed()}
 	text-transform: uppercase;
 	font-size: 1em;
 	color: ${colors.white};

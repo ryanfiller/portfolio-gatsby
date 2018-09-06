@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, containers, functions } from '../config/styles';
+import { colors, containers, fonts, functions } from '../config/styles';
 
 import SocialsList from './socials'
 
@@ -26,8 +26,7 @@ const StyledFooter = styled.footer`
     .copyright {
         padding: .25em;
         ${containers.container()}
-        /* TODO */
-        /* @include font-condensed; */
+        ${fonts.condensed()}
         text-transform: uppercase;
         text-align: center;
 

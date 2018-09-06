@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { navigate } from "gatsby"
 
 import styled, { injectGlobal } from 'styled-components'
-import { colors, functions, naviconWidth, transition } from '../config/styles'
+import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -16,10 +16,11 @@ require("typeface-raleway")
 require("typeface-dosis")
 
 injectGlobal`
-  html, body {
+  	html, body {
 		padding: 0;
 		margin: 0;
 		font-size: 12px;
+		${fonts.sansSerif()}
 	}
 
 	main, article, aside, blockquote, caption, header, footer {
