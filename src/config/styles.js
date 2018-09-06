@@ -48,6 +48,8 @@ export const functions = {
     }
 }
 
+export const padding = '1rem';
+
 export const containers = {
     container: () => {
         return `

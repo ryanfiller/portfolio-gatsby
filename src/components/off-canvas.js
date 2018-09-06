@@ -2,7 +2,7 @@ import React from "react";
 import MediaQuery from 'react-responsive';
 
 import styled from 'styled-components';
-import { breaks, colors, navBreak, transition } from '../config/styles';
+import { breaks, colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
 
 import Navigation from '../components/navigation'
 import Form from '../components/form.js'
@@ -24,7 +24,6 @@ export default class OffCanvas extends React.Component {
 const StyledOffCanvas = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	align-content: center;
 	/* transition: ${transition} * 2; */
 	position: absolute;
 	top: 0;
@@ -32,15 +31,22 @@ const StyledOffCanvas = styled.div`
 	background-color: ${colors.blue};
 	height: 100%;
 	width: 33.33vw;
-	/* padding: $spacing; */
+	padding: ${padding};
+
+	align-content: start;
+	width: calc(100% - ((${padding} * 2) + ${naviconWidth}));
+
+	${functions.phoneBreak(`
+		align-content: center;
+		width: 50%;
+	`)}
+
+	${functions.tabletBreak(`
+		width: 33.33vw;
+	`)}
 
 	@include tablet-break {
-		width: 50%;
-	}
-
-	@include phone-break {
-		align-content: start;
-		/* width: calc(100% - ((#{$spacing} * 2) + #{$navicon-width})); */
+		
 	}
 
 	& > * {
