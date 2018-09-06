@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { navigate } from "gatsby"
 
 import styled, { injectGlobal } from 'styled-components'
-
 import { colors, functions, naviconWidth, transition } from '../config/styles'
 
 import Header from './header'
@@ -36,9 +36,10 @@ export default class Layout extends React.Component {
 
 	constructor({ data, children }) {
 		super({ data, children });
-		// this.onKeydown = this.onKeydown.bind(this)
+		this.handleNavigate = this.handleNavigate.bind(this)
+		this.onKeydown = this.onKeydown.bind(this)
 		this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
-		// this.navigateAndClose = this.navigateAndClose.bind(this)
+		this.closeAndNavigate = this.closeAndNavigate.bind(this)
 		this.state = {
 			open: false,
 		};
@@ -52,6 +53,16 @@ export default class Layout extends React.Component {
 		if (e.keyCode === 27) {
 			this.setState({open: false});
 		}
+	}
+
+	handleNavigate(e) {
+		e.preventDefault()
+		navigate(e.target.getAttribute("href"))
+	}
+
+	closeAndNavigate(e) {
+		e.preventDefault()
+		console.log('close and navigate')
 	}
 
 	toggleOffCanvas(e, target='') {
@@ -89,7 +100,7 @@ export default class Layout extends React.Component {
 
 				{
 					this.state.open ? 
-                        <OffCanvas navigateAndClose={this.navigateAndClose} 
+                        <OffCanvas handleNavigate={this.closeAndNavigate} 
                         // currentPage={this.props.location.pathname}
                         />
 					: ''
@@ -103,7 +114,7 @@ export default class Layout extends React.Component {
 						: ''
 					}
 
-                    <Header toggleOffCanvas={this.toggleOffCanvas}
+                    <Header handleNavigate={this.handleNavigate} toggleOffCanvas={this.toggleOffCanvas}
                     // currentPage={this.props.location.pathname}
                     />
 

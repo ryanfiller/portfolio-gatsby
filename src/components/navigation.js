@@ -1,49 +1,100 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
-import { navigate } from "gatsby"
 
 import { pages } from '../config/config';
-import { navBreak } from '../config/styles';
+import { colors, containers, navBreak, transition } from '../config/styles';
 
 export default class Navigation extends Component {
-
-	handleNavigate(e) {
-		e.preventDefault()
-		console.log(e.target)
-	}
-
 	render() {
+		console.log(this.props)
 		return (
-			<nav className="nav" role="navigation">
+			<StyledNav className="nav" role="navigation">
 				{ pages.map((page) =>
 					{if(page != 'contact'){
 						return(
-							<a 
-							href={page}
-							onClick={(e) => {this.handleNavigate(e)}}
-							key={page} 
-							data-text={page}
-							// className={ this.props.currentPage.includes(page) ? 'active' : '' }
+							<StyledNavLink 
+								href={page}
+								onClick={(e) => {this.props.handleNavigate(e)}}
+								key={page} 
+								data-text={page}
+								// ?? activeClassName="active"
 							>
 								{page}
-							</a>
+							</StyledNavLink>
 						)
 					} else {
 						return(
 							<MediaQuery query={`(min-width: ${navBreak}px)`}>
-								<a
-								href="#contact-form"
-								onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
-								key={page} 
-								data-text={page} 
-								id={page} >
+								<StyledNavLink
+									href="#contact-form"
+									onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
+									key={page} 
+									// ?? activeClassName="active"
+									data-text={page} 
+									id={page} 
+								>
 									{page}
-								</a>
+								</StyledNavLink>
 							</MediaQuery>
 						)
 					}}
 				)}
-			</nav>
+			</StyledNav>
 		)
 	}
 }
+
+const StyledNav = styled.nav`
+	.header & {
+		color: ${colors.white};
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.off-canvas & {
+		color: ${colors.white};
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		${containers.container()}
+
+		a {
+			font-size: 2em;
+			margin: .5em 0;
+		}
+	}
+`
+
+const StyledNavLink = styled.a`
+	text-decoration: none;
+	margin-left: 2rem;
+	/* TODO */
+	/* @include font-condensed; */
+	text-transform: uppercase;
+	font-size: 1em;
+	color: ${colors.white};
+	transition: ${transition};
+
+	&.active {
+		color: ${colors.orange};
+	}
+
+	&:hover {
+		color: ${colors.orange};
+		cursor: pointer;
+		/* TODO */
+		/* @include glitch($color-orange, $color-black); */
+	}
+
+	#site.open & {
+		color: {$colors.white};
+		
+		&#contact {
+			position: relative;
+			z-index: 100;
+			color: ${colors.orange};
+		}
+	}
+`
