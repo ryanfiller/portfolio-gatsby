@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../config/styles';
+import { colors, transition } from '../config/styles';
 
 export default class Overlay extends Component {
     render() {
@@ -18,8 +18,9 @@ const StyledOverlay = styled.div`
     bottom: 0;
     left: 0;
     background: ${colors.black};
-    opacity: .5;
+    opacity: .66;
     z-index: 40;
+    transition: ${transition};
     
     &.open {
         opacity: 1;
