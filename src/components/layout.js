@@ -5,15 +5,13 @@ import { navigate } from "gatsby"
 import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
 
-import Header from './header'
-import Footer from './footer'
-import OffCanvas from './off-canvas'
-import Overlay from './overlay'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import OffCanvas from '../components/off-canvas'
+import Overlay from '../components/overlay'
 
-// import '../styles/styles.scss'
-
-require("typeface-raleway")
-require("typeface-dosis")
+// require("typeface-raleway")
+// require("typeface-dosis")
 
 injectGlobal`
   	html, body {
@@ -48,7 +46,7 @@ export default class Layout extends React.Component {
 
 	componentDidMount() {
 		document.addEventListener('keydown', this.onKeydown)
-	}
+	 }
 
 	onKeydown = (e) => {
 		if (e.keyCode === 27) {
@@ -85,10 +83,14 @@ export default class Layout extends React.Component {
 		// }
 
 		var orientation = 'vertical'
+
+		// this.props.location.pathname
+
+		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
 		
 		return (
             <StyledSite 
-            className={this.state.open === false ? `site ${orientation}` : `open site ${orientation}` } 
+            className={className} 
             id="site">
 
 				<Helmet
@@ -101,8 +103,9 @@ export default class Layout extends React.Component {
 
 				{
 					this.state.open ? 
-                        <OffCanvas handleNavigate={this.closeAndNavigate} 
-                        // currentPage={this.props.location.pathname}
+						<OffCanvas 
+							handleNavigate={this.closeAndNavigate} 
+                        	currentPage={this.props.location.pathname}
                         />
 					: ''
 				}
@@ -115,8 +118,10 @@ export default class Layout extends React.Component {
 						: ''
 					}
 
-                    <Header handleNavigate={this.handleNavigate} toggleOffCanvas={this.toggleOffCanvas}
-                    // currentPage={this.props.location.pathname}
+					<Header 
+						handleNavigate={this.handleNavigate} 
+						toggleOffCanvas={this.toggleOffCanvas}
+                    	currentPage={this.props.location.pathname}
                     />
 
                     <main className="page-content">

@@ -41,13 +41,15 @@ export default class Portfolio extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<main className="page-content">
+			<React.Fragment>
 
-				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
+			porfolio
 
-				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
+				{/* <PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} /> */}
 
-			</main>
+				{/* <PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/> */}
+
+			</React.Fragment>
 		);
 	}
 };

@@ -2,13 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link';
 
-import Layout from '../components/layout'
 import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'
 
 export default ({ data }) => {
   return (
-	<Layout>
+	<React.Fragment>
 		
 		{/* <PortfolioFilter /> */}
 		<PortfolioGrid 
@@ -16,7 +15,7 @@ export default ({ data }) => {
 		portfolio={data.allMarkdownRemark.edges}
 		/>
 
-	</Layout>
+	</React.Fragment>
   );
 };
 

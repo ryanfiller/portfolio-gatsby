@@ -4,6 +4,12 @@ module.exports = {
 		siteUrl: `https://www.ryanfiller.com`
 	},
 	plugins: [
+		{
+            resolve: `gatsby-plugin-layout`,
+            options: {
+                component: require.resolve(`./src/components/layout`)
+            }
+        },
 		`gatsby-plugin-sitemap`,
 		{
 			resolve: `gatsby-plugin-google-analytics`,
@@ -81,7 +87,6 @@ module.exports = {
 				],
 			},
 		},
-		`gatsby-plugin-sass`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

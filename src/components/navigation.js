@@ -6,8 +6,8 @@ import { pages } from '../config/config';
 import { colors, containers, fonts, navBreak, transition } from '../config/styles';
 
 export default class Navigation extends Component {
+
 	render() {
-		console.log(this.props)
 		return (
 			<StyledNav className="nav" role="navigation">
 				{ pages.map((page) =>
@@ -18,8 +18,9 @@ export default class Navigation extends Component {
 								onClick={(e) => {this.props.handleNavigate(e)}}
 								key={page} 
 								data-text={page}
-								// ?? activeClassName="active"
+								className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
 							>
+							{console.log(this.props)}
 								{page}
 							</StyledNavLink>
 						)
@@ -30,7 +31,6 @@ export default class Navigation extends Component {
 									href="#contact-form"
 									onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
 									key={page} 
-									// ?? activeClassName="active"
 									data-text={page} 
 									id={page} 
 								>
@@ -88,7 +88,7 @@ const StyledNavLink = styled.a`
 	}
 
 	#site.open & {
-		color: {$colors.white};
+		color: ${colors.white};
 		
 		&#contact {
 			position: relative;

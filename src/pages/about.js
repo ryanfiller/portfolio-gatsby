@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
+
 import Headshot from '../components/headshot';
 
 import Img from "gatsby-image";
@@ -11,7 +12,8 @@ export default class About extends React.Component {
 		const { data } = this.props;
 		
 		return (
-			<main className="page-content about-text">
+			<React.Fragment>
+			{/* <main className="page-content about-text"> */}
 				{/* <Headshot regular={data.headshot} hover={data.headshotHover} /> */}
 
 				<p>
@@ -29,7 +31,8 @@ export default class About extends React.Component {
 				<p>
 					My full resume can be found on my <a href="https://www.linkedin.com/in/ryanfiller/" target="blank">LinkedIn page.</a>
 				</p>
-			</main>
+			{/* </main> */}
+			</React.Fragment>
 		)
 	}
 }
