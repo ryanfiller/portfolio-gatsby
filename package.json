@@ -40,20 +40,5 @@
 		"@babel/preset-env": "^7.0.0",
 		"babel-plugin-styled-components": "^1.6.1",
 		"cypress": "^2.1.0"
-	},
-	"babel": {
-		"presets": [
-			[
-				"@babel/preset-env"
-			]
-		],
-
-		"plugins": [
-			["babel-plugin-styled-components", {
-				"displayName": true
-			}]
-		],
-
-		"env": {}
 	}
 }
