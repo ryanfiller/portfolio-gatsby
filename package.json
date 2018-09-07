@@ -20,6 +20,7 @@
 		"gatsby-plugin-sass": "next",
 		"gatsby-plugin-sharp": "next",
 		"gatsby-plugin-sitemap": "next",
+		"gatsby-plugin-styled-components": "^2.0.11",
 		"gatsby-remark-autolink-headers": "next",
 		"gatsby-remark-prismjs": "next",
 		"gatsby-source-filesystem": "next",
@@ -32,13 +33,13 @@
 		"react-id-swiper": "^1.5.8",
 		"react-inlinesvg": "^0.7.5",
 		"react-responsive": "^4.1.0",
-		"styled-components": "^3.1.0-3",
+		"styled-components": "^3.4.5",
 		"typeface-dosis": "0.0.54",
 		"typeface-raleway": "0.0.54"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.0.0",
-		"babel-plugin-styled-components": "^1.6.1",
+		"babel-plugin-styled-components": "^1.6.3",
 		"cypress": "^2.1.0"
 	}
 }

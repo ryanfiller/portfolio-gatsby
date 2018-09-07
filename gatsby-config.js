@@ -9,7 +9,8 @@ module.exports = {
             options: {
                 component: require.resolve(`./src/components/layout`)
             }
-        },
+		},
+		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-sitemap`,
 		{
 			resolve: `gatsby-plugin-google-analytics`,
