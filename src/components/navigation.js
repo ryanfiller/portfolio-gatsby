@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
-import { colors, containers, fonts, navBreak, transition } from '../config/styles';
+import { colors, containers, fonts, functions, navBreak, transition } from '../config/styles';
 
 export default class Navigation extends Component {
 
@@ -20,7 +20,6 @@ export default class Navigation extends Component {
 								data-text={page}
 								className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
 							>
-							{console.log(this.props)}
 								{page}
 							</StyledNavLink>
 						)
@@ -88,7 +87,9 @@ const StyledNavLink = styled.a`
 	}
 
 	#site.open & {
-		color: ${colors.white};
+		${functions.tabletBreak(`
+			color: ${colors.white};
+		`)}
 		
 		&#contact {
 			position: relative;

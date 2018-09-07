@@ -13,7 +13,10 @@ export default class OffCanvas extends React.Component {
 		return (
 			<StyledOffCanvas className="off-canvas">
 				<MediaQuery query={`(max-width: ${navBreak}px)`}>
-					<Navigation handleNavigate={this.props.handleNavigate} />
+					<Navigation 
+						handleNavigate={this.props.handleNavigate} 
+						currentPage={this.props.currentPage}
+					/>
 				</MediaQuery>
 				{/* <Form /> */}
 			</StyledOffCanvas>

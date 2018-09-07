@@ -54,6 +54,12 @@ export default class Layout extends React.Component {
 		}
 	}
 
+	toggleOffCanvas(e, target='') {
+		e.preventDefault();
+		this.setState({open: !this.state.open})
+		// TODO #contact link
+	}
+
 	handleNavigate(e) {
 		e.preventDefault()
 		navigate(e.target.getAttribute("href"))
@@ -61,31 +67,20 @@ export default class Layout extends React.Component {
 
 	closeAndNavigate(e) {
 		e.preventDefault()
-		console.log('close and navigate')
-	}
-
-	toggleOffCanvas(e, target='') {
-		e.preventDefault();
+		navigate(e.target.getAttribute("href"))
 		this.setState({open: !this.state.open})
-		// if (window.location.hash.length) {
-		// 	window.history.back()
-		// } else {
-		// 	window.location.hash = target;
-		// }
 	}
 
 	render() {
 
-		// if (this.props.location.pathname === '/') {
-        //     var orientation = 'horizontal'
-        // } else {
-		// 	var orientation = 'vertical'
-		// }
+		if (this.props.location.pathname === '/') {
+            var orientation = 'horizontal'
+        } else {
+			var orientation = 'vertical'
+		}
 
-		var orientation = 'vertical'
-
-		// this.props.location.pathname
-
+		// TODO
+		// add this.props.location.pathname to className
 		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
 		
 		return (
@@ -104,7 +99,8 @@ export default class Layout extends React.Component {
 				{
 					this.state.open ? 
 						<OffCanvas 
-							handleNavigate={this.closeAndNavigate} 
+							handleNavigate={this.closeAndNavigate}
+							toggleOffCanvas={this.toggleOffCanvas}
                         	currentPage={this.props.location.pathname}
                         />
 					: ''
