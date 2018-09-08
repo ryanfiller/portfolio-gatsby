@@ -1,8 +1,70 @@
+import { lighten, darken, transparentize } from 'polished'
+
 export const colors = {
     blue: '#3f7cac',
     orange: '#f89c7d',
     white: '#fcfaf6',
     black: '#1e2223',
+    gray: lighten(.10, '#1e2223'),
+    lightGray: lighten(.25, '#1e2223'),
+    darkGray: darken(.05, '#1e2223'),
+    
+    r: 'rgba(255, 0, 0, .25)',
+    g: 'rgba(0, 255, 0, .25)',
+    b: 'rgba(0, 0, 255, .25)',
+}
+
+var pixelSize = '.25rem'
+var pixels = '/images/site-assets/screendoor.png'
+var rgb = `
+    repeating-linear-gradient(
+        to bottom,
+        ${colors.r} calc(0*${pixelSize}), ${colors.r} calc(1*${pixelSize}),
+        ${colors.g} calc(1*${pixelSize}), ${colors.g} calc(2*${pixelSize}),
+        ${colors.b} calc(2*${pixelSize}), ${colors.b} calc(3*${pixelSize})
+    );
+`
+var overlay = (styles) => {
+    return `
+        position: relative;
+            
+        > * {
+            position: relative; 
+            z-index: 2;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: 1;
+            ${styles}
+        }
+    `;
+}
+
+export const overlays = {
+
+    dark: overlay(`
+        background-color: transparentize(.5, ${colors.darkGray});
+    `),
+
+    pixels: overlay(`
+        background-image: url(${pixels});
+        background-size: ${pixelSize};
+    `),
+
+    rgb: overlay(`
+        background-image: ${rgb};
+        background-size: ${pixelSize};
+    `),
+
+    rgbPixels: overlay(`
+        background-image: url(${pixels}), ${rgb};
+        background-size: ${pixelSize};
+    `),
+
 }
 
 require("typeface-raleway")

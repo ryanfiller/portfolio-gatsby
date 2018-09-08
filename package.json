@@ -25,6 +25,7 @@
 		"gatsby-remark-prismjs": "next",
 		"gatsby-source-filesystem": "next",
 		"gatsby-transformer-remark": "next",
+		"polished": "^2.0.3",
 		"prismjs": "^1.15.0",
 		"react": "^16.4.2",
 		"react-dom": "^16.4.2",

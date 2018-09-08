@@ -25,8 +25,12 @@ export default class PortfolioGrid extends Component {
 const StyledPortfolioGrid = styled.div`
 
 	width: 100%;
-	min-height: 100%;
 	display: block;
+
+	& > * {
+		width: 100%;
+		height: 75vw;
+	}
 
 	${functions.phoneBreak(`
 
@@ -35,6 +39,7 @@ const StyledPortfolioGrid = styled.div`
 
 		& > * {
 			width: 50%;
+			height: 50vw;
 		}
 
 		@supports(display: grid) {
@@ -44,6 +49,7 @@ const StyledPortfolioGrid = styled.div`
 
 			& > * {
 				width: 100%;
+				height: 33.333vw;
 			}
 		}
 	`)}

@@ -2,45 +2,45 @@
 // $color-orange: #f89c7d;
 // $color-white: #fcfaf6;
 // $color-black: #1e2223;
-$color-gray: lighten($color-black, 10%);
-$color-light-gray: lighten($color-gray, 25%);
-$color-dark-gray: darken($color-gray, 5%);
+// $color-gray: lighten($color-black, 10%);
+// $color-light-gray: lighten($color-gray, 25%);
+// $color-dark-gray: darken($color-gray, 5%);
 
-$pixel-size: .25rem;
+// $pixel-size: .25rem;
 
-$r: rgba(255, 0, 0, .25);
-$g: rgba(0, 255, 0, .25);
-$b: rgba(0, 0, 255, .25);
+// $r: rgba(255, 0, 0, .25);
+// $g: rgba(0, 255, 0, .25);
+// $b: rgba(0, 0, 255, .25);
 
-$rgb: 
-repeating-linear-gradient(
-    to bottom,
-    $r 0*$pixel-size, $r 1*$pixel-size,
-    $g 1*$pixel-size, $g 2*$pixel-size,
-    $b 2*$pixel-size, $b 3*$pixel-size
-);
+// $rgb: 
+// repeating-linear-gradient(
+//     to bottom,
+//     $r 0*$pixel-size, $r 1*$pixel-size,
+//     $g 1*$pixel-size, $g 2*$pixel-size,
+//     $b 2*$pixel-size, $b 3*$pixel-size
+// );
 
-$pixels: url('/images/site-assets/screendoor.png');
+// $pixels: url('/images/site-assets/screendoor.png');
 
-$rgb-pixels: $pixels, $rgb;
+// $rgb-pixels: $pixels, $rgb;
 
-@mixin image-overlay ($background: none) {
-    position: relative;
+// @mixin image-overlay ($background: none) {
+//     position: relative;
     
-    > * {
-        position: relative; 
-        z-index: 2;
-    }
+//     > * {
+//         position: relative; 
+//         z-index: 2;
+//     }
 
-    &:before {
-        content: '';
-        display: block;
-        background-color: transparentize($color-dark-gray, .5);
-        background-image: $background;
-        background-size: $pixel-size;
-        opacity: .75;
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: 1;
-    }
-}
+//     &:before {
+//         content: '';
+//         display: block;
+//         background-color: transparentize($color-dark-gray, .5);
+//         background-image: $background;
+//         background-size: $pixel-size;
+//         opacity: .75;
+//         position: absolute;
+//         top: 0; right: 0; bottom: 0; left: 0;
+//         z-index: 1;
+//     }
+// }

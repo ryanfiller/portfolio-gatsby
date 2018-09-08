@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { colors } from '../config/styles'
+import { colors, fonts, functions, overlays, padding, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -81,18 +81,18 @@ export default class PortfolioBlock extends Component {
 						</clipPath>
 					</defs>
 				</svg>
-				<div className="portfolio-block__logo">
+				<div className="logo">
 					<img src={this.props.card.frontmatter.logowhite} />
 				</div>
-				<div className="portfolio-block__content">
-					<h2 className="portfolio-block__title">
+				<div className="content">
+					<h2 className="title">
 						{this.props.card.frontmatter.title}
 					</h2>
 					<ContentMeta
 						category={this.props.card.frontmatter.category}
 						tags={this.props.card.frontmatter.tags}
 					/>
-					<span className="portfolio-block__link">
+					<span className="link">
 						Read More
             		</span>
 				</div>
@@ -102,7 +102,6 @@ export default class PortfolioBlock extends Component {
 }
 
 const StyledPortfolioBlock = styled(Link)`
-	cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -111,15 +110,18 @@ const StyledPortfolioBlock = styled(Link)`
     background-position: center center;
     background-blend-mode: luminosity; //multiply or luminosity?
     background-size: cover;
-    padding: $spacing;
+    padding: ${padding};
     text-decoration: none;
     position: relative;
     overflow: hidden;
 
-    &__logo {
+    ${overlays.pixels}
+    ${overlays.dark}
+
+    .logo {
         flex: 1;
         width: 100%;
-        padding: 0 $spacing;
+        padding: 0 ${padding};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -138,12 +140,12 @@ const StyledPortfolioBlock = styled(Link)`
         }
     }
 
-    &__content {
+    .content {
         text-align: center;
         color: ${colors.white};
         max-height: 0;
         overflow: hidden;
-        transition: 2*$transition;
+        transition: ${transition};
         font-size: 1.5rem;
 
         @include tablet-break {
@@ -152,25 +154,25 @@ const StyledPortfolioBlock = styled(Link)`
         }
     }
 
-    &__title {
-        @include font-condensed;
+    .title {
+        ${fonts.condensed()}
         text-transform: uppercase;
         text-align: center;
         line-height: 1em;
-        margin: $spacing/2 0;
+        margin: calc(${padding}/2) 0;
     }
 
-    &__meta {
+    .meta {
         line-height: 1.125em;
         display: block;
-        margin-bottom: $spacing/2;
+        margin-bottom: calc(${padding}/2);
 
         span {
             display: inline-block;
         }
     }
 
-    &__link {
+    .link {
         @include font-sans-serif;
 
         &:after{
@@ -180,24 +182,23 @@ const StyledPortfolioBlock = styled(Link)`
         }
     }
 	
-	/* TODO */
-    /* @include image-overlay($pixels); */
     &:before {
         opacity: 0;
         transition: 0s;
     }
 
-    &:hover, &:focus {   
+    &:hover, &:focus {  
+        cursor: pointer; 
         box-shadow: inset 0px 0px 5rem ${colors.black};
         &:before {
             opacity: .5;
         }
-        .portfolio-block__content {
+        .content {
             max-height: 100%;
         }
     }
 
-    /*  @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+     /* @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
          transition: .2s;
          clip-path: polygon(
              0 0,
