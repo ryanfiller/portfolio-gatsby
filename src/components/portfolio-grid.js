@@ -23,66 +23,42 @@ export default class PortfolioGrid extends Component {
 }
 
 const StyledPortfolioGrid = styled.div`
+
 	width: 100%;
+	min-height: 100%;
 	display: block;
 
 	${functions.phoneBreak(`
+
 		display: flex;
 		flex-wrap: wrap;
-	`)}
 
-	& > * {
-		flex: 1;
-		min-height: 75vw;
-
-		${functions.phoneBreak(`
-			min-width: 50%;
-			height: 50vw;
-		`)}
-
-		${functions.tabletBreak(`
-			&:nth-child(4n-2), &:nth-child(4n-1) {
-				min-width: 66.666%;
-			}
-		`)}
-
-		/* ${functions.desktopBreak(`
-
-			&:nth-child(4n-2), &:nth-child(4n-1) {
-				min-width: 66.666%;
-			}
-		`)} */
-	}
-
-	/* & > * {
-		flex: 1;
-		height: 33.333vw;
-		min-width: 33.333%;
-
-		&:nth-child(4n-2), &:nth-child(4n-1) {
-			min-width: 66.666%;
+		& > * {
+			width: 50%;
 		}
 
-		@media (max-width: $tablet) {
-			&:nth-child(even), &:nth-child(odd) {
-				min-width: 50%;
-				height: 50vw;
+		@supports(display: grid) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+
+			& > * {
+				width: 100%;
 			}
 		}
-
-		@media (max-width: $phone) {
-			&:nth-child(even), &:nth-child(odd) {
-				min-width: 100%;
-				height: 75vw;
-			}
-		}
-	} */
-
-	${functions.phoneBreak(`
-	
 	`)}
 
 	${functions.tabletBreak(`
-	
+		@supports(display: grid) {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: auto;
+
+			& > * {
+				&:nth-child(4n-2), &:nth-child(4n-1) {
+					grid-column: span 2;
+				}
+			}
+		}
 	`)}
 `
