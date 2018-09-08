@@ -24,15 +24,15 @@ export const query = graphql`
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
-				fields: {slug: { regex: "/portfolio//" }},
+				fields: {slug: { regex: "//portfolio//" }},
 				frontmatter: { published: { eq: true } }
 			},
 		) {
-			edges {
-				node {
-					fields {
-						slug
-					}
+		edges {
+		node {
+			fields {
+			slug
+			}
 					frontmatter {
 						title
 						date

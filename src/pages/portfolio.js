@@ -43,11 +43,9 @@ export default class Portfolio extends React.Component {
 		return (
 			<React.Fragment>
 
-			porfolio
-
 				{/* <PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} /> */}
 
-				{/* <PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/> */}
+				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
 
 			</React.Fragment>
 		);
@@ -56,24 +54,24 @@ export default class Portfolio extends React.Component {
 
 
 export const query = graphql`
-	query PortfolioListQuery {
+query PortfolioListQuery {
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
-				id: { regex: "/portfolio//" },
+				fields: {slug: { regex: "//portfolio//" }},
 				frontmatter: { published: { eq: true } }
 			},
 		) {
-		edges {
-			node {
-				id
+	edges {
+		node {
+		fields {
+			slug
+		}
 					frontmatter {
 						title
-						date
 						path
 						color
 						backgroundgif
-						gifattribution
 						category
 						tags
 						logowhite

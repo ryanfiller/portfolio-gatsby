@@ -10,27 +10,6 @@ import Footer from '../components/footer'
 import OffCanvas from '../components/off-canvas'
 import Overlay from '../components/overlay'
 
-// require("typeface-raleway")
-// require("typeface-dosis")
-
-injectGlobal`
-  	html, body {
-		padding: 0;
-		margin: 0;
-		font-size: 12px;
-		${fonts.sansSerif()}
-	}
-
-	main, article, aside, blockquote, caption, header, footer {
-		display: block;
-	}
-
-	* {
-		box-sizing: border-box;
-	}
-`
-
-
 export default class Layout extends React.Component {
 
 	constructor({ data, children }) {
@@ -132,6 +111,24 @@ export default class Layout extends React.Component {
 		)
 	}
 }
+
+injectGlobal`
+  	html, body {
+		padding: 0;
+		margin: 0;
+		font-size: 12px;
+		background-color: ${colors.black};
+		${fonts.sansSerif()}
+	}
+
+	main, article, aside, blockquote, caption, header, footer {
+		display: block;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+`
 
 const StyledSite = styled.div`
 	position: relative;

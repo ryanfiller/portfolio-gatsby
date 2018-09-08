@@ -10,12 +10,9 @@ export default class PortfolioGrid extends Component {
 		return (
 			<div className="portfolio-grid">
 				{portfolio.map(({ node }, index) => (
-					<div>
-						asdfasdf
-					</div>
-					// currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
-					// 	<PortfolioBlock card={node} key={index}/>
-					// : ''
+					currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
+						<PortfolioBlock card={node} key={index}/>
+					: ''
 				))} 
 			</div>
 		)
