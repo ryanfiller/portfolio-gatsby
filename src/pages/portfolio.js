@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'
@@ -51,7 +50,6 @@ export default class Portfolio extends React.Component {
 		);
 	}
 };
-
 
 export const query = graphql`
 query PortfolioListQuery {
