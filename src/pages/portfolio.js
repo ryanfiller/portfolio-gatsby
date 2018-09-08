@@ -60,11 +60,11 @@ query PortfolioListQuery {
 				frontmatter: { published: { eq: true } }
 			},
 		) {
-	edges {
-		node {
-		fields {
-			slug
-		}
+			edges {
+				node {
+					fields {
+						slug
+					}
 					frontmatter {
 						title
 						path
