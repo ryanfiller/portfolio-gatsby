@@ -3,14 +3,11 @@ import Helmet from 'react-helmet'
 import { navigateTo } from 'gatsby-link'
 
 export default class FourOhFour extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			menu: '',
-		};
-		this.onKeydown = this.onKeydown.bind(this);
-		this.handleArrows = this.handleArrows.bind(this);
-	}
+	state = {
+		menu: '',
+	};
+	onKeydown = this.onKeydown.bind(this);
+	handleArrows = this.handleArrows.bind(this);
 
 	links = [
 		{

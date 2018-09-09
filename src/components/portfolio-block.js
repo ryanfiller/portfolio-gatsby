@@ -8,13 +8,10 @@ import ContentMeta from './content-meta'
 
 export default class PortfolioBlock extends Component {
 
-	constructor(props) {
-		super(props);
-		this.handleMouseHover = this.handleMouseHover.bind(this);
-		this.state = {
-			isHovering: false,
-		};
-	}
+	handleMouseHover = this.handleMouseHover.bind(this);
+    state = {
+        isHovering: false,
+    };
 
 	handleMouseHover() {
 		this.setState(this.toggleHoverState);

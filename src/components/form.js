@@ -10,12 +10,8 @@ function encode(data) {
 }
 
 export default class Form extends React.Component {
-	constructor(props) {
-	super(props);
-	this.state = {};
-
-	this.reloadForm = this.reloadForm.bind(this)    
-}
+	state = {};
+	reloadForm = this.reloadForm.bind(this)
 
 handleChange = e => {
 	this.setState({ [e.target.name]: e.target.value });

@@ -5,10 +5,6 @@ import ContentMeta from './content-meta'
 
 export default class PortfolioBlock extends Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 
 		return (
