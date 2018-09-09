@@ -1,8 +1,8 @@
 ---
 published: true
-template: portfolio-item
 title: Indie Memphis Postcards
-path: /indie-memphis-postcard
+custompath: ''
+customtemplate: 'custom-template'
 date: 2016-11-01T00:00:00-05:00
 category:
   - draw

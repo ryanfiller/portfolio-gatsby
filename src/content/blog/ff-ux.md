@@ -1,10 +1,10 @@
 ---
-template: blog-item
 title: Final Fantasy and UX
 excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 thumbnail: http://billou95.free.fr/wp-content/uploads/2011/06/scrn_finalFantasyVI-04.gif
 banner: https://i.ytimg.com/vi/0GUsB8Hlyo0/maxresdefault.jpg
-path: /blog/final-fantasy-user-experience
+custompath: ''
+customtemplate: ''
 date: '2017-08-15'
 category: 
   - cats

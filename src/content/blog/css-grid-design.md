@@ -1,10 +1,10 @@
 ---
-template: blog-item
 title: Grid Thoughts about CSS And Print Design
 excerpt: Thoughts on CSS Grid from someone who learned about typographic grids for print in design school
 thumbnail: /images/uploads/css-grid-tron.jpg
 banner: /images/uploads/css-grid-tron.jpg
-path: /blog/grid-thoughts-about-css-and-print-design
+custompath: 'path-override'
+customtemplate: 'portfolio-item'
 date: '2017-08-19'
 category: 
   - code

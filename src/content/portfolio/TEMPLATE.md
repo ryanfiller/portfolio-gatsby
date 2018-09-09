@@ -1,8 +1,8 @@
 ---
 published: false
-template: portfolio-item
 title: Markdown Template
-path: /styles
+custompath: ''
+customtemplate: ''
 date: 9999-00-00T00:00:00-05:00
 category:
   - test category

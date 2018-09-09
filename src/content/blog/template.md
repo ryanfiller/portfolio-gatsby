@@ -1,10 +1,10 @@
 ---
-template: blog-item
 title: Markdown template
 excerpt: This is all of the markdown styles
 thumbnail: /images/site-assets/placeholder-thumb.jpg
 banner: /images/site-assets/placeholder-thumb.jpg
-path: /blog/styles
+custompath: ''
+customtemplate: ''
 date: '1989-04-30'
 category: 
   - category

@@ -10,7 +10,8 @@ export default ({data}) => {
 
 	return (
 		<main className="page-content page-content-blog">
-			<header className="blog-banner">
+		BLOG ITEM
+			{/* <header className="blog-banner">
 				<div className="blog-banner__text" >
 					<h1 className="blog-banner__title" >
 						{post.frontmatter.title}
@@ -30,15 +31,15 @@ export default ({data}) => {
 			
 			<section className="page-content-blog__content" id="content">
 				<MarkdownBlock post={post.html}/>
-			</section>
+			</section> */}
 		</main>
 	);
 };
 
 export const postQuery = graphql`
-	query BlogPost($path: String!) {
+	query BlogPost($slug: String!) {
 
-		markdownRemark(frontmatter: { path: { eq: $path} }) {
+		markdownRemark(fields: { slug: { eq: $slug } }) {
 			html
 			frontmatter {
 				banner 

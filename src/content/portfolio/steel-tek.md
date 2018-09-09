@@ -1,8 +1,8 @@
 ---
 published: true
-template: portfolio-item
 title: Steel•Tek
-path: /steel-tek
+custompath: ''
+customtemplate: ''
 date: 2016-07-04T00:00:00-05:00
 category:
   - design

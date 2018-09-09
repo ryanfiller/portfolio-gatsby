@@ -10,7 +10,7 @@ export default ({data}) => {
 
   return (
 <React.Fragment>
-  asdfasdf
+  portfolio item
 {/* <main className="page-content page-content-portfolio">
 
 <PortfolioGallery images={post.frontmatter.images} color={post.frontmatter.color} />
@@ -42,13 +42,12 @@ export default ({data}) => {
 };
 
 export const postQuery = graphql`
-  query PortfolioPost($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path} }) {
+  query PortfolioPost($slug: String!) {
+
+		markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        path
         title
-        template
         category
         tags
         color

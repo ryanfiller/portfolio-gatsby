@@ -67,7 +67,6 @@ query PortfolioListQuery {
 					}
 					frontmatter {
 						title
-						path
 						color
 						backgroundgif
 						category

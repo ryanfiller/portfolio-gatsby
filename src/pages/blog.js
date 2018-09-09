@@ -11,11 +11,9 @@ export default class Blog extends React.Component {
 
 		return (
 			<React.Fragment>
-			// <main className="page-content page-content--blog-list">
 
 				<BlogList blog={this.props.data.allMarkdownRemark.edges} />
 
-			// </main>
 			</React.Fragment>
 		)
 	}
@@ -37,7 +35,6 @@ export const query = graphql`
 					}
 					frontmatter {
 						title
-						path
 						date(formatString: "MMM.DD.YY")
 						category
 						tags

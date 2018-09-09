@@ -1,8 +1,8 @@
 ---
 published: true
-template: portfolio-item
 title: Hack Memphis 2016
-path: /hack-memphis-tshirt
+custompath: ''
+customtemplate: ''
 date: 2016-09-01T05:00:00.000Z
 category:
   - draw

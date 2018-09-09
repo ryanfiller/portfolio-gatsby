@@ -1,8 +1,8 @@
 ---
 published: false
-template: portfolio-item
 title: RocketFuel Templated CMS
-path: /rocketfuel-template
+custompath: ''
+customtemplate: ''
 date: 2018-02-01T00:00:00-06:00
 category:
   - dev
