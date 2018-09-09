@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "gatsby-link";
+import styled from 'styled-components'
 
 import MarkdownBlock from '../components/markdown-block'
 import Headshot from '../components/headshot';
@@ -10,7 +10,9 @@ export default class About extends React.Component {
 
 	render() {
 		return (
-			<MarkdownBlock post={ this.props.data.markdownRemark.html } />
+			<StyledAbout>
+				<MarkdownBlock post={ this.props.data.markdownRemark.html } />
+			</StyledAbout>
 		)
 	}
 }
@@ -39,4 +41,9 @@ export const query = graphql`
 			}
 		}
 	}
+`
+
+const StyledAbout = styled.main`
+	display: flex;
+	align-items: center;
 `
