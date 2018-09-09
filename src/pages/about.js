@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 
+import MarkdownBlock from '../components/markdown-block'
 import Headshot from '../components/headshot';
 
 import Img from "gatsby-image";
@@ -12,10 +13,7 @@ export default class About extends React.Component {
 		const { data } = this.props;
 		
 		return (
-			<React.Fragment>
-			{/* <main className="page-content about-text"> */}
-				{/* <Headshot regular={data.headshot} hover={data.headshotHover} /> */}
-
+			<MarkdownBlock>
 				<p>
 					I am a designer, developer, and illustrator living and working in Memphis, Tennessee.
 				</p>
@@ -31,8 +29,7 @@ export default class About extends React.Component {
 				<p>
 					My full resume can be found on my <a href="https://www.linkedin.com/in/ryanfiller/" target="blank">LinkedIn page.</a>
 				</p>
-			{/* </main> */}
-			</React.Fragment>
+			</MarkdownBlock>
 		)
 	}
 }

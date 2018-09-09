@@ -61,6 +61,7 @@ const StyledPortfolioGallery = styled.div`
             height: 100%;
             position: relative;
             z-index: 3;
+            overflow: hidden;
         }
         
         &-wrapper {
@@ -103,7 +104,7 @@ const StyledPortfolioGallery = styled.div`
                 justify-content: center;
                 align-items: center;
                 position: absolute;
-                z-index: 5;
+                z-index: 25;
 
                 @include tablet-break {
                     height: ${padding};
@@ -163,7 +164,7 @@ const StyledPortfolioGallery = styled.div`
                 border-radius: 50%;
 
                 &-active {
-                    background-color: ${colors.blue};
+                    background-color: ${colors.white};
                 }
             }
         }
@@ -244,7 +245,7 @@ const StyledPortfolioGallery = styled.div`
         width: 8px;
         height: 8px;
         display: inline-block;
-        background: #000;
+        /* background: #000; */
         opacity: 0.5;
     }
     button.swiper-pagination-bullet {
@@ -258,11 +259,11 @@ const StyledPortfolioGallery = styled.div`
         cursor: pointer;
     }
     .swiper-pagination-white .swiper-pagination-bullet {
-        background: #fff;
+        /* background: #fff; */
     }
     .swiper-pagination-bullet-active {
         opacity: 1;
-        background: #007aff;
+        /* background: #007aff; */
     }
     .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
         margin: 0 5px;
