@@ -185,7 +185,64 @@ export const containers = {
     }
 }
 
+function glitchAnimation() {
+
+    var array = []
+    
+    for (var i = 0; i <= 20; i++) { 
+
+        var random1 = Math.floor(Math.random() * 100) + 1
+        var random2 = Math.floor(Math.random() * 100) + 1
+
+        array.push(`
+            ${i * 5}% {
+                clip: rect(${random1}px,9999px,${random2}px,0);
+            }
+        `)
+    }
+
+    return array.join("");
+};
+
 export const animations = {
+
+    glitch: (color, background) => {
+        color = color || colors.black
+        background = background || colors.white
+        return `
+            color: ${color};
+            position: relative;
+
+            @keyframes noise1 {
+                ${glitchAnimation()}
+            }
+
+            @keyframes noise2 {
+                ${glitchAnimation()}
+            }
+
+            &:before, &:after {
+                pointer-events: none;
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                color: ${color};
+                background: ${background};
+                overflow: hidden;
+                clip: rect(0,900px,0,0);
+            }
+        
+            &:before {
+                left: -1px;
+                animation: noise2 2s infinite linear alternate-reverse;
+            }
+        
+            &:after {
+                left: 1px;
+                animation: noise1 4s infinite linear alternate-reverse;
+            }
+        `
+    },
 
     highlight: (color, hoverColor, backgroundColor) => {
         color = color || 'current-color'

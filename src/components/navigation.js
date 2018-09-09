@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
-import { colors, containers, fonts, functions, navBreak, transition } from '../config/styles';
+import { animations, colors, containers, fonts, functions, navBreak, transition } from '../config/styles';
 
 export default class Navigation extends Component {
 
@@ -82,8 +82,7 @@ const StyledNavLink = styled.a`
 	&:hover {
 		color: ${colors.orange};
 		cursor: pointer;
-		/* TODO */
-		/* @include glitch($color-orange, $color-black); */
+		${animations.glitch(colors.orange, colors.black)}
 	}
 
 	#site.open & {

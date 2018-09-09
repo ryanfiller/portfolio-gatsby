@@ -57,9 +57,7 @@ export default class Layout extends React.Component {
         } else {
 			var orientation = 'vertical'
 		}
-
-		// TODO
-		// add this.props.location.pathname to className
+		
 		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
 		
 		return (
