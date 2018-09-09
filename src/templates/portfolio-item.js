@@ -1,7 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 
-import { colors, containers, fonts, padding, functions } from '../config/styles'
+import { animations, colors, containers, fonts, padding, functions } from '../config/styles'
 
 import PortfolioGallery from '../components/portfolio-gallery'
 import ContentMeta from '../components/content-meta'
@@ -81,7 +81,6 @@ const StyledPortfolioItem = styled.main`
 
     .content {
 		padding-top: 0;
-		padding-bottom: ${padding};
 
 		${functions.tabletBreak(`
 			padding-top: calc(3*${padding});
@@ -90,10 +89,15 @@ const StyledPortfolioItem = styled.main`
     }
 
     .header {
-        padding-top: calc(1.5*${padding});
-        padding-bottom: calc(2*${padding});
+        padding-top: calc(3*${padding});
+        padding-bottom: calc(3*${padding});
         position: relative;
-        text-align: center;
+		text-align: center;
+		
+		${functions.tabletBreak(`
+			padding-top: 25vh;
+			padding-bottom: 15vh;	
+		`)}
 
         h1 {
             margin: 0;
@@ -116,28 +120,25 @@ const StyledPortfolioItem = styled.main`
 
         a {
             font-size: 1.75em;
-            display: block;
+            display: inline-block;
             margin: 0 auto;
             margin-top: .75em;
             text-decoration: none;
-            color: ${colors.blue};
-
-            &:hover {
-                color: ${colors.orange};
-            }
-        }
-
-        &:after {
-            content: '';
-            display: block;
-            width: 1rem;
-            height: 1rem;
-            border-right: 2px solid ${colors.orange};
-            border-bottom: 2px solid ${colors.orange};
-            margin: 0 auto;
-            transform: rotate(45deg);
-            margin-top: 2rem;
-        }
+            ${animations.highlight(colors.blue, colors.white, colors.blue)}
+		}
+		
+		&:after {
+			content: '';
+			display: block;
+			width: 1rem;
+			height: 1rem;
+			border-right: 2px solid ${colors.orange};
+			border-bottom: 2px solid ${colors.orange};
+			margin: 0 auto;
+			transform: rotate(45deg);
+			margin-top: 2rem;
+			${animations.bounce}
+		}
     }
 
     .content {

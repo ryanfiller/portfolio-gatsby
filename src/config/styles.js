@@ -262,4 +262,19 @@ export const animations = {
             }
         `
     },
+
+    bounce: () => {
+        return`
+            animation-name: floating;
+            animation-duration: ${transition};
+            animation-iteration-count: infinite;
+            position: relative;
+            
+            @keyframes floating {
+                from { top: 0; }
+                50%  { top: -.125em; }
+                to   { top: 0; }    
+            }
+        `
+    }
 }
