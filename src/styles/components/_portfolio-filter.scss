@@ -1,75 +1,75 @@
-.portfolio-filter {
-    margin: 0;
-	padding: 0;
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	font-size: 1.75rem;
-	padding: 2em;
-    @include container;
-    @include readable;
-    @include font-sans-serif;
+// .portfolio-filter {
+//     margin: 0;
+// 	padding: 0;
+// 	list-style: none;
+// 	display: flex;
+// 	justify-content: center;
+// 	font-size: 1.75rem;
+// 	padding: 2em;
+//     @include container;
+//     @include readable;
+//     @include font-sans-serif;
 
-	li {
-		text-align: center;
-		text-transform: uppercase;
+// 	li {
+// 		text-align: center;
+// 		text-transform: uppercase;
 
-		button {
-            background: none;
-            border: none;
-            @include font-sans-serif;
-			text-transform: uppercase;
-			text-decoration: none;
-            color: $color-blue;
+// 		button {
+//             background: none;
+//             border: none;
+//             @include font-sans-serif;
+// 			text-transform: uppercase;
+// 			text-decoration: none;
+//             color: $color-blue;
 
-			&.current {
-				color: $color-orange;
-			}
+// 			&.current {
+// 				color: $color-orange;
+// 			}
 
-            &:hover {
-				color: $color-black;
-			}
-		}
+//             &:hover {
+// 				color: $color-black;
+// 			}
+// 		}
 
-		&:after {
-			content: '|';
-			margin: 0 1em;
+// 		&:after {
+// 			content: '|';
+// 			margin: 0 1em;
 
-            @media (max-width: $tablet) {
-                margin: 0 .5em;
-            }
-		}
+//             @media (max-width: $tablet) {
+//                 margin: 0 .5em;
+//             }
+// 		}
 
-		&:last-child:after {
-			display: none;
-		}
-	}
+// 		&:last-child:after {
+// 			display: none;
+// 		}
+// 	}
 
-    @media (max-width: $phone) {
-        padding: 0;
-        margin: .5rem;
-        flex-wrap: wrap;
-        font-size: 1.5rem;
+//     @media (max-width: $phone) {
+//         padding: 0;
+//         margin: .5rem;
+//         flex-wrap: wrap;
+//         font-size: 1.5rem;
 
-        li {
-            width: 50%;
-            padding: .25rem;
+//         li {
+//             width: 50%;
+//             padding: .25rem;
 
-            a {
-                display: block;
-                padding: .66em;
-                color: $color-white;
-                background-color: $color-blue;
+//             a {
+//                 display: block;
+//                 padding: .66em;
+//                 color: $color-white;
+//                 background-color: $color-blue;
 
-                &.current {
-                    color: $color-white;
-				    background-color: $color-orange;
-			    }
-            }
+//                 &.current {
+//                     color: $color-white;
+// 				    background-color: $color-orange;
+// 			    }
+//             }
 
-            &:after {
-                display: none;
-            }
-        }
-    }
-}
+//             &:after {
+//                 display: none;
+//             }
+//         }
+//     }
+// }

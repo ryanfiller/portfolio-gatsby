@@ -5,13 +5,10 @@ import PortfolioGrid from '../components/portfolio-grid'
 
 export default class Portfolio extends React.Component {
 	
-	constructor({ data }) {
-		super({ data });
-		this.setFilter = this.setFilter.bind(this);
-		this.state = {
-			category: 'all',
-		};
-	}
+	setFilter = this.setFilter.bind(this);
+	state = {
+		category: 'all',
+	};
 
 	getCategories(data) {
 		var categories = [];
@@ -42,7 +39,7 @@ export default class Portfolio extends React.Component {
 		return (
 			<React.Fragment>
 
-				{/* <PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} /> */}
+				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
 
 				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
 
