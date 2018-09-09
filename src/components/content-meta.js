@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
+// TODO
+// hooks up links for meta content
+// import Link from 'gatsby-link'
+
+import styled from 'styled-components'
+
+import { fonts, padding } from '../config/styles'
 
 export default class ContentMeta extends Component {
   render() {
@@ -19,21 +25,63 @@ export default class ContentMeta extends Component {
     }
 
     return (
-        <div className="meta">
+        <StyledMeta className="meta">
             {
                 this.props.date ?
-                <div className="meta__date">
+                <div className="date">
                     {this.props.date}  
                 </div>
                 : ''
             }
-            <div className="meta__category">
+            <div className="category">
                 {categories}  
             </div>
-            <div className="meta__tag">
+            <div className="tag">
                 {tags}
             </div>
-        </div>
+        </StyledMeta>
     )
   }
 }
+
+const StyledMeta = styled.div`
+    margin: calc(${padding}/4) 0;
+    ${fonts.sansSerif()}
+
+    .date {
+        text-transform: uppercase;
+        font-size: 1em;
+        line-height: 1em;
+        ${fonts.condensed()}
+    }
+
+    .category {
+        span {
+            &:before {
+                content: '#';
+            }
+            &:after {
+                content: ', ';
+            }
+
+            &:last-of-type:after {
+                display: none;
+            }
+        }
+    }
+
+    .tag {
+        span {
+            &:before {
+                content: '#';
+            }
+            &:after {
+                content: ', ';
+            }
+
+            &:last-of-type:after {
+                display: none;
+            }
+        }
+    }
+`

@@ -105,11 +105,11 @@ const StyledPortfolioItem = styled.main`
         }
 
         .meta {
+			font-size: 2em;
             margin-top: 1em;
             text-align: center;
 
             .meta__tag {
-                font-size: 2em;
                 color: ${colors.lightGray};
             }
         }
