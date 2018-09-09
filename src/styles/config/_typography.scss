@@ -15,32 +15,31 @@
 //     @include font-sans-serif;
 // }
 
-@mixin inline-link {
-    @include font-sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    position: relative;
-    padding-right: 1.25em;
+// @mixin inline-link {
+//     @include font-sans-serif;
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     position: relative;
+//     padding-right: 1.25em;
 
-    &:before, &:after {
-        content: '';
-        display: block;
-        width: 0; 
-        height: 0; 
-        border-top: .4em solid transparent;
-        border-bottom: .4em solid transparent;
-        border-left: .4em solid currentColor;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+//     &:before, &:after {
+//         content: '';
+//         display: block;
+//         width: 0; 
+//         height: 0; 
+//         border-top: .4em solid transparent;
+//         border-bottom: .4em solid transparent;
+//         border-left: .4em solid currentColor;
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//     }
 
-    &:before {
-        right: .5em;
-    }
+//     &:before {
+//         right: .5em;
+//     }
 
-    &:after {
-        right: 0;
-    }
-
-}
+//     &:after {
+//         right: 0;
+//     }
+// }

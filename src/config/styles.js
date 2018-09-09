@@ -67,6 +67,34 @@ export const overlays = {
 
 }
 
+export const arrows = () => {
+    return`
+        position: relative;
+        padding-right: 1.25em;
+        
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 0; 
+            height: 0; 
+            border-top: .4em solid transparent;
+            border-bottom: .4em solid transparent;
+            border-left: .4em solid currentColor;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        &:before {
+            right: .5em;
+        }
+    
+        &:after {
+            right: 0;
+        }
+    `
+}
+
 require("typeface-raleway")
 require("typeface-dosis")
 
@@ -77,11 +105,22 @@ export const fonts = {
             font-weight: 300;
         `;
     },
+
     condensed: () => {
         return `
             font-family: 'Dosis', sans-serif;
             font-weight: 400;
         `;
+    },
+
+    inlineLink: () => {
+        return`
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            padding-right: 1.25em;
+            ${arrows()}
+        `
     }
 }
 

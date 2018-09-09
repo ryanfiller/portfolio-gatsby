@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { colors, fonts, functions, overlays, padding, transition } from '../config/styles'
+import { arrows, colors, fonts, functions, overlays, padding, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -170,15 +170,8 @@ const StyledPortfolioBlock = styled(Link)`
     }
 
     .link {
-        @include font-sans-serif;
-
-        &:after {
-            /* TODO  */
-            /* fix this >> */
-            content: ' ▸▸';
-            display: inline-block;
-            position: relative;
-        }
+        ${fonts.sansSerif()}
+        ${arrows()}
     }
 	
     &:before {

@@ -2,7 +2,7 @@ import React from 'react'
 import Swiper from 'react-id-swiper'
 
 import styled from 'styled-components'
-import { colors, functions, overlays, padding } from '../config/styles'
+import { arrows, colors, functions, overlays, padding } from '../config/styles'
 
 export default class PortfolioGallery extends React.Component {
 	render() {
@@ -96,6 +96,7 @@ const StyledPortfolioGallery = styled.div`
         &-button {
 
             &-prev, &-next {
+                ${arrows()}
                 cursor: pointer;
                 padding: ${padding} 0;
                 width: calc(6*${padding});
@@ -104,35 +105,28 @@ const StyledPortfolioGallery = styled.div`
                 align-items: center;
                 position: absolute;
                 z-index: 25;
+                height: calc(3*${padding});
                 display: none;
+                color: ${colors.white};
+
+                &:before {
+                    right: calc(3*${padding});
+                }
+
+                &:after {
+                    rigth: 0;
+                    left: calc(3*${padding});
+                }
 
                 ${functions.phoneBreak(`
                     display: flex;
                 `)}
-
-                ${functions.tabletBreak(`
-                    height: ${padding};
-                `)}
-
-                /* TODO */
-                /* extrapolate this */
-                &:before, &:after {
-                    content: '';
-                    display: block;
-                    width: 0;
-                    height: 0;
-                    border-top: calc(${padding}/2) solid transparent;
-                    border-bottom: calc(${padding}/2) solid transparent;
-                    border-left: calc(${padding}/1.5) solid ${colors.white};
-                }
             }
 
             &-prev {
                 bottom: 0;
                 left: 0;
-                &:before, &:after {
-                    transform: rotate(180deg);
-                }
+                transform: rotate(180deg);
             }
 
             &-next {

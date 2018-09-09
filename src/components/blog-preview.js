@@ -98,9 +98,7 @@ const BlogPreview = styled.article`
     .link {
         color: currentColor;
         ${animations.highlight()}
-        /* TODO */
-        /* replicate */
-        @include inline-link;
+        ${fonts.inlineLink}
         position: absolute;
         right: 0;
         bottom: 0;
