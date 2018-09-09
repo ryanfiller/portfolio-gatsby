@@ -175,7 +175,9 @@ const StyledPortfolioBlock = styled(Link)`
     .link {
         @include font-sans-serif;
 
-        &:after{
+        &:after {
+            /* TODO  */
+            /* fix this >> */
             content: ' ▸▸';
             display: inline-block;
             position: relative;
