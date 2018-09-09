@@ -41,12 +41,12 @@ export default class Layout extends React.Component {
 
 	handleNavigate(e) {
 		e.preventDefault()
-		navigate(e.target.getAttribute("href"))
+		navigate(`/${e.target.getAttribute("href")}`)
 	}
 
 	closeAndNavigate(e) {
 		e.preventDefault()
-		navigate(e.target.getAttribute("href"))
+		navigate(`/${e.target.getAttribute("href")}`)
 		this.setState({open: !this.state.open})
 	}
 
