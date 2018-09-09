@@ -1,6 +1,6 @@
 // commonjs to use in gatsby-node
 exports.slugify = function(string){
-    string.toLowerCase()
+    return string.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
     .replace(/\-\-+/g, '-')         // Replace multiple - with single -

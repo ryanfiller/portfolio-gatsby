@@ -19,8 +19,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 				slugFile = slugify(node.frontmatter.title);
 			}
 
-			slug = slugDir + slugFile;
-
 			if (node.frontmatter.customtemplate) {
 				template = node.frontmatter.customtemplate;
 			} else {
@@ -36,8 +34,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 			} else {
 				slugFile = slugify(node.frontmatter.title);
 			}
-
-			slug = slugDir + slugFile;
 			
 			if (node.frontmatter.customtemplate) {
 				template = node.frontmatter.customtemplate;
@@ -46,7 +42,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 			}
 		}
 
-		// const slug = createFilePath({ node, getNode, basePath: "content/" })
+		slug = slugDir + slugFile;
 		
 		createNodeField({
 			node,
