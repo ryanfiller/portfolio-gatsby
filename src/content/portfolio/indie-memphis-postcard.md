@@ -2,7 +2,7 @@
 published: true
 title: Indie Memphis Postcards
 custompath: ''
-customtemplate: 'custom-template'
+customtemplate: ''
 date: 2016-11-01T00:00:00-05:00
 category:
   - draw
