@@ -100,19 +100,19 @@ const StyledPortfolioGallery = styled.div`
                 padding: ${padding} 0;
                 width: calc(6*${padding});
                 background-color: ${colors.darkGray};
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 position: absolute;
                 z-index: 25;
+                display: none;
 
-                @include tablet-break {
+                ${functions.phoneBreak(`
+                    display: flex;
+                `)}
+
+                ${functions.tabletBreak(`
                     height: ${padding};
-                }
-
-                @include phone-break {
-                    display: none;
-                }
+                `)}
 
                 /* TODO */
                 /* extrapolate this */

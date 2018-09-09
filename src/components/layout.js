@@ -99,9 +99,7 @@ export default class Layout extends React.Component {
                     	currentPage={this.props.location.pathname}
                     />
 
-                    <main className="page-content">
-                        {this.props.children}
-                    </main>
+                    {this.props.children}
 
 					<Footer />
 
@@ -158,7 +156,7 @@ const StyledContent = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	.page-content {
+	main {
 		flex: 1;
 		overflow: scroll;
 	}

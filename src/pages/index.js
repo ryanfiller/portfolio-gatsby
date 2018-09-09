@@ -7,15 +7,13 @@ import PortfolioGrid from '../components/portfolio-grid'
 
 export default ({ data }) => {
   return (
-	<React.Fragment>
+	<main>
 		
-		{/* <PortfolioFilter /> */}
 		<PortfolioGrid 
-		// currentCategory={this.state.category} 
 		portfolio={data.allMarkdownRemark.edges}
 		/>
 
-	</React.Fragment>
+	</main>
   );
 };
 

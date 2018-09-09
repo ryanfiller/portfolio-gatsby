@@ -3,8 +3,8 @@ import React from "react";
 export default ({data}) => {
 
   return (
-<React.Fragment>
+<main>
 asdfasdlfkjasd;lfjas;ldfj;alsdjf;asdjkf
-</React.Fragment>
+</main>
   );
 };

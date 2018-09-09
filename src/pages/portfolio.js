@@ -37,13 +37,13 @@ export default class Portfolio extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<React.Fragment>
+			<main>
 
 				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
 
 				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
 
-			</React.Fragment>
+			</main>
 		);
 	}
 };
