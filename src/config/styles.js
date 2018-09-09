@@ -145,3 +145,25 @@ export const containers = {
         `;
     }
 }
+
+export const animations = {
+
+    highlight: (color, hoverColor, backgroundColor) => {
+        color = color || 'current-color'
+        hoverColor = hoverColor || 'current-color'
+        backgroundColor = backgroundColor || colors.orange
+        return `
+            color: ${color};
+            transition: color ${transition}, background ${transition};
+            background-image: linear-gradient(to right, transparent 51%, ${backgroundColor} 49%);
+            background-position: 0;
+            background-size: 200%;
+        
+            &:hover {
+                color: ${hoverColor};
+                background-image: linear-gradient(to right, transparent 50%, ${backgroundColor} 50%);
+                background-position: -100%;
+            }
+        `
+    },
+}
