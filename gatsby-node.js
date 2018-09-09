@@ -24,6 +24,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 			} else {
 				template = 'portfolio-item';
 			}
+
+			slug = slugDir + slugFile;
 		}
 
 		if (node.fileAbsolutePath.includes('/blog/')) {
@@ -40,9 +42,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 			} else {
 				template = 'blog-item';
 			}
-		}
 
-		slug = slugDir + slugFile;
+			slug = slugDir + slugFile;
+		}
 		
 		createNodeField({
 			node,
@@ -63,7 +65,11 @@ exports.createPages = ({ graphql, actions }) => {
 	return new Promise((resolve, reject) => {
 		graphql(`
 			{
-				allMarkdownRemark {
+				allMarkdownRemark(
+					filter: {
+							fileAbsolutePath: { regex: "/^((?!/pages/).)*$/" }
+						},
+					) {
 					edges {
 						node {
 							fileAbsolutePath

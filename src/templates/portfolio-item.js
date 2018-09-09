@@ -41,23 +41,23 @@ return (
 };
 
 export const postQuery = graphql`
-query PortfolioPost($slug: String!) {
+	query PortfolioPost($slug: String!) {
 
-	markdownRemark(fields: { slug: { eq: $slug } }) {
-		html
-		frontmatter {
-			title
-			category
-			tags
-			color
-			gifattribution
-			client
-			clienturl
-			images{
-				image
-				slidetype
+		markdownRemark(fields: { slug: { eq: $slug } }) {
+			html
+			frontmatter {
+				title
+				category
+				tags
+				color
+				gifattribution
+				client
+				clienturl
+				images{
+					image
+					slidetype
+				}
 			}
 		}
 	}
-}
 `

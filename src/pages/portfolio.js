@@ -49,7 +49,7 @@ export default class Portfolio extends React.Component {
 };
 
 export const query = graphql`
-query PortfolioListQuery {
+	query PortfolioListQuery {
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
