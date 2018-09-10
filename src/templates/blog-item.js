@@ -56,14 +56,17 @@ export const postQuery = graphql`
 `
 const StyledBlogArticle = styled.main`
 	.blog-banner {
-		/* TODO */
-        /* @include font-size(2rem, 1.75rem, 1.5rem); */
+		${functions.fontSizes('1.5rem', '1.75rem, 2rem')}
         background: ${colors.orange};
         width: 100vw;
         position: relative;
 		overflow: hidden;
 		${overlays.rgbPixels}
 		font-size: 2rem;
+
+		${functions.tabletBreak(`
+			font-size: 2.75rem;
+		`)}
     
         .text {
             color: ${colors.white};
@@ -77,15 +80,15 @@ const StyledBlogArticle = styled.main`
             flex-direction: column;
             justify-content: center;
 			align-items: center;
-			${containers.container}
+			${containers.container()}
         }
 
         .title {
-			/* TODO */
-            /* @include font-size(3em, 2.5em, 2em); */
+			${functions.fontSizes('2em', '2.5em, 3em')}
             ${fonts.sansSerif}
             text-transform: uppercase;
-            margin: 0;
+			margin: 0;
+			margin-bottom: .5em;
             width: 75%;
             text-align: center;
         }
@@ -95,9 +98,13 @@ const StyledBlogArticle = styled.main`
             font-size: 1em;
 			margin: 0;
 			display: block;
+
+			.date {
+				font-size: 1.5em;
+			}
                 
 			div {
-				margin-bottom: .5em;
+				margin-bottom: .75em;
 
 				&:last-child {
 					margin-bottom: 0;
@@ -192,6 +199,7 @@ const StyledBlogArticle = styled.main`
 		
 		${functions.tabletBreak(`
 			@supports (display: grid) {
+
 				.text {
 					display: grid;
 					grid-template-columns: 75vw 25vw;
@@ -243,8 +251,6 @@ const StyledBlogArticle = styled.main`
     .content {
         background-color: ${colors.white};
 		padding: 6rem 0 4rem 0;
-		${containers.container}
-		${containers.readable}
         position: relative;
         z-index: 5;
 

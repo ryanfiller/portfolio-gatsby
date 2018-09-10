@@ -151,6 +151,7 @@ export const functions = {
             }
         `
     },
+    
     desktopBreak: (styles) => {
         return `
             @media (min-width: ${breaks.desktop}px) {
@@ -158,10 +159,25 @@ export const functions = {
             }
         `
     },
+
     desktopLargeBreak: (styles) => {
         return `
             @media (min-width: ${breaks.large}px) {
                 ${styles}
+            }
+        `
+    },
+
+    fontSizes: (small, medium, large) => {
+        return `
+            @media (min-width: ${breaks.phone}px) {
+                font-size: ${small}
+            }
+            @media (min-width: ${breaks.tablet}px) {
+                font-size: ${medium}
+            }
+            @media (min-width: ${breaks.desktop}px) {
+                font-size: ${large}
             }
         `
     }

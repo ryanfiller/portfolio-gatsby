@@ -144,8 +144,6 @@ const StyledPortfolioItem = styled.main`
     .content {
 		width: 100%;
         overflow: scroll;
-		${containers.container()}
-		${containers.readable()}
 
 		${functions.tabletBreak(`
 			width: 50vw;

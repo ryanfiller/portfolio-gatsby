@@ -77,20 +77,20 @@ const StyledMarkdown = styled.div`
     h2 {
         ${fonts.condensed()};
         color: ${colors.blue};
-        /* @include font-size(2.25em, 2em, 1.75em); */
+        ${functions.fontSizes('1.75em', '2em, 2.25em')}
     }
     
     h3 {
         ${fonts.condensed()};
         color: ${colors.lightGray};
-        /* @include font-size(2.5em, 2em, 1.5em); */
+        ${functions.fontSizes('1.5em', '2em, 2.5em')}
     }
     
     h4 {
         ${fonts.sansSerif()};
         color: ${colors.gray};
         font-weight: bold;
-        /* @include font-size(1.5em, 1em, 1em); */
+        ${functions.fontSizes('1em', '1em, 1.5em')}
         font-size: 1.5em;
         line-height: 1.5em;
     }
