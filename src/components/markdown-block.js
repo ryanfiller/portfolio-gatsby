@@ -260,6 +260,9 @@ const StyledMarkdown = styled.div`
         } */
     }
 
+    /* TODO */
+    /* this is toooo wide on mobile */
+
     pre {
         width: calc(100% + (2 * ${padding}));
         margin: 0 calc(-1*${padding}) ${padding}g calc(-1*${padding});

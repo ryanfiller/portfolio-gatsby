@@ -82,7 +82,9 @@ const StyledNavLink = styled.a`
 	&:hover {
 		color: ${colors.orange};
 		cursor: pointer;
-		${animations.glitch(colors.orange, colors.black)}
+		${functions.tabletBreak(`
+			${animations.glitch(colors.orange, colors.black)}
+		`)}
 	}
 
 	#site.open & {
