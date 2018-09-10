@@ -32,9 +32,6 @@ const StyledPortfolioGrid = styled.div`
 		height: 75vw;
 	}
 
-	/* TODO */
-	/* hovers need to be active on mobile */
-
 	${functions.phoneBreak(`
 
 		display: flex;

@@ -127,28 +127,28 @@ const StyledPortfolioBlock = styled(Link)`
         width: 100%;
         height: 100%;
         display: block;
-        max-width: 30vw;
-        max-height: 15vw;
+        max-height: 100%;
+        max-width: 75%;
 
-            @include phone-break {
-                max-height: 100%;
-                max-width: 75%;
-            }
+            ${functions.phoneBreak(`
+                max-width: 30vw;
+                max-height: 15vw;
+            `)}
         }
     }
 
     .content {
         text-align: center;
         color: ${colors.white};
-        max-height: 0;
+        max-height: 100%;
         overflow: hidden;
         transition: ${transition};
-        font-size: 1.5rem;
+        font-size: 1rem;
 
-        @include tablet-break {
-            max-height: none;
-            font-size: 1rem;
-        }
+        ${functions.tabletBreak(`
+            max-height: 0;
+            font-size: 1.5rem;
+        `)}
     }
 
     .title {

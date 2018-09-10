@@ -9,9 +9,9 @@ export const colors = {
     lightGray: lighten(.40, '#1e2223'),
     darkGray: lighten(.025, '#1e2223'),
     
-    r: 'rgba(255, 0, 0, .25)',
-    g: 'rgba(0, 255, 0, .25)',
-    b: 'rgba(0, 0, 255, .25)',
+    r: 'rgba(255, 0, 0, .10)',
+    g: 'rgba(0, 255, 0, .10)',
+    b: 'rgba(0, 0, 255, .10)',
 }
 
 var pixelSize = '.25rem'
