@@ -3,8 +3,6 @@ title: Grid Thoughts about CSS And Print Design
 excerpt: Thoughts on CSS Grid from someone who learned about typographic grids for print in design school
 thumbnail: /images/uploads/css-grid-tron.jpg
 banner: /images/uploads/css-grid-tron.jpg
-custompath: ''
-customtemplate: ''
 date: '2017-08-19'
 category: 
   - code
@@ -16,7 +14,7 @@ tags:
 published: true
 ---
 
-CSS Grid is great, by this point in time everyone on the internet has covered that at length. Grid is a powerful front end layout tool, and the more time I spend using it the more it reminds me of the lessons I learned in my college typography class, and of my time as a print designer using Adobe InDesign. 
+CSS Grid is great, by this point in time everyone on the internet has covered that at length. Grid is a powerful front end layout tool, and the more time I spend using it the more it reminds me of the lessons I learned in my college typography class, and of my time as a print designer using Adobe InDesign.
 
 The <a href="https://www.google.com/search?tbm=isch&q=typographic+swiss+design" target="_blank">Swiss Design style</a> has been a huge influence on layout design over the past 100 years, and the main lessons we learned in college were around the <a href="http://thinkingwithtype.com/grid/#modular-grid" target="_blank">modular grid</a>. To quote thinkingwithtype.com &#8212;
 

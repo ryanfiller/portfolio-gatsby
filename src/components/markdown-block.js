@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { colors, containers, fonts, padding, transition } from '../config/styles'
+import { animations, colors, containers, fonts, functions, padding, transition } from '../config/styles'
 
 export default class MarkdownBlock extends Component {
     render() {
@@ -24,29 +24,26 @@ const StyledMarkdown = styled.div`
     font-size: 1.5rem;
     line-height: 1.6em;
     background: ${colors.white};
-    ${containers.container()}
-    ${containers.readable()}
+    ${containers.container()};
+    ${containers.readable()};
 
     p {
         margin: 0;
         margin-bottom: ${padding};
     }
 
-    p a {
+    a {
         color: ${colors.black};
         text-decoration: none;
-        border-bottom: 2px ${colors.orange} dotted;
+        padding: 0 .125em;
+        border-bottom: 0;
+        background: ${colors.orange};
 
-        &:hover {
-            @include highlight;
-            color: ${colors.blue};
-        }
-
-        @include tablet-break {
-            padding: 0 .125em;
-            border-bottom: 0;
-            background: ${colors.orange};
-        }
+        ${functions.tabletBreak(`
+            background: transparent;
+            border-bottom: 2px ${colors.orange} dotted;
+            ${animations.highlight('currentColor', 'currentColor', colors.orange)}
+        `)}
     }
 
     ol {
@@ -76,22 +73,22 @@ const StyledMarkdown = styled.div`
     }
     
     h2 {
-        ${fonts.condensed()}
+        ${fonts.condensed()};
         color: ${colors.blue};
-        @include font-size(2.25em, 2em, 1.75em);
+        /* @include font-size(2.25em, 2em, 1.75em); */
     }
     
     h3 {
-        ${fonts.condensed()}
+        ${fonts.condensed()};
         color: ${colors.lightGray};
-        @include font-size(2.5em, 2em, 1.5em);
+        /* @include font-size(2.5em, 2em, 1.5em); */
     }
     
     h4 {
-        ${fonts.sansSerif()}
+        ${fonts.sansSerif()};
         color: ${colors.gray};
         font-weight: bold;
-        @include font-size(1.5em, 1em, 1em);
+        /* @include font-size(1.5em, 1em, 1em); */
         font-size: 1.5em;
         line-height: 1.5em;
     }
@@ -101,18 +98,18 @@ const StyledMarkdown = styled.div`
         line-height: 1.75em;
         border-left: 1.5em solid ${colors.blue};
         padding-left: .5em;
-        margin: ${padding} 0;
+        margin: 1em 0;
         position: relative;
     
         &:before {
             content: '\201C';
-            ${fonts.condensed()}
             color: ${colors.white};
             position: absolute;
             font-size: 4em;
             top: 0.5em;
             left: -0.33em;
             line-height: 0;
+            ${fonts.condensed()};
         }
     
         cite {
@@ -140,7 +137,7 @@ const StyledMarkdown = styled.div`
         max-width: 100%;
     }
 
-    img.left,figure.left {
+    img.left, figure.left {
         float: left;
         margin: 0 ${padding} ${padding} calc(-1*${padding});
         width: 50%;
