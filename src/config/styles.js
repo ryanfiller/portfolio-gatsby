@@ -6,8 +6,8 @@ export const colors = {
     white: '#fcfaf6',
     black: '#1e2223',
     gray: lighten(.10, '#1e2223'),
-    lightGray: lighten(.25, '#1e2223'),
-    darkGray: darken(.05, '#1e2223'),
+    lightGray: lighten(.40, '#1e2223'),
+    darkGray: lighten(.025, '#1e2223'),
     
     r: 'rgba(255, 0, 0, .25)',
     g: 'rgba(0, 255, 0, .25)',

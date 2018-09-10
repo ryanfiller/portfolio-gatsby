@@ -32,7 +32,7 @@ const StyledMarkdown = styled.div`
         margin-bottom: ${padding};
     }
 
-    a {
+    p a { /* so it doesn't grab h2 headers */
         color: ${colors.black};
         text-decoration: none;
         padding: 0 .125em;
@@ -285,5 +285,179 @@ const StyledMarkdown = styled.div`
             width: 100%;
             height: 100%;
         }
+    }
+
+    ${require("typeface-ibm-plex-mono")}
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1em;
+        line-height: 1.5;
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        /* background:#2a2734; */
+        background: ${colors.darkGray};
+        /* color: #afa0fe */
+        color: ${colors.white};
+    }
+
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"]::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"]::-moz-selection {
+        text-shadow: none;
+        /* background: #6a51e6; */
+        background: ${colors.blue};
+    }
+
+    pre[class*="language-"]::selection,
+    pre[class*="language-"]::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"]::selection {
+        text-shadow: none;
+        /* background: #6a51e6; */
+        background: ${colors.blue};
+    }
+
+    pre[class*="language-"] {
+        padding: 1em;
+        margin: .5em 0;
+        overflow: auto
+    }
+
+    :not(pre)>code[class*="language-"] {
+        padding: .1em;
+        border-radius: .3em
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        /* color: #6c6783 */
+        color: ${colors.lightGray}
+    }
+
+    .token.punctuation {
+        /* color: #6c6783 */
+        color: ${colors.lightGray}
+    }
+
+    .token.namespace {
+        opacity: .7
+    }
+
+    .token.tag,
+    .token.operator,
+    .token.number {
+        /* color: #e09142 */
+        color: ${colors.orange}
+    }
+
+    .token.property,
+    .token.function {
+        /* color: #c4b9fe */
+        color: ${colors.white};
+    }
+
+    .token.tag-id,
+    .token.selector,
+    .token.atrule-id {
+        color: #eeebff
+    }
+
+    code.language-javascript,
+    .token.attr-name {
+        /* color: #c4b9fe */
+        color: ${colors.white};
+    }
+
+    code.language-css,
+    code.language-scss,
+    .token.boolean,
+    .token.string,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .language-scss .token.string,
+    .style .token.string,
+    .token.attr-value,
+    .token.keyword,
+    .token.control,
+    .token.directive,
+    .token.unit,
+    .token.statement,
+    .token.regex,
+    .token.atrule {
+        /* color: #fc9 */
+        color: ${colors.orange}
+    }
+
+    .token.placeholder,
+    .token.variable {
+        /* color: #fc9 */
+        color: ${colors.orange}
+    }
+
+    .token.deleted {
+        text-decoration: line-through
+    }
+
+    .token.inserted {
+        /* border-bottom: 1px dotted #eeebff; */
+        border-bottom: 1px dotted ${colors.white};
+        text-decoration: none
+    }
+
+    .token.italic {
+        font-style: italic
+    }
+
+    .token.important,
+    .token.bold {
+        font-weight: bold
+    }
+
+    .token.important {
+        /* color: #c4b9fe */
+        color: ${colors.white};
+    }
+
+    .token.entity {
+        cursor: help
+    }
+
+    pre>code.highlight {
+        /* outline: 0.4em solid #8a75f5; */
+        outline: 0.4em solid ${colors.blue};
+        outline-offset: .4em
+    }
+
+    .line-numbers .line-numbers-rows {
+        /* border-right-color: #2c2937 */
+        border-right-color: ${colors.lightGray};
+    }
+
+    .line-numbers-rows>span:before {
+        /* color: #3c3949 */
+        colors: ${colors.lightGray};
+    }
+
+    .line-highlight {
+        /* background: rgba(224, 145, 66, 0.2); */
+        background: ${colors.orange};
+        /* background: linear-gradient(to right, rgba(224, 145, 66, 0.2) 70%, rgba(224, 145, 66, 0)) */
+        background: linear-gradient(to right, ${colors.orange} 70%, ${colors.orange})
+
     }
 `

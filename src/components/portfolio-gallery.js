@@ -77,6 +77,7 @@ const StyledPortfolioGallery = styled.div`
 
             /* TODO */
             /* something about this, its too wide sometimes */
+            /* ...is there even a fallback for this? */
             @supports(object-fit: contain) {
                 display: flex;
                 justify-content: center;
@@ -164,7 +165,7 @@ const StyledPortfolioGallery = styled.div`
         }
     }
 
-    /* vendor styles */
+    /* swiper vendor styles */
     swiper-container {
         margin: 0 auto;
         position: relative;
