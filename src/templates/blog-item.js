@@ -23,7 +23,7 @@ export default ({data}) => {
 						category={post.frontmatter.category}
 						tags={post.frontmatter.tags}
 					/>
-					<p className="excerpt" >
+					<p className="excerpt">
 						{post.frontmatter.excerpt}
 					</p>
 					<a className="scroll-link" href="#content"></a>
@@ -140,7 +140,8 @@ const StyledBlogArticle = styled.main`
             line-height: 1.25;
             ${containers.readable}
             padding-left: 0;
-            padding-right: 0;
+			padding-right: 0;
+			text-align: center;
         }
 
         .scroll-link {
@@ -187,55 +188,56 @@ const StyledBlogArticle = styled.main`
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
             z-index: 0;
-        }
+		}
+		
+		${functions.tabletBreak(`
+			@supports (display: grid) {
+				.text {
+					display: grid;
+					grid-template-columns: 75vw 25vw;
+					grid-template-rows: auto 1fr;
+				}
 
-        @supports (display: grid) {
-            @media (min-width: $tablet) {
-                .text {
-                    display: grid;
-				    grid-template-columns: 75vw 25vw;
-                    grid-template-rows: auto 1fr;
-                }
+				.title {
+					text-align: left;
+					${containers.container()}
+					grid-column-start: 1;
+					grid-column-end: 2;
+					align-self: start;
+				}
 
-                .title {
-                    text-align: left;
-                    @include container;
-                    grid-column-start: 1;
-                    grid-column-end: 2;
-                    align-self: start;
-                }
+				.meta {
+					display: block;
+					text-align: right;
+					${containers.container()}
+					grid-column-start: 2;
+					grid-column-end: 3;
+					align-self: start;
 
-                .meta {
-                    display: block;
-                    text-align: right;
-                    @include container;
-                    grid-column-start: 2;
-                    grid-column-end: 3;
-                    align-self: start;
+					div:after {
+						display: none;
+					}
 
-                    div:after {
-                        display: none;
-                    }
+					.date {
+						text-transform: uppercase;
+						font-size: 1.75em;
+						margin-top: 0.15em;
+						margin-bottom: .75em;
+					}
+				}
 
-                    .date {
-                        text-transform: uppercase;
-                        font-size: 1.75em;
-                        margin-top: .75em;
-                        margin-bottom: .75em;
-                    }
-                }
-
-                .excerpt {
-                    text-align: left;
-                    justify-self: start;
-                    @include container;
-                    margin-left: 0;
-                    margin-right: 0;
-                    grid-column-start: 1;
-                    grid-column-end: 3;
-                }
-            }
-        }
+				.excerpt {
+					text-align: left;
+					justify-self: start;
+					${containers.container()}
+					margin-left: 0;
+					margin-right: 0;
+					grid-column-start: 1;
+					grid-column-end: 3;
+					text-align: left;
+				}
+			}
+		`)}
     }
 
     .content {

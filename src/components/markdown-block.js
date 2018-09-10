@@ -42,7 +42,7 @@ const StyledMarkdown = styled.div`
         ${functions.tabletBreak(`
             background: transparent;
             border-bottom: 2px ${colors.orange} dotted;
-            ${animations.highlight('currentColor', 'currentColor', colors.orange)}
+            ${animations.highlight('currentColor', 'currentColor', colors.orange)};
         `)}
     }
 
@@ -51,6 +51,7 @@ const StyledMarkdown = styled.div`
         counter-reset: li;
         li {
             counter-increment: li;
+
             &:before {
                 content: counter(li);
                 color: ${colors.blue};
@@ -62,6 +63,7 @@ const StyledMarkdown = styled.div`
 
     ul {
         list-style: none;
+
         li {
             &:before {
                 content: '\2022';
@@ -102,7 +104,7 @@ const StyledMarkdown = styled.div`
         position: relative;
     
         &:before {
-            content: '\201C';
+            content: '"';
             color: ${colors.white};
             position: absolute;
             font-size: 4em;
@@ -120,7 +122,7 @@ const StyledMarkdown = styled.div`
             font-size: .75em;
     
             &:before {
-                content: '\2014';
+                content: '-';
                 margin-right: .5em;
             }
         }

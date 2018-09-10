@@ -18,6 +18,7 @@ CSS Grid is great, by this point in time everyone on the internet has covered th
 
 The <a href="https://www.google.com/search?tbm=isch&q=typographic+swiss+design" target="_blank">Swiss Design style</a> has been a huge influence on layout design over the past 100 years, and the main lessons we learned in college were around the <a href="http://thinkingwithtype.com/grid/#modular-grid" target="_blank">modular grid</a>. To quote thinkingwithtype.com &#8212;
 
+
 > A modular grid has consistent horizontal divisions from top to bottom in addition to vertical divisions from left to right. These modules govern the placement and cropping of pictures as well as text.
 
 This same logic most likely had a large impact on the formation of the <a href="https://www.w3.org/TR/css-grid-1/" target="_blank">css grid spec</a>. The ability to define row and column gaps, as well as set repeating template areas using `rem` and `em` units to make them relational to the base font size is a perfect tool for adapting this classic design principle to the flexibility of an internet browser. 
