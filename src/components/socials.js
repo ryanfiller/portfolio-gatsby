@@ -92,7 +92,7 @@ const StyledSocialList = styled.ul`
 		width: auto;
 
 		${functions.phoneBreak(`
-			max-width: 2rem;
+			width: 2rem;
 		`)}
 	}
 `

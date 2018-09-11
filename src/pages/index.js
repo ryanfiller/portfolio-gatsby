@@ -1,21 +1,46 @@
 import React from 'react';
 import { graphql } from 'gatsby'
-import Link from 'gatsby-link';
+
+import { breaks } from '../config/styles'
 
 import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'
 
-export default ({ data }) => {
-  return (
-	<main>
-		
-		<PortfolioGrid 
-		portfolio={data.allMarkdownRemark.edges}
-		/>
+export default class Homepage extends React.Component {
 
-	</main>
-  );
-};
+	componentDidMount() {
+		document.addEventListener('wheel', this.onScroll);
+	}
+	
+	componentWillUnmount() {
+		document.removeEventListener('wheel', this.onScroll);
+	  }
+	
+	onScroll(e) {
+		var container = document.getElementsByClassName('portfolio-grid');
+		var scroll_vert = 0;
+	
+		if (window.innerWidth > breaks.tablet) {
+			container[0].scrollLeft += e.deltaY;
+			container[0].scrollLeft += e.deltaX;
+	
+			e.preventDefault();
+		}
+	}
+
+  	render() {
+		return (
+			<main class="page-content">
+				
+				<PortfolioGrid 
+					portfolio={this.props.data.allMarkdownRemark.edges}
+					currentCategory="all"
+				/>
+		
+			</main>
+		)
+	}
+}
 
 export const query = graphql`
 	query HomepagePortfolioList {
@@ -26,17 +51,15 @@ export const query = graphql`
 				frontmatter: { published: { eq: true } }
 			},
 		) {
-		edges {
-		node {
-			fields {
-			slug
-			}
+			edges {
+				node {
+					fields {
+						slug
+					}
 					frontmatter {
 						title
-						date
 						color
 						backgroundgif
-						gifattribution
 						category
 						tags
 						logowhite

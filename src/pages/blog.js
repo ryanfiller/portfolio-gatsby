@@ -10,7 +10,7 @@ export default class Blog extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<main>
+			<main class="page-content">
 				<BlogList blog={this.props.data.allMarkdownRemark.edges} />
 			</main>
 		)

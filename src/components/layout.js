@@ -142,7 +142,131 @@ const StyledSite = styled.div`
 		${functions.tabletBreak(`
 			transform: translateX(-33.33vw);
 		`)}
-    }
+	}
+
+	${functions.tabletBreak(`
+		@supports(display: grid) {
+			&.horizontal {
+				.site-content {
+					display: grid;
+					grid-template-columns: 80vw 20vw;
+					grid-template-rows: 1fr auto;
+
+					.header, .footer {
+						grid-column-start: 2;
+						grid-column-end: 3;
+						z-index: 10;
+						box-shadow: 0px 0px 1.25rem $color-black;
+					}
+
+					.header {
+						grid-row-start: 1;
+						grid-row-end: 2;
+					}
+
+					.footer {
+						grid-row-start: 2;
+						grid-row-end: 3;
+					}
+
+					.page-content {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 1;
+						grid-row-end: 3;
+						overflow-x: scroll;
+					}
+				}
+
+				.header {
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: space-around;
+
+					.rf-logo {
+						font-size: 2.5em;
+
+						.r {
+							filter: drop-shadow( .25em 0px 0px $color-black ); 
+							margin-right: -.7em;
+						}
+		
+						.f {
+							transform: rotateY(180deg);
+							margin-right: 0;
+							margin-left: .15em;
+						}
+		
+						.yan, .iller {
+							max-width: 0;
+						}
+					}
+
+					.nav {
+						width: 100%;
+						flex: initial;
+						display: block;
+						text-align: center;
+
+						a {
+							display: inline-block;
+							margin: .5em;
+						}
+					}
+				}
+
+				.portfolio-grid {
+					height: 100vh;
+					width: auto;
+					display: grid;
+					grid-auto-flow: row;
+					grid-template-columns: repeat(auto-fill, 50vh);
+					grid-template-rows: 50vh 50vh;
+					overflow-x: scroll;
+
+					& > * {
+						width: 100vh;
+						height: 50vh;
+						grid-column-end: span 2;
+
+						&:first-child, &:last-child {
+							width: 50vh;
+							grid-column-end: span 1;
+						}
+
+						&:nth-child(odd) {
+							grid-row-start: 1;
+							grid-row-end: 2;
+						}
+
+						&:nth-child(even) {
+							grid-row-start: 2;
+							grid-row-end: 3;
+						}
+					}
+				}
+			
+				.footer {
+					display: block;
+
+					.copyright {
+						text-align: center;
+						margin-bottom: 1em;
+					}
+					
+					.socials {
+						li {
+							flex: 1;
+						}
+		
+						li {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}	
+	`)}
 `
 
 const StyledContent = styled.div`
