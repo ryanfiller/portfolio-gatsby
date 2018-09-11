@@ -1,17 +1,17 @@
 // $transition: 0.2s;
 
 //for blur-up
-img {
-    image-rendering: pixelated !important;
-}
+// img {
+//     image-rendering: pixelated !important;
+// }
 
-a, a * {
-    transition: $transition;
-}
+// a, a * {
+//     transition: $transition;
+// }
 
-svg, svg * {
-    transition: $transition;
-}
+// svg, svg * {
+//     transition: $transition;
+// }
 
 .button {
     transition: $transition;

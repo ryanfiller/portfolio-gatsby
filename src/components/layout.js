@@ -124,6 +124,18 @@ injectGlobal`
 	* {
 		box-sizing: border-box;
 	}
+
+	img {
+    	image-rendering: pixelated !important;
+	}
+
+	a, a * {
+		transition: $transition;
+	}
+
+	svg, svg * {
+		transition: $transition;
+	}
 `
 
 const StyledSite = styled.div`
