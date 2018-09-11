@@ -12,7 +12,6 @@ const Social = ( props ) => {
 		className={`social social--${props.social.name.toLowerCase()}`}
 		key={props.social.name} 
 		href={props.social.url}
-		target="_blank"
 		style={{color: props.social.color}}
 	>
 		<SVG src={`../images/socials/${props.social.name.toLowerCase()}.svg`}/>

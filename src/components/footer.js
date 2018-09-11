@@ -9,7 +9,7 @@ const Footer = () => (
     <StyledFooter className="footer">
         <div className="copyright">
             Copyright 2012 - { new Date().getFullYear() }, 
-            Built with <a target="_blank" href="https://www.gatsbyjs.org/">GatbyJS</a> and <a target="_blank" href="https://www.netlifycms.org/">NetlifyCMS</a>
+            Built with <a href="https://www.gatsbyjs.org/">GatbyJS</a> and <a href="https://www.netlifycms.org/">NetlifyCMS</a>
         </div>
         <SocialsList />
     </StyledFooter>

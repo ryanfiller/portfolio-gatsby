@@ -1,7 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 
-import { animations, colors, containers, fonts, padding, functions } from '../config/styles'
+import { animations, colors, fonts, padding, functions } from '../config/styles'
 
 import PortfolioGallery from '../components/portfolio-gallery'
 import ContentMeta from '../components/content-meta'
@@ -23,7 +23,7 @@ const post = data.markdownRemark.frontmatter;
 
 					<ContentMeta tags={post.tags} />
 
-					<a className="" href={post.clienturl} target="_blank">
+					<a className="" href={post.clienturl}>
 						{post.client}
 					</a>
 				</header>

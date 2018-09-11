@@ -30,7 +30,7 @@ Tech901 is a Memphis startup seeking to jump-start the city's tech economy throu
 ## Launch Party Swag
 
 <img src="/images/uploads/shirt-sketch.jpg" alt="Icon Sketches" class="right" />
-To help the client get off the ground RocketFuel did a <a href="http://www.gorocketfuel.com/work/tech901/" target="_blank">branding phase</a> that lead into a marketing and social media campaign leading up to their launch party.
+To help the client get off the ground RocketFuel did a <a href="http://www.gorocketfuel.com/work/tech901/" >branding phase</a> that lead into a marketing and social media campaign leading up to their launch party.
 
 
 To quickly comunicate the two core tenants of the organization I approached the design of their launch party shirt by pulling iconography both from the tech industry and from local Memphis culture, sports, and landmarks.

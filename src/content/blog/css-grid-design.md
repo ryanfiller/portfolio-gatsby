@@ -16,12 +16,12 @@ published: true
 
 CSS Grid is great, by this point in time everyone on the internet has covered that at length. Grid is a powerful front end layout tool, and the more time I spend using it the more it reminds me of the lessons I learned in my college typography class, and of my time as a print designer using Adobe InDesign.
 
-The <a href="https://www.google.com/search?tbm=isch&q=typographic+swiss+design" target="_blank">Swiss Design style</a> has been a huge influence on layout design over the past 100 years, and the main lessons we learned in college were around the <a href="http://thinkingwithtype.com/grid/#modular-grid" target="_blank">modular grid</a>. To quote thinkingwithtype.com &#8212;
+The <a href="https://www.google.com/search?tbm=isch&q=typographic+swiss+design">Swiss Design style</a> has been a huge influence on layout design over the past 100 years, and the main lessons we learned in college were around the <a href="http://thinkingwithtype.com/grid/#modular-grid">modular grid</a>. To quote thinkingwithtype.com &#8212;
 
 
 > A modular grid has consistent horizontal divisions from top to bottom in addition to vertical divisions from left to right. These modules govern the placement and cropping of pictures as well as text.
 
-This same logic most likely had a large impact on the formation of the <a href="https://www.w3.org/TR/css-grid-1/" target="_blank">css grid spec</a>. The ability to define row and column gaps, as well as set repeating template areas using `rem` and `em` units to make them relational to the base font size is a perfect tool for adapting this classic design principle to the flexibility of an internet browser. 
+This same logic most likely had a large impact on the formation of the <a href="https://www.w3.org/TR/css-grid-1/">css grid spec</a>. The ability to define row and column gaps, as well as set repeating template areas using `rem` and `em` units to make them relational to the base font size is a perfect tool for adapting this classic design principle to the flexibility of an internet browser. 
 
 Having the ability to specifically define how content and images span both rows and columns brings browsers even closer to print layout tools like Adobe InDesign, which of course was designed around the ability to set up traditional design grids.
 
@@ -80,7 +80,7 @@ In print, the physical size of the page determines a lot about how the grid is c
 
 ## A Quick Aside About Line-height
 
-Line height does not work the same way on the web as it does in print. Rather than keeping the baseline the same and adding space above the characters, the css line-height property actually adds space to the top and bottom of the letters. <a href="https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align" target="_blank">This article</a> is a super in depth look into exactly how this works.
+Line height does not work the same way on the web as it does in print. Rather than keeping the baseline the same and adding space above the characters, the css line-height property actually adds space to the top and bottom of the letters. <a href="https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align" >This article</a> is a super in depth look into exactly how this works.
 
 Because of this, even though the math seems like a 1rem repeating vertical grid would line up with the baselines of the text, it actually ends up nearly in the middle of the vertical space between each line of text.
 
@@ -101,15 +101,15 @@ This would take the total height of a line of text, remove the size of the text 
 <iframe height='325' scrolling='no' title='Baseline Grid Test' src='//codepen.io/ryanfiller89/embed/NzzxKm/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>
 </iframe>
 
-The downside to this is that if for any reason you need to set the text elements to anything other than `position: relative` you either are introducing even more complicated css styles, or need to introduce more markup to act as wrappers. There are, of course, <a href="https://sassline.com/" target="_blank">libraries available</a> to help do some of the work without as much effort, but the larger question is probably "is all of this worth it just to vertically align text?"
+The downside to this is that if for any reason you need to set the text elements to anything other than `position: relative` you either are introducing even more complicated css styles, or need to introduce more markup to act as wrappers. There are, of course, <a href="https://sassline.com/" >libraries available</a> to help do some of the work without as much effort, but the larger question is probably "is all of this worth it just to vertically align text?"
 
 ## Complications vs Benefits?
 
-<a href="https://caniuse.com/#search=grid" target="_blank">Current browser support</a> aside, I think grid will only become more ubiquitous over the next few years. If you're taking a mobile-first layout approach, starting with everything in one central column at small sizes (and as a fallback for unsupported large browsers) and using grid to make the layout more interesting as the screen gets wider is definitely going to be the way to go. As for whether or not the extra overhead to set up a baseline grid for all text on the site is worth it, I would have to say "probably not."
+<a href="https://caniuse.com/#search=grid" >Current browser support</a> aside, I think grid will only become more ubiquitous over the next few years. If you're taking a mobile-first layout approach, starting with everything in one central column at small sizes (and as a fallback for unsupported large browsers) and using grid to make the layout more interesting as the screen gets wider is definitely going to be the way to go. As for whether or not the extra overhead to set up a baseline grid for all text on the site is worth it, I would have to say "probably not."
 
  I have more of a design background than a lot of developers I've worked with, and while utilization of a baseline grid might be something I noticed a designer had set up in a comp it isn't necessarily something I would go out of my way to codify in development. Most developers I know who are doing any kind of creative front end work use rem-based vertical spacing, or even better some kind of `$vertical-rhythm` variable to keep consistent space between their elements on the page. To me, this is enough to achieve visual consistency and hierarchy, and definitely enough to present a clean and consistent experience to your users. 
 
- A horizontal grid, or atleast the use of columns, typically does make sense for most applications. This is really easy to do if the design has been built using a design system, or a framework like <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> or <a href="https://foundation.zurb.com/" target="_blank">Foundation</a> that come with preset column classes. I don't personally use tools like this, but I do use a lot of `vw` sized elements so I can always keep element widths relational by using fractions of the screen width.
+ A horizontal grid, or atleast the use of columns, typically does make sense for most applications. This is really easy to do if the design has been built using a design system, or a framework like <a href="https://getbootstrap.com/" >Bootstrap</a> or <a href="https://foundation.zurb.com/" >Foundation</a> that come with preset column classes. I don't personally use tools like this, but I do use a lot of `vw` sized elements so I can always keep element widths relational by using fractions of the screen width.
  
 However, there are certain areas where I think this kind of attention to detail can make sense. If you have a banner component, or a complex article page, and want different types of text and images all placed next to each other, I think this is about the extent to which an average visitor to the website would notice baseline alignment. 
 
