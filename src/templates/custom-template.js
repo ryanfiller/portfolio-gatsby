@@ -3,8 +3,8 @@ import React from "react";
 export default ({data}) => {
 
   return (
-    <main className="page-content">
+    <p>
       asdfasdlfkjasd;lfjas;ldfj;alsdjf;asdjkf
-    </main>
+    </p>
   );
 };

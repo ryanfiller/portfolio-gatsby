@@ -29,7 +29,7 @@ const post = data.markdownRemark.frontmatter;
 					</a>
 				</header>
 
-				<MarkdownBlock post={data.markdownRemark.html}/>
+				<MarkdownBlock post={data.markdownRemark.htmlAst}/>
 
 				{/* TODO */}
 				{/* <a className="back-link" href="/{{ page.parent }}"> Back to {{ page.parent }}</a> */}
@@ -46,7 +46,7 @@ export const postQuery = graphql`
 	query PortfolioPost($slug: String!) {
 
 		markdownRemark(fields: { slug: { eq: $slug } }) {
-			html
+			htmlAst
 			frontmatter {
 				title
 				category
@@ -64,13 +64,14 @@ export const postQuery = graphql`
 	}
 `
 
-const StyledPortfolioItem = styled.main`
+const StyledPortfolioItem = styled.div`
 	display: block;
 	height: auto;
 	
 	${functions.tabletBreak(`
 		display: flex;
 		width: 100vw;
+		height: 100%;
 	`)}
 
     .portfolio-gallery {
@@ -85,6 +86,7 @@ const StyledPortfolioItem = styled.main`
 		padding-top: 0;
 
 		${functions.tabletBreak(`
+			height: auto;
 			padding-top: calc(3*${padding});
         	padding-bottom: calc(3*${padding});
 		`)}

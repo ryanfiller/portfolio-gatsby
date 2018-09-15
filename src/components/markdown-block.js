@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
+
+import rehypeReact from "rehype-react"
+import Headshot from "./headshot"
+
 import styled from 'styled-components';
 
 import { animations, colors, containers, fonts, functions, padding, transition } from '../config/styles'
 
+const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: { "headshot": Headshot }
+  }).Compiler
+
 export default class MarkdownBlock extends Component {
     render() {
-
-        if (this.props.post) {
-            return (
-                <StyledMarkdown className="markdown" dangerouslySetInnerHTML={{ __html: this.props.post }} />
-            )
-        } else {
-            return (
-                <StyledMarkdown className="markdown">
-                    {this.props.children}
-                </StyledMarkdown>
-            )
-        }
+        return (
+            <StyledMarkdown>
+                {renderAst(this.props.post)}
+            </StyledMarkdown>
+        )
     }
 }
 
-const StyledMarkdown = styled.div`
+const StyledMarkdown = styled.article`
+    min-height: 100%;
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     line-height: 1.6em;
     background: ${colors.white};
     ${containers.container()};
     ${containers.readable()};
+
+    & > div {
+        height: auto;
+    }
 
     p {
         margin: 0;

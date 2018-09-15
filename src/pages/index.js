@@ -29,14 +29,10 @@ export default class Homepage extends React.Component {
 
   	render() {
 		return (
-			<main className="page-content">
-				
-				<PortfolioGrid 
-					portfolio={this.props.data.allMarkdownRemark.edges}
-					currentCategory="all"
-				/>
-		
-			</main>
+			<PortfolioGrid 
+				portfolio={this.props.data.allMarkdownRemark.edges}
+				currentCategory="all"
+			/>
 		)
 	}
 }
@@ -95,7 +91,7 @@ injectGlobal`
 						grid-row-end: 3;
 					}
 
-					.page-content {
+					main{
 						grid-column-start: 1;
 						grid-column-end: 2;
 						grid-row-start: 1;

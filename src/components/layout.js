@@ -2,6 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { navigate } from "gatsby"
 
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+
 import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
 
@@ -9,7 +11,6 @@ import Header from './header'
 import Footer from './footer'
 import OffCanvas from './off-canvas'
 import Overlay from './overlay'
-// TODO
 // import Transition from './transition'
 
 export default class Layout extends React.Component {
@@ -101,9 +102,12 @@ export default class Layout extends React.Component {
                     	currentPage={this.props.location.pathname}
                     />
 
-					{/* <Transition location={this.props.location}> */}
-                    	{this.props.children}
-					{/* </Transition> */}
+
+					<main>
+						{/* <Transition location={this.props.location}> */}
+                    		{this.props.children}
+						{/* </Transition> */}
+					</main>
 
 					<Footer />
 

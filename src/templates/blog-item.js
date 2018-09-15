@@ -33,7 +33,7 @@ export default ({data}) => {
 			</header>
 			
 			<section id="content">
-				<MarkdownBlock post={post.html} />
+				<MarkdownBlock post={post.htmlAst} />
 			</section>
 		</StyledBlogArticle>
 	);
@@ -43,7 +43,7 @@ export const postQuery = graphql`
 	query BlogPost($slug: String!) {
 
 		markdownRemark(fields: { slug: { eq: $slug } }) {
-			html
+			htmlAst
 			frontmatter {
 				banner 
 				title
