@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { injectGlobal } from 'styled-components'
 import { breaks, functions } from '../config/styles'
 
-import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'
 
 export default class Homepage extends React.Component {
@@ -19,7 +18,6 @@ export default class Homepage extends React.Component {
 	
 	onScroll(e) {
 		var container = document.getElementsByClassName('portfolio-grid');
-		var scroll_vert = 0;
 	
 		if (window.innerWidth > breaks.tablet) {
 			container[0].scrollLeft += e.deltaY;
@@ -31,7 +29,7 @@ export default class Homepage extends React.Component {
 
   	render() {
 		return (
-			<main class="page-content">
+			<main className="page-content">
 				
 				<PortfolioGrid 
 					portfolio={this.props.data.allMarkdownRemark.edges}

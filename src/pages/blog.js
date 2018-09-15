@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import BlogList from '../components/blog-list'
 
@@ -6,11 +6,8 @@ import BlogList from '../components/blog-list'
 export default class Blog extends React.Component {
 
 	render () {
-
-		const { data } = this.props;
-
 		return (
-			<main class="page-content">
+			<main className="page-content">
 				<BlogList blog={this.props.data.allMarkdownRemark.edges} />
 			</main>
 		)

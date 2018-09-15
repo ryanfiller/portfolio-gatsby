@@ -5,7 +5,7 @@ import { navigate } from "gatsby"
 import styled, { injectGlobal } from 'styled-components'
 import { darken } from 'polished'
 
-import { colors, containers, functions, overlays, padding } from '../config/styles'
+import { containers, functions, overlays, padding } from '../config/styles'
 
 export default class FourOhFour extends React.Component {
 	state = {
@@ -133,52 +133,56 @@ export default class FourOhFour extends React.Component {
 		}
 	}
 
-  render() {
+	handleClick(e, navigate) {
+		e.preventDefault()
+		navigate()
+	}
 
-	const links = this.links;
-	
-	return (
-		<Styled404Page className="page-content">
+  	render() {
+		const links = this.links;
 		
-			<Helmet>
-				<body class="error404" />
-			</Helmet>
+		return (
+			<Styled404Page className="page-content">
+			
+				<Helmet>
+					<body className="error404" />
+				</Helmet>
 
-			<StyledHeader className="header">
-				<span className="code">Error: 404.</span>
-				<span className="text">The thing you were looking for isn't here.</span>
-			</StyledHeader>
-			<StyledMenu>
-				{links.map((item, index) => {
-					return (
-						<li key={index}>
-							<a className={ this.state.menu === index ? 'active' : '' }
-								onClick={ item.navigate }
-								onMouseOver={ () => {this.setMenu(index)} }
-							>
-								{ item.title }
-							</a>
-						</li>
-					)
-				})}
-				<div className="corner"></div>
-				<div className="corner"></div>
-				<div className="corner"></div>
-				<div className="corner"></div>
-				<div className="vertical"></div>
-				<div className="horizontal"></div>
-			</StyledMenu>
-		</Styled404Page>
-	)
-  }
-};
+				<StyledHeader className="header">
+					<span className="code">Error: 404.</span>
+					<span className="text">The thing you were looking for isn't here.</span>
+				</StyledHeader>
+				<StyledMenu>
+					{links.map((item, index) => {
+						return (
+							<li key={index}>
+								<a className={ this.state.menu === index ? 'active' : '' }
+									href={ item.title }
+									onClick={ (e) => {this.handleClick(e, item.navigate)} }
+									onMouseOver={ () => {this.setMenu(index)} }
+								>
+									{ item.title }
+								</a>
+							</li>
+						)
+					})}
+					<div className="corner"></div>
+					<div className="corner"></div>
+					<div className="corner"></div>
+					<div className="corner"></div>
+					<div className="vertical"></div>
+					<div className="horizontal"></div>
+				</StyledMenu>
+			</Styled404Page>
+		)
+	}
+}
 
 require("typeface-vt323")
 
 const border = '.5rem'
 const borderColor = '#fffbff'
 const borderShadow = '#6b7173'
-// $percentage: 100% / $stops;
 
 function gradient() {
 	const array = []

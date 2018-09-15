@@ -1,5 +1,5 @@
 import React from "react"
-import Helmet from 'react-helmet'
+// import Helmet from 'react-helmet'
 
 import styled from 'styled-components'
 import { animations, colors, containers, fonts, functions, overlays } from '../config/styles'
@@ -26,9 +26,9 @@ export default ({data}) => {
 					<p className="excerpt">
 						{post.frontmatter.excerpt}
 					</p>
-					<a className="scroll-link" href="#content"></a>
+					<a className="scroll-link" href="#content">TODO</a>
 				</div>
-				<img className="image" src={post.frontmatter.banner} />
+				<img className="image" src={post.frontmatter.banner} alt="TODO"/>
 			</header>
 			
 			<section id="content">
@@ -158,7 +158,7 @@ const StyledBlogArticle = styled.main`
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            bottom: 1rem;
+			bottom: 1rem;
 
             &:before, &:after {
                 content: '';

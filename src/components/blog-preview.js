@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { animations, colors, fonts, functions, transition } from '../config/styles'
+import { animations, colors, fonts, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 

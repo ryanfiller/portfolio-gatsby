@@ -79,7 +79,7 @@ export default class PortfolioBlock extends Component {
 					</defs>
 				</svg>
 				<div className="logo">
-					<img src={this.props.card.frontmatter.logowhite} />
+					<img src={this.props.card.frontmatter.logowhite} alt="TODO" />
 				</div>
 				<div className="content">
 					<h2 className="title">

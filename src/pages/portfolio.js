@@ -14,7 +14,7 @@ export default class Portfolio extends React.Component {
 		var categories = [];
 
 		data.map(({ node }) => (
-			node.frontmatter.category.map((item) => {
+			node.frontmatter.category.forEach((item) => {
 				categories.push(item);
 			})
 		));
@@ -37,7 +37,7 @@ export default class Portfolio extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<main class="page-content">
+			<main className="page-content">
 
 				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
 

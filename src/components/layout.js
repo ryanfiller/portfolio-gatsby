@@ -5,10 +5,12 @@ import { navigate } from "gatsby"
 import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import OffCanvas from '../components/off-canvas'
-import Overlay from '../components/overlay'
+import Header from './header'
+import Footer from './footer'
+import OffCanvas from './off-canvas'
+import Overlay from './overlay'
+// TODO
+// import Transition from './transition'
 
 export default class Layout extends React.Component {
 
@@ -52,10 +54,12 @@ export default class Layout extends React.Component {
 
 	render() {
 
+		let orientation
+
 		if (this.props.location.pathname === '/') {
-            var orientation = 'horizontal'
+            orientation = 'horizontal'
         } else {
-			var orientation = 'vertical'
+			orientation = 'vertical'
 		}
 		
 		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
@@ -97,7 +101,9 @@ export default class Layout extends React.Component {
                     	currentPage={this.props.location.pathname}
                     />
 
-                    {this.props.children}
+					{/* <Transition location={this.props.location}> */}
+                    	{this.props.children}
+					{/* </Transition> */}
 
 					<Footer />
 

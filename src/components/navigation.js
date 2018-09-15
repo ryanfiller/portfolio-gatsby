@@ -11,7 +11,7 @@ export default class Navigation extends Component {
 		return (
 			<StyledNav className="nav" role="navigation">
 				{ pages.map((page) =>
-					{if(page != 'contact'){
+					{if(page !== 'contact'){
 						return(
 							<StyledNavLink 
 								href={page}

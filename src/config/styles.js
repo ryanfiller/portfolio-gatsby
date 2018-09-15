@@ -1,4 +1,4 @@
-import { lighten, darken, transparentize } from 'polished'
+import { lighten } from 'polished'
 
 export const colors = {
     blue: '#3f7cac',

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 import styled from 'styled-components'
 
-import { breaks, colors, containers, navBreak } from '../config/styles';
+import { colors, containers, navBreak } from '../config/styles';
 
 import Logo from './logo'
 import Navigation from './navigation'

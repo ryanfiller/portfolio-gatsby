@@ -2,10 +2,10 @@ import React from "react";
 import MediaQuery from 'react-responsive';
 
 import styled from 'styled-components';
-import { breaks, colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
+import { colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
 
 import Navigation from '../components/navigation'
-import Form from '../components/form.js'
+// import Form from '../components/form.js'
 
 export default class OffCanvas extends React.Component {
 

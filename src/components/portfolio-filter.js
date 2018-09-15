@@ -11,7 +11,7 @@ export default class Dropdown extends React.Component {
 
         return (
             <StyledPortfolioFilter className="portfolio-filter">
-                <li className="default" key="all" onClick={() => setFilter('all')} className="default">
+                <li className="default" key="all" onClick={() => setFilter('all')} >
                     <button tabIndex="0" className={currentCategory === 'all' ? 'current' : ''}>
 						all					
 					</button>

@@ -7,8 +7,10 @@ import { arrows, colors, functions, overlays, padding } from '../config/styles'
 export default class PortfolioGallery extends React.Component {
 	render() {
 
+        let params
+
 		if (this.props.images.length > 1) {
-			var params = {
+			params = {
 				loop: true,
 				pagination: {
 					el: '.swiper-pagination',
@@ -21,7 +23,7 @@ export default class PortfolioGallery extends React.Component {
 				},
 			}
 		} else {
-			var params = {
+			params = {
 				loop: false,
 			}
 		}
@@ -35,7 +37,7 @@ export default class PortfolioGallery extends React.Component {
 				<Swiper {...params}>
 					{this.props.images.map(({ image, slidetype }, index) => (
 						<div key={index}>
-							<img src={image} />
+							<img src={image} alt="TODO" />
 						</div>
 					))}
 				</Swiper>
