@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import PortfolioFilter from '../components/portfolio-filter'
 import PortfolioGrid from '../components/portfolio-grid'

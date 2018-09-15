@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { animations, colors, fonts, padding, functions } from '../config/styles'
@@ -30,6 +31,7 @@ const post = data.markdownRemark.frontmatter;
 
 				<MarkdownBlock post={data.markdownRemark.html}/>
 
+				{/* TODO */}
 				{/* <a className="back-link" href="/{{ page.parent }}"> Back to {{ page.parent }}</a> */}
 
 				<cite className="gif-credit">
