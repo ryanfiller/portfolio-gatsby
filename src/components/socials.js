@@ -4,6 +4,7 @@ import SVG  from 'react-inlinesvg';
 import styled from 'styled-components';
 
 import { socialMedia } from '../config/config';
+import { icons } from '../images/socials/icons'
 import { colors, functions, transition } from '../config/styles';
 
 const Social = ( props ) => {
@@ -14,7 +15,7 @@ const Social = ( props ) => {
 		href={props.social.url}
 		style={{color: props.social.color}}
 	>
-		<SVG src={`../images/socials/${props.social.name.toLowerCase()}.svg`}/>
+		<SVG src={icons[props.social.name.toLowerCase()]}/>
 	</StyledSocial>
 	)
 }

@@ -4,16 +4,21 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import SVG  from 'react-inlinesvg'
 
+import r from "../images/logo/r.svg";
+import yan from "../images/logo/yan.svg";
+import f from "../images/logo/f.svg";
+import iller from "../images/logo/iller.svg";
+
 import { colors, functions, transition } from '../config/styles'
 
 export default class Logo extends Component {
 	render() {
 		return (
 			<StyledLink className="rf-logo" to="/">
-				<div className="r"><SVG src="../images/logo/r.svg" /></div>
-				<div className="yan"><SVG src="../images/logo/yan.svg" /></div>
-				<div className="f"><SVG src="../images/logo/f.svg" /></div>
-				<div className="iller"><SVG src="../images/logo/iller.svg" /></div>
+				<div className="r"><SVG src={r} /></div>
+				<div className="yan"><SVG src={yan} /></div>
+				<div className="f"><SVG src={f} /></div>
+				<div className="iller"><SVG src={iller} /></div>
 			</StyledLink>
 		)
 	}
