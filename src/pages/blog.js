@@ -35,10 +35,10 @@ export const query = graphql`
 						excerpt
 						thumbnail {
 							alt
-								image {
-									childImageSharp {
-										sizes(maxWidth: 500 ) {
-											...GatsbyImageSharpSizes
+							image {
+								childImageSharp {
+									sizes(maxWidth: 500 ) {
+										...GatsbyImageSharpSizes
 									}
 								}
 							}
