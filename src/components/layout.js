@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { navigate } from "gatsby"
+import Link from 'gatsby-link'
 
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 
@@ -77,6 +78,10 @@ export default class Layout extends React.Component {
 					{ name: 'keywords', content: 'sample, something' },
 					]}
 				/>
+				
+				<StyledSkipToContent href={`${this.props.location.pathname}#content`}>
+					Skip to Content
+				</StyledSkipToContent>
 
 				{
 					this.state.open ? 
@@ -103,7 +108,7 @@ export default class Layout extends React.Component {
                     />
 
 
-					<main>
+					<main id="content">
 						{/* <Transition location={this.props.location}> */}
                     		{this.props.children}
 						{/* </Transition> */}
@@ -145,6 +150,27 @@ injectGlobal`
 
 	svg, svg * {
 		transition: $transition;
+	}
+`
+
+const StyledSkipToContent = styled.a`
+	display: block;
+	transition: ${transition};
+	max-height: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+	font-size: 1.5rem;
+	padding: 0 .5rem;
+	text-align: center;
+	background: ${colors.orange};
+	color: ${colors.black};
+	${fonts.condensed};
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:focus {
+		padding: .5rem;
+		max-height: 100%;
 	}
 `
 
