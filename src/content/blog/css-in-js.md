@@ -1,7 +1,9 @@
 ---
 title: You got CSS in my Javascript
 excerpt: I switched my website back and forth between SCSS and Styled-Components four times. Here are some thoughts on why I couldn't make up my mind and why I eventually chose what I did.
-thumbnail: /images/uploads/css-in-js-reeses.png
+thumbnail: 
+  image: "../../images/uploads/css-in-js-reeses.png"
+  alt: "Reese's Peanutbutter Cups"
 banner: /images/uploads/css-in-js-reeses.png
 custompath: ''
 customtemplate: ''

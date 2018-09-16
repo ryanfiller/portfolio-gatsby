@@ -33,7 +33,16 @@ export const query = graphql`
 						category
 						tags
 						excerpt
-						thumbnail
+						thumbnail {
+							alt
+								image {
+									childImageSharp {
+										sizes(maxWidth: 500 ) {
+											...GatsbyImageSharpSizes
+									}
+								}
+							}
+						}
 					}
 				}
 			}

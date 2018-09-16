@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
@@ -13,7 +14,10 @@ export default class PortfolioBlock extends Component {
 		return (
 			<BlogPreview className="blog-preview">
                 <Link to={this.props.article.fields.slug}>
-                    <img className="thumbnail" src={this.props.article.frontmatter.thumbnail} alt={this.props.article.frontmatter.title}/>
+                    <Img className="thumbnail" 
+                        sizes={this.props.article.frontmatter.thumbnail.image.childImageSharp.sizes} 
+                        alt={this.props.article.frontmatter.thumbnail.alt}
+                    />
                 </Link>
                 <div className="content">
                     <header className="header">
@@ -36,6 +40,7 @@ export default class PortfolioBlock extends Component {
                         Read More
                     </Link>
                 </div>
+                {console.log(this.props.article.frontmatter)}
             </BlogPreview>
 		)
 	}
@@ -51,9 +56,14 @@ const BlogPreview = styled.article`
     }
 
     .thumbnail {
-        width: 100%;
-        height: auto;
+        /* width: 100%; */
+        /* height: auto; */
         margin-bottom: 1rem;
+
+        img {
+            width: 100%;
+            height: auto !important;
+        }
     }
 
     .header {
