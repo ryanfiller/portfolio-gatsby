@@ -10,7 +10,7 @@ import MarkdownBlock from '../components/markdown-block'
 
 export default ({data}) => {
 
-const post = data.markdownRemark.frontmatter;
+	const post = data.markdownRemark.frontmatter;
 
 	return (
 		<StyledPortfolioItem>

@@ -1,55 +1,83 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import Img from "gatsby-image"
 
 import styled from 'styled-components'
 
-export default class Headshot extends Component {
-	render() {
-		return (
-			<StyledHeadshot className="headshot">
-			asdfasdf
-				{/* <Img outerWrapperClassName="hover" sizes={this.props.hover.sizes} /> */}
-				{/* <Img outerWrapperClassName="regular" sizes={this.props.regular.sizes} /> */}
-			</StyledHeadshot>
-		)
-	}
+import { colors, functions, overlays, padding, transition } from '../config/styles'
+
+export default () => {
+	return (
+		<StaticQuery
+			query={graphql`
+				query Headshot {
+					regular: file(
+						relativePath: { regex: "/headshot.png/" }
+					) {
+						childImageSharp {
+							sizes(maxWidth: 500) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+					hover: file(
+						relativePath: { regex: "/headshot-transparent.png/" }
+					) {
+						childImageSharp {
+							sizes(maxWidth: 500) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+				}
+			`}
+			render={ data => (
+				<StyledHeadshot className="headshot">
+					<Img outerWrapperClassName="hover" sizes={data.hover.childImageSharp.sizes} />
+					<Img outerWrapperClassName="regular" sizes={data.regular.childImageSharp.sizes} />
+				</StyledHeadshot>
+			)}
+		/>
+	)
 }
 
 const StyledHeadshot = styled.picture`
-	display: inline-block;
+	display: block;
 	overflow: hidden;
 	border-radius: 50%;
-	margin: 0;
-	width: 100%;
-	max-width: 25rem;
+	margin: ${padding} auto;
+	width: 50%;
 	height: auto;
 
 	.hover {
 		display: none;
 	}
 
-	/* img {
-		display: block;
-		border-radius: 50%;
-		height: 100%;
+	img {
 		width: 100%;
-		position: relative;
-		z-index: 3;
-	} */
+	}
+
+	${functions.phoneBreak(`
+		width: 25%;
+		float: right;
+		margin: ${padding};
+		margin-right: 0;
+	`)}
+
 
 	@supports(mix-blend-mode: multiply) {
-		background-color: $color-blue;
+		background-color: ${colors.blue};
 		position: relative;
-		@include image-overlay($pixels);
+		${overlays.pixels};
 
 		&:before {
-			transition: $transition;
+			transition: ${transition};
 			z-index: 2;
 		}
 
 		.hover {
 			display: block;
-			position: absolute !important; // gatsby-image override
+			position: absolute !important; /* gatsby-image override */
 			top: 0; right: 0; bottom: 0; left: 0;
 			z-index: 3;
 			pointer-events: none;
@@ -58,7 +86,7 @@ const StyledHeadshot = styled.picture`
 		.regular {
 			mix-blend-mode: hard-light;
 			filter: grayscale(100%);
-			transition: $transition;
+			transition: ${transition};
 			opacity: .85;
 			position: relative;
 			z-index: 1;
@@ -66,11 +94,11 @@ const StyledHeadshot = styled.picture`
 
 		&:hover {
 			&:before {
-			opacity: .5;
+				opacity: .5;
 			}
 
 			.regular {
-			opacity: .75;
+				opacity: .75;
 			}
 		}
 	}
