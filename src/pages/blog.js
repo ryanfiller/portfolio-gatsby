@@ -37,7 +37,7 @@ export const query = graphql`
 							alt
 							image {
 								childImageSharp {
-									sizes(maxWidth: 500 ) {
+									sizes(maxWidth: 750 ) {
 										...GatsbyImageSharpSizes
 									}
 								}

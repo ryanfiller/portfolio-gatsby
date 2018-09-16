@@ -14,7 +14,7 @@ export default class PortfolioBlock extends Component {
 		return (
 			<BlogPreview className="blog-preview">
                 <Link to={this.props.article.fields.slug}>
-                    <Img className="thumbnail" 
+                    <Img outerWrapperClassName="thumbnail" 
                         sizes={this.props.article.frontmatter.thumbnail.image.childImageSharp.sizes} 
                         alt={this.props.article.frontmatter.thumbnail.alt}
                     />

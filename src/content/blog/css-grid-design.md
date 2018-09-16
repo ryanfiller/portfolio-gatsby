@@ -4,7 +4,9 @@ excerpt: Thoughts on CSS Grid from someone who learned about typographic grids f
 thumbnail: 
   image: "../../images/uploads/css-grid-tron.jpg"
   alt: "Grid from the movie Tron"
-banner: /images/uploads/css-grid-tron.jpg
+banner: 
+  image: "../../images/uploads/css-grid-tron.jpg"
+  alt: "Grid from the movie Tron"
 date: '2018-08-19'
 category: 
   - code

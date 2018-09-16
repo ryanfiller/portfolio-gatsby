@@ -6,8 +6,11 @@ excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio du
 thumbnail: 
   image: "../../images/uploads/css-in-js-reeses.png"
   alt: "Reese's Peanutbutter Cups"
+banner: 
+  image: "../../images/uploads/css-in-js-reeses.png"
+  alt: "Reese's Peanutbutter Cups"
 # thumbnail: http://billou95.free.fr/wp-content/uploads/2011/06/scrn_finalFantasyVI-04.gif
-banner: https://i.ytimg.com/vi/0GUsB8Hlyo0/maxresdefault.jpg
+# banner: https://i.ytimg.com/vi/0GUsB8Hlyo0/maxresdefault.jpg
 custompath: ''
 customtemplate: ''
 date: '2017-08-15'

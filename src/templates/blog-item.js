@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from 'gatsby'
 // import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { animations, colors, containers, fonts, functions, overlays } from '../config/styles'
@@ -27,9 +28,16 @@ export default ({data}) => {
 					<p className="excerpt">
 						{post.frontmatter.excerpt}
 					</p>
-					<a className="scroll-link" href="#content">TODO</a>
+					<a className="scroll-link" href="#content">
+						<span>
+							Skip To Content
+						</span>
+					</a>
 				</div>
-				<img className="image" src={post.frontmatter.banner} alt="TODO"/>
+				<Img outerWrapperClassName="image" 
+					sizes={post.frontmatter.banner.image.childImageSharp.sizes} 
+					alt={post.frontmatter.banner.alt}
+				/>
 			</header>
 			
 			<section id="content">
@@ -45,7 +53,16 @@ export const postQuery = graphql`
 		markdownRemark(fields: { slug: { eq: $slug } }) {
 			htmlAst
 			frontmatter {
-				banner 
+				banner {
+					alt
+					image {
+						childImageSharp {
+							sizes(maxWidth: 1600 ) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+				} 
 				title
 				date(formatString: "MMM.DD.YY")
 				category
@@ -181,7 +198,14 @@ const StyledBlogArticle = styled.main`
         
             &:after {
                 top: 1em;
-            }
+			}
+			
+			span {
+				position: absolute;
+				height: 0;
+				width: 0;
+				overflow: hidden;
+			}
         }
     
         .image {
@@ -190,7 +214,7 @@ const StyledBlogArticle = styled.main`
             width: auto;
             min-width: 100vw;
             object-fit: cover;
-            position: absolute;
+			position: absolute !important; /* gatsby-image override */
             right: 0;
             left: 50%;
             top: 50%;

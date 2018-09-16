@@ -4,7 +4,9 @@ excerpt: I switched my website back and forth between SCSS and Styled-Components
 thumbnail: 
   image: "../../images/uploads/css-in-js-reeses.png"
   alt: "Reese's Peanutbutter Cups"
-banner: /images/uploads/css-in-js-reeses.png
+banner:
+  image: "../../images/uploads/css-in-js-reeses.png"
+  alt: "Reese's Peanutbutter Cups"
 custompath: ''
 customtemplate: ''
 date: '2018-09-02'
