@@ -57,7 +57,7 @@ export const postQuery = graphql`
 					alt
 					image {
 						childImageSharp {
-							sizes(maxWidth: 1820 ) {
+							sizes(maxWidth: 2000 ) {
 								...GatsbyImageSharpSizes
 							}
 						}

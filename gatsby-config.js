@@ -53,13 +53,49 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `img`,
+				path: `${__dirname}/src/images/`
+			}
+		},
+		`gatsby-image`,
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
 					`gatsby-remark-autolink-headers`,
 					{
+						resolve: `gatsby-remark-custom-blocks`,
+						options: {
+						  blocks: {
+							imgLeft: {
+								classes: "image-left"
+							},
+							imgRight: {
+								classes: "image-right"
+							},
+							imgFull: {
+								classes: "image-full"
+							},
+							imgSmall: {
+								classes: "image-small"
+							},
+						  },
+						},
+					},
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 900,
+							linkImagesToOriginal: false,	
+						},
+					},
+					{
 						resolve: `gatsby-remark-component`,
-						options: { components: ["header"] }
+						options: { components: ["header", "img-left"] }
 					},
 					{
 						resolve: `gatsby-remark-prismjs`,
@@ -73,15 +109,5 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-styled-components`,
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				name: `img`,
-				path: `${__dirname}/src/images/`
-			}
-		},
-		`gatsby-image`,
-		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`
 	]
 };

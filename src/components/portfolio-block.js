@@ -18,7 +18,7 @@ export default class PortfolioBlock extends Component {
 	}
 
 	toggleHoverState(state) {
-        // TODO this gets messed up if it loads while you are hovering
+        // TODO this state is reversed if it loads while you are hovering
 		return {
 			isHovering: !state.isHovering,
 		};

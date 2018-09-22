@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import rehypeReact from "rehype-react"
 import Headshot from "./headshot"
+// import { ImgLeft } from "./inline-images"
 
 import styled from 'styled-components';
 
@@ -9,7 +10,9 @@ import { animations, colors, containers, fonts, functions, padding, transition }
 
 const renderAst = new rehypeReact({
     createElement: React.createElement,
-    components: { "headshot": Headshot }
+    components: { 
+        "headshot": Headshot
+    }
   }).Compiler
 
 export default class MarkdownBlock extends Component {
@@ -148,26 +151,30 @@ const StyledMarkdown = styled.article`
         max-width: 100%;
     }
 
-    img.left, figure.left {
+    /* img.left, figure.left, */
+    .image-left {
         float: left;
         margin: 0 ${padding} ${padding} calc(-1*${padding});
         width: 50%;
     }
 
-    img.right, figure.right {
+    /* img.right, figure.right  */
+    .image-right {
         float: right;
         margin: 0 calc(-1*${padding}) ${padding} ${padding};
         width: 50%;
     }
 
-    img.full {
+    /* img.full */
+    image-full {
         display: block;
         width: calc(100% + (2 * ${padding}));
         height: auto;
         margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
     }
 
-    img.left, img.right, img.full {
+    /* img.left, img.right, img.full  */
+    .image-left, .image-right, .image-full {
         @include phone-break {
             width: calc(100% + (2 * ${padding}));
             height: auto;
@@ -175,7 +182,8 @@ const StyledMarkdown = styled.article`
         }
     }
 
-    img.small {
+    /* img.small */
+    .image-small {
         width: 25%;
         @include desktop-break {
             &.left {
@@ -200,6 +208,7 @@ const StyledMarkdown = styled.article`
         }
     }
 
+    /* TODO make a component out of this */
     figure.compare {
         position: relative;
 

@@ -25,13 +25,14 @@ The <a href="https://www.google.com/search?tbm=isch&q=typographic+swiss+design">
 
 > A modular grid has consistent horizontal divisions from top to bottom in addition to vertical divisions from left to right. These modules govern the placement and cropping of pictures as well as text.
 
-This same logic most likely had a large impact on the formation of the <a href="https://www.w3.org/TR/css-grid-1/">css grid spec</a>. The ability to define row and column gaps, as well as set repeating template areas using `rem` and `em` units to make them relational to the base font size is a perfect tool for adapting this classic design principle to the flexibility of an internet browser. 
+This same logic most likely had a large impact on the formation of the <a href="https://www.w3.org/TR/css-grid-1/">css grid spec</a>. The ability to define row and column gaps, as well as set repeating template areas using `rem` and `em` units to make them relational to the base font size is a perfect tool for adapting this classic design principle to the flexibility of an internet browser.
 
 Having the ability to specifically define how content and images span both rows and columns brings browsers even closer to print layout tools like Adobe InDesign, which of course was designed around the ability to set up traditional design grids.
 
 ## Configuring Grids in Different Environments
 
-<img src="/images/uploads/css-grid-print.jpg" alt="print screenshot" class="left" />
+[[imgLeft]]
+| ![print screenshot](../../images/uploads/css-grid-print.jpg)
 
 **Swiss Modular Grid**
 - four column modular grid
@@ -39,7 +40,8 @@ Having the ability to specifically define how content and images span both rows 
 
 <div style="clear:both;"></div>
 
-<img src="/images/uploads/css-grid-indesign-screenshot.jpg" alt="indesign screenshot" class="right" />
+[[imgRight]]
+| ![indesign screenshot of grid](../../images/uploads/css-grid-indesign-screenshot.jpg)
 
 **Adobe InDesign Grid**
 - font-size 12pt
@@ -50,7 +52,8 @@ Having the ability to specifically define how content and images span both rows 
 
 <div style="clear:both;"></div>
 
-<img src="/images/uploads/css-grid-code-screenshot.jpg" alt="codepen screenshot" class="left" />
+[[imgLeft]]
+| ![codepen screenshot](../../images/uploads/css-grid-code-screenshot.jpg)
 
 **CSS Grid Layout**
 - font-size: 12px; (.75rem)
@@ -119,7 +122,9 @@ However, there are certain areas where I think this kind of attention to detail 
 
 Of course, another huge variable here is working with clients and having editable, variable lengths of text on the site since that introduces a lot of unknowns into the equation. I think the best scenario in this case is having the content maintained by someone who is both design and code savvy, as they'll know what looks good and also a little of what's going on with the CSS to achieve the design.
 
-<img src="/images/uploads/css-grid-text-threads.jpg" alt="indesign screenshot" class="right" />
+
+[[imgRight]]
+| ![indesign screenshot of text threading](../../images/uploads/css-grid-text-threads.jpg)
 
 Another huge drawback to complex grid layouts is that text flow in browsers works quite differently than in tools like InDesign. Using print layout tools, text boxes can be "threaded" so that when copy overflows one box it will automatically flow into linked text boxes. There's no existing HTML / CSS / Javascript / whatever tool that treats text this way, except maybe `css column-count: #;` and event that isn't ideal because a user would end up scrolling to the bottom of the page and then back to the top to read additional columns. 
 
