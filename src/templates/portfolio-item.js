@@ -14,7 +14,7 @@ export default ({data}) => {
 
 	return (
 		<StyledPortfolioItem>
-			<PortfolioGallery images={post.images} color={post.color} />
+			<PortfolioGallery slides={post.slides} color={post.color} />
 
 			<div className="content">
 				<header className="header">
@@ -55,9 +55,16 @@ export const postQuery = graphql`
 				gifattribution
 				client
 				clienturl
-				images{
-					image
-					slidetype
+				slides {
+					slide {
+						image {
+							childImageSharp {
+								sizes(maxWidth: 1000 ) {
+									...GatsbyImageSharpSizes
+								}
+							}
+						}
+					}
 				}
 			}
 		}

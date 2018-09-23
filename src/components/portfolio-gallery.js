@@ -1,5 +1,6 @@
 import React from 'react'
 import Swiper from 'react-id-swiper'
+import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { arrows, colors, functions, overlays, padding } from '../config/styles'
@@ -9,7 +10,7 @@ export default class PortfolioGallery extends React.Component {
 
         let params
 
-		if (this.props.images.length > 1) {
+		if (this.props.slides.length > 1) {
 			params = {
 				loop: true,
 				pagination: {
@@ -35,14 +36,17 @@ export default class PortfolioGallery extends React.Component {
 		return (
 			<StyledPortfolioGallery className="portfolio-gallery" style={color}>
 				<Swiper {...params}>
-					{this.props.images.map(({ image, slidetype }, index) => (
+					{this.props.slides.map(({ slide, slidetype }, index) => (
 						<div key={index}>
-							<img src={image} alt="TODO" />
+                            {console.log(slide)}
+                            <Img outerWrapperClassName="image" 
+                                sizes={slide[0].image.childImageSharp.sizes} 
+                                alt={slide[0].image.alt}
+                            />
 						</div>
 					))}
 				</Swiper>
 			</StyledPortfolioGallery>
-
 		)
 	}
 }
@@ -60,6 +64,7 @@ const StyledPortfolioGallery = styled.div`
 
     .swiper {
         &-container {
+            cursor: grab;
             height: 100%;
             position: relative;
             z-index: 3;
@@ -76,16 +81,24 @@ const StyledPortfolioGallery = styled.div`
             padding: 3.125rem;
             padding-bottom: 6.25rem;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .image {
+                width: 100%;
+                max-height: 100%;
+            }
 
             /* TODO */
-            /* something about this, its too wide sometimes */
-            /* ...is there even a fallback for this? */
-            @supports(object-fit: contain) {
+            /* something with object fit here */
+
+            /* @supports(object-fit: contain) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
-                img {
+                .image {
                     display: block;
                     height: auto;
                     width: auto;
@@ -93,7 +106,7 @@ const StyledPortfolioGallery = styled.div`
                     max-height: 100%;
                     object-fit: contain;
                 }
-            }
+            } */
         }
 
         &-button {
@@ -168,7 +181,7 @@ const StyledPortfolioGallery = styled.div`
     }
 
     /* swiper vendor styles */
-    swiper-container {
+    .swiper-container {
         margin: 0 auto;
         position: relative;
         overflow: hidden;

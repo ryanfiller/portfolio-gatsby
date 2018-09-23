@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: RocketFuel Templated CMS
 custompath: ''
 customtemplate: ''
@@ -13,8 +13,11 @@ backgroundgif: /images/uploads/apollo-11.gif
 gifattribution: Apollo 11, NASA Archive
 logocolor: /images/uploads/rocketfuel-color.svg
 logowhite: /images/uploads/rocketfuel-white.svg
-images:
-  - image: /images/uploads/screen-shot.png
+slides:
+  - slide:
+    - image: "../../images/uploads/screen-shot.png"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
 ---
 
 empire, doyles, carondelet, trumbo, alexander investment partners, st marys

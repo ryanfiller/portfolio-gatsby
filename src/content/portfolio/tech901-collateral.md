@@ -18,11 +18,23 @@ backgroundgif: /images/uploads/daft-punk.gif
 gifattribution: Alive 2007 Tour, Daft Punk
 logocolor: /images/uploads/tech901-logo-color.svg
 logowhite: /images/uploads/tech901-logo-white.svg
-images:
-  - image: /images/uploads/tech901-slider-shirt.png
-  - image: /images/uploads/tech901-slider-shirt-flat.png
-  - image: /images/uploads/tech901-slider-pattern.jpg
-  - image: /images/uploads/tech901-slider-emails.png
+slides:
+  - slide:
+    - image: "../../images/uploads/tech901-slider-shirt.png"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
+  - slide:
+    - image: "../../images/uploads/tech901-slider-shirt-flat.png"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
+  - slide:
+    - image: "../../images/uploads/tech901-slider-pattern.jpg"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
+  - slide:
+    - image: "../../images/uploads/tech901-slider-emails.png"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
 ---
 
 Tech901 is a Memphis startup seeking to jump-start the city's tech economy through training programs to bolster the city's technology workforce to ten thousand over the next fifteen years.

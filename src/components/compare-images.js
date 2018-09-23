@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { colors, functions, navBreak, padding, transition } from '../config/styles'
+import { colors, navBreak, padding, transition } from '../config/styles'
 
 export default (props) => {
 	return (

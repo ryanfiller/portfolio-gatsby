@@ -16,10 +16,15 @@ backgroundgif: /images/uploads/ghost-in-the-shell.gif
 gifattribution: 'Ghost in the Shell, Bandai'
 logocolor: /images/uploads/hack-memphis-logo-color.svg
 logowhite: /images/uploads/hack-memphis-logo-white.svg
-images:
-  - image: /images/uploads/hack-memphis-slider-shirt.png
-  - image: /images/uploads/hack-memphis-slider-design.jpg
-    slidetype: none
+slides:
+  - slide:
+    - image: "../../images/uploads/hack-memphis-slider-shirt.png"
+    - alt: "tshirt mockup"
+    # - slidetype: none
+  - slide:
+    - image: "../../images/uploads/hack-memphis-slider-design.jpg"
+    - alt: "flat design"
+    # - slidetype: none
 ---
 
 <!-- TODO right, small class -->

@@ -16,9 +16,15 @@ backgroundgif: /images/uploads/creature-from-the-black-lagoon.gif
 gifattribution: The Creature from the Black Lagoon, Universal Pictures
 logocolor: /images/uploads/indie-memphis-color.svg
 logowhite: /images/uploads/indie-memphis-white.svg
-images:
-  - image: /images/uploads/indie-memphis-slider-front.jpg
-  - image: /images/uploads/indie-memphis-slider-front-back.png  
+slides:
+  - slide:
+    - image: "../../images/uploads/indie-memphis-slider-front.jpg"
+    # - alt: "tshirt mockup"
+    # - slidetype: none
+  - slide:
+    - image: "../../images/uploads/indie-memphis-slider-front-back.png"
+    # - alt: "flat design"
+    # - slidetype: none
 ---
 
 Indie Memphis is a local organization that hosts a several independent film festivals throughout the year. For their fall 2016 festival, RocketFuel exchanged a sponsorship for the opportunity to created a series of leave-behinds in the form of postcards. To match the theme of "Film for All," the theme of the postcards was to choose from a long lineage of film history.
