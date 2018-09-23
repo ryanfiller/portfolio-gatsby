@@ -71,6 +71,9 @@ module.exports = {
 						resolve: `gatsby-remark-custom-blocks`,
 						options: {
 						  blocks: {
+							imgCenter: {
+								classes: "image-center"
+							},
 							imgLeft: {
 								classes: "image-left"
 							},

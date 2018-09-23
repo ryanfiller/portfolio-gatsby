@@ -253,9 +253,9 @@ const StyledBlogArticle = styled.main`
 
 					.date {
 						text-transform: uppercase;
-						font-size: 1.75em;
-						margin-top: 0.15em;
-						margin-bottom: .75em;
+						font-size: 1.5em;
+						margin-top: 0.35em;
+						margin-bottom: .9em;
 					}
 				}
 

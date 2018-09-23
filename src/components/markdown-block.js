@@ -32,11 +32,14 @@ const StyledMarkdown = styled.article`
     font-size: 1.5rem;
     line-height: 1.6em;
     background: ${colors.white};
+    padding-top: calc(3*${spacing});
+    padding-bottom: calc(2*${spacing});
     ${containers.container()};
     ${containers.readable()};
 
     & > div {
         height: auto;
+        width: 100%;
     }
 
     p {
@@ -144,68 +147,69 @@ const StyledMarkdown = styled.article`
         height: auto;
     }
 
-    img.center {
+    /* img.center */
+    .image-center {
         display: block;
         margin: 0 auto;
         width: auto;
         max-width: 100%;
     }
 
-    /* img.left, figure.left, */
-    .image-left {
-        float: left;
-        margin: 0 ${padding} ${padding} calc(-1*${padding});
-        width: 50%;
-    }
-
-    /* img.right, figure.right  */
-    .image-right {
-        float: right;
-        margin: 0 calc(-1*${padding}) ${padding} ${padding};
-        width: 50%;
-    }
-
-    /* img.full */
-    image-full {
-        display: block;
+    .image-left, .image-right, .image-full {
         width: calc(100% + (2 * ${padding}));
         height: auto;
-        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding}); 
     }
 
-    /* img.left, img.right, img.full  */
-    .image-left, .image-right, .image-full {
-        @include phone-break {
+    .image-left {
+        ${functions.phoneBreak(`
+            float: left;
+            margin: 0 ${padding} ${padding} calc(-1*${padding});
+            width: 50%;
+        `)}
+    }
+
+    .image-right {
+        ${functions.phoneBreak(`
+            float: right;
+            margin: 0 calc(-1*${padding}) ${padding} ${padding};
+            width: 50%;
+        `)}
+    }
+
+    .image-full {
+        ${functions.phoneBreak(`
+            display: block;
             width: calc(100% + (2 * ${padding}));
             height: auto;
             margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
-        }
+        `)}
     }
 
-    /* img.small */
     .image-small {
-        width: 25%;
-        @include desktop-break {
-            &.left {
-                margin-left: 0;
-            }
-            &.right {
-                margin-right: 0;
-            }
-        }
-        @include tablet-break {
+        width: 50%;
+
+        ${functions.tabletBreak(`
             width: 25%;
-            &.left {
+
+            &.image-left {
                 margin: 0 ${padding} 0 0;
             }
-            &.right {
+            &.image-right {
                 margin: 0 0 ${padding} 0;
             }
-        }
+        `)}
 
-        @include phone-break {
-            width: 50%;
-        }
+        ${functions.desktopBreak(`
+            width: 25%;
+
+            &.image-left {
+                margin: 0;
+            }
+            &.image-right {
+                margin: 0;
+            }
+        `)}
     }
 
     /* TODO make a component out of this */
@@ -278,11 +282,13 @@ const StyledMarkdown = styled.article`
         } */
     }
 
-    pre {
+    .gatsby-highlight {
         width: calc(100% + (2 * ${padding}));
-        margin: 0 calc(-1*${padding}) ${padding}g calc(-1*${padding});
-        padding: ${padding};
-        overflow: scroll;
+        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+        
+        pre {
+            overflow: scroll;
+        }
     }
 
     iframe {
@@ -328,6 +334,11 @@ const StyledMarkdown = styled.article`
         background: ${colors.darkGray};
         /* color: #afa0fe */
         color: ${colors.white};
+    }
+
+    code.language-text {
+        background: transparent;
+        color: ${colors.orange};
     }
 
     pre[class*="language-"]::-moz-selection,
