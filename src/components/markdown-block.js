@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import rehypeReact from "rehype-react"
 import Headshot from "./headshot"
-// import { ImgLeft } from "./inline-images"
+import CompareImages from "./compare-images"
 
 import styled from 'styled-components';
 
@@ -11,7 +11,8 @@ import { animations, colors, containers, fonts, functions, padding, transition }
 const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: { 
-        "headshot": Headshot
+        "headshot": Headshot,
+        "compare-images": CompareImages
     }
   }).Compiler
 
@@ -32,8 +33,8 @@ const StyledMarkdown = styled.article`
     font-size: 1.5rem;
     line-height: 1.6em;
     background: ${colors.white};
-    padding-top: calc(3*${spacing});
-    padding-bottom: calc(2*${spacing});
+    padding-top: calc(3*${padding});
+    padding-bottom: calc(2*${padding});
     ${containers.container()};
     ${containers.readable()};
 
@@ -47,6 +48,7 @@ const StyledMarkdown = styled.article`
         margin-bottom: ${padding};
     }
 
+    /* TODO style header links */
     p a { /* so it doesn't grab h2 headers */
         color: ${colors.black};
         text-decoration: none;
@@ -158,7 +160,11 @@ const StyledMarkdown = styled.article`
     .image-left, .image-right, .image-full {
         width: calc(100% + (2 * ${padding}));
         height: auto;
-        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding}); 
+        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+
+        img {
+            width: 100%;
+        }
     }
 
     .image-left {
@@ -212,76 +218,8 @@ const StyledMarkdown = styled.article`
         `)}
     }
 
-    /* TODO make a component out of this */
-    figure.compare {
-        position: relative;
-
-        img {
-            width: 100%;
-            display: block;
-
-            &:first-child {
-                position: absolute;
-                opacity: 0;
-                transition: ${transition};
-            }
-
-            &:last-child {
-                opacity: 1;
-                transition: ${transition};
-            }
-        }
-
-        &:hover {
-            img {
-
-                &:first-child {
-                    opacity: 1;
-                }
-
-                &:last-child {
-                    opacity: 0;
-                }
-            }
-
-        }
-
-        figcaption {
-            background-color: ${colors.gray};
-            font-size: .75em;
-            padding: .125em;
-            text-align: center;
-            color: ${colors.white};
-            &:after {
-                content: ' (Hover)';
-            }
-        }
-
-        /* @include tablet-break {
-            width: calc(100% + (2 * ${padding}));
-            height: auto;
-            margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
-            display: flex;
-            flex-direction: row-reverse;
-            flex-wrap: wrap;
-
-            img, img:first-child {
-                position: initial;
-                width: 50%;
-                height: 50vw;
-                opacity: 1;
-                transition: 0s;
-            }
-
-            figcaption {
-                width: 100%;
-                &:after {
-                    display: none;
-                }
-            }
-        } */
-    }
-
+    /* TODO see if it is possible to make a component out of this */
+    /* https://using-remark.gatsbyjs.org/custom-components/#mapping-from-generic-html-elements */
     .gatsby-highlight {
         width: calc(100% + (2 * ${padding}));
         margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
