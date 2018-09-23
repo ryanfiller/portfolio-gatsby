@@ -78,35 +78,31 @@ const StyledPortfolioGallery = styled.div`
 
         &-slide {
             width: 100%;
-            padding: 3.125rem;
-            padding-bottom: 6.25rem;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
 
-            .image {
-                width: 100%;
-                max-height: 100%;
-            }
+            /* this feels like a lot of work for responsive images :/ */
+            .gatsby-image {
+                background: red;
 
-            /* TODO */
-            /* something with object fit here */
-
-            /* @supports(object-fit: contain) {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .image {
-                    display: block;
-                    height: auto;
-                    width: auto;
-                    max-width: 100%;
-                    max-height: 100%;
-                    object-fit: contain;
+                &-outer-wrapper {
+                    padding: 3.125rem;
+                    padding-bottom: 6.25rem;
+                    width: 100%;
+                    height: 100%;
                 }
-            } */
+
+                &-wrapper {
+                    height: 100%;
+                    width: 100%;
+
+                    img {
+                        object-fit: contain !important;
+                    }
+                }
+            }
         }
 
         &-button {
