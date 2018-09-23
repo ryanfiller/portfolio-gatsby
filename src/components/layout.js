@@ -151,6 +151,10 @@ injectGlobal`
 	svg, svg * {
 		transition: $transition;
 	}
+	
+	.gatsby-resp-image-wrapper img {
+		box-shadow: none !important;
+	}
 `
 
 const StyledSkipToContent = styled.a`
