@@ -4,8 +4,8 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import { colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
 
-import Navigation from '../components/navigation'
-// import Form from '../components/form.js'
+import Navigation from './navigation'
+import Form from './contact-form'
 
 export default class OffCanvas extends React.Component {
 
@@ -18,7 +18,7 @@ export default class OffCanvas extends React.Component {
 						currentPage={this.props.currentPage}
 					/>
 				</MediaQuery>
-				{/* <Form /> */}
+				<Form />
 			</StyledOffCanvas>
 		);
 	}
@@ -47,10 +47,6 @@ const StyledOffCanvas = styled.div`
 	${functions.tabletBreak(`
 		width: 33.33vw;
 	`)}
-
-	@include tablet-break {
-		
-	}
 
 	& > * {
 		width: 100%;
