@@ -1,83 +1,83 @@
 .form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    font-size: 1.5rem;
+    // width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // margin: 0;
+    // font-size: 1.5rem;
 
-    &:focus {
-        outline: none;
-    }
+    // &:focus {
+    //     outline: none;
+    // }
 
-    &__row {
-        min-height: 3em;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: $spacing;
+    // &__row {
+        // min-height: 3em;
+        // width: 100%;
+        // display: flex;
+        // flex-direction: column;
+        // margin-bottom: $spacing;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
+        // &:last-child {
+        //     margin-bottom: 0;
+        // }
 
-        &--tall {
-            flex: 1;
-            min-height: 20rem;
-            max-height: 25rem;
-        }
+        // &--tall {
+        //     flex: 1;
+        //     min-height: 20rem;
+        //     max-height: 25rem;
+        // }
 
-        &--recaptcha {
-            min-height: 0;
-        }
-    }
+        // &--recaptcha {
+        //     min-height: 0;
+        // }
+    // }
 
-    input, textarea {
-        @include font-sans-serif;
-        padding: $spacing/4;
-        border: 2px solid transparent;
-        border-radius: 0;
-        -webkit-appearence: none;
-        transition: $transition;
-        flex: 1;
-        order: 1;
+    // input, textarea {
+    //     @include font-sans-serif;
+    //     padding: $spacing/4;
+    //     border: 2px solid transparent;
+    //     border-radius: 0;
+    //     -webkit-appearence: none;
+    //     transition: $transition;
+    //     flex: 1;
+    //     order: 1;
 
-            &:focus {
-                outline: none;
-                border: 2px solid $color-gray;
-                margin: 0;
+    //     &:focus {
+    //         outline: none;
+    //         border: 2px solid $color-gray;
+    //         margin: 0;
 
-                &::-webkit-input-placeholder {
-                    transition: $transition;
-                    color: transparent;
-                }
-                &::-moz-placeholder {
-                    transition: $transition;
-                    color: transparent;
-                }
-                + label {
-                    max-height: $spacing;
-                }
-            }
-    }
+    //         &::-webkit-input-placeholder {
+    //             transition: $transition;
+    //             color: transparent;
+    //         }
+    //         &::-moz-placeholder {
+    //             transition: $transition;
+    //             color: transparent;
+    //         }
+    //         + label {
+    //             max-height: $spacing;
+    //         }
+    //     }
+    // }
 
-    textarea {
-        resize: none;
-    }
+    // textarea {
+    //     resize: none;
+    // }
 
-    label {
-        max-height: 0;
-        color: $color-white;
-        font-weight: bold;
-        background-color: $color-gray;
-        overflow: hidden;
-        font-size: .6em;
-        padding-left: 0.5rem;
-        flex: 1;
-        order: 2;
-        display: flex;
-        align-items: center;
-        transition: $transition;
-    }
+    // label {
+    //     max-height: 0;
+    //     color: $color-white;
+    //     font-weight: bold;
+    //     background-color: $color-gray;
+    //     overflow: hidden;
+    //     font-size: .6em;
+    //     padding-left: 0.5rem;
+    //     flex: 1;
+    //     order: 2;
+    //     display: flex;
+    //     align-items: center;
+    //     transition: $transition;
+    // }
 
     #recaptcha {
         transform-origin: top left;
@@ -89,26 +89,26 @@
         }
     }
 
-    &__button {
-        @include button($color-orange);
-    }
+    // &__button {
+    //     @include button($color-orange);
+    // }
 }
 
-.contact-form__message {
-    margin-top: 25vh;
-    color: $color-white;
-    text-align: center;
-    width: 100%;
-    font-size: 1.5em;
+// .contact-form__message {
+//     margin-top: 25vh;
+//     color: $color-white;
+//     text-align: center;
+//     width: 100%;
+//     font-size: 1.5em;
 
-    a {
-        display: block;
-        cursor: pointer;
-        color: $color-orange;
-        margin-top: $spacing;
+//     a {
+//         display: block;
+//         cursor: pointer;
+//         color: $color-orange;
+//         margin-top: $spacing;
 
-            &:hover {
-                color: $color-white;
-            }
-    }
-}
+//             &:hover {
+//                 color: $color-white;
+//             }
+//     }
+// }

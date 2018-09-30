@@ -1,46 +1,45 @@
 // @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i");
 // @import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500,700");
 
-@mixin font-sans-serif() {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-}
+// @mixin font-sans-serif() {
+//     font-family: 'Raleway', sans-serif;
+//     font-weight: 300;
+// }
 
-@mixin font-condensed() {
-    font-family: 'Dosis', sans-serif;
-    font-weight: 400;
-}
+// @mixin font-condensed() {
+//     font-family: 'Dosis', sans-serif;
+//     font-weight: 400;
+// }
 
-body {
-    @include font-sans-serif;
-}
+// body {
+//     @include font-sans-serif;
+// }
 
-@mixin inline-link {
-    @include font-sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    position: relative;
-    padding-right: 1.25em;
+// @mixin inline-link {
+//     @include font-sans-serif;
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     position: relative;
+//     padding-right: 1.25em;
 
-    &:before, &:after {
-        content: '';
-        display: block;
-        width: 0; 
-        height: 0; 
-        border-top: .4em solid transparent;
-        border-bottom: .4em solid transparent;
-        border-left: .4em solid currentColor;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+//     &:before, &:after {
+//         content: '';
+//         display: block;
+//         width: 0; 
+//         height: 0; 
+//         border-top: .4em solid transparent;
+//         border-bottom: .4em solid transparent;
+//         border-left: .4em solid currentColor;
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//     }
 
-    &:before {
-        right: .5em;
-    }
+//     &:before {
+//         right: .5em;
+//     }
 
-    &:after {
-        right: 0;
-    }
-
-}
+//     &:after {
+//         right: 0;
+//     }
+// }

@@ -1,46 +1,53 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 
-import ContentMeta from './content-meta'
+import styled from 'styled-components'
+import { functions, padding } from '../config/styles'
 
-export default class PortfolioBlock extends Component {
+import BlogPreview from './blog-preview'
 
-	constructor(props) {
-		super(props);
-	}
+export default class BlogList extends Component {
 
 	render() {
 
 		return (
-			<div className="blog-list">
+			<StyledBlogList className="blog-list">
 				{this.props.blog.map(({ node }, index) => (
-					<article className="blog-preview">
-						<Link to={node.frontmatter.path}>
-							<img className="blog-preview__thumbnail" src={node.frontmatter.thumbnail} alt={node.frontmatter.title}/>
-						</Link>
-						<div className="blog-preview__content">
-							<header className="blog-preview__header">
-								<Link to={node.frontmatter.path}>
-									{node.frontmatter.title}
-								</Link>
-							</header>
-							<span className="blog-preview__date">
-								{node.frontmatter.date}
-							</span>
-							<p className="blog-preview__excerpt">
-								{node.frontmatter.excerpt}
-							</p>
-							<ContentMeta
-								category={node.frontmatter.category}
-								tags={node.frontmatter.tags}
-							/>
-							<Link to={node.frontmatter.path}  className="blog-preview__link">
-								Read More
-							</Link>
-						</div>
-					</article>
+					<BlogPreview article={node} key={index}/>
 				))} 
-			</div>
+			</StyledBlogList>
 		)
 	}
 }
+
+const StyledBlogList = styled.div`
+	width: 100%;
+	display: block;
+	padding: ${padding};
+
+	& > * {
+		width: 100%;
+		box-sizing: border-box;
+		padding: ${padding};
+	}
+
+	${functions.phoneBreak(`
+		display: flex;
+
+		& > * {
+			flex: 1;
+			max-width: 50%;
+		}
+	`)}
+
+	${functions.tabletBreak(`
+		& > * {
+			max-width: 33.333vw;
+		}
+	`)}
+
+	${functions.desktopBreak(`
+		& > * {
+			max-width: 25%;
+		}
+	`)}
+`

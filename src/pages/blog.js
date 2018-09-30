@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { graphql } from 'gatsby'
 
 import BlogList from '../components/blog-list'
 
@@ -6,15 +7,8 @@ import BlogList from '../components/blog-list'
 export default class Blog extends React.Component {
 
 	render () {
-
-		const { data } = this.props;
-
 		return (
-			<main className="page-content page-content--blog-list">
-
-				<BlogList blog={this.props.data.allMarkdownRemark.edges} />
-
-			</main>
+			<BlogList blog={this.props.data.allMarkdownRemark.edges} />
 		)
 	}
 }
@@ -24,21 +18,31 @@ export const query = graphql`
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
-				id: { regex: "/blog//" },
+				fields: {slug: { regex: "//blog//" }},
 				frontmatter: { published: { eq: true } }
 			},
 		) {
 			edges {
 				node {
-					id
+					fields {
+						slug
+					}
 					frontmatter {
 						title
-						path
 						date(formatString: "MMM.DD.YY")
 						category
 						tags
 						excerpt
-						thumbnail
+						thumbnail {
+							alt
+							image {
+								childImageSharp {
+									sizes(maxWidth: 750 ) {
+										...GatsbyImageSharpSizes
+									}
+								}
+							}
+						}
 					}
 				}
 			}

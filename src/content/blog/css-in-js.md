@@ -1,11 +1,15 @@
 ---
-template: blog-item
 title: You got CSS in my Javascript
 excerpt: I switched my website back and forth between SCSS and Styled-Components four times. Here are some thoughts on why I couldn't make up my mind and why I eventually chose what I did.
-thumbnail: /images/uploads/css-in-js-reeses.png
-banner: /images/uploads/css-in-js-reeses.png
-path: /blog/css-in-js
-date: '2017-09-02'
+thumbnail: 
+  image: "../../images/uploads/css-in-js-reeses.png"
+  alt: "Reese's Peanutbutter Cups"
+banner:
+  image: "../../images/uploads/css-in-js-reeses.png"
+  alt: "Reese's Peanutbutter Cups"
+custompath: ''
+customtemplate: ''
+date: '2018-09-02'
 category: 
   - code
 tags:
@@ -86,7 +90,8 @@ In coding, I often face choice paralysis. I spend so much time doing research to
 
 The first and most obvious frustration was debugging. The way Styled-Components (and I think most css-in-js libraries?) handle the issue of scoping is to generate machine-readable classnames and apply them to the JSX elements. That means, in the browser, you end up with a lot of nonsense as far as human-readability is concerned.
 
-<img src="/images/uploads/css-in-js-gabbyandryandotcom.jpg" alt="dev tools screenshot" class="full" />
+[[imgFull]]
+| ![dev tools screenshot](../../images/uploads/css-in-js-gabbyandryandotcom.jpg)
 
 You <em>can</em> add your own classes, but if you're correctly leveraging the power of the scope and cascade you shouldn't be afraid to just style based on elements.
 
@@ -116,7 +121,8 @@ const Image = () => (
 )
 ```
 
-<img src="/images/uploads/css-in-js-devtools.png" alt="dev tools screenshot" class="right" />
+[[imgRight]]
+| ![dev tools screenshot](../../images/uploads/css-in-js-devtools.png)
 
 This is great and very readable while authoring code, but it makes debugging in the browser very hard. I'm sure there are ways to set up sourcemaps, but by default there's no easy way to see where a style is declared in your project. It's easy enough to track down a top level bug since its probably obvious which component the style is coming from, but specificity is still a problem when components are nested. Rather than being self-documented in the browser with classnames, this required keeping the location of styles in mind while working. This is especially difficult when coming back to a project weeks or months later.
 

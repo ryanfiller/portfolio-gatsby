@@ -1,41 +1,41 @@
-.meta {
-    margin: $spacing/4 0;
-    @include font-sans-serif;
+// .meta {
+//     margin: $spacing/4 0;
+//     @include font-sans-serif;
 
-    &__date {
-        text-transform: uppercase;
-        @include font-condensed;
-        font-size: 1em;
-        line-height: 1em;
-    }
+//     &__date {
+//         text-transform: uppercase;
+//         @include font-condensed;
+//         font-size: 1em;
+//         line-height: 1em;
+//     }
 
-    &__category {
-        span {
-            &:before {
-                content: '#';
-            }
-            &:after {
-                content: ', ';
-            }
+//     &__category {
+//         span {
+//             &:before {
+//                 content: '#';
+//             }
+//             &:after {
+//                 content: ', ';
+//             }
 
-            &:last-of-type:after {
-                display: none;
-            }
-        }
-    }
+//             &:last-of-type:after {
+//                 display: none;
+//             }
+//         }
+//     }
 
-    &__tag {
-        span {
-            &:before {
-                content: '#';
-            }
-            &:after {
-                content: ', ';
-            }
+//     &__tag {
+//         span {
+//             &:before {
+//                 content: '#';
+//             }
+//             &:after {
+//                 content: ', ';
+//             }
 
-            &:last-of-type:after {
-                display: none;
-            }
-        }
-    }
-}
+//             &:last-of-type:after {
+//                 display: none;
+//             }
+//         }
+//     }
+// }

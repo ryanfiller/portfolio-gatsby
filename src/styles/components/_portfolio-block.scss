@@ -1,124 +1,124 @@
-.portfolio-block {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: currentColor;
-    background-position: center center;
-    background-blend-mode: luminosity; //multiply or luminosity?
-    background-size: cover;
-    padding: $spacing;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
+// .portfolio-block {
+//     cursor: pointer;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: currentColor;
+//     background-position: center center;
+//     background-blend-mode: luminosity; //multiply or luminosity?
+//     background-size: cover;
+//     padding: $spacing;
+//     text-decoration: none;
+//     position: relative;
+//     overflow: hidden;
 
-    &__logo {
-        flex: 1;
-        width: 100%;
-        padding: 0 $spacing;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+//     &__logo {
+//         flex: 1;
+//         width: 100%;
+//         padding: 0 $spacing;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
 
-        img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        max-width: 30vw;
-        max-height: 15vw;
+//         img {
+//         width: 100%;
+//         height: 100%;
+//         display: block;
+//         max-width: 30vw;
+//         max-height: 15vw;
 
-            @include phone-break {
-                max-height: 100%;
-                max-width: 75%;
-            }
-        }
-    }
+//             @include phone-break {
+//                 max-height: 100%;
+//                 max-width: 75%;
+//             }
+//         }
+//     }
 
-    &__content {
-        text-align: center;
-        color: $color-white;
-        max-height: 0;
-        overflow: hidden;
-        transition: 2*$transition;
-        font-size: 1.5rem;
+//     &__content {
+//         text-align: center;
+//         color: $color-white;
+//         max-height: 0;
+//         overflow: hidden;
+//         transition: 2*$transition;
+//         font-size: 1.5rem;
 
-        @include tablet-break {
-            max-height: none;
-            font-size: 1rem;
-        }
-    }
+//         @include tablet-break {
+//             max-height: none;
+//             font-size: 1rem;
+//         }
+//     }
 
-    &__title {
-        @include font-condensed;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1em;
-        margin: $spacing/2 0;
-    }
+//     &__title {
+//         @include font-condensed;
+//         text-transform: uppercase;
+//         text-align: center;
+//         line-height: 1em;
+//         margin: $spacing/2 0;
+//     }
 
-    &__meta {
-        line-height: 1.125em;
-        display: block;
-        margin-bottom: $spacing/2;
+//     &__meta {
+//         line-height: 1.125em;
+//         display: block;
+//         margin-bottom: $spacing/2;
 
-        span {
-            display: inline-block;
-        }
-    }
+//         span {
+//             display: inline-block;
+//         }
+//     }
 
-    &__link {
-        @include font-sans-serif;
+//     &__link {
+//         @include font-sans-serif;
 
-        &:after{
-            content: ' ▸▸';
-            display: inline-block;
-            position: relative;
-        }
-    }
+//         &:after{
+//             content: ' ▸▸';
+//             display: inline-block;
+//             position: relative;
+//         }
+//     }
     
-    @include image-overlay($pixels);
-    &:before {
-        opacity: 0;
-        transition: 0s;
-    }
+//     @include image-overlay($pixels);
+//     &:before {
+//         opacity: 0;
+//         transition: 0s;
+//     }
 
-    &:hover, &:focus {   
-        box-shadow: inset 0px 0px 5rem $color-black;
-        &:before {
-            opacity: .5;
-        }
-        .portfolio-block__content {
-            max-height: 100%;
-        }
-    }
+//     &:hover, &:focus {   
+//         box-shadow: inset 0px 0px 5rem $color-black;
+//         &:before {
+//             opacity: .5;
+//         }
+//         .portfolio-block__content {
+//             max-height: 100%;
+//         }
+//     }
 
-    // @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-    //     transition: .2s;
-    //     clip-path: polygon(
-    //         0 0,
-    //         100% 0, 
-    //         100% 100%, 
-    //         0 100%
-    //     );
+//     // @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+//     //     transition: .2s;
+//     //     clip-path: polygon(
+//     //         0 0,
+//     //         100% 0, 
+//     //         100% 100%, 
+//     //         0 100%
+//     //     );
 
-    //     &:hover, &:focus {
-    //         clip-path: polygon(
-    //             1rem 2rem, 
-    //             calc(100% - 2rem) 1rem, 
-    //             calc(100% - 1rem) calc(100% - 2rem), 
-    //             2rem calc(100% - 1rem)
-    //         );
-    //     // clip-path: url(#tv-shape);
-    //     }
+//     //     &:hover, &:focus {
+//     //         clip-path: polygon(
+//     //             1rem 2rem, 
+//     //             calc(100% - 2rem) 1rem, 
+//     //             calc(100% - 1rem) calc(100% - 2rem), 
+//     //             2rem calc(100% - 1rem)
+//     //         );
+//     //     // clip-path: url(#tv-shape);
+//     //     }
 
-    //     &:nth-child(odd):hover, &:nth-child(odd):focus {
-    //         clip-path: polygon(
-    //             2rem 1rem, 
-    //             calc(100% - 1rem) 2rem, 
-    //             calc(100% - 2rem) calc(100% - 1rem), 
-    //             2rem calc(100% - 2rem)
-    //         );
-    //     }
-    // }
-}
+//     //     &:nth-child(odd):hover, &:nth-child(odd):focus {
+//     //         clip-path: polygon(
+//     //             2rem 1rem, 
+//     //             calc(100% - 1rem) 2rem, 
+//     //             calc(100% - 2rem) calc(100% - 1rem), 
+//     //             2rem calc(100% - 2rem)
+//     //         );
+//     //     }
+//     // }
+// }
