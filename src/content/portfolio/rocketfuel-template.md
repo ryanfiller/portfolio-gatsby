@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: RocketFuel Templated CMS
 custompath: ''
 customtemplate: ''
