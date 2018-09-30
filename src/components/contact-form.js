@@ -1,6 +1,6 @@
 import React from "react"
 
-import Button from "buttons"
+import Button from "./buttons"
 
 import styled from 'styled-components'
 import { colors, fonts, padding, transition } from '../config/styles'
