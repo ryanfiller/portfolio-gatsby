@@ -37,10 +37,15 @@ export default class Layout extends React.Component {
 		}
 	}
 
-	toggleOffCanvas(e, target='') {
+	toggleOffCanvas(e, target) {
 		e.preventDefault();
 		this.setState({open: !this.state.open})
-		// TODO #contact link
+		
+		// if (window.location.hash.length) {
+		// 	window.history.back()
+		// } else {
+		// 	window.location.hash = target;
+		// }
 	}
 
 	handleNavigate(e) {

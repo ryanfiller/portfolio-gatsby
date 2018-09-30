@@ -50,7 +50,7 @@ const StyledOffCanvas = styled.div`
 
 	& > * {
 		width: 100%;
-		/* margin-bottom: $spacing; */
+		margin-bottom: calc(2 * ${padding});
 
 		&:last-child {
 			margin-bottom: 0;

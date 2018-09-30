@@ -15,8 +15,11 @@ export default class Navicon extends Component {
     }
 }
 
-const StyledNavicon = styled.div`
+const StyledNavicon = styled.button`
     cursor: pointer;
+    background: transparent;
+    padding: 0;
+    border: 0;
     align-self: stretch;
     height: auto;
     position: relative !important;

@@ -219,7 +219,15 @@ const StyledBlogArticle = styled.main`
             left: 50%;
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
-            z-index: 0;
+			z-index: 0;
+			
+			& > div { /*  .gatsby-image-wrapper */
+				position: absolute !important;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
 		}
 		
 		${functions.tabletBreak(`
