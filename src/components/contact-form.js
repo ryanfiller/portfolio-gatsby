@@ -1,10 +1,12 @@
 import React from "react"
 
+import Button from "buttons"
+
 import styled from 'styled-components'
 import { colors, fonts, padding, transition } from '../config/styles'
 
-import Recaptcha from "react-google-recaptcha";
-const RECAPTCHA_KEY = "6LeZT2IUAAAAACs54WyysXeSztMT6xJMpr2bDr7n";
+// import Recaptcha from "react-google-recaptcha";
+// const RECAPTCHA_KEY = "6LeZT2IUAAAAACs54WyysXeSztMT6xJMpr2bDr7n";
 
 function encode(data) {
     return Object.keys(data)
@@ -13,8 +15,13 @@ function encode(data) {
 }
 
 export default class Contact extends React.Component {
-    state = {
-        submitted: false,
+    constructor() {
+        super();
+        this.state = {
+            submitted: false,
+        }
+    
+        this.reloadForm = this.reloadForm.bind(this) 
     }
 
     handleChange = (e) => {
@@ -121,21 +128,19 @@ export default class Contact extends React.Component {
                 </StyledRow> */}
 
                 <StyledRow>
-                    <input name="bot-field" hidden />
-                    <button 
-                        className="form__button button button--orange"
-                        type="submit"
-                        value="Send"
+                    <Button
+                        color="orange"
                         disabled={
                             this.state.name &&
                             this.state.email &&
-                            this.state.message &&
-                            this.state.recaptcha 
+                            this.state.message
+                            // && this.state.recaptcha 
                             ? false : true
                         }
                     >
-                        <span>Send</span>
-                    </button>
+                        Send
+                    </Button>
+
                 </StyledRow>
             </StyledForm>
 
@@ -181,10 +186,10 @@ const StyledRow = styled.div`
     }
 
     &.tall {
-    flex: 1;
-    min-height: 20rem;
-    max-height: 25rem;
-}
+        flex: 1;
+        min-height: 20rem;
+        max-height: 25rem;
+    }
 
     &.recaptcha {
         min-height: 0;
@@ -193,8 +198,8 @@ const StyledRow = styled.div`
 
 const CommonInputStyles = `
     ${fonts.sansSerif()}
+    font-size: 1em;
     padding: calc(${padding} / 4);
-    font-size: 1.5rem;
     border: 2px solid transparent;
     border-radius: 0;
     transition: ${transition};
@@ -217,7 +222,7 @@ const CommonInputStyles = `
             color: transparent;
         }
         + label {
-            max-height: ${padding};
+            max-height: calc(1.5 * ${padding});
         }
     }
 `

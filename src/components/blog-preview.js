@@ -40,7 +40,6 @@ export default class PortfolioBlock extends Component {
                         Read More
                     </Link>
                 </div>
-                {console.log(this.props.article.frontmatter)}
             </BlogPreview>
 		)
 	}

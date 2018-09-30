@@ -38,7 +38,6 @@ export default class PortfolioGallery extends React.Component {
 				<Swiper {...params}>
 					{this.props.slides.map(({ slide, slidetype }, index) => (
 						<div key={index}>
-                            {console.log(slide)}
                             <Img outerWrapperClassName="image" 
                                 sizes={slide[0].image.childImageSharp.sizes} 
                                 alt={slide[0].image.alt}
