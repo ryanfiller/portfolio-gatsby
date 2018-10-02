@@ -12,10 +12,10 @@ tags:
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-backgroundgif: /images/uploads/ghost-in-the-shell.gif
+backgroundgif: ../../images/uploads/ghost-in-the-shell.gif
 gifattribution: 'Ghost in the Shell, Bandai'
-logocolor: /images/uploads/hack-memphis-logo-color.svg
-logowhite: /images/uploads/hack-memphis-logo-white.svg
+logocolor: ../../images/uploads/hack-memphis-logo-color.svg
+logowhite: ../../images/uploads/hack-memphis-logo-white.svg
 slides:
   - slide:
     - image: "../../images/uploads/hack-memphis-slider-shirt.png"

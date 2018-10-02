@@ -14,10 +14,10 @@ tags:
 client: tech901.org
 clienturl: 'http://tech901.org/'
 color: '#82be42'
-backgroundgif: /images/uploads/daft-punk.gif
+backgroundgif: ../../images/uploads/daft-punk.gif
 gifattribution: Alive 2007 Tour, Daft Punk
-logocolor: /images/uploads/tech901-logo-color.svg
-logowhite: /images/uploads/tech901-logo-white.svg
+logocolor: ../../images/uploads/tech901-logo-color.svg
+logowhite: ../../images/uploads/tech901-logo-white.svg
 slides:
   - slide:
     - image: "../../images/uploads/tech901-slider-shirt.png"

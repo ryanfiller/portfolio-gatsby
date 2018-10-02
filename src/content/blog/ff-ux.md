@@ -2,7 +2,7 @@
 title: Final Fantasy and UX
 excerpt: Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 # thumbnail: "../../images/uploads/css-grid-tron.jpg"
-# banner: /images/uploads/css-grid-tron.jpg
+# banner: ../../images/uploads/css-grid-tron.jpg
 thumbnail: 
   image: "../../images/uploads/css-in-js-reeses.png"
   alt: "Reese's Peanutbutter Cups"
