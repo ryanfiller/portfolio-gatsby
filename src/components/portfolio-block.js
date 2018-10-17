@@ -32,7 +32,7 @@ export default class PortfolioBlock extends Component {
 
 		let colorAndBackground = {
 			color: this.props.card.frontmatter.color,
-			backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif + ")",
+			backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif.relativePath + ")",
         };
 
 		return (
@@ -80,7 +80,7 @@ export default class PortfolioBlock extends Component {
 					</defs>
 				</svg>
 				<div className="logo">
-					<img src={this.props.card.frontmatter.logowhite} alt="TODO" />
+					<img src={this.props.card.frontmatter.logowhite.relativePath} alt="TODO" />
 				</div>
 				<div className="content">
 					<h2 className="title">

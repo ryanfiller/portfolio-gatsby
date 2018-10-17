@@ -54,10 +54,14 @@ export const query = graphql`
 					frontmatter {
 						title
 						color
-						backgroundgif
+						backgroundgif {
+							relativePath
+						}
 						category
 						tags
-						logowhite
+						logowhite {
+							relativePath
+						}
 					}
 				}
 			}
