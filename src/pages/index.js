@@ -56,11 +56,13 @@ export const query = graphql`
 						color
 						backgroundgif {
 							relativePath
+							publicURL
 						}
 						category
 						tags
 						logowhite {
 							relativePath
+							publicURL
 						}
 					}
 				}

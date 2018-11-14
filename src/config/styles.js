@@ -129,7 +129,7 @@ export const transition = '.2s';
 export const breaks = {
     large: 1200,
     tablet: 768,
-    phone: 480,
+    phone: 480, 
 }
 
 export const naviconWidth = '40px';
