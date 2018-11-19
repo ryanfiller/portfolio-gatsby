@@ -208,7 +208,7 @@ const StyledBlogArticle = styled.main`
 			}
         }
     
-        .image {
+        .gatsby-image-wrapper {
             height: auto;
             min-height: 100%;
             width: auto;
@@ -220,14 +220,6 @@ const StyledBlogArticle = styled.main`
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
 			z-index: 0;
-			
-			& > div { /*  .gatsby-image-wrapper */
-				position: absolute !important;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-			}
 		}
 		
 		${functions.tabletBreak(`
