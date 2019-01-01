@@ -12,6 +12,12 @@ export const colors = {
     r: 'rgba(255, 0, 0, .10)',
     g: 'rgba(0, 255, 0, .10)',
     b: 'rgba(0, 0, 255, .10)',
+
+    white: '#fff7ff',
+    black: '#1e053f',
+    orange: '#ed6554',
+    blue: '#192368',
+    purple: '#7c1863',
 }
 
 var pixelSize = '.25rem'
