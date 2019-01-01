@@ -10,35 +10,22 @@ export default class Navigation extends Component {
 	render() {
 		return (
 			<StyledNav className="nav" role="navigation">
-				{ pages.map((page) =>
-					{if(page !== 'contact'){
-						return(
-							<StyledNavLink 
-								href={page}
-								onClick={(e) => {this.props.handleNavigate(e)}}
-								key={page} 
-								data-text={page}
-								className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
-							>
-								{page}
-							</StyledNavLink>
-						)
-					} else {
-						return(
-							<MediaQuery query={`(min-width: ${navBreak}px)`}>
-								<StyledNavLink
-									href="#contact-form"
-									onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
-									key={page} 
-									data-text={page} 
-									id={page} 
-								>
-									{page}
-								</StyledNavLink>
-							</MediaQuery>
-						)
-					}}
-				)}
+				{ pages.map((page) => {
+					return(
+						<StyledNavLink 
+							href={page === 'contact' ? '#contact-form' : page}
+							onClick={ page === 'contact' ? 
+								(e) => {this.props.toggleOffCanvas(e, '#contact-form')} :
+								(e) => {this.props.handleNavigate(e)}
+							}
+							key={page} 
+							data-text={page}
+							className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
+						>
+							{page}
+						</StyledNavLink>
+					)
+				})}
 			</StyledNav>
 		)
 	}
