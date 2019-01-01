@@ -18,6 +18,9 @@ export const colors = {
     orange: '#ed6554',
     blue: '#192368',
     purple: '#7c1863',
+    grayLight: lighten(.3, '#2f323a'),
+    gray: lighten(.15, '#2f323a'),
+    grayDark: '#2f323a',
 }
 
 var pixelSize = '.25rem'

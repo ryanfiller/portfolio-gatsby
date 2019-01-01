@@ -20,6 +20,7 @@ const StyleContext = React.createContext({
 	primary: colors.blue,
 	active: colors.orange,
 	highlight:colors.purple,
+	disabled: colors.gray,
 });
 
 export default class Layout extends React.Component {
