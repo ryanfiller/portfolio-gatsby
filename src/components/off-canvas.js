@@ -27,7 +27,6 @@ export default class OffCanvas extends React.Component {
 const StyledOffCanvas = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	/* transition: ${transition} * 2; */
 	position: absolute;
 	top: 0;
 	left: 100%;
@@ -37,7 +36,7 @@ const StyledOffCanvas = styled.div`
 	padding: ${padding};
 
 	align-content: start;
-	width: calc(100% - ((${padding} * 2) + ${naviconWidth}));
+	width: calc(100% - ((${padding}) + ${naviconWidth}));
 
 	${breaks.phone(`
 		align-content: center;

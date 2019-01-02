@@ -58,6 +58,10 @@ const Navigation = (props) => {
 				position: relative;
 				z-index: 100;
 				color: ${active};
+
+				&:before, &:after { /* for glitch hover */
+					background-color: transparent;
+				}
 			}
 		}
 

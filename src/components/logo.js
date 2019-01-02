@@ -35,6 +35,7 @@ const Logo = (props) => {
 			height: 1em;	
 			fill: ${color};
 			pointer-events: none;
+			transition: ${transition};
 		}
 
 		.r, .yan, .f, .iller {
@@ -63,6 +64,10 @@ const Logo = (props) => {
 			svg {
 				fill: ${active};
 			}
+		}
+
+		${breaks.phone(`
+			font-size: 1.25em;
 
 			.r {
 				filter: none;
@@ -86,10 +91,6 @@ const Logo = (props) => {
 				max-width: 100%;
 				overflow: hidden;
 			}
-		}
-
-		${breaks.phone(`
-			font-size: 1.25em;
 		`)}
 	`
 
