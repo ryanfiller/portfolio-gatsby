@@ -34,11 +34,10 @@ const Logo = (props) => {
 			width: auto;
 			height: 1em;	
 			fill: ${color};
-			transition: ${transition};
+			pointer-events: none;
 		}
 
 		.r, .yan, .f, .iller {
-			pointer-events: none;
 			transition: ${transition};
 		}
 
@@ -96,10 +95,10 @@ const Logo = (props) => {
 
 	return (
 		<StyledLink className="rf-logo" to="/">
-			<div className="r"><SVG src={r} /></div>
-			<div className="yan"><SVG src={yan} /></div>
-			<div className="f"><SVG src={f} /></div>
-			<div className="iller"><SVG src={iller} /></div>
+			<SVG className="r" src={r} />
+			<SVG className="yan" src={yan} />
+			<SVG className="f" src={f} />
+			<SVG className="iller" src={iller} />
 		</StyledLink>
 	)
 }

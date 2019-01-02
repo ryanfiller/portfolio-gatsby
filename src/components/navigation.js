@@ -1,7 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { pages } from '../config/config';
+
+import styled from 'styled-components';
 import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
 
 const Navigation = (props) => {
@@ -89,5 +91,14 @@ const Navigation = (props) => {
 		</StyledNav>
 	)
 }
+
+Navigation.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+	handleNavigate: PropTypes.func.isRequired,
+	toggleOffCanvas: PropTypes.func.isRequired,
+	currentPage: PropTypes.string.isRequired
+};
 
 export default Navigation;
