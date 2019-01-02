@@ -1,9 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { navigate } from "gatsby"
-import Link from 'gatsby-link'
+import { navigate } from 'gatsby'
 
-import { CSSTransition, TransitionGroup } from "react-transition-group"
+// import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 import styled, { injectGlobal } from 'styled-components'
 import { breaks, colors, fonts, naviconWidth, transition } from '../config/styles'

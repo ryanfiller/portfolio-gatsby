@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
 
-import { button, colors, fonts, transition } from '../config/styles';
+import { colors, fonts, transition } from '../config/styles';
 
 const Button = (props) => (
     <StyledButton 

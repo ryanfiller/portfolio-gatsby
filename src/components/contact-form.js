@@ -146,7 +146,7 @@ export default class Contact extends React.Component {
 
         const Sent = <StyledMessage>
             Message sent!
-            <a onClick={this.reloadForm}>Send Another?</a>
+            <button onClick={this.reloadForm}>Send Another?</button>
         </StyledMessage>
 
 

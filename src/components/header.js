@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
@@ -9,6 +10,12 @@ import Navigation from './navigation';
 import Navicon from './navicon';
 
  const Header = (props) => {
+
+    const {
+		handleNavigate,
+        toggleOffCanvas, 
+        currentPage,
+	} = props;
 
     const StyledHeader = styled.header`
         background-color: ${theme.dark};
@@ -33,20 +40,26 @@ import Navicon from './navicon';
                     color={theme.light} 
                     active={theme.active}
                     background={theme.dark}
-                    handleNavigate={props.handleNavigate} 
-                    toggleOffCanvas={props.toggleOffCanvas} 
-                    currentPage={props.currentPage}
+                    handleNavigate={handleNavigate} 
+                    toggleOffCanvas={toggleOffCanvas} 
+                    currentPage={currentPage}
                 />
             </MediaQuery>
 
             <MediaQuery query={`(max-width: ${navBreak - 1}px)`}>
                 <Navicon 
                     color={theme.light} onClick={'FIXTHIS'}
-                    toggleOffCanvas={props.toggleOffCanvas} 
+                    toggleOffCanvas={toggleOffCanvas} 
                     />
             </MediaQuery>
         </StyledHeader>
     )
 }
+
+Header.propTypes = {
+    handleNavigate: PropTypes.func.isRequired,
+    toggleOffCanvas: PropTypes.func.isRequired, 
+    currentPage: PropTypes.string.isRequired,
+};
 
 export default Header;

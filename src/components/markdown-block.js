@@ -6,7 +6,7 @@ import CompareImages from "./compare-images"
 
 import styled from 'styled-components';
 
-import { animations, breaks, colors, containers, fonts, padding, transition } from '../config/styles'
+import { animations, breaks, colors, containers, fonts, padding } from '../config/styles'
 
 const renderAst = new rehypeReact({
     createElement: React.createElement,

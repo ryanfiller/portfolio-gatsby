@@ -1,15 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from "prop-types";
 
-import Link from 'gatsby-link'
-import SVG  from 'react-inlinesvg'
+import Link from 'gatsby-link';
+import SVG  from 'react-inlinesvg';
+
+import styled from 'styled-components';
+import { breaks, transition } from '../config/styles';
 
 import r from "../images/logo/r.svg";
 import yan from "../images/logo/yan.svg";
 import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
-
-import { breaks, transition } from '../config/styles'
 
 const Logo = (props) => {
 
@@ -102,5 +103,11 @@ const Logo = (props) => {
 		</StyledLink>
 	)
 }
+
+Logo.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired
+};
 
 export default Logo;

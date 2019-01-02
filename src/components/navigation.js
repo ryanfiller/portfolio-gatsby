@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
 import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
