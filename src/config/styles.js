@@ -1,18 +1,6 @@
 import { lighten } from 'polished'
 
 export const colors = {
-    blue: '#3f7cac',
-    orange: '#f89c7d',
-    white: '#fcfaf6',
-    black: '#1e2223',
-    gray: lighten(.10, '#1e2223'),
-    lightGray: lighten(.40, '#1e2223'),
-    darkGray: lighten(.025, '#1e2223'),
-    
-    r: 'rgba(255, 0, 0, .10)',
-    g: 'rgba(0, 255, 0, .10)',
-    b: 'rgba(0, 0, 255, .10)',
-
     white: '#fff7ff',
     black: '#1e053f',
     orange: '#ed6554',
@@ -21,6 +9,15 @@ export const colors = {
     grayLight: lighten(.3, '#2f323a'),
     gray: lighten(.15, '#2f323a'),
     grayDark: '#2f323a',
+}
+
+export const theme = {
+    dark: () => colors.black,
+    light: () => colors.white,
+    primary: () => colors.blue,
+    active: () => colors.orange,
+    highlight: () => colors.purple,
+    disabled: () => colors.gray,
 }
 
 var pixelSize = '.25rem'
@@ -192,7 +189,7 @@ export const functions = {
     }
 }
 
-export const padding = '1rem';
+export const padding = '2rem';
 
 export const containers = {
     container: () => {
