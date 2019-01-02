@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { socialMedia } from '../config/config';
 import { icons } from '../images/socials/icons'
-import { colors, functions, transition } from '../config/styles';
+import { breaks, colors, transition } from '../config/styles';
 
 const Social = ( props ) => {
 	return (
@@ -50,7 +50,7 @@ const StyledSocial = styled.a`
 		z-index: 2;
 		fill: currentColor;
 
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			fill: ${colors.white};
 		`)}
 	}
@@ -68,12 +68,12 @@ const StyledSocial = styled.a`
 		margin-top: 100%;
 		transition: ${transition};
 
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			display: block;
 		`)}
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		&:hover:after {
 			margin-top: 0;
 		}
@@ -91,7 +91,7 @@ const StyledSocialList = styled.ul`
 		flex: 1;
 		width: auto;
 
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			width: 2rem;
 		`)}
 	}

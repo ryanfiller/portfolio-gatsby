@@ -6,7 +6,7 @@ export const colors = {
     orange: '#ed6554',
     blue: '#192368',
     purple: '#7c1863',
-    grayLight: lighten(.3, '#2f323a'),
+    grayLight: lighten(.30, '#2f323a'),
     gray: lighten(.15, '#2f323a'),
     grayDark: '#2f323a',
 }
@@ -127,63 +127,63 @@ export const fonts = {
             padding-right: 1.25em;
             ${arrows()}
         `
+    },
+
+    sizes: (small, medium, large) => {
+        return `
+            @media (min-width: ${breaksPoints.phone}px) {
+                font-size: ${small}
+            }
+            @media (min-width: ${breaksPoints.tablet}px) {
+                font-size: ${medium}
+            }
+            @media (min-width: ${breaksPoints.desktop}px) {
+                font-size: ${large}
+            }
+        `
     }
 }
 
 export const transition = '.2s';
 
-export const breaks = {
+export const breaksPoints = {
     large: 1200,
     tablet: 768,
     phone: 480, 
 }
 
 export const naviconWidth = '40px';
-export const navBreak = breaks.tablet;
+export const navBreak = breaksPoints.tablet;
 
-export const functions = {
-    phoneBreak: (styles) => {
+export const breaks = {
+    phone: (styles) => {
         return `
-            @media (min-width: ${breaks.phone}px) {
+            @media (min-width: ${breaksPoints.phone}px) {
                 ${styles}
             }
         `
     },
     
-    tabletBreak: (styles) => {
+    tablet: (styles) => {
         return `
-            @media (min-width: ${breaks.tablet}px) {
+            @media (min-width: ${breaksPoints.tablet}px) {
                 ${styles}
             }
         `
     },
     
-    desktopBreak: (styles) => {
+    desktop: (styles) => {
         return `
-            @media (min-width: ${breaks.desktop}px) {
+            @media (min-width: ${breaksPoints.desktop}px) {
                 ${styles}
             }
         `
     },
 
-    desktopLargeBreak: (styles) => {
+    desktopLarge: (styles) => {
         return `
-            @media (min-width: ${breaks.large}px) {
+            @media (min-width: ${breaksPoints.large}px) {
                 ${styles}
-            }
-        `
-    },
-
-    fontSizes: (small, medium, large) => {
-        return `
-            @media (min-width: ${breaks.phone}px) {
-                font-size: ${small}
-            }
-            @media (min-width: ${breaks.tablet}px) {
-                font-size: ${medium}
-            }
-            @media (min-width: ${breaks.desktop}px) {
-                font-size: ${large}
             }
         `
     }

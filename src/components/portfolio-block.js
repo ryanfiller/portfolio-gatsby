@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { arrows, colors, fonts, functions, overlays, padding, transition } from '../config/styles'
+import { arrows, breaks, colors, fonts, overlays, padding, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -131,7 +131,7 @@ const StyledPortfolioBlock = styled(Link)`
         max-height: 100%;
         max-width: 75%;
 
-            ${functions.phoneBreak(`
+            ${breaks.phone(`
                 max-width: 30vw;
                 max-height: 15vw;
             `)}
@@ -146,7 +146,7 @@ const StyledPortfolioBlock = styled(Link)`
         transition: ${transition};
         font-size: 1rem;
 
-        ${functions.tabletBreak(`
+        ${breaks.tablet(`
             max-height: 0;
             font-size: 1.5rem;
         `)}
@@ -190,33 +190,4 @@ const StyledPortfolioBlock = styled(Link)`
             max-height: 100%;
         }
     }
-
-     /* @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-         transition: .2s;
-         clip-path: polygon(
-             0 0,
-             100% 0, 
-             100% 100%, 
-             0 100%
-         );
-
-         &:hover, &:focus {
-             clip-path: polygon(
-                 1rem 2rem, 
-                 calc(100% - 2rem) 1rem, 
-                 calc(100% - 1rem) calc(100% - 2rem), 
-                 2rem calc(100% - 1rem)
-             );
-         // clip-path: url(#tv-shape);
-         }
-
-         &:nth-child(odd):hover, &:nth-child(odd):focus {
-             clip-path: polygon(
-                 2rem 1rem, 
-                 calc(100% - 1rem) 2rem, 
-                 calc(100% - 2rem) calc(100% - 1rem), 
-                 2rem calc(100% - 2rem)
-             );
-         }
-     } */
 `

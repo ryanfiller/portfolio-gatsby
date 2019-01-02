@@ -6,7 +6,7 @@ import CompareImages from "./compare-images"
 
 import styled from 'styled-components';
 
-import { animations, colors, containers, fonts, functions, padding, transition } from '../config/styles'
+import { animations, breaks, colors, containers, fonts, padding, transition } from '../config/styles'
 
 const renderAst = new rehypeReact({
     createElement: React.createElement,
@@ -56,7 +56,7 @@ const StyledMarkdown = styled.article`
         border-bottom: 0;
         background: ${colors.orange};
 
-        ${functions.tabletBreak(`
+        ${breaks.tablet(`
             background: transparent;
             border-bottom: 2px ${colors.orange} dotted;
             ${animations.highlight('currentColor', 'currentColor', colors.orange)};
@@ -94,20 +94,20 @@ const StyledMarkdown = styled.article`
     h2 {
         ${fonts.condensed()};
         color: ${colors.blue};
-        ${functions.fontSizes('1.75em', '2em, 2.25em')}
+        ${fonts.sizes('1.75em', '2em, 2.25em')}
     }
     
     h3 {
         ${fonts.condensed()};
         color: ${colors.lightGray};
-        ${functions.fontSizes('1.5em', '2em, 2.5em')}
+        ${fonts.sizes('1.5em', '2em, 2.5em')}
     }
     
     h4 {
         ${fonts.sansSerif()};
         color: ${colors.gray};
         font-weight: bold;
-        ${functions.fontSizes('1em', '1em, 1.5em')}
+        ${fonts.sizes('1em', '1em, 1.5em')}
         font-size: 1.5em;
         line-height: 1.5em;
     }
@@ -168,7 +168,7 @@ const StyledMarkdown = styled.article`
     }
 
     .image-left {
-        ${functions.phoneBreak(`
+        ${breaks.phone(`
             float: left;
             margin: 0 ${padding} ${padding} calc(-1*${padding});
             width: 50%;
@@ -176,7 +176,7 @@ const StyledMarkdown = styled.article`
     }
 
     .image-right {
-        ${functions.phoneBreak(`
+        ${breaks.phone(`
             float: right;
             margin: 0 calc(-1*${padding}) ${padding} ${padding};
             width: 50%;
@@ -184,7 +184,7 @@ const StyledMarkdown = styled.article`
     }
 
     .image-full {
-        ${functions.phoneBreak(`
+        ${breaks.phone(`
             display: block;
             width: calc(100% + (2 * ${padding}));
             height: auto;
@@ -195,7 +195,7 @@ const StyledMarkdown = styled.article`
     .image-small {
         width: 50%;
 
-        ${functions.tabletBreak(`
+        ${breaks.tablet(`
             width: 25%;
 
             &.image-left {
@@ -206,7 +206,7 @@ const StyledMarkdown = styled.article`
             }
         `)}
 
-        ${functions.desktopBreak(`
+        ${breaks.desktop(`
             width: 25%;
 
             &.image-left {

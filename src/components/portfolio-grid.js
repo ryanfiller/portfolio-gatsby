@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { functions } from '../config/styles'
+import { breaks } from '../config/styles'
 
 import PortfolioBlock from './portfolio-block.js'
 
@@ -32,7 +32,7 @@ const StyledPortfolioGrid = styled.div`
 		height: 75vw;
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 
 		display: flex;
 		flex-wrap: wrap;
@@ -54,7 +54,7 @@ const StyledPortfolioGrid = styled.div`
 		}
 	`)}
 
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		@supports(display: grid) {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;

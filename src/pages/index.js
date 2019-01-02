@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby'
 
 import { injectGlobal } from 'styled-components'
-import { breaks, functions } from '../config/styles'
+import { breaks } from '../config/styles'
 
 import PortfolioGrid from '../components/portfolio-grid'
 
@@ -72,7 +72,7 @@ export const query = graphql`
 `
 
 injectGlobal`
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		@supports(display: grid) {
 			.site.horizontal {
 				.site-content {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
-import { animations, containers, fonts, functions, navBreak, transition } from '../config/styles';
+import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
 
 const Navigation = (props) => {
 
@@ -16,7 +16,6 @@ const Navigation = (props) => {
 	const StyledNav = styled.nav`
 		display: flex;
 		color: ${color};
-		font-size: 1em;
 
 		.header & {
 			justify-content: flex-end;
@@ -44,13 +43,13 @@ const Navigation = (props) => {
 		&:hover {
 			color: ${active};
 			cursor: pointer;
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				${animations.glitch(active, background)}
 			`)}
 		}
 
 		#site.open & {
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				color: ${color};
 			`)}
 

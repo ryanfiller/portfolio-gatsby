@@ -5,7 +5,7 @@ import { navigate } from "gatsby"
 import styled, { injectGlobal } from 'styled-components'
 import { darken } from 'polished'
 
-import { containers, functions, overlays, padding } from '../config/styles'
+import { breaks, containers, fonts, overlays, padding } from '../config/styles'
 
 export default class FourOhFour extends React.Component {
 	state = {
@@ -238,7 +238,7 @@ const Styled404Page = styled.main`
 const StyledHeader = styled.h1`
 	margin-bottom: calc(4*${padding});
 	text-align: center;
-	${functions.fontSizes('3rem', '4rem, 4rem')}
+	${fonts.sizes('3rem', '4rem, 4rem')}
 	text-shadow: -.075em .075em black;
 	line-height: 1.25em;
 
@@ -263,12 +263,12 @@ const StyledMenu = styled.ul`
 	${containers.container()}
 	${containers.readable()}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		display: flex;
 		flex-wrap: wrap;
 	`)}
 
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		margin-bottom: ${padding};
 	`)}
 
@@ -279,7 +279,7 @@ const StyledMenu = styled.ul`
 		z-index: 10;
 		margin: ${padding} 0;
 
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			width: 50%
 		`)}
 

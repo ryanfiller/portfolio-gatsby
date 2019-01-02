@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import styled from 'styled-components'
 
-import { colors, functions, overlays, padding, transition } from '../config/styles'
+import { breaks, colors, overlays, padding, transition } from '../config/styles'
 
 export default () => {
 	return (
@@ -57,7 +57,7 @@ const StyledHeadshot = styled.picture`
 		width: 100%;
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		width: 25%;
 		float: right;
 		margin: ${padding};

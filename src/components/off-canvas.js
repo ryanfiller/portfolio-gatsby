@@ -2,7 +2,7 @@ import React from "react";
 import MediaQuery from 'react-responsive';
 
 import styled from 'styled-components';
-import { colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
+import { breaks, colors, navBreak, naviconWidth, padding, transition } from '../config/styles';
 
 import Navigation from './navigation'
 import Form from './contact-form'
@@ -39,12 +39,12 @@ const StyledOffCanvas = styled.div`
 	align-content: start;
 	width: calc(100% - ((${padding} * 2) + ${naviconWidth}));
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		align-content: center;
 		width: 50%;
 	`)}
 
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		width: 33.33vw;
 	`)}
 

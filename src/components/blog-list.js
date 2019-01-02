@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import styled from 'styled-components'
-import { functions, padding } from '../config/styles'
+import { breaks, padding } from '../config/styles'
 
 import BlogPreview from './blog-preview'
 
@@ -30,7 +30,7 @@ const StyledBlogList = styled.div`
 		padding: ${padding};
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		display: flex;
 
 		& > * {
@@ -39,13 +39,13 @@ const StyledBlogList = styled.div`
 		}
 	`)}
 
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		& > * {
 			max-width: 33.333vw;
 		}
 	`)}
 
-	${functions.desktopBreak(`
+	${breaks.desktop(`
 		& > * {
 			max-width: 25%;
 		}

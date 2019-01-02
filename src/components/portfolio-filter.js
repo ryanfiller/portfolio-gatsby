@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, containers, fonts, functions } from '../config/styles'
+import { breaks, colors, containers, fonts } from '../config/styles'
 
 export default class Dropdown extends React.Component {
 
@@ -63,7 +63,7 @@ const StyledPortfolioFilter = styled.ul`
         }
     }
 
-    ${functions.phoneBreak(`
+    ${breaks.phone(`
         flex-wrap: nowrap;
         margin: 0;
         justify-content: center;
@@ -100,7 +100,7 @@ const StyledPortfolioFilter = styled.ul`
                 content: '|';
                 margin: 0 .5em;
                 
-                ${functions.tabletBreak(`
+                ${breaks.tablet(`
                     margin: 0 1em;
                 `)}
             }

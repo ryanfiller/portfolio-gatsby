@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
-import { animations, colors, containers, fonts, functions, overlays } from '../config/styles'
+import { animations, breaks, colors, containers, fonts, overlays } from '../config/styles'
 
 import ContentMeta from '../components/content-meta'
 import MarkdownBlock from '../components/markdown-block'
@@ -74,7 +74,7 @@ export const postQuery = graphql`
 `
 const StyledBlogArticle = styled.main`
 	.blog-banner {
-		${functions.fontSizes('1.5rem', '1.75rem, 2rem')}
+		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
         background: ${colors.orange};
         width: 100vw;
         position: relative;
@@ -82,7 +82,7 @@ const StyledBlogArticle = styled.main`
 		${overlays.rgbPixels}
 		font-size: 2rem;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			font-size: 2.75rem;
 		`)}
     
@@ -102,7 +102,7 @@ const StyledBlogArticle = styled.main`
         }
 
         .title {
-			${functions.fontSizes('2em', '2.5em, 3em')}
+			${fonts.sizes('2em', '2.5em, 3em')}
             ${fonts.sansSerif}
             text-transform: uppercase;
 			margin: 0;
@@ -138,7 +138,7 @@ const StyledBlogArticle = styled.main`
                 line-height: 1em;
             }
 
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
@@ -222,7 +222,7 @@ const StyledBlogArticle = styled.main`
 			z-index: 0;
 		}
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			@supports (display: grid) {
 
 				.text {

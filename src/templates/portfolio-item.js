@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import { animations, colors, fonts, padding, functions } from '../config/styles'
+import { animations, breaks, colors, fonts, padding } from '../config/styles'
 
 import PortfolioGallery from '../components/portfolio-gallery'
 import ContentMeta from '../components/content-meta'
@@ -75,7 +75,7 @@ const StyledPortfolioItem = styled.div`
 	display: block;
 	height: auto;
 	
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		display: flex;
 		width: 100vw;
 		height: 100%;
@@ -84,7 +84,7 @@ const StyledPortfolioItem = styled.div`
     .portfolio-gallery {
 		width: 100%;
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			width: 50vw;
 		`)}
     }
@@ -92,7 +92,7 @@ const StyledPortfolioItem = styled.div`
     .content {
 		padding-top: 0;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			height: auto;
 			padding-top: calc(3*${padding});
         	padding-bottom: calc(3*${padding});
@@ -105,7 +105,7 @@ const StyledPortfolioItem = styled.div`
         position: relative;
 		text-align: center;
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			padding-top: 25vh;
 			padding-bottom: 15vh;	
 		`)}
@@ -156,7 +156,7 @@ const StyledPortfolioItem = styled.div`
 		width: 100%;
         overflow: scroll;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			width: 50vw;
 		`)}
     }
@@ -176,7 +176,7 @@ const StyledPortfolioItem = styled.div`
             background: linear-gradient(to top, ${colors.white}, transparent);
 			pointer-events: none;
 			
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				display: block;
 			`)}
         }
@@ -193,7 +193,7 @@ const StyledPortfolioItem = styled.div`
             font-weight: bold;
         }
 		
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			display: block;
 		`)}
     }

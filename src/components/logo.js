@@ -9,7 +9,7 @@ import yan from "../images/logo/yan.svg";
 import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
 
-import { functions, transition } from '../config/styles'
+import { breaks, transition } from '../config/styles'
 
 const Logo = (props) => {
 
@@ -59,44 +59,10 @@ const Logo = (props) => {
 			overflow: hidden
 		}
 
-		&:before, &:after {
-			content: '';
-			display: block;
-			/* TODO - what?? */
-			background-image:url('/images/logo/pixels.svg');
-			background-size: contain;
-			width: 100%;
-			height: 1em;
-			position: absolute;
-			z-index: 2;
-			transition: ${transition};
-		}
-
-		&:before {
-			top: -1em;
-			left: -1em;
-			transform: rotate(-5deg);
-		}
-
-		&:after {
-			bottom: -1em;
-			right: -1em;
-			transform: rotate(-5deg) rotatex(180deg);
-		}
-
 		&:hover {
 			svg {
 				fill: ${active};
 			}
-
-			&:before, &:after {
-				bottom: -.85em;
-				right: -.85em;
-			}
-		}
-
-		${functions.phoneBreak(`
-			font-size: 1.25em;
 
 			.r {
 				filter: none;
@@ -120,12 +86,11 @@ const Logo = (props) => {
 				max-width: 100%;
 				overflow: hidden;
 			}
-		`)}
+		}
 
-		${functions.tabletBreak(`
-			font-size: 1em;
+		${breaks.phone(`
+			font-size: 1.25em;
 		`)}
-		
 	`
 
 	return (

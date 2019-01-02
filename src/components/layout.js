@@ -6,7 +6,7 @@ import Link from 'gatsby-link'
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 import styled, { injectGlobal } from 'styled-components'
-import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
+import { breaks, colors, fonts, naviconWidth, transition } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -186,11 +186,11 @@ const StyledSite = styled.div`
 		transform: 
 			translateX(-100%) translateX(2rem) translateX(${naviconWidth});
 
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			transform: translateX(-50vw);
 		`)}
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			transform: translateX(-33.33vw);
 		`)}
 	}
@@ -210,7 +210,7 @@ const StyledContent = styled.div`
 		overflow: scroll;
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		height: 100vh;
 	`)}
 `

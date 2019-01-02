@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, containers, fonts, functions } from '../config/styles';
+import { breaks, colors, containers, fonts } from '../config/styles';
 
 import SocialsList from './socials'
 
@@ -45,7 +45,7 @@ const StyledFooter = styled.footer`
         }
     }
 
-    ${functions.phoneBreak(`
+    ${breaks.phone(`
         display: flex;
         justify-content: space-between;
         align-items: center;
