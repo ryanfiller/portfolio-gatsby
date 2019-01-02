@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Link from 'gatsby-link'
@@ -9,102 +9,95 @@ import yan from "../images/logo/yan.svg";
 import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
 
-import { colors, functions, transition } from '../config/styles'
+import { functions, transition } from '../config/styles'
 
-export default class Logo extends Component {
-	render() {
-		return (
-			<StyledLink className="rf-logo" to="/">
-				<div className="r"><SVG src={r} /></div>
-				<div className="yan"><SVG src={yan} /></div>
-				<div className="f"><SVG src={f} /></div>
-				<div className="iller"><SVG src={iller} /></div>
-			</StyledLink>
-		)
-	}
-}
+const Logo = (props) => {
 
-const StyledLink = styled(Link)`
-    height: 1em;
-	width: auto;
-	display: inline-flex;
-	justify-content: flex-start;
-	position: relative;
-	overflow: hidden;
-	font-size: 1.5em;
+	const {
+		color,
+		active,
+		background
+	} = props;
 
-	svg {
-		display: block;
-		width: auto;
-		height: 1em;	
-		fill: ${colors.white};
-		transition: ${transition};
-	}
-
-	.r, .yan, .f, .iller {
-		pointer-events: none;
-		transition: ${transition};
-	}
-
-	.r {
-		filter: drop-shadow( .25em 0px 0px ${colors.black} ); 
-		margin-right: -.1675em;
+	const StyledLink = styled(Link)`
+		display: inline-flex;
+		justify-content: flex-start;
 		position: relative;
-		z-index: 2;
-	}
-
-	.f {
-		transform: rotateY(180deg);
-		margin-right: 0;
-		margin-left: .15em;
-	}
-
-	.yan, .iller {
-		max-width: 0;
-		overflow: hidden
-	}
-
-	&:before, &:after {
-		content: '';
-		display: block;
-		background-image:url('/images/logo/gradient.svg');
-		background-size: contain;
-		width: 100%;
+		overflow: hidden;
+		font-size: 1.5em;
 		height: 1em;
-		position: absolute;
-		z-index: 2;
-		transition: ${transition};
-	}
+		width: auto;
 
-	&:before {
-		top: -1em;
-		left: -1em;
-		transform: rotate(-5deg);
-	}
-
-	&:after {
-		bottom: -1em;
-		right: -1em;
-		transform: rotate(-5deg) rotatex(180deg);
-	}
-
-	&:hover {
 		svg {
-			fill: ${colors.orange};
+			display: block;
+			width: auto;
+			height: 1em;	
+			fill: ${color};
+			transition: ${transition};
+		}
+
+		.r, .yan, .f, .iller {
+			pointer-events: none;
+			transition: ${transition};
+		}
+
+		.r {
+			filter: drop-shadow( .25em 0px 0px ${background} ); 
+			margin-right: -.1675em;
+			position: relative;
+			z-index: 2;
+		}
+
+		.f {
+			transform: rotateY(180deg);
+			margin-right: 0;
+			margin-left: .15em;
+		}
+
+		.yan, .iller {
+			max-width: 0;
+			overflow: hidden
+		}
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			/* TODO - what?? */
+			background-image:url('/images/logo/pixels.svg');
+			background-size: contain;
+			width: 100%;
+			height: 1em;
+			position: absolute;
+			z-index: 2;
+			transition: ${transition};
 		}
 
 		&:before {
-			top: -.85em;
-			left: -.85em;
+			top: -1em;
+			left: -1em;
+			transform: rotate(-5deg);
 		}
 
 		&:after {
-			bottom: -.85em;
-			right: -.85em;
+			bottom: -1em;
+			right: -1em;
+			transform: rotate(-5deg) rotatex(180deg);
 		}
-	}
 
-	${functions.phoneBreak(`
+		&:hover {
+			svg {
+				fill: ${active};
+			}
+
+			&:before, &:after {
+				bottom: -.85em;
+				right: -.85em;
+			}
+		}
+
+		${functions.phoneBreak(`
+			font-size: 1.25em;
+
 			.r {
 				filter: none;
 				margin-right: -.033em;
@@ -127,6 +120,22 @@ const StyledLink = styled(Link)`
 				max-width: 100%;
 				overflow: hidden;
 			}
-	`)}
-	
-`
+		`)}
+
+		${functions.tabletBreak(`
+			font-size: 1em;
+		`)}
+		
+	`
+
+	return (
+		<StyledLink className="rf-logo" to="/">
+			<div className="r"><SVG src={r} /></div>
+			<div className="yan"><SVG src={yan} /></div>
+			<div className="f"><SVG src={f} /></div>
+			<div className="iller"><SVG src={iller} /></div>
+		</StyledLink>
+	)
+}
+
+export default Logo;

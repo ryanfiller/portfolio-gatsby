@@ -12,12 +12,12 @@ export const colors = {
 }
 
 export const theme = {
-    dark: () => colors.black,
-    light: () => colors.white,
-    primary: () => colors.blue,
-    active: () => colors.orange,
-    highlight: () => colors.purple,
-    disabled: () => colors.gray,
+    dark: colors.black,
+    light: colors.white,
+    primary: colors.blue,
+    active: colors.orange,
+    highlight: colors.purple,
+    disabled: colors.gray,
 }
 
 var pixelSize = '.25rem'
@@ -53,7 +53,7 @@ var overlay = (styles) => {
 export const overlays = {
 
     dark: overlay(`
-        background-color: transparentize(.5, ${colors.darkGray});
+        background-color: transparentize(.5, ${colors.grayDark});
     `),
 
     pixels: overlay(`

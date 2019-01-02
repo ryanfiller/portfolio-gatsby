@@ -3,86 +3,93 @@ import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import { pages } from '../config/config';
-import { animations, colors, containers, fonts, functions, navBreak, transition } from '../config/styles';
+import { animations, containers, fonts, functions, navBreak, transition } from '../config/styles';
 
-export default class Navigation extends Component {
+const Navigation = (props) => {
 
-	render() {
-		return (
-			<StyledNav className="nav" role="navigation">
-				{ pages.map((page) => {
-					return(
-						<StyledNavLink 
-							href={page === 'contact' ? '#contact-form' : page}
-							onClick={ page === 'contact' ? 
-								(e) => {this.props.toggleOffCanvas(e, '#contact-form')} :
-								(e) => {this.props.handleNavigate(e)}
-							}
-							key={page} 
-							data-text={page}
-							className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
-						>
-							{page}
-						</StyledNavLink>
-					)
-				})}
-			</StyledNav>
-		)
-	}
+	const {
+		color,
+		active,
+		background
+	} = props;
+
+	const StyledNav = styled.nav`
+		display: flex;
+		color: ${color};
+		font-size: 1em;
+
+		.header & {
+			justify-content: flex-end;
+		}
+
+		.off-canvas & {
+			flex-direction: column;
+			align-items: center;
+		}
+	`
+
+	const StyledNavLink = styled.a`
+		text-decoration: none;
+		margin-left: 2rem;
+		${fonts.condensed()}
+		text-transform: uppercase;
+		font-size: 1em;
+		color: currentColor;
+		transition: ${transition};
+
+		&.active {
+			color: ${active};
+		}
+
+		&:hover {
+			color: ${active};
+			cursor: pointer;
+			${functions.tabletBreak(`
+				${animations.glitch(active, background)}
+			`)}
+		}
+
+		#site.open & {
+			${functions.tabletBreak(`
+				color: ${color};
+			`)}
+
+			&[href='#contact-form'] {
+				position: relative;
+				z-index: 100;
+				color: ${active};
+			}
+		}
+
+		&[href='#contact-form'] {
+			display: none;
+
+			@media(min-width: ${navBreak}px) {
+				display: block;
+			}
+		}
+	`
+	
+	return (
+		<StyledNav className="nav" role="navigation">
+			{ pages.map((page) => {
+				return(
+					<StyledNavLink 
+						href={page === 'contact' ? '#contact-form' : page}
+						onClick={ page === 'contact' ? 
+							(e) => {props.toggleOffCanvas(e, '#contact-form')} :
+							(e) => {props.handleNavigate(e)}
+						}
+						key={page} 
+						data-text={page}
+						className={props.currentPage.includes(`/${page}`) ? 'active' : ''}
+					>
+						{page}
+					</StyledNavLink>
+				)
+			})}
+		</StyledNav>
+	)
 }
 
-const StyledNav = styled.nav`
-	.header & {
-		color: ${colors.white};
-		flex: 1;
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	.off-canvas & {
-		color: ${colors.white};
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		${containers.container()}
-
-		a {
-			font-size: 2em;
-			margin: .5em 0;
-		}
-	}
-`
-
-const StyledNavLink = styled.a`
-	text-decoration: none;
-	margin-left: 2rem;
-	${fonts.condensed()}
-	text-transform: uppercase;
-	font-size: 1em;
-	color: ${colors.white};
-	transition: ${transition};
-
-	&.active {
-		color: ${colors.orange};
-	}
-
-	&:hover {
-		color: ${colors.orange};
-		cursor: pointer;
-		${functions.tabletBreak(`
-			${animations.glitch(colors.orange, colors.black)}
-		`)}
-	}
-
-	#site.open & {
-		${functions.tabletBreak(`
-			color: ${colors.white};
-		`)}
-		
-		&#contact {
-			position: relative;
-			z-index: 100;
-			color: ${colors.orange};
-		}
-	}
-`
+export default Navigation;

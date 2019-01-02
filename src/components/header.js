@@ -22,18 +22,28 @@ import Navicon from './navicon';
 
     return (
         <StyledHeader className="header" id="header">
-            <Logo />
+            <Logo 
+                color={theme.light}
+                active={theme.active}
+                background={theme.dark}
+            />
             
             <MediaQuery query={`(min-width: ${navBreak}px)`}>
                 <Navigation 
+                    color={theme.light} 
+                    active={theme.active}
+                    background={theme.dark}
                     handleNavigate={props.handleNavigate} 
                     toggleOffCanvas={props.toggleOffCanvas} 
                     currentPage={props.currentPage}
                 />
             </MediaQuery>
 
-            <MediaQuery query={`(max-width: ${navBreak}px)`}>
-                <Navicon toggleOffCanvas={props.toggleOffCanvas} />
+            <MediaQuery query={`(max-width: ${navBreak - 1}px)`}>
+                <Navicon 
+                    color={theme.light} onClick={'FIXTHIS'}
+                    toggleOffCanvas={props.toggleOffCanvas} 
+                    />
             </MediaQuery>
         </StyledHeader>
     )
