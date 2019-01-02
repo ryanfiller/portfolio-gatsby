@@ -5,7 +5,7 @@ import { navigate } from 'gatsby'
 // import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 import styled, { injectGlobal } from 'styled-components'
-import { breaks, colors, fonts, naviconWidth, transition } from '../config/styles'
+import { breaks, colors, fonts, naviconWidth, transition, theme } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -97,7 +97,10 @@ export default class Layout extends React.Component {
 				<StyledContent className="site-content">
 
 					{this.state.open ? 
-						<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
+						<Overlay 
+							background={theme.disabled}
+							toggleOffCanvas={this.toggleOffCanvas} 
+						/> 
 					: null}
 
 					<Header 

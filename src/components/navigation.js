@@ -97,7 +97,7 @@ Navigation.propTypes = {
 	active: PropTypes.string.isRequired,
 	background: PropTypes.string.isRequired,
 	handleNavigate: PropTypes.func.isRequired,
-	toggleOffCanvas: PropTypes.func.isRequired,
+	toggleOffCanvas: PropTypes.func,
 	currentPage: PropTypes.string.isRequired
 };
 

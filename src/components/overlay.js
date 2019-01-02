@@ -1,29 +1,49 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 import styled from 'styled-components';
+import { transition } from '../config/styles';
 
-import { colors, transition } from '../config/styles';
+const Overlay = (props) => {
 
-export default class Overlay extends Component {
-    render() {
-        return (
-            <StyledOverlay className="page-overlay" onClick={this.props.toggleOffCanvas} />
-        )
-    }
+    const {
+        background,
+        toggleOffCanvas
+    } = props;
+
+    const StyledOverlay = styled.div`
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: ${background};
+        opacity: .75;
+        z-index: 40;
+        transition: ${transition};
+
+        @supports (mix-blend-mode: multiply) {
+            opacity: 1;
+            mix-blend-mode: multiply;
+        }
+        
+        &.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    `
+
+    return (
+        <StyledOverlay 
+            className="page-overlay" 
+            onClick={toggleOffCanvas} 
+        />
+    )
 }
 
-const StyledOverlay = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: ${colors.black};
-    opacity: .66;
-    z-index: 40;
-    transition: ${transition};
-    
-    &.open {
-        opacity: 1;
-        pointer-events: auto;
-    }
-`
+Overlay.propTypes = {
+    background: PropTypes.string.isRequired,
+    toggleOffCanvas: PropTypes.func.isRequired
+};
+
+export default Overlay;
