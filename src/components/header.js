@@ -11,12 +11,6 @@ import Navicon from './navicon';
 
  const Header = (props) => {
 
-    const {
-		handleNavigate,
-        toggleOffCanvas, 
-        currentPage,
-	} = props;
-
     const StyledHeader = styled.header`
         background-color: ${theme.dark};
         display: flex;
@@ -40,26 +34,19 @@ import Navicon from './navicon';
                     color={theme.light} 
                     active={theme.active}
                     background={theme.dark}
-                    handleNavigate={handleNavigate} 
-                    toggleOffCanvas={toggleOffCanvas} 
-                    currentPage={currentPage}
+                    orientation={'horizontal'}
                 />
             </MediaQuery>
 
             <MediaQuery query={`(max-width: ${navBreak - 1}px)`}>
                 <Navicon 
-                    color={theme.light} onClick={'FIXTHIS'}
-                    toggleOffCanvas={toggleOffCanvas} 
-                    />
+                    color={theme.light}
+                />
             </MediaQuery>
         </StyledHeader>
     )
 }
 
-Header.propTypes = {
-    handleNavigate: PropTypes.func.isRequired,
-    toggleOffCanvas: PropTypes.func.isRequired, 
-    currentPage: PropTypes.string.isRequired,
-};
+Header.propTypes = null;
 
 export default Header;

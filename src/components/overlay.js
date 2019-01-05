@@ -1,17 +1,24 @@
-import React, { Component } from 'react';
-import PropTypes from "prop-types";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
+import { NavContext } from './layout';
 
 import styled from 'styled-components';
-import { transition } from '../config/styles';
+import { overlays, transition } from '../config/styles';
 
 const Overlay = (props) => {
 
+    const context = useContext(NavContext);
+	const {
+        toggleOffCanvas, 
+	} = context;
+
     const {
-        background,
-        toggleOffCanvas
+        background
     } = props;
 
     const StyledOverlay = styled.div`
+        /* TODO use an include here */
         position: absolute;
         top: 0;
         right: 0;
@@ -43,7 +50,6 @@ const Overlay = (props) => {
 
 Overlay.propTypes = {
     background: PropTypes.string.isRequired,
-    toggleOffCanvas: PropTypes.func.isRequired
 };
 
 export default Overlay;

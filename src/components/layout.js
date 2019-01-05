@@ -13,7 +13,7 @@ import OffCanvas from './off-canvas'
 import Overlay from './overlay'
 // import Transition from './transition'
 
-export const ThemeContext = React.createContext();
+export const NavContext = React.createContext();
 
 export default class Layout extends React.Component {
 
@@ -73,53 +73,51 @@ export default class Layout extends React.Component {
 		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
 		
 		return (
-			<StyledSite className={className} id="site">
-				<Helmet
-					title="ryanfiller.com"
-					meta={[
-						{ name: 'description', content: 'Sample' },
-						{ name: 'keywords', content: 'sample, something' },
-					]}
-				/>
-					
-				<StyledSkipToContent href={`${this.props.location.pathname}#content`}>
-					Skip to Content
-				</StyledSkipToContent>
-
-				{this.state.open ? 
-					<OffCanvas 
-						handleNavigate={this.closeAndNavigate}
-						toggleOffCanvas={this.toggleOffCanvas}
-						currentPage={this.props.location.pathname}
+			<NavContext.Provider value={{
+				handleNavigate: this.handleNavigate,
+				closeAndNavigate: this.closeAndNavigate,
+				toggleOffCanvas: this.toggleOffCanvas,
+				currentPage: this.props.location.pathname,
+			}}>
+				<StyledSite className={className} id="site">
+					<Helmet
+						title="ryanfiller.com"
+						meta={[
+							{ name: 'description', content: 'Sample' },
+							{ name: 'keywords', content: 'sample, something' },
+						]}
 					/>
-				: null}
-
-				<StyledContent className="site-content">
+						
+					<StyledSkipToContent href={`${this.props.location.pathname}#content`}>
+						Skip to Content
+					</StyledSkipToContent>
 
 					{this.state.open ? 
-						<Overlay 
-							background={theme.disabled}
-							toggleOffCanvas={this.toggleOffCanvas} 
-						/> 
+						<OffCanvas />
 					: null}
 
-					<Header 
-						handleNavigate={this.handleNavigate} 
-						toggleOffCanvas={this.toggleOffCanvas}
-						currentPage={this.props.location.pathname}
-					/>
+					<StyledContent className="site-content">
+
+						{this.state.open ? 
+							<Overlay 
+								background={theme.disabled}
+							/> 
+						: null}
+
+						<Header />
 
 
-					<main id="content">
-						{/* <Transition location={this.props.location}> */}
-							{this.props.children}
-						{/* </Transition> */}
-					</main>
+						<main id="content">
+							{/* <Transition location={this.props.location}> */}
+								{this.props.children}
+							{/* </Transition> */}
+						</main>
 
-					<Footer />
+						<Footer />
 
-				</StyledContent >
-			</StyledSite>
+					</StyledContent >
+				</StyledSite>
+			</NavContext.Provider>
 		)
 	}
 }

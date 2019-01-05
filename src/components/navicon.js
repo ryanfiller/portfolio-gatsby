@@ -1,14 +1,20 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types';
+
+import { NavContext } from './layout';
 
 import styled from 'styled-components'
 import { naviconWidth, transition } from '../config/styles'
 
 const Navicon = (props) => {
+
+    const context = useContext(NavContext);
+	const {
+        toggleOffCanvas, 
+	} = context;
     
     const {
         color,
-        toggleOffCanvas
     } = props;
 
     const StyledNavicon = styled.button`
@@ -87,7 +93,6 @@ const Navicon = (props) => {
 
 Navicon.propTypes = {
 	color: PropTypes.string.isRequired,
-	toggleOffCanvas: PropTypes.func.isRequired,
 };
 
 export default Navicon;

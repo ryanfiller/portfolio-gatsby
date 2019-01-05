@@ -1,41 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { pages } from '../config/config';
+
+import { NavContext } from './layout';
 
 import styled from 'styled-components';
 import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
 
 const Navigation = (props) => {
+	
+	const context = useContext(NavContext);
+	const {
+		handleNavigate,
+        toggleOffCanvas, 
+        currentPage,
+	} = context;
 
 	const {
 		color,
 		active,
-		background
+		background,
+		orientation,
+		navFunction
 	} = props;
 
 	const StyledNav = styled.nav`
 		display: flex;
 		color: ${color};
 
-		.header & {
+		${orientation === 'horiontal' ? `
 			justify-content: flex-end;
-		}
+		` : null}
 
-		.off-canvas & {
+		${orientation === 'vertical' ? `
 			flex-direction: column;
 			align-items: center;
-		}
+		` : null}
 	`
 
 	const StyledNavLink = styled.a`
 		text-decoration: none;
-		margin-left: 2rem;
 		${fonts.condensed()}
 		text-transform: uppercase;
 		font-size: 1em;
 		color: currentColor;
 		transition: ${transition};
+
+		${orientation === 'horiontal' ? `
+			margin-left: 2rem;
+		` : null}
 
 		&.active {
 			color: ${active};
@@ -77,16 +91,24 @@ const Navigation = (props) => {
 	return (
 		<StyledNav className="nav" role="navigation">
 			{ pages.map((page) => {
-				return(
+
+				let click;
+
+				if (page === 'contact') {
+					click = (e) => {toggleOffCanvas(e, '#contact-form')};
+				} else if(navFunction) {
+					click = navFunction;
+				} else {
+					click = (e) => {handleNavigate(e)};
+				}
+
+				return (
 					<StyledNavLink 
 						href={page === 'contact' ? '#contact-form' : page}
-						onClick={ page === 'contact' ? 
-							(e) => {props.toggleOffCanvas(e, '#contact-form')} :
-							(e) => {props.handleNavigate(e)}
-						}
+						onClick={ click }
 						key={page} 
 						data-text={page}
-						className={props.currentPage.includes(`/${page}`) ? 'active' : ''}
+						className={currentPage.includes(`/${page}`) ? 'active' : ''}
 					>
 						{page}
 					</StyledNavLink>
@@ -100,9 +122,8 @@ Navigation.propTypes = {
 	color: PropTypes.string.isRequired,
 	active: PropTypes.string.isRequired,
 	background: PropTypes.string.isRequired,
-	handleNavigate: PropTypes.func.isRequired,
-	toggleOffCanvas: PropTypes.func,
-	currentPage: PropTypes.string.isRequired
+	orentation: PropTypes.string.isRequired,
+	navFunction: PropTypes.func
 };
 
 export default Navigation;
