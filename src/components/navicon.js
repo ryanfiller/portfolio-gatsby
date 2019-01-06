@@ -15,6 +15,7 @@ const Navicon = (props) => {
     
     const {
         color,
+        active
     } = props;
 
     const StyledNavicon = styled.button`
@@ -36,28 +37,38 @@ const Navicon = (props) => {
             background-color: ${color};
             position: absolute;
         }
+
+        &:hover {
+            .top, .middle, .bottom {
+                background-color: ${active};
+            }
+        }
         
         .top {
             top: 0;
             transform: rotate(0deg);
-            transition: top ${transition} ease ${transition}, transform ${transition} ease 0s;
+            transition: top ${transition} ease ${transition}, transform ${transition} ease 0s, background-color ${transition};
         }
 
         .middle {
-            transition: opacity 0s ease ${transition};
+            transition: opacity 0s ease ${transition}, background-color ${transition};
             top: 50%;
             transform: translateY(-50%);
             opacity: 1;
         }
 
         .bottom {
-            transition: bottom ${transition} ease ${transition}, transform ${transition} ease 0s;
+            transition: bottom ${transition} ease ${transition}, transform ${transition} ease 0s, background-color ${transition};
             bottom: 0;
         }
 
         .site.open & {
             position: relative;
             z-index: 100;
+
+            .top, .middle, .bottom {
+                background-color: ${active};
+            }
 
             .top {
                 transition: top ${transition} ease 0s, transform ${transition} ease ${transition};
@@ -92,7 +103,8 @@ const Navicon = (props) => {
 }
 
 Navicon.propTypes = {
-	color: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    active: PropTypes.string.isRequired,
 };
 
 export default Navicon;

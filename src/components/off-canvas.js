@@ -17,13 +17,53 @@ const OffCanvas = (props) => {
         closeAndNavigate, 
 	} = context;
 
+	const {
+		color,
+		active,
+		background,
+	} = props;
+
+	const StyledOffCanvas = styled.div`
+		display: flex;
+		flex-wrap: wrap;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		background-color: ${background};
+		height: 100%;
+		width: 33.33vw;
+		padding: ${padding};
+		font-size: 2rem;
+
+		align-items: flex-start;
+		width: calc(100% - ((${padding}) + ${naviconWidth}));
+
+		${breaks.phone(`
+			align-items: center;
+			width: 50%;
+		`)}
+
+		${breaks.tablet(`
+			width: 33.33vw;
+		`)}
+
+		& > * {
+			width: 100%;
+			margin-bottom: calc(2 * ${padding});
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	`
+
 	return (
 		<StyledOffCanvas className="off-canvas">
 			<MediaQuery query={`(max-width: ${navBreak}px)`}>
 				<Navigation 
-					color={theme.light} 
-                    active={theme.active}
-					background={theme.highlight}
+					color={color} 
+                    active={active}
+					background={background}
 					orientation={'vertical'}
 					navFunction={closeAndNavigate}
 				/>
@@ -33,37 +73,10 @@ const OffCanvas = (props) => {
 	);
 }
 
+Navigation.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+};
+
 export default OffCanvas;
-
-const StyledOffCanvas = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background-color: ${theme.highlight};
-	height: 100%;
-	width: 33.33vw;
-	padding: ${padding};
-
-	align-items: flex-start;
-	width: calc(100% - ((${padding}) + ${naviconWidth}));
-
-	${breaks.phone(`
-		align-items: center;
-		width: 50%;
-	`)}
-
-	${breaks.tablet(`
-		width: 33.33vw;
-	`)}
-
-	& > * {
-		width: 100%;
-		margin-bottom: calc(2 * ${padding});
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-`

@@ -11,8 +11,14 @@ import Navicon from './navicon';
 
  const Header = (props) => {
 
+    const {
+        color,
+	    active,
+	    background,
+    } = props;
+
     const StyledHeader = styled.header`
-        background-color: ${theme.dark};
+        background-color: ${background};
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -24,29 +30,34 @@ import Navicon from './navicon';
     return (
         <StyledHeader className="header" id="header">
             <Logo 
-                color={theme.light}
-                active={theme.active}
-                background={theme.dark}
+                color={color}
+                active={active}
+                background={background}
             />
             
             <MediaQuery query={`(min-width: ${navBreak}px)`}>
                 <Navigation 
-                    color={theme.light} 
-                    active={theme.active}
-                    background={theme.dark}
+                    color={color} 
+                    active={active}
+                    background={background}
                     orientation={'horizontal'}
                 />
             </MediaQuery>
 
             <MediaQuery query={`(max-width: ${navBreak - 1}px)`}>
                 <Navicon 
-                    color={theme.light}
+                    color={color}
+                    active={active}
                 />
             </MediaQuery>
         </StyledHeader>
     )
 }
 
-Header.propTypes = null;
+Header.propTypes = {
+    color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+};
 
 export default Header;

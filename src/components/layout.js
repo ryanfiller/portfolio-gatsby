@@ -93,7 +93,11 @@ export default class Layout extends React.Component {
 					</StyledSkipToContent>
 
 					{this.state.open ? 
-						<OffCanvas />
+						<OffCanvas 
+							color={theme.light}
+							active={theme.active}
+							background={theme.primary}
+						/>
 					: null}
 
 					<StyledContent className="site-content">
@@ -104,7 +108,11 @@ export default class Layout extends React.Component {
 							/> 
 						: null}
 
-						<Header />
+						<Header 
+							color={theme.light}
+							active={theme.active}
+							background={theme.dark}
+						/>
 
 
 						<main id="content">

@@ -29,10 +29,6 @@ const Navigation = (props) => {
 		display: flex;
 		color: ${color};
 
-		${orientation === 'horiontal' ? `
-			justify-content: flex-end;
-		` : null}
-
 		${orientation === 'vertical' ? `
 			flex-direction: column;
 			align-items: center;
@@ -47,7 +43,7 @@ const Navigation = (props) => {
 		color: currentColor;
 		transition: ${transition};
 
-		${orientation === 'horiontal' ? `
+		${orientation === 'horizontal' ? `
 			margin-left: 2rem;
 		` : null}
 
@@ -122,7 +118,7 @@ Navigation.propTypes = {
 	color: PropTypes.string.isRequired,
 	active: PropTypes.string.isRequired,
 	background: PropTypes.string.isRequired,
-	orentation: PropTypes.string.isRequired,
+	orientation: PropTypes.string.isRequired,
 	navFunction: PropTypes.func
 };
 
