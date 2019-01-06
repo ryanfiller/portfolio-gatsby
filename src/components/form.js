@@ -12,11 +12,13 @@ setConfig({pureSFC: true});
 
 const Contact = (props) => {
 
+    console.log(props.color)
+
     const {
         form,
-        color,
-        active,
-        background
+        // color,
+        // active,
+        // background
     } = props;
 
     const formFields = form.fields;
@@ -101,7 +103,9 @@ const Contact = (props) => {
     </StyledForm>;
 
     const Sent = <StyledSent>
-        Message sent!
+        <header>
+            Message sent!
+        </header>
         <Button
             text={formButtons.reload.text}
             onClick={reloadForm}
@@ -193,11 +197,19 @@ const StyledForm = styled.form`
     `
 
     const StyledSent = styled.div`
-        margin-top: 25vh;
-        color: ${props => props.color};
         text-align: center;
         width: 100%;
-        font-size: 1em;
+        font-size: 1.5rem;
+
+        header {
+            font-size: 1.5em;
+            color: ${props => props.color};
+            margin-bottom: 1em;
+        }
+
+        button {
+            margin: 0 auto;
+        }
     `
 
 Contact.propTypes = {
