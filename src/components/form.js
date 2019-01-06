@@ -5,62 +5,19 @@ import Button from './buttons';
 
 import styled from 'styled-components';
 import { colors, fonts, padding, transition } from '../config/styles';
+import { initialFormState, disableFormButton } from '../helpers/helpers'
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 
-function encode(data) {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&")
-}
-
-const ContactForm = {
-    name: 'contact-form',
-    fields: {
-        name : {
-            type: 'text',
-            element: 'input',
-            required: true,
-        },
-        email: {
-            type: 'email',
-            element: 'input',
-            required: true,
-        },
-        message: {
-            type: 'text',
-            element: 'textarea',
-            required: true,
-            placeholder: 'Message...',
-            extraClassName: 'tall'
-        }
-    },
-    buttons: {
-        submit: {
-            text: 'Send',
-        },
-        reload: {
-            text: 'Send Another?',
-        }
-    }
-}
-
-const initialFormState = (form) => {
-
-    let fields = {};
-
-    Object.keys(form).map( (field) => {
-        return fields[field] = '';
-    })
-
-    return fields;
-}
-
 const Contact = (props) => {
 
-    const formFields = ContactForm.fields;
-    const formButtons = ContactForm.buttons;
+    const {
+        form
+    } = props;
+
+    const formFields = form.fields;
+    const formButtons = form.buttons;
 
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues ] = useState(initialFormState(formFields));
@@ -72,12 +29,18 @@ const Contact = (props) => {
           });
     }
 
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&")
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...formValues })
+            body: encode({ "form-name": form.name, ...formValues })
         })
         .then(() => setSubmitted(true))
         .catch(error => alert(error))
@@ -128,12 +91,7 @@ const Contact = (props) => {
         <StyledRow>
             <Button
                 text={'Send'}
-                disabled={
-                    formValues.name &&
-                    formValues.email &&
-                    formValues.message
-                    ? false : true
-                }
+                disabled={disableFormButton(formFields, formValues)}
             />
 
         </StyledRow>

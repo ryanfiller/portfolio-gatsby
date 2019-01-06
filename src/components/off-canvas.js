@@ -7,8 +7,9 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import { theme, breaks, navBreak, naviconWidth, padding } from '../config/styles';
 
-import Navigation from './navigation'
-import Form from './contact-form'
+import Navigation from './navigation';
+import Form from './form';
+import { ContactForm } from '../config/forms';
 
 const OffCanvas = (props) => {
 
@@ -67,7 +68,7 @@ const OffCanvas = (props) => {
 					navFunction={closeAndNavigate}
 				/>
 			</MediaQuery>
-			<Form />
+			<Form form={ContactForm} />
 		</StyledOffCanvas>
 	);
 }

@@ -1,9 +1,9 @@
 export const pages = [
-		'portfolio', 
-		'about',
-		'blog', 
-		'contact'
-	]
+	'portfolio', 
+	'about',
+	'blog', 
+	'contact'
+]
 
 export const socialMedia = [
 	{
