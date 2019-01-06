@@ -65,7 +65,7 @@ Button.propTypes = {
 	active: PropTypes.string,
     background: PropTypes.string,
     disabled: PropTypes.string,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 };
 
 export default Button;
