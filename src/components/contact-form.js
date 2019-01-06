@@ -129,7 +129,7 @@ export default class Contact extends React.Component {
 
                 <StyledRow>
                     <Button
-                        color="orange"
+                        text={'Send'}
                         disabled={
                             this.state.name &&
                             this.state.email &&
@@ -137,9 +137,7 @@ export default class Contact extends React.Component {
                             // && this.state.recaptcha 
                             ? false : true
                         }
-                    >
-                        Send
-                    </Button>
+                    />
 
                 </StyledRow>
             </StyledForm>

@@ -24,8 +24,7 @@ const OffCanvas = (props) => {
 	} = props;
 
 	const StyledOffCanvas = styled.div`
-		display: flex;
-		flex-wrap: wrap;
+		display: block;
 		position: absolute;
 		top: 0;
 		left: 100%;
@@ -34,22 +33,22 @@ const OffCanvas = (props) => {
 		width: 33.33vw;
 		padding: ${padding};
 		font-size: 2rem;
-
-		align-items: flex-start;
 		width: calc(100% - ((${padding}) + ${naviconWidth}));
 
 		${breaks.phone(`
-			align-items: center;
 			width: 50%;
 		`)}
 
 		${breaks.tablet(`
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
 			width: 33.33vw;
 		`)}
 
 		& > * {
 			width: 100%;
-			margin-bottom: calc(2 * ${padding});
+			margin-bottom: ${padding};
 
 			&:last-child {
 				margin-bottom: 0;

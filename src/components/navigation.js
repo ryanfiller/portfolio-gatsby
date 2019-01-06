@@ -44,7 +44,19 @@ const Navigation = (props) => {
 		transition: ${transition};
 
 		${orientation === 'horizontal' ? `
-			margin-left: 2rem;
+			margin-right: 2rem;
+
+			&:last-child() {
+				margin-right: 0;
+			}
+		` : null}
+
+		${orientation === 'vertical' ? `
+			margin-bottom: 1rem;
+
+			&:last-child() {
+				margin-bottom: 0;
+			}
 		` : null}
 
 		&.active {

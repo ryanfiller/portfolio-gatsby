@@ -5,7 +5,7 @@ import { breaks, colors, containers, fonts } from '../config/styles';
 
 import SocialsList from './socials'
 
-const Footer = () => (
+const Footer = (props) => (
     <StyledFooter className="footer">
         <div className="copyright">
             Copyright 2012 - { new Date().getFullYear() }, 
