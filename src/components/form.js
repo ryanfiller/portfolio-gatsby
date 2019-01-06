@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from './buttons';
 
 import styled from 'styled-components';
-import { colors, fonts, padding, transition } from '../config/styles';
+import { fonts, padding, transition, theme } from '../config/styles';
 import { initialFormState, disableFormButton } from '../helpers/helpers'
 
 import {setConfig} from 'react-hot-loader';
@@ -13,7 +13,10 @@ setConfig({pureSFC: true});
 const Contact = (props) => {
 
     const {
-        form
+        form,
+        color,
+        active,
+        background
     } = props;
 
     const formFields = form.fields;
@@ -26,7 +29,7 @@ const Contact = (props) => {
         setFormValues({
             ...formValues,
             [e.target.name]: e.target.value
-          });
+        });
     }
 
     const encode = (data) => {
@@ -51,18 +54,106 @@ const Contact = (props) => {
         setFormValues(initialFormState(formFields));
     } 
 
+    const StyledForm = styled.form`
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        font-size: 1.5rem;
+
+        &:focus {
+            outline: none;
+        }
+    `
+
+    const StyledRow = styled.div`
+        min-height: 3em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: ${padding};
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.tall {
+            flex: 1;
+            min-height: 20rem;
+            max-height: 25rem;
+        }
+
+        label {
+            max-height: 0;
+            color: ${color || theme.light};
+            background-color: ${active || theme.highlight};
+            overflow: hidden;
+            font-size: .6em;
+            font-weight: bold;
+            text-transform: capitalize;
+            padding-left: 0.5rem;
+            flex: 1;
+            order: 2;
+            display: flex;
+            align-items: center;
+            transition: ${transition};
+        }
+
+        input, textarea {
+            color: ${background || theme.dark };
+            ${fonts.sansSerif()}
+            font-size: 1em;
+            padding: calc(${padding} / 4);
+            border: 2px solid transparent;
+            border-radius: 0;
+            transition: ${transition};
+            flex: 1;
+            order: 1;
+            -webkit-appearence: none;
+            box-shadow: none;
+            resize: none;
+
+            &::placeholder {
+                text-transform: capitalize;
+                color: ${theme.disabled}
+            }
+
+            &:focus {
+                outline: none;
+                border: 2px solid ${active || theme.highlight};
+                margin: 0;
+
+                &::-webkit-input-placeholder,
+                &::-moz-placeholder {
+                    transition: ${transition};
+                    color: transparent;
+                }
+                + label {
+                    max-height: ${padding};
+                }
+            }
+        }
+    `
+
+    const StyledSent = styled.div`
+        margin-top: 25vh;
+        color: ${color};
+        text-align: center;
+        width: 100%;
+        font-size: 1em;
+    `
+
     const Form = <StyledForm
-        id="contact-form"
+        id={form.name}
         className="form"
         tabIndex="1"
         name="contact"
         method="post"
         data-netlify="true"
-        data-netlify-recaptcha="true"
-        data-netlify-honeypot="bot-field"
+        // data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
     >
-        {Object.keys(formFields).map( (field, key) => {
+        {Object.keys(formFields).map( (field, index) => {
 
             const Element = formFields[field].element;
 
@@ -72,8 +163,9 @@ const Contact = (props) => {
                     field + ' *': field;
 
             return (
-                <StyledRow key={key} className={formFields[field].extraClassName}>
+                <StyledRow key={index} className={formFields[field].extraClassName}>
                     <Element 
+                        key={field}
                         type={formFields[field].type}
                         name={field}
                         placeholder={placeholderText}
@@ -90,7 +182,7 @@ const Contact = (props) => {
 
         <StyledRow>
             <Button
-                text={'Send'}
+                text={formButtons.submit.text}
                 disabled={disableFormButton(formFields, formValues)}
             />
 
@@ -100,7 +192,7 @@ const Contact = (props) => {
     const Sent = <StyledSent>
         Message sent!
         <Button
-            text={'Send Another?'}
+            text={formButtons.reload.text}
             onClick={reloadForm}
         />
     </StyledSent>;
@@ -108,102 +200,11 @@ const Contact = (props) => {
     return submitted === false ? Form : Sent;
 }
 
+Contact.propTypes = {
+    form: PropTypes.object.isRequired,
+	color: PropTypes.string,
+	active: PropTypes.string,
+	background: PropTypes.string,
+};
+
 export default Contact;
-
-const StyledForm = styled.form`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    font-size: 1.5rem;
-
-    &:focus {
-        outline: none;
-    }
-`
-
-const StyledRow = styled.div`
-    min-height: 3em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: ${padding};
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    &.tall {
-        flex: 1;
-        min-height: 20rem;
-        max-height: 25rem;
-    }
-
-    label {
-        max-height: 0;
-        color: ${colors.white};
-        font-weight: bold;
-        background-color: ${colors.gray};
-        overflow: hidden;
-        font-size: .6em;
-        text-transform: capitalize;
-        padding-left: 0.5rem;
-        flex: 1;
-        order: 2;
-        display: flex;
-        align-items: center;
-        transition: ${transition};
-    }
-
-    input, textarea {
-        ${fonts.sansSerif()}
-        font-size: 1em;
-        padding: calc(${padding} / 4);
-        border: 2px solid transparent;
-        border-radius: 0;
-        transition: ${transition};
-        flex: 1;
-        order: 1;
-        -webkit-appearence: none;
-        box-shadow: none;
-        resize: none;
-
-        &::placeholder {
-            text-transform: capitalize;
-        }
-
-        &:focus {
-            outline: none;
-            border: 2px solid ${colors.gray};
-            margin: 0;
-
-            &::-webkit-input-placeholder,
-            &::-moz-placeholder {
-                transition: ${transition};
-                color: transparent;
-            }
-            + label {
-                max-height: calc(1.5 * ${padding});
-            }
-        }
-    }
-`
-
-const StyledSent = styled.div`
-    margin-top: 25vh;
-    color: ${colors.white};
-    text-align: center;
-    width: 100%;
-    font-size: 1.5em;
-
-    a {
-        display: block;
-        cursor: pointer;
-        color: ${colors.Orange};
-        margin-top: ${padding};
-
-            &:hover {
-                color: ${colors.white};
-            }
-    }
-`
