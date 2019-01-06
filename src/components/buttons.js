@@ -64,7 +64,7 @@ Button.propTypes = {
 	color: PropTypes.string,
 	active: PropTypes.string,
     background: PropTypes.string,
-    disabled: PropTypes.string,
+    disabled: PropTypes.bool,
 	onClick: PropTypes.func,
 };
 

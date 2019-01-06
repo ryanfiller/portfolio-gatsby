@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import Button from "./buttons"
+import Button from './buttons';
 
-import styled from 'styled-components'
-import { colors, fonts, padding, transition } from '../config/styles'
+import styled from 'styled-components';
+import { colors, fonts, padding, transition } from '../config/styles';
 
-// import Recaptcha from "react-google-recaptcha";
-// const RECAPTCHA_KEY = "6LeZT2IUAAAAACs54WyysXeSztMT6xJMpr2bDr7n";
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
 function encode(data) {
     return Object.keys(data)
@@ -14,151 +15,116 @@ function encode(data) {
         .join("&")
 }
 
-export default class Contact extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            submitted: false,
-        }
-    
-        this.reloadForm = this.reloadForm.bind(this) 
+const Contact = (props) => {
+
+    const [submitted, setSubmitted] = useState(false);
+    const [formValues, setFormValues ] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value
+          });
     }
 
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
-    }
-
-    handleSubmit = e => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...this.state })
+            body: encode({ "form-name": "contact", ...formValues })
         })
-            .then(() => this.setState({submitted: true}))
-            .catch(error => alert(error))
-
-        e.preventDefault()
+        .then(() => setSubmitted(true))
+        .catch(error => alert(error))
     }
 
-    reloadForm() {
-	    this.setState({submitted: false})
-    }   
+    const reloadForm = () => {
+        setSubmitted(false);
+        setFormValues({
+            name: '',
+            email: '',
+            message: ''
+        })
+    } 
 
-    // handleRecaptcha = (value) => {
-    //     this.setState({ "recaptcha": value });
-    // };
+    const Form = <StyledForm
+        id="contact-form"
+        className="form"
+        tabIndex="1"
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+    >
+        <StyledRow>
+            <StyledInput 
+                type="text"
+                name="name"
+                placeholder="Name *"
+                required
+                value={formValues.name}
+                onChange={handleChange}
+            />
+            <StyledLabel htmlFor="name">Name</StyledLabel>
+        </StyledRow>
 
-    // handleRecaptchaSize = () => {
-    //     var scaledElement = document.getElementById('recaptcha')
-    //     var targetWidth = document.getElementById('recaptcha').parentElement.offsetWidth
-    //     var scale = targetWidth / 304
-    
-    //     if (scaledElement.offsetWidth < 304) {
-    //         scaledElement.style.cssText = `transform: scale(${scale})`
-    //     }
-    // }
-    
-    // componentDidMount() {
-    //     this.handleRecaptchaSize()
-    //     window.addEventListener("resize", this.handleRecaptchaSize())
-    // }
-    
-    // componentWillUnmount() {
-    //     window.removeEventListener("resize", this.handleRecaptchaSize())
-    // }
+        <StyledRow>
+            <StyledInput
+                type="email"
+                name="email"
+                placeholder="Email *"
+                required
+                value={formValues.email}
+                onChange={handleChange} 
+            />
+            <StyledLabel htmlFor="email">Email</StyledLabel>
+        </StyledRow>
+        
+        <StyledRow className="tall">
+            <StyledTextarea 
+                type="text"
+                name="message"
+                placeholder="Message..."
+                required
+                value={formValues.message}
+                onChange={handleChange}
+            />
+            <StyledLabel htmlFor="message">Message</StyledLabel>
+        </StyledRow>
 
-    render() {
+        <StyledRow>
+            <Button
+                text={'Send'}
+                disabled={
+                    formValues.name &&
+                    formValues.email &&
+                    formValues.message
+                    ? false : true
+                }
+            />
 
-        const Form = <StyledForm
-                id="contact-form"
-                className="form"
-                tabIndex="1"
-                name="contact"
-                method="post"
-                data-netlify="true"
-                data-netlify-recaptcha="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-            >
+        </StyledRow>
+    </StyledForm>;
 
+    const Sent = <StyledMessage>
+        Message sent!
+        <Button
+            text={'Send Another?'}
+            onClick={reloadForm}
+        />
+    </StyledMessage>;
 
-                <StyledRow>
-                    <StyledInput 
-                        type="text"
-                        name="name"
-                        placeholder="Name *"
-                        required
-                        onChange={this.handleChange}
-                    />
-                    <StyledLabel htmlFor="name">Name</StyledLabel>
-                </StyledRow>
-
-                <StyledRow>
-                    <StyledInput
-                        type="email"
-                        name="email"
-                        placeholder="Email *"
-                        required
-                        onChange={this.handleChange} 
-                    />
-                    <StyledLabel htmlFor="email">Email</StyledLabel>
-                </StyledRow>
-                
-                <StyledRow className="tall">
-                    <StyledTextarea 
-                        type="text"
-                        name="message"
-                        placeholder="Message..."
-                        required
-                        onChange={this.handleChange}
-                    />
-                    <StyledLabel htmlFor="message">Message</StyledLabel>
-                </StyledRow>
-
-                {/* <StyledRow className="recaptcha">
-                    <Recaptcha
-                        id="recaptcha"
-                        theme="dark"
-                        required
-                        ref="recaptcha"
-                        name="recaptcha"
-                        sitekey={RECAPTCHA_KEY}
-                        onChange={this.handleRecaptcha}
-                    />
-                </StyledRow> */}
-
-                <StyledRow>
-                    <Button
-                        text={'Send'}
-                        disabled={
-                            this.state.name &&
-                            this.state.email &&
-                            this.state.message
-                            // && this.state.recaptcha 
-                            ? false : true
-                        }
-                    />
-
-                </StyledRow>
-            </StyledForm>
-
-        const Sent = <StyledMessage>
-            Message sent!
-            <button onClick={this.reloadForm}>Send Another?</button>
-        </StyledMessage>
-
-
-        if(this.state.submitted !== true) {
-            return (
-                Form
-            );
-        } else {
-            return(
-                Sent
-            );
-        }
-    }
+    return submitted === false ? Form : Sent;
 }
+
+export default Contact;
 
 const StyledForm = styled.form`
     width: 100%;
