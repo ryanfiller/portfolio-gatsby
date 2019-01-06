@@ -15,17 +15,57 @@ function encode(data) {
         .join("&")
 }
 
+const ContactForm = {
+    name: 'contact-form',
+    fields: {
+        name : {
+            type: 'text',
+            element: 'input',
+            required: true,
+        },
+        email: {
+            type: 'email',
+            element: 'input',
+            required: true,
+        },
+        message: {
+            type: 'text',
+            element: 'textarea',
+            required: true,
+            placeholder: 'Message...',
+            extraClassName: 'tall'
+        }
+    },
+    buttons: {
+        submit: {
+            text: 'Send',
+        },
+        reload: {
+            text: 'Send Another?',
+        }
+    }
+}
+
+const initialFormState = (form) => {
+
+    let fields = {};
+
+    Object.keys(form).map( (field) => {
+        return fields[field] = '';
+    })
+
+    return fields;
+}
+
 const Contact = (props) => {
 
+    const formFields = ContactForm.fields;
+    const formButtons = ContactForm.buttons;
+
     const [submitted, setSubmitted] = useState(false);
-    const [formValues, setFormValues ] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
+    const [formValues, setFormValues ] = useState(initialFormState(formFields));
 
     const handleChange = (e) => {
-        console.log(e.target.value);
         setFormValues({
             ...formValues,
             [e.target.name]: e.target.value
@@ -45,11 +85,7 @@ const Contact = (props) => {
 
     const reloadForm = () => {
         setSubmitted(false);
-        setFormValues({
-            name: '',
-            email: '',
-            message: ''
-        })
+        setFormValues(initialFormState(formFields));
     } 
 
     const Form = <StyledForm
@@ -63,41 +99,31 @@ const Contact = (props) => {
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
     >
-        <StyledRow>
-            <StyledInput 
-                type="text"
-                name="name"
-                placeholder="Name *"
-                required
-                value={formValues.name}
-                onChange={handleChange}
-            />
-            <StyledLabel htmlFor="name">Name</StyledLabel>
-        </StyledRow>
+        {Object.keys(formFields).map( (field, key) => {
 
-        <StyledRow>
-            <StyledInput
-                type="email"
-                name="email"
-                placeholder="Email *"
-                required
-                value={formValues.email}
-                onChange={handleChange} 
-            />
-            <StyledLabel htmlFor="email">Email</StyledLabel>
-        </StyledRow>
-        
-        <StyledRow className="tall">
-            <StyledTextarea 
-                type="text"
-                name="message"
-                placeholder="Message..."
-                required
-                value={formValues.message}
-                onChange={handleChange}
-            />
-            <StyledLabel htmlFor="message">Message</StyledLabel>
-        </StyledRow>
+            const Element = formFields[field].element;
+
+            const placeholderText = formFields[field].placeholder ?
+                formFields[field].placeholder : 
+                    formFields[field].required ? 
+                    field + ' *': field;
+
+            return (
+                <StyledRow key={key} className={formFields[field].extraClassName}>
+                    <Element 
+                        type={formFields[field].type}
+                        name={field}
+                        placeholder={placeholderText}
+                        required={formFields[field].required ? true : false}
+                        value={formValues.field}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor={field}>
+                        {field}
+                    </label>
+                </StyledRow>
+            )
+        })}
 
         <StyledRow>
             <Button
@@ -113,13 +139,13 @@ const Contact = (props) => {
         </StyledRow>
     </StyledForm>;
 
-    const Sent = <StyledMessage>
+    const Sent = <StyledSent>
         Message sent!
         <Button
             text={'Send Another?'}
             onClick={reloadForm}
         />
-    </StyledMessage>;
+    </StyledSent>;
 
     return submitted === false ? Form : Sent;
 }
@@ -155,67 +181,57 @@ const StyledRow = styled.div`
         max-height: 25rem;
     }
 
-    &.recaptcha {
-        min-height: 0;
+    label {
+        max-height: 0;
+        color: ${colors.white};
+        font-weight: bold;
+        background-color: ${colors.gray};
+        overflow: hidden;
+        font-size: .6em;
+        text-transform: capitalize;
+        padding-left: 0.5rem;
+        flex: 1;
+        order: 2;
+        display: flex;
+        align-items: center;
+        transition: ${transition};
+    }
+
+    input, textarea {
+        ${fonts.sansSerif()}
+        font-size: 1em;
+        padding: calc(${padding} / 4);
+        border: 2px solid transparent;
+        border-radius: 0;
+        transition: ${transition};
+        flex: 1;
+        order: 1;
+        -webkit-appearence: none;
+        box-shadow: none;
+        resize: none;
+
+        &::placeholder {
+            text-transform: capitalize;
+        }
+
+        &:focus {
+            outline: none;
+            border: 2px solid ${colors.gray};
+            margin: 0;
+
+            &::-webkit-input-placeholder,
+            &::-moz-placeholder {
+                transition: ${transition};
+                color: transparent;
+            }
+            + label {
+                max-height: calc(1.5 * ${padding});
+            }
+        }
     }
 `
 
-const CommonInputStyles = `
-    ${fonts.sansSerif()}
-    font-size: 1em;
-    padding: calc(${padding} / 4);
-    border: 2px solid transparent;
-    border-radius: 0;
-    transition: ${transition};
-    flex: 1;
-    order: 1;
-    -webkit-appearence: none;
-    box-shadow: none;
-
-    &:focus {
-        outline: none;
-        border: 2px solid ${colors.gray};
-        margin: 0;
-
-        &::-webkit-input-placeholder {
-            transition: ${transition};
-            color: transparent;
-        }
-        &::-moz-placeholder {
-            transition: ${transition};
-            color: transparent;
-        }
-        + label {
-            max-height: calc(1.5 * ${padding});
-        }
-    }
-`
-
-const StyledInput = styled.input`
-    ${CommonInputStyles}
-`
-
-const StyledTextarea = styled.textarea`
-    ${CommonInputStyles}
-    resize: none;
-`
-
-const StyledLabel = styled.label`
-    max-height: 0;
-    color: ${colors.white};
-    font-weight: bold;
-    background-color: ${colors.gray};
-    overflow: hidden;
-    font-size: .6em;
-    padding-left: 0.5rem;
-    flex: 1;
-    order: 2;
-    display: flex;
-    align-items: center;
-    transition: ${transition};
-`
-
-const StyledMessage = styled.div`
+const StyledSent = styled.div`
     margin-top: 25vh;
     color: ${colors.white};
     text-align: center;
