@@ -68,7 +68,12 @@ const OffCanvas = (props) => {
 					navFunction={closeAndNavigate}
 				/>
 			</MediaQuery>
-			<Form form={ContactForm} />
+			<Form 
+				form={ContactForm}
+				color={color} 
+				active={theme.highlight}
+				background={background}
+			/>
 		</StyledOffCanvas>
 	);
 }
