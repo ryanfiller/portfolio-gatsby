@@ -115,6 +115,8 @@ const Contact = (props) => {
     return submitted === false ? Form : Sent;
 }
 
+// TODO - figure out how to memoize these and get props working
+
 const StyledForm = styled.form`
         width: 100%;
         display: flex;
