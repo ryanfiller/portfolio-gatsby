@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby'
 
-import { injectGlobal } from 'styled-components'
+// import { injectGlobal } from 'styled-components'
 import { breaks } from '../config/styles'
 
 import PortfolioGrid from '../components/portfolio-grid'

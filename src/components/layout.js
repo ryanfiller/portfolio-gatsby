@@ -4,7 +4,7 @@ import { navigate } from 'gatsby'
 
 // import { CSSTransition, TransitionGroup } from "react-transition-group"
 
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { breaks, colors, fonts, naviconWidth, transition, theme } from '../config/styles'
 
 import Header from './header'
@@ -80,6 +80,7 @@ export default class Layout extends React.Component {
 				currentPage: this.props.location.pathname,
 			}}>
 				<StyledSite className={className} id="site">
+					<GlobalStyle />
 					<Helmet
 						title="ryanfiller.com"
 						meta={[
@@ -130,7 +131,7 @@ export default class Layout extends React.Component {
 	}
 }
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   	html, body {
 		padding: 0;
 		margin: 0;

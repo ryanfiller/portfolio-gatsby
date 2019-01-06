@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { navigate } from "gatsby"
 
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { darken } from 'polished'
 
 import { breaks, containers, fonts, overlays, padding } from '../config/styles'
@@ -206,13 +206,13 @@ function gradient() {
 	`
 }
 
-injectGlobal`
-	body.error404 {
-		#header {
-			display: none;
-		}
-	}
-`
+// injectGlobal`
+// 	body.error404 {
+// 		#header {
+// 			display: none;
+// 		}
+// 	}
+// `
 
 const Styled404Page = styled.main`
     font-family: 'VT323', monospace;
