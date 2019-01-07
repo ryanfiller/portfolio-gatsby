@@ -3,6 +3,7 @@ title: 'about'
 ---
 
 <headshot></headshot>
+
 I am a designer, developer, and illustrator living and working in Memphis, Tennessee.
 
 I have experience with print and web design using a wide variety of technologies, and I’ve recently been growing my front end development skills by learning a variety of coding languages. I have also been drawing my entire life and try to pick up illustration work when I can.

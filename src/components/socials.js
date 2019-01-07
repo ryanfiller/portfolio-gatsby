@@ -10,8 +10,6 @@ import { breaks, transition } from '../config/styles';
 
 const SocialList = (props) => {
 
-	console.log(props);
-
 	const{
 		active,
 		oneColor
