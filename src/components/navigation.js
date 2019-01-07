@@ -16,26 +16,55 @@ const Navigation = (props) => {
         toggleOffCanvas, 
         currentPage,
 	} = context;
+	
+	return (
+		<nav className={props.className} role="navigation">
+			{ pages.map((page) => {
 
-	const {
-		color,
-		active,
-		background,
-		orientation,
-		navFunction
-	} = props;
+				let click;
 
-	const StyledNav = styled.nav`
-		display: flex;
-		color: ${color};
+				if (page === 'contact') {
+					click = (e) => {toggleOffCanvas(e, '#contact-form')};
+				} else if(props.navFunction) {
+					click = props.navFunction;
+				} else {
+					click = (e) => {handleNavigate(e)};
+				}
 
-		${orientation === 'vertical' ? `
-			flex-direction: column;
-			align-items: center;
-		` : null}
-	`
+				return (
+					<a 
+						href={page === 'contact' ? '#contact-form' : page}
+						onClick={ click }
+						key={page} 
+						data-text={page}
+						className={currentPage.includes(`/${page}`) ? 'active' : ''}
+					>
+						{page}
+					</a>
+				)
+			})}
+		</nav>
+	)
+}
 
-	const StyledNavLink = styled.a`
+Navigation.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+	orientation: PropTypes.string.isRequired,
+	navFunction: PropTypes.func
+};
+
+const StyledNavigation = styled(Navigation)`
+	display: flex;
+	color: ${props => props.color};
+
+	${props => props.orientation === 'vertical' ? `
+		flex-direction: column;
+		align-items: center;
+	` : null}
+
+	a {
 		text-decoration: none;
 		${fonts.condensed()}
 		text-transform: uppercase;
@@ -43,7 +72,7 @@ const Navigation = (props) => {
 		color: currentColor;
 		transition: ${transition};
 
-		${orientation === 'horizontal' ? `
+		${props => props.orientation === 'horizontal' ? `
 			margin-right: 2rem;
 
 			&:last-child() {
@@ -51,7 +80,7 @@ const Navigation = (props) => {
 			}
 		` : null}
 
-		${orientation === 'vertical' ? `
+		${props => props.orientation === 'vertical' ? `
 			margin-bottom: 1rem;
 
 			&:last-child() {
@@ -60,26 +89,26 @@ const Navigation = (props) => {
 		` : null}
 
 		&.active {
-			color: ${active};
+			color: ${props => props.active};
 		}
 
 		&:hover {
-			color: ${active};
+			color: ${props => props.active};
 			cursor: pointer;
 			${breaks.tablet(`
-				${animations.glitch(active, background)}
+				${animations.glitch(props => props.active, props => props.background)}
 			`)}
 		}
 
 		#site.open & {
 			${breaks.tablet(`
-				color: ${color};
+				color: ${props => props.color};
 			`)}
 
 			&[href='#contact-form'] {
 				position: relative;
 				z-index: 100;
-				color: ${active};
+				color: ${props => props.active};
 
 				&:before, &:after { /* for glitch hover */
 					background-color: transparent;
@@ -94,44 +123,7 @@ const Navigation = (props) => {
 				display: block;
 			}
 		}
-	`
-	
-	return (
-		<StyledNav className="nav" role="navigation">
-			{ pages.map((page) => {
+	}
+`
 
-				let click;
-
-				if (page === 'contact') {
-					click = (e) => {toggleOffCanvas(e, '#contact-form')};
-				} else if(navFunction) {
-					click = navFunction;
-				} else {
-					click = (e) => {handleNavigate(e)};
-				}
-
-				return (
-					<StyledNavLink 
-						href={page === 'contact' ? '#contact-form' : page}
-						onClick={ click }
-						key={page} 
-						data-text={page}
-						className={currentPage.includes(`/${page}`) ? 'active' : ''}
-					>
-						{page}
-					</StyledNavLink>
-				)
-			})}
-		</StyledNav>
-	)
-}
-
-Navigation.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	background: PropTypes.string.isRequired,
-	orientation: PropTypes.string.isRequired,
-	navFunction: PropTypes.func
-};
-
-export default Navigation;
+export default StyledNavigation;
