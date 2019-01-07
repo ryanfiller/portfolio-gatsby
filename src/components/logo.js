@@ -13,94 +13,13 @@ import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
 
 const Logo = (props) => {
-
-	const {
-		color,
-		active,
-		background
-	} = props;
-
-	const StyledLink = styled(Link)`
-		display: inline-flex;
-		justify-content: flex-start;
-		position: relative;
-		overflow: hidden;
-		font-size: 1.5em;
-		height: 1em;
-		width: auto;
-
-		svg {
-			display: block;
-			width: auto;
-			height: 1em;	
-			fill: ${color};
-			pointer-events: none;
-			transition: ${transition};
-		}
-
-		.r, .yan, .f, .iller {
-			transition: ${transition};
-		}
-
-		.r {
-			filter: drop-shadow( .25em 0px 0px ${background} ); 
-			margin-right: -.1675em;
-			position: relative;
-			z-index: 2;
-		}
-
-		.f {
-			transform: rotateY(180deg);
-			margin-right: 0;
-			margin-left: .15em;
-		}
-
-		.yan, .iller {
-			max-width: 0;
-			overflow: hidden
-		}
-
-		&:hover {
-			svg {
-				fill: ${active};
-			}
-		}
-
-		${breaks.phone(`
-			font-size: 1.25em;
-
-			.r {
-				filter: none;
-				margin-right: -.033em;
-				position: relative;
-				z-index: 1;       
-			}
-
-			.yan {
-				margin-right: .5em;
-				max-width: 100%;
-				overflow: hidden;
-			}
-
-			.f {
-				transform: none;
-				margin-right: .15em;
-			}
-
-			.iller {
-				max-width: 100%;
-				overflow: hidden;
-			}
-		`)}
-	`
-
 	return (
-		<StyledLink className="rf-logo" to="/">
+		<Link className={props.className} to="/">
 			<SVG className="r" src={r} />
 			<SVG className="yan" src={yan} />
 			<SVG className="f" src={f} />
 			<SVG className="iller" src={iller} />
-		</StyledLink>
+		</Link>
 	)
 }
 
@@ -110,4 +29,78 @@ Logo.propTypes = {
 	background: PropTypes.string.isRequired
 };
 
-export default Logo;
+const StyledLogo = styled(Logo)`
+	display: inline-flex;
+	justify-content: flex-start;
+	position: relative;
+	overflow: hidden;
+	font-size: 1.5em;
+	height: 1em;
+	width: auto;
+
+	svg {
+		display: block;
+		width: auto;
+		height: 1em;	
+		fill: ${props => props.color};
+		pointer-events: none;
+		transition: ${transition};
+	}
+
+	.r, .yan, .f, .iller {
+		transition: ${transition};
+	}
+
+	.r {
+		filter: drop-shadow( .25em 0px 0px ${props => props.backround} ); 
+		margin-right: -.1675em;
+		position: relative;
+		z-index: 2;
+	}
+
+	.f {
+		transform: rotateY(180deg);
+		margin-right: 0;
+		margin-left: .15em;
+	}
+
+	.yan, .iller {
+		max-width: 0;
+		overflow: hidden
+	}
+
+	&:hover {
+		svg {
+			fill: ${props => props.active};
+		}
+	}
+
+	${breaks.phone(`
+		font-size: 1.25em;
+
+		.r {
+			filter: none;
+			margin-right: -.033em;
+			position: relative;
+			z-index: 1;       
+		}
+
+		.yan {
+			margin-right: .5em;
+			max-width: 100%;
+			overflow: hidden;
+		}
+
+		.f {
+			transform: none;
+			margin-right: .15em;
+		}
+
+		.iller {
+			max-width: 100%;
+			overflow: hidden;
+		}
+	`)}
+`
+
+export default StyledLogo;
