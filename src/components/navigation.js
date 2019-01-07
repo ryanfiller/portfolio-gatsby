@@ -109,10 +109,6 @@ const StyledNavigation = styled(Navigation)`
 				position: relative;
 				z-index: 100;
 				color: ${props => props.active};
-
-				&:before, &:after { /* for glitch hover */
-					background-color: transparent;
-				}
 			}
 		}
 

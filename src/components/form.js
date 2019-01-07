@@ -10,19 +10,10 @@ import { initialFormState, disableFormButton } from '../helpers/helpers'
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 
-const Contact = (props) => {
+const Form = (props) => {
 
-    console.log(props.color)
-
-    const {
-        form,
-        // color,
-        // active,
-        // background
-    } = props;
-
-    const formFields = form.fields;
-    const formButtons = form.buttons;
+    const formFields = props.form.fields;
+    const formButtons = props.form.buttons;
 
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues ] = useState(initialFormState(formFields));
@@ -45,7 +36,7 @@ const Contact = (props) => {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": form.name, ...formValues })
+            body: encode({ "form-name": props.form.name, ...formValues })
         })
         .then(() => setSubmitted(true))
         .catch(error => alert(error))
@@ -56,68 +47,67 @@ const Contact = (props) => {
         setFormValues(initialFormState(formFields));
     } 
 
-    const Form = <StyledForm
-        id={form.name}
-        className="form"
-        tabIndex="1"
-        name="contact"
-        method="post"
-        data-netlify="true"
-        // data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-    >
-        {Object.keys(formFields).map( (field, index) => {
+    return (
+        <div className={props.className}>
+            {submitted === false ?
+                <form
+                    id={props.form.name}
+                    tabIndex="1"
+                    name="contact"
+                    method="post"
+                    data-netlify="true"
+                    // data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                >
+                    {Object.keys(formFields).map( (field, index) => {
 
-            const Element = formFields[field].element;
+                        const Element = formFields[field].element;
 
-            const placeholderText = formFields[field].placeholder ?
-                formFields[field].placeholder : 
-                    formFields[field].required ? 
-                    field + ' *': field;
+                        const placeholderText = formFields[field].placeholder ?
+                            formFields[field].placeholder : 
+                                formFields[field].required ? 
+                                field + ' *': field;
 
-            return (
-                <StyledRow key={index} className={formFields[field].extraClassName}>
-                    <Element 
-                        key={field}
-                        type={formFields[field].type}
-                        name={field}
-                        placeholder={placeholderText}
-                        required={formFields[field].required ? true : false}
-                        value={formValues.field}
-                        onChange={handleChange}
+                        return (
+                            <div key={index} className={`row ${formFields[field].extraClassName}`}>
+                                <Element 
+                                    key={field}
+                                    type={formFields[field].type}
+                                    name={field}
+                                    placeholder={placeholderText}
+                                    required={formFields[field].required ? true : false}
+                                    value={formValues.field}
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor={field}>
+                                    {field}
+                                </label>
+                            </div>
+                        )
+                    })}
+
+                    <Button
+                        text={formButtons.submit.text}
+                        disabled={disableFormButton(formFields, formValues)}
                     />
-                    <label htmlFor={field}>
-                        {field}
-                    </label>
-                </StyledRow>
-            )
-        })}
-
-        <StyledRow>
-            <Button
-                text={formButtons.submit.text}
-                disabled={disableFormButton(formFields, formValues)}
-            />
-
-        </StyledRow>
-    </StyledForm>;
-
-    const Sent = <StyledSent>
-        <header>
-            Message sent!
-        </header>
-        <Button
-            text={formButtons.reload.text}
-            onClick={reloadForm}
-        />
-    </StyledSent>;
-
-    return submitted === false ? Form : Sent;
+                </form>
+            :
+                <div className="sent">
+                    <header>
+                        Message sent!
+                    </header>
+                    <Button
+                        text={formButtons.reload.text}
+                        onClick={reloadForm}
+                    />
+                </div>
+            }
+        </div>
+    )
 }
 
-// TODO - figure out how to memoize these and get props working
-
-const StyledForm = styled.form`
+const StyledForm = styled(Form)`
+    form {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -127,84 +117,87 @@ const StyledForm = styled.form`
         &:focus {
             outline: none;
         }
-    `
 
-    const StyledRow = styled.div`
-        min-height: 3em;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: ${padding};
+        & > * {
+            margin-bottom: ${padding};
 
-        &:last-child {
-            margin-bottom: 0;
-        }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        } 
 
-        &.tall {
-            flex: 1;
-            min-height: 20rem;
-            max-height: 25rem;
-        }
-
-        label {
-            max-height: 0;
-            color: ${props => props.color || theme.light};
-            background-color: ${props => props.active || theme.highlight};
-            overflow: hidden;
-            font-size: .6em;
-            font-weight: bold;
-            text-transform: capitalize;
-            padding-left: 0.5rem;
-            flex: 1;
-            order: 2;
+        .row {
+            min-height: 3em;
+            width: 100%;
             display: flex;
-            align-items: center;
-            transition: ${transition};
-        }
+            flex-direction: column;
 
-        input, textarea {
-            color: ${props => props.background || theme.dark };
-            ${fonts.sansSerif()}
-            font-size: 1em;
-            padding: calc(${padding} / 4);
-            border: 2px solid transparent;
-            border-radius: 0;
-            transition: ${transition};
-            flex: 1;
-            order: 1;
-            -webkit-appearence: none;
-            box-shadow: none;
-            resize: none;
+            &.tall {
+                flex: 1;
+                min-height: 20rem;
+                max-height: 25rem;
+            }
 
-            &::placeholder {
+            label {
+                max-height: 0;
+                color: ${props => props.color || theme.light};
+                background-color: ${props => props.active || theme.highlight};
+                overflow: hidden;
+                font-size: .6em;
+                font-weight: bold;
                 text-transform: capitalize;
-                color: ${theme.disabled}
+                padding-left: 0.5rem;
+                flex: 1;
+                order: 2;
+                display: flex;
+                align-items: center;
+                transition: ${transition};
             }
 
-            &:focus {
-                outline: none;
-                border: 2px solid ${props => props.active || theme.highlight};
-                margin: 0;
+            input, textarea {
+                color: ${props => props.background || theme.dark };
+                ${fonts.sansSerif()}
+                font-size: 1em;
+                padding: calc(${padding} / 4);
+                border: 2px solid transparent;
+                border-radius: 0;
+                transition: ${transition};
+                flex: 1;
+                order: 1;
+                -webkit-appearence: none;
+                box-shadow: none;
+                resize: none;
 
-                &::-webkit-input-placeholder,
-                &::-moz-placeholder {
-                    transition: ${transition};
-                    color: transparent;
+                &::placeholder {
+                    text-transform: capitalize;
+                    color: ${theme.disabled}
                 }
-                + label {
-                    max-height: ${padding};
+
+                &:focus {
+                    outline: none;
+                    border: 2px solid ${props => props.active || theme.highlight};
+                    margin: 0;
+
+                    &::-webkit-input-placeholder,
+                    &::-moz-placeholder {
+                        transition: ${transition};
+                        color: transparent;
+                    }
+                    + label {
+                        max-height: ${padding};
+                    }
                 }
             }
         }
-    `
+    }
 
-    const StyledSent = styled.div`
-        text-align: center;
+    .sent {
         width: 100%;
         font-size: 1.5rem;
 
         header {
             font-size: 1.5em;
+            text-align: center;
             color: ${props => props.color};
             margin-bottom: 1em;
         }
@@ -212,13 +205,14 @@ const StyledForm = styled.form`
         button {
             margin: 0 auto;
         }
-    `
+    }
+`
 
-Contact.propTypes = {
+Form.propTypes = {
     form: PropTypes.object.isRequired,
 	color: PropTypes.string,
 	active: PropTypes.string,
 	background: PropTypes.string,
 };
 
-export default Contact;
+export default StyledForm;

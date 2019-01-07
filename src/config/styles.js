@@ -1,4 +1,4 @@
-import { lighten } from 'polished'
+import { lighten, transparentize } from 'polished'
 
 export const colors = {
     white: '#fff7ff',
@@ -53,7 +53,11 @@ var overlay = (styles) => {
 export const overlays = {
 
     dark: overlay(`
-        background-color: transparentize(.5, ${colors.grayDark});
+        background-color: ${transparentize(.5, colors.grayDark)};
+        @supports (mix-blend-mode: multiply) {
+            background-color: ${colors.gray};
+            mix-blend-mode: multiply;
+        }
     `),
 
     pixels: overlay(`

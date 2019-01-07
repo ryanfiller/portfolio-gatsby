@@ -52,7 +52,8 @@ const StyledLogo = styled(Logo)`
 	}
 
 	.r {
-		filter: drop-shadow( .25em 0px 0px ${props => props.backround} ); 
+		/* TODO what??? */
+		/* filter: drop-shadow(.25em 0px 0px ${props => props.backround});  */
 		margin-right: -.1675em;
 		position: relative;
 		z-index: 2;
@@ -61,7 +62,7 @@ const StyledLogo = styled(Logo)`
 	.f {
 		transform: rotateY(180deg);
 		margin-right: 0;
-		margin-left: .15em;
+		margin-left: .025em;
 	}
 
 	.yan, .iller {
