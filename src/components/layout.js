@@ -122,7 +122,11 @@ export default class Layout extends React.Component {
 							{/* </Transition> */}
 						</main>
 
-						<Footer />
+						<Footer 
+							color={theme.light}
+							active={theme.active}
+							background={theme.dark}
+						/>
 
 					</StyledContent >
 				</StyledSite>
