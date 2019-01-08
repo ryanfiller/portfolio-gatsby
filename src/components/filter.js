@@ -1,36 +1,37 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
 import { breaks, colors, containers, fonts } from '../config/styles'
 
-export default class Dropdown extends React.Component {
+const Filter = (props) => {
+    const { 
+        filters,
+        currentFilter,
+        setCurrentFilter
+    } = props;
 
-    render() {
-
-        const { categories, setFilter, currentCategory } = this.props;
-
-        return (
-            <StyledPortfolioFilter className="portfolio-filter">
-                <li className="default" key="all" onClick={() => setFilter('all')} >
-                    <button tabIndex="0" className={currentCategory === 'all' ? 'current' : ''}>
-						all					
-					</button>
-                </li>
-                {categories.map((item) => {
-                    return (
-                        <li key={item} onClick={() => setFilter(item)}>
-							<button tabIndex="0" className={currentCategory === item ? 'current' : ''}>
-								{item}
-							</button>
-                        </li>
-                    )
-                })}
-            </StyledPortfolioFilter>
-        )
-    }
+    return (
+        <ul className={`filter ${props.className}`}>
+            <li className="default" key="all" onClick={() => setCurrentFilter('all')} >
+                <button tabIndex="0" className={currentFilter === 'all' ? 'current' : ''}>
+                    all					
+                </button>
+            </li>
+            {filters.map((item) => {
+                return (
+                    <li key={item} onClick={() => setCurrentFilter(item)}>
+                        <button tabIndex="0" className={currentFilter === item ? 'current' : ''}>
+                            {item}
+                        </button>
+                    </li>
+                )
+            })}
+        </ul>
+    )
 }
 
-const StyledPortfolioFilter = styled.ul`
+const StyledFilter = styled(Filter)`
     padding: 0;
     margin: .5rem;
     display: flex;
@@ -112,3 +113,11 @@ const StyledPortfolioFilter = styled.ul`
     `)}
     }
 `
+
+Filter.propTypes = {
+    filters: PropTypes.array.isRequired,
+    currentFilter: PropTypes.string.isRequired,
+    setCurrentFilter: PropTypes.func.isRequired,
+};
+
+export default StyledFilter;

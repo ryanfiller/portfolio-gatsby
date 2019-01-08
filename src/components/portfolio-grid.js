@@ -1,28 +1,30 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import PropTypes from "prop-types";
 
+import styled from 'styled-components'
 import { breaks } from '../config/styles'
 
 import PortfolioBlock from './portfolio-block.js'
 
-export default class PortfolioGrid extends Component {
-	render() {
+const PortfolioGrid = (props) => {
 
-		const { portfolio, currentCategory } = this.props;
+	const { 
+		portfolio, 
+		currentFilter 
+	} = props;
 
-		return (
-			<StyledPortfolioGrid className="portfolio-grid">
-				{portfolio.map(({ node }, index) => (
-					currentCategory === 'all' || node.frontmatter.category.includes(currentCategory) ?
-						<PortfolioBlock card={node} key={index}/>
-					: ''
-				))} 
-			</StyledPortfolioGrid>
-		)
-	}
+	return (
+		<section className={`portfolio-grid ${props.className}`}>
+			{portfolio.map(({ node }, index) => (
+				!currentFilter || currentFilter === 'all' || node.frontmatter.category.includes(currentFilter) ?
+					<PortfolioBlock card={node} key={index}/>
+				: null
+			))} 
+		</section>
+	)
 }
 
-const StyledPortfolioGrid = styled.div`
+const StyledPortfolioGrid = styled(PortfolioGrid)`
 
 	width: 100%;
 	display: block;
@@ -68,3 +70,10 @@ const StyledPortfolioGrid = styled.div`
 		}
 	`)}
 `
+
+PortfolioGrid.propTypes = {
+    portfolio: PropTypes.array.isRequired,
+	currentFilter: PropTypes.string,
+};
+
+export default StyledPortfolioGrid;

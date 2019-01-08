@@ -1,53 +1,12 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import PortfolioFilter from '../components/portfolio-filter'
-import PortfolioGrid from '../components/portfolio-grid'
+import Filter from '../components/filter';
+import PortfolioGrid from '../components/portfolio-grid';
 
-export default class Portfolio extends React.Component {
-	
-	setFilter = this.setFilter.bind(this);
-	state = {
-		category: 'all',
-	};
-
-	getCategories(data) {
-		var categories = [];
-
-		data.map(({ node }) => (
-			node.frontmatter.category.forEach((item) => {
-				categories.push(item);
-			})
-		));
-
-		return categories.filter(
-			(value, index, self) => { 
-				return self.indexOf(value) === index;
-			}
-		).sort();
-	}
-
-	setFilter(category) {
-		this.setState({
-			category: category,
-		});
-	}
-
-	render () {
-
-		const { data } = this.props;
-
-		return (
-			<React.Fragment>
-
-				<PortfolioFilter currentCategory={this.state.category} categories={this.getCategories(data.allMarkdownRemark.edges)} setFilter={this.setFilter} />
-
-				<PortfolioGrid currentCategory={this.state.category} portfolio={data.allMarkdownRemark.edges}/>
-
-			</React.Fragment>
-		);
-	}
-};
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
 export const query = graphql`
 	query PortfolioListQuery {
@@ -80,3 +39,51 @@ export const query = graphql`
 		}
 	}
 `
+
+const Portfolio = ( props ) => {
+
+	const { 
+		data 
+	} = props;
+
+	const [currentFilter, setCurrentFilter] = useState('all');
+
+	const getCategories = (data) => {
+		var categories = [];
+
+		data.map(({ node }) => (
+			node.frontmatter.category.forEach((item) => {
+				categories.push(item);
+			})
+		));
+
+		return categories.filter(
+			(value, index, self) => { 
+				return self.indexOf(value) === index;
+			}
+		).sort();
+	};
+
+	return (
+		<React.Fragment>
+
+			<Filter 
+				currentFilter={currentFilter} 
+				setCurrentFilter={setCurrentFilter}
+				filters={getCategories(data.allMarkdownRemark.edges)} 
+			/>
+
+			<PortfolioGrid 
+				currentFilter={currentFilter} 
+				portfolio={data.allMarkdownRemark.edges}
+			/>
+
+		</React.Fragment>
+	);
+}
+
+Portfolio.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Portfolio;

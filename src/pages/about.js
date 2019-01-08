@@ -1,16 +1,8 @@
 import React from "react";
-import { graphql } from 'gatsby'
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import MarkdownBlock from '../components/markdown-block'
-
-export default class About extends React.Component {
-
-	render() {
-		return (
-			<MarkdownBlock post={ this.props.data.markdownRemark.htmlAst } />
-		)
-	}
-}
+import MarkdownBlock from '../components/markdown-block';
 
 export const query = graphql`
 	query AboutPage {
@@ -22,3 +14,15 @@ export const query = graphql`
 		}
 	}
 `
+
+const About = (props) => {
+	return (
+		<MarkdownBlock post={ props.data.markdownRemark.htmlAst } />
+	)
+}
+
+About.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default About;
