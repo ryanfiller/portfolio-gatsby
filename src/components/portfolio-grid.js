@@ -17,7 +17,7 @@ const PortfolioGrid = (props) => {
 		<section className={`portfolio-grid ${props.className}`}>
 			{portfolio.map(({ node }, index) => (
 				!currentFilter || currentFilter === 'all' || node.frontmatter.category.includes(currentFilter) ?
-					<PortfolioBlock card={node} key={index}/>
+					<PortfolioBlock {...node} key={index}/>
 				: null
 			))} 
 		</section>

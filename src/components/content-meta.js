@@ -49,8 +49,8 @@ const ContentMeta = (props) => {
 
 ContentMeta.propTypes = {
 	date: PropTypes.string,
-    tags: PropTypes.string,
-    category: PropTypes.string
+    tags: PropTypes.array,
+    category: PropTypes.array
 };
 
 const StyledContentMeta = styled(ContentMeta)`

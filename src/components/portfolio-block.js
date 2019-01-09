@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types';
+
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
@@ -6,63 +8,53 @@ import { arrows, breaks, colors, fonts, overlays, padding, transition } from '..
 
 import ContentMeta from './content-meta'
 
-export default class PortfolioBlock extends Component {
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
-	handleMouseHover = this.handleMouseHover.bind(this);
-    state = {
-        isHovering: false,
-    };
+const PortfolioBlock = (props) => {
 
-	handleMouseHover() {
-		this.setState(this.toggleHoverState);
-	}
+    const frontmatter = props.frontmatter;
 
-	toggleHoverState(state) {
-        // TODO this state is reversed if it loads while you are hovering
-		return {
-			isHovering: !state.isHovering,
-		};
-	}
+    const [hovering, setHovering] = useState(false);
 
-	render() {
+    const style = {
+        color: frontmatter.color,
+        backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
+    }
 
-		let color = {
-			color: this.props.card.frontmatter.color,
-		};
+    console.log('hovering?', props);
 
-		let colorAndBackground = {
-			color: this.props.card.frontmatter.color,
-			backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif.publicURL + ")",
-        };
-
-		return (
-			<StyledPortfolioBlock to={this.props.card.fields.slug}
-				onMouseEnter={this.handleMouseHover}
-				onMouseLeave={this.handleMouseHover}
-				style={this.state.isHovering ? colorAndBackground : color}
-				className="portfolio-block"
-            >
-				<div className="logo">
-					<img src={this.props.card.frontmatter.logowhite.publicURL} alt="TODO" />
-				</div>
-				<div className="content">
-					<h2 className="title">
-						{this.props.card.frontmatter.title}
-					</h2>
-					<ContentMeta
-						category={this.props.card.frontmatter.category}
-						tags={this.props.card.frontmatter.tags}
-					/>
-					<span className="link">
-						Read More
-            		</span>
-				</div>
-			</StyledPortfolioBlock>
-		)
-	}
+    return (
+        <Link to={props.fields.slug}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            style={style}
+            className={`${props.className} portfolio-block`}
+        >
+            <div className="logo">
+                <img src={frontmatter.logowhite.publicURL} alt="TODO" />
+            </div>
+            <div className="content">
+                <h2 className="title">
+                    {frontmatter.title}
+                </h2>
+                <ContentMeta
+                    category={frontmatter.category}
+                    tags={frontmatter.tags}
+                />
+                <span className="link">
+                    Read More
+                </span>
+            </div>
+        </Link>
+    )
 }
 
-const StyledPortfolioBlock = styled(Link)`
+PortfolioBlock.propTypes = {
+    // background: PropTypes.string.isRequired,
+};
+
+const StyledPortfolioBlock = styled(PortfolioBlock)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -154,3 +146,5 @@ const StyledPortfolioBlock = styled(Link)`
         }
     }
 `
+
+export default StyledPortfolioBlock;
