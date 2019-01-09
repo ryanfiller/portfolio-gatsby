@@ -29,7 +29,8 @@ const Button = (props) => {
         color: ${color || theme.light};
         background-color: ${background || theme.highlight};
 
-        &:hover {
+        &:hover,
+	    &:focus {
             background-color: ${active || theme.active};
             cursor: pointer;
         }

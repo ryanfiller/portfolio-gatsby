@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
-import { breaks, containers, fonts, theme } from '../config/styles'
+import { breaks, containers, fonts, theme, transition } from '../config/styles'
 
 const Filter = (props) => {
     const { 
@@ -35,9 +35,6 @@ Filter.propTypes = {
     filters: PropTypes.array.isRequired,
     currentFilter: PropTypes.string.isRequired,
     setCurrentFilter: PropTypes.func.isRequired,
-    color: PropTypes.string,
-	active: PropTypes.string,
-	background: PropTypes.string
 };
 
 const StyledFilter = styled(Filter)`
@@ -53,7 +50,7 @@ const StyledFilter = styled(Filter)`
         width: 50%;
         padding: .25rem;
         font-size: 1em;
-        color: ${props => props.background || theme.light};
+        color: ${theme.light};
 
         button {
             font-size: 1em;
@@ -65,10 +62,22 @@ const StyledFilter = styled(Filter)`
             ${fonts.sansSerif()}
             text-transform: uppercase;
             color: currentColor;
-            background-color: ${props => props.color || theme.primary};
+            background-color: ${theme.primary};
+            transition: ${transition};
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
 
             &.current {
-                background-color: ${props => props.active || theme.highlight};
+                background-color: ${theme.active};
+            }
+
+            &:hover,
+            &:focus {
+                color: ${theme.light};
+                background-color: ${theme.active};
             }
         }
     }
@@ -88,21 +97,21 @@ const StyledFilter = styled(Filter)`
             width: auto;
             text-align: center;
             text-transform: uppercase;
-            color: ${props => props.color || theme.primary};
+            color: ${theme.primary};
 
             button {
-                cursor: pointer;
                 color: currentColor;
                 background-color: transparent;
 
+                &:hover,
                 &.current {
-                    color: ${props => props.active || theme.highlight};
-                    background-color: transparent;
-                }
+                    color: ${theme.active};
+                    background: transparent;
 
-                &:hover {
-                    color: ${props => props.active || theme.highlight};
-                    background-color: transparent;
+                    &:focus {
+                        color: ${theme.light};
+                        background-color ${theme.active};
+                    }
                 }
             }
 
