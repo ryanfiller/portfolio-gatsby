@@ -151,7 +151,7 @@ const GlobalStyle = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 		&:focus {
-			outline: none;
+			outline-color: ${theme.highlight};
 		}
 	}
 

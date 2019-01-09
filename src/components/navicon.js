@@ -46,8 +46,7 @@ const StyledNavicon = styled(Navicon)`
         position: absolute;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
         .top, .middle, .bottom {
             background-color: ${props => props.active};
         }

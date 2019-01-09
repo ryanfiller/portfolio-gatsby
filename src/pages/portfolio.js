@@ -71,6 +71,9 @@ const Portfolio = ( props ) => {
 				currentFilter={currentFilter} 
 				setCurrentFilter={setCurrentFilter}
 				filters={getCategories(data.allMarkdownRemark.edges)} 
+				color={'red'} 
+				active={'green'}
+				background={'blue'}
 			/>
 
 			<PortfolioGrid 

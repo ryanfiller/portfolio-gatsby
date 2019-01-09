@@ -92,8 +92,7 @@ const StyledNavigation = styled(Navigation)`
 			color: ${props => props.active};
 		}
 
-		&:hover,
-		&:focus {
+		&:hover {
 			color: ${props => props.active};
 			cursor: pointer;
 			${breaks.tablet(`

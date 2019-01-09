@@ -70,8 +70,7 @@ const StyledLogo = styled(Logo)`
 		overflow: hidden
 	}
 
-	&:hover,
-	&:focus {
+	&:hover {
 		svg {
 			fill: ${props => props.active};
 		}
