@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { arrows, breaks, colors, fonts, overlays, padding, transition } from '../config/styles'
+import { arrows, breaks, fonts, overlays, padding, theme, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -17,6 +17,7 @@ const PortfolioBlock = (props) => {
 
     const [hovering, setHovering] = useState(false);
 
+    // TODO maybe remove color?
     const style = {
         color: frontmatter.color,
         backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
@@ -68,6 +69,22 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     position: relative;
     overflow: hidden;
 
+    &:nth-child(4n+1) {
+        background-color: ${theme.primary};
+    }
+
+    &:nth-child(4n+2) {
+        background-color: ${theme.highlight};
+    }
+
+    &:nth-child(4n+3) {
+        background-color: ${theme.active};
+    }
+
+    &:nth-child(4n+4) {
+        background-color: ${theme.dark};
+    }
+
     ${overlays.pixels}
     ${overlays.dark}
 
@@ -95,7 +112,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
 
     .content {
         text-align: center;
-        color: ${colors.white};
+        color: ${theme.light};
         max-height: 100%;
         overflow: hidden;
         transition: ${transition};
@@ -137,7 +154,6 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
 
     &:hover, &:focus {  
         cursor: pointer; 
-        box-shadow: inset 0px 0px 5rem ${colors.black};
         &:before {
             opacity: .5;
         }
