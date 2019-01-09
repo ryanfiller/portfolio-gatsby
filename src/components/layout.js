@@ -5,7 +5,7 @@ import { navigate } from 'gatsby'
 // import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 import styled, { createGlobalStyle } from 'styled-components'
-import { breaks, colors, fonts, naviconWidth, transition, theme } from '../config/styles'
+import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles'
 
 import Header from './header'
 import Footer from './footer'
@@ -140,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		font-size: 12px;
-		background-color: ${colors.black};
+		background-color: ${theme.dark};
 		${fonts.sansSerif()}
 	}
 
@@ -181,8 +181,8 @@ const StyledSkipToContent = styled.a`
 	font-size: 1.5rem;
 	padding: 0 .5rem;
 	text-align: center;
-	background: ${colors.orange};
-	color: ${colors.black};
+	background: ${theme.highlight};
+	color: ${theme.light};
 	${fonts.condensed};
 	text-decoration: none;
 	text-transform: uppercase;
@@ -213,7 +213,7 @@ const StyledSite = styled.div`
 `
 
 const StyledContent = styled.div`
-	background-color: ${colors.white};
+	background-color: ${theme.light};
 	min-height: 100vh;
 	height: auto;
 	width: 100vw;

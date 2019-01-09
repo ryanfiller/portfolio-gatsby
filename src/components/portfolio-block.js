@@ -40,45 +40,8 @@ export default class PortfolioBlock extends Component {
 				onMouseEnter={this.handleMouseHover}
 				onMouseLeave={this.handleMouseHover}
 				style={this.state.isHovering ? colorAndBackground : color}
-				className="portfolio-block">
-				<svg width="0" height="0">
-					<defs>
-						<clipPath id="tv-shape">
-							<path d="M5,
-								5S17.5,
-								0,
-								36,
-								0,
-								67,
-								5,
-								67,
-								5s5,
-								12.5,
-								5,
-								31-5,
-								31-5,
-								31a98.6,
-								98.6,
-								0,
-								0,
-								1-31,
-								5A98.6,
-								98.6,
-								0,
-								0,
-								1,
-								5,
-								67,
-								98.6,
-								98.6,
-								0,
-								0,
-								1,
-								5,
-								5Z"/>
-						</clipPath>
-					</defs>
-				</svg>
+				className="portfolio-block"
+            >
 				<div className="logo">
 					<img src={this.props.card.frontmatter.logowhite.publicURL} alt="TODO" />
 				</div>
