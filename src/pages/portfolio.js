@@ -5,8 +5,6 @@ import { graphql } from 'gatsby';
 import Filter from '../components/filter';
 import PortfolioGrid from '../components/portfolio-grid';
 
-import { theme } from '../config/styles';
-
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 

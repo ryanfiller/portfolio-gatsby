@@ -50,7 +50,8 @@ const PortfolioBlock = (props) => {
 }
 
 PortfolioBlock.propTypes = {
-    // background: PropTypes.string.isRequired,
+    fields: PropTypes.object.isRequired,
+    frontmatter: PropTypes.object.isRequired,
 };
 
 const StyledPortfolioBlock = styled(PortfolioBlock)`
@@ -102,7 +103,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         transform: translate(-50%, -50%);
         backface-visibility: hidden;
         transition: ${transition};
-        transition-timing-function: steps(5, end);
+        transition-timing-function: steps(6, end);
 
         img {
         width: 100%;
