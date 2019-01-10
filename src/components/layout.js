@@ -6,6 +6,7 @@ import { navigate } from 'gatsby'
 
 import styled, { createGlobalStyle } from 'styled-components'
 import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles'
+import { lighten, transparentize } from 'polished';
 
 import Header from './header'
 import Footer from './footer'
@@ -152,6 +153,12 @@ const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 		&:focus {
 			outline: none;
+		}
+		&::selection {
+			/* background: ${lighten(.30, theme.highlight)}; */
+			/* background: ${transparentize(.25, theme.highlight)}; */
+			background: ${theme.highlight};
+			color: ${theme.light};
 		}
 	}
 

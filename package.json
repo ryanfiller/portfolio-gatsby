@@ -41,8 +41,8 @@
 		"react-transition-group": "^2.5.0",
 		"rehype-react": "^3.0.3",
 		"styled-components": "^4.1.2",
+		"typeface-cutive-mono": "0.0.54",
 		"typeface-dosis": "0.0.54",
-		"typeface-ibm-plex-mono": "0.0.56",
 		"typeface-raleway": "0.0.54",
 		"typeface-vt323": "0.0.54"
 	},

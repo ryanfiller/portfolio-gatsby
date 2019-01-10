@@ -1,38 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import rehypeReact from "rehype-react"
-import Headshot from "./headshot"
-import CompareImages from "./compare-images"
+import rehypeReact from 'rehype-react'
+import Headshot from './headshot'
+import CompareImages from './compare-images'
 
 import styled from 'styled-components';
 
-import { animations, breaks, colors, containers, fonts, padding } from '../config/styles'
+import { animations, breaks, colors, containers, fonts, padding, theme } from '../config/styles'
 
 const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: { 
-        "headshot": Headshot,
-        "compare-images": CompareImages
+        'headshot': Headshot,
+        'compare-images': CompareImages
     }
-  }).Compiler
+}).Compiler
 
-export default class MarkdownBlock extends Component {
-    render() {
-        return (
-            <StyledMarkdown>
-                {renderAst(this.props.post)}
-            </StyledMarkdown>
-        )
-    }
+const MarkdownBlock = (props) => {
+    return (
+        <article className={props.className}>
+            {renderAst(props.post)}
+        </article>
+    )
 }
 
-const StyledMarkdown = styled.article`
+const StyledMarkdownBlock = styled(MarkdownBlock)`
     min-height: 100%;
     display: flex;
     align-items: center;
     font-size: 1.5rem;
     line-height: 1.6em;
-    background: ${colors.white};
+    background: ${theme.light};
     padding-top: calc(3*${padding});
     padding-bottom: calc(2*${padding});
     ${containers.container()};
@@ -50,16 +49,15 @@ const StyledMarkdown = styled.article`
 
     /* TODO style header links */
     p a { /* so it doesn't grab h2 headers */
-        color: ${colors.black};
+        color: ${theme.light};
         text-decoration: none;
-        padding: 0 .125em;
         border-bottom: 0;
-        background: ${colors.orange};
+        background: ${theme.active};
 
         ${breaks.tablet(`
             background: transparent;
-            border-bottom: 2px ${colors.orange} dotted;
-            ${animations.highlight('currentColor', 'currentColor', colors.orange)};
+            border-bottom: 2px ${theme.active} dotted;
+            ${animations.highlight(theme.active, theme.light, theme.active)};
         `)}
     }
 
@@ -71,7 +69,7 @@ const StyledMarkdown = styled.article`
 
             &:before {
                 content: counter(li);
-                color: ${colors.blue};
+                color: ${theme.primary};
                 position: relative;
                 left: -.5em;
             }
@@ -84,7 +82,7 @@ const StyledMarkdown = styled.article`
         li {
             &:before {
                 content: '\2022';
-                color: ${colors.blue};
+                color: ${theme.primary};
                 position: relative;
                 left: -.5em;
             }
@@ -93,19 +91,19 @@ const StyledMarkdown = styled.article`
     
     h2 {
         ${fonts.condensed()};
-        color: ${colors.blue};
+        color: ${theme.primary};
         ${fonts.sizes('1.75em', '2em, 2.25em')}
     }
     
     h3 {
         ${fonts.condensed()};
-        color: ${colors.lightGray};
+        color: ${theme.highlight};
         ${fonts.sizes('1.5em', '2em, 2.5em')}
     }
     
     h4 {
         ${fonts.sansSerif()};
-        color: ${colors.gray};
+        color: ${theme.highlight};
         font-weight: bold;
         ${fonts.sizes('1em', '1em, 1.5em')}
         font-size: 1.5em;
@@ -115,14 +113,14 @@ const StyledMarkdown = styled.article`
     blockquote {
         font-size: 1.125em;
         line-height: 1.75em;
-        border-left: 1.5em solid ${colors.blue};
+        border-left: 1.5em solid ${theme.highlight};
         padding-left: .5em;
         margin: 1em 0;
         position: relative;
     
         &:before {
             content: '"';
-            color: ${colors.white};
+            color: ${theme.light};
             position: absolute;
             font-size: 4em;
             top: 0.5em;
@@ -132,7 +130,7 @@ const StyledMarkdown = styled.article`
         }
     
         cite {
-            color: ${colors.gray};
+            color: ${theme.highlight};
             display: block;
             text-align: right;
             margin-top: .75em;
@@ -250,12 +248,14 @@ const StyledMarkdown = styled.article`
         }
     }
 
-    ${require("typeface-ibm-plex-mono")}
+    /* TODO re-style code block better */
+
+    ${require("typeface-cutive-mono")}
 
     code[class*="language-"],
     pre[class*="language-"] {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 1em;
+        font-family: 'Cutive Mono', monospace;
+        font-size: 1.125em;
         line-height: 1.5;
         direction: ltr;
         text-align: left;
@@ -269,32 +269,27 @@ const StyledMarkdown = styled.article`
         -ms-hyphens: none;
         hyphens: none;
         /* background:#2a2734; */
-        background: ${colors.darkGray};
+        background: ${theme.active};
         /* color: #afa0fe */
-        color: ${colors.white};
+        color: ${theme.primary};
     }
 
     code.language-text {
         background: transparent;
-        color: ${colors.orange};
+        color: ${theme.highlight};
     }
 
+    pre[class*="language-"]::selection,
+    pre[class*="language-"]::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"]::selection,
     pre[class*="language-"]::-moz-selection,
     pre[class*="language-"]::-moz-selection,
     code[class*="language-"]::-moz-selection,
     code[class*="language-"]::-moz-selection {
         text-shadow: none;
         /* background: #6a51e6; */
-        background: ${colors.blue};
-    }
-
-    pre[class*="language-"]::selection,
-    pre[class*="language-"]::selection,
-    code[class*="language-"]::selection,
-    code[class*="language-"]::selection {
-        text-shadow: none;
-        /* background: #6a51e6; */
-        background: ${colors.blue};
+        background: auto;
     }
 
     pre[class*="language-"] {
@@ -313,12 +308,12 @@ const StyledMarkdown = styled.article`
     .token.doctype,
     .token.cdata {
         /* color: #6c6783 */
-        color: ${colors.lightGray}
+        color: ${theme.light}
     }
 
     .token.punctuation {
         /* color: #6c6783 */
-        color: ${colors.lightGray}
+        color: ${theme.dark}
     }
 
     .token.namespace {
@@ -329,25 +324,26 @@ const StyledMarkdown = styled.article`
     .token.operator,
     .token.number {
         /* color: #e09142 */
-        color: ${colors.orange}
+        color: ${theme.primary}
     }
 
     .token.property,
     .token.function {
         /* color: #c4b9fe */
-        color: ${colors.white};
+        color: ${theme.primary};
     }
 
     .token.tag-id,
     .token.selector,
     .token.atrule-id {
-        color: #eeebff
+        /* color: #eeebff */
+
     }
 
     code.language-javascript,
     .token.attr-name {
         /* color: #c4b9fe */
-        color: ${colors.white};
+        color: ${theme.highlight};
     }
 
     code.language-css,
@@ -368,13 +364,13 @@ const StyledMarkdown = styled.article`
     .token.regex,
     .token.atrule {
         /* color: #fc9 */
-        color: ${colors.orange}
+        color: ${theme.primary}
     }
 
     .token.placeholder,
     .token.variable {
         /* color: #fc9 */
-        color: ${colors.orange}
+        color: ${theme.primary}
     }
 
     .token.deleted {
@@ -383,7 +379,7 @@ const StyledMarkdown = styled.article`
 
     .token.inserted {
         /* border-bottom: 1px dotted #eeebff; */
-        border-bottom: 1px dotted ${colors.white};
+        border-bottom: 1px dotted ${theme.light};
         text-decoration: none
     }
 
@@ -398,7 +394,7 @@ const StyledMarkdown = styled.article`
 
     .token.important {
         /* color: #c4b9fe */
-        color: ${colors.white};
+        color: ${theme.highlight};
     }
 
     .token.entity {
@@ -407,25 +403,27 @@ const StyledMarkdown = styled.article`
 
     pre>code.highlight {
         /* outline: 0.4em solid #8a75f5; */
-        outline: 0.4em solid ${colors.blue};
+        outline: 0.4em solid ${theme.primary};
         outline-offset: .4em
     }
 
     .line-numbers .line-numbers-rows {
         /* border-right-color: #2c2937 */
-        border-right-color: ${colors.lightGray};
+        border-right-color: ${theme.primary};
     }
 
     .line-numbers-rows>span:before {
         /* color: #3c3949 */
-        colors: ${colors.lightGray};
+        color: ${theme.primary};
     }
 
     .line-highlight {
         /* background: rgba(224, 145, 66, 0.2); */
-        background: ${colors.orange};
+        background: ${theme.highlight};
         /* background: linear-gradient(to right, rgba(224, 145, 66, 0.2) 70%, rgba(224, 145, 66, 0)) */
-        background: linear-gradient(to right, ${colors.orange} 70%, ${colors.orange})
+        background: linear-gradient(to right, ${theme.highlight} 70%, ${theme.highlight})
 
     }
 `
+
+export default StyledMarkdownBlock;
