@@ -23,8 +23,6 @@ const PortfolioBlock = (props) => {
         backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
     }
 
-    console.log('hovering?', props);
-
     return (
         <Link to={props.fields.slug}
             onMouseEnter={() => setHovering(true)}
@@ -88,6 +86,8 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     ${overlays.pixels}
     ${overlays.dark}
 
+    transform-origin: center center;
+
     .logo {
         flex: 1;
         width: 100%;
@@ -95,6 +95,13 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        transition: ${transition};
 
         img {
         width: 100%;
@@ -118,8 +125,14 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         transition: ${transition};
         font-size: 1rem;
 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(180deg);
+        backface-visibility: hidden;
+
         ${breaks.tablet(`
-            max-height: 0;
+            // max-height: 0;
             font-size: 1.5rem;
         `)}
     }
@@ -157,8 +170,11 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         &:before {
             opacity: .5;
         }
+        .logo {
+            transform: translate(-50%, -50%) rotateX(180deg);
+        }
         .content {
-            max-height: 100%;
+            transform: translate(-50%, -50%);
         }
     }
 `
