@@ -102,6 +102,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         transform: translate(-50%, -50%);
         backface-visibility: hidden;
         transition: ${transition};
+        transition-timing-function: steps(5, end);
 
         img {
         width: 100%;
@@ -130,6 +131,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         left: 50%;
         transform: translate(-50%, -50%) rotateX(180deg);
         backface-visibility: hidden;
+        transition-timing-function: steps(4, end);
 
         ${breaks.tablet(`
             // max-height: 0;

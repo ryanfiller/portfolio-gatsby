@@ -166,8 +166,8 @@ const GlobalStyle = createGlobalStyle`
     	image-rendering: pixelated !important;
 	}
 
-	a, a * {
-		transition: $transition;
+	a {
+		transition: ${transition};
 	}
 
 	svg, svg * {

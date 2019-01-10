@@ -148,7 +148,7 @@ export const fonts = {
     }
 }
 
-export const transition = '.2s';
+export const transition = '.3s';
 
 export const breaksPoints = {
     large: 1200,
