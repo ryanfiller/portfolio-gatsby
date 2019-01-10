@@ -1,17 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby'
 
 import BlogList from '../components/blog-list'
-
-
-export default class Blog extends React.Component {
-
-	render () {
-		return (
-			<BlogList blog={this.props.data.allMarkdownRemark.edges} />
-		)
-	}
-}
 
 export const query = graphql`
 	query BlogListQuery {
@@ -49,3 +40,15 @@ export const query = graphql`
 		}
 	}
 `
+
+const Blog = (props) => {
+	return (
+		<BlogList blog={props.data.allMarkdownRemark.edges} />
+	)
+}
+
+Blog.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Blog;

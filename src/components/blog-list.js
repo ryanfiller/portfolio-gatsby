@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from "prop-types";
 
 import styled from 'styled-components'
 import { breaks, padding } from '../config/styles'
 
 import BlogPreview from './blog-preview'
 
-export default class BlogList extends Component {
-
-	render() {
-
-		return (
-			<StyledBlogList className="blog-list">
-				{this.props.blog.map(({ node }, index) => (
-					<BlogPreview article={node} key={index}/>
-				))} 
-			</StyledBlogList>
-		)
-	}
+const BlogList = (props) => {
+	return (
+		<div className={`${props.className} blog-list`}>
+			{props.blog.map(({ node }, index) => (
+				<BlogPreview article={node} key={index}/>
+			))} 
+		</div>
+	)
 }
 
-const StyledBlogList = styled.div`
+BlogList.propTypes = {
+    blog: PropTypes.array.isRequired,
+};
+
+const StyledBlogList = styled(BlogList)`
 	width: 100%;
 	display: block;
 	padding: ${padding};
@@ -51,3 +52,5 @@ const StyledBlogList = styled.div`
 		}
 	`)}
 `
+
+export default StyledBlogList;

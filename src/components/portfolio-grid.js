@@ -24,6 +24,11 @@ const PortfolioGrid = (props) => {
 	)
 }
 
+PortfolioGrid.propTypes = {
+    portfolio: PropTypes.array.isRequired,
+	currentFilter: PropTypes.string,
+};
+
 const StyledPortfolioGrid = styled(PortfolioGrid)`
 
 	width: 100%;
@@ -70,10 +75,5 @@ const StyledPortfolioGrid = styled(PortfolioGrid)`
 		}
 	`)}
 `
-
-PortfolioGrid.propTypes = {
-    portfolio: PropTypes.array.isRequired,
-	currentFilter: PropTypes.string,
-};
 
 export default StyledPortfolioGrid;
