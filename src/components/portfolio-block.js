@@ -23,8 +23,6 @@ const PortfolioBlock = (props) => {
         backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
     }
 
-    console.log('hovering?', props);
-
     return (
         <Link to={props.fields.slug}
             onMouseEnter={() => setHovering(true)}
@@ -95,6 +93,10 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         display: flex;
         align-items: center;
         justify-content: center;
+        max-height: 100%;
+        transition: ${transition};
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
 
         img {
         width: 100%;
@@ -115,13 +117,22 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         color: ${theme.light};
         max-height: 100%;
         overflow: hidden;
-        transition: ${transition};
         font-size: 1rem;
+        transition: ${transition};
+        /* transition-delay: ${transition}; */
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
 
         ${breaks.tablet(`
-            max-height: 0;
+            // max-height: 0;
             font-size: 1.5rem;
         `)}
+    }
+
+    .logo, .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 
     .title {
@@ -157,8 +168,19 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         &:before {
             opacity: .5;
         }
+
+        .logo {
+            /* max-height: 0;
+            transition-delay: ${transition}; */
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+        
         .content {
-            max-height: 100%;
+            /* max-height: 100%;
+            transition-delay: 0s; */
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
     }
 `
