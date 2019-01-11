@@ -68,6 +68,9 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     position: relative;
     overflow: hidden;
 
+    /* TODO this gets weird when you filter
+    maybe move to class names based on .map key? */
+
     &:nth-child(4n+1) {
         background-color: ${theme.primary};
     }

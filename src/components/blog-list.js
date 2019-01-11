@@ -10,7 +10,7 @@ const BlogList = (props) => {
 	return (
 		<div className={`${props.className} blog-list`}>
 			{props.blog.map(({ node }, index) => (
-				<BlogPreview article={node} key={index}/>
+				<BlogPreview {...node} key={index}/>
 			))} 
 		</div>
 	)

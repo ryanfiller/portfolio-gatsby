@@ -1,60 +1,66 @@
-import React, { Component } from 'react'
+import React from 'react';
+import PropTypes from "prop-types";
+
 import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { animations, colors, fonts, transition } from '../config/styles'
+import { animations, fonts, transition, theme } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
-export default class PortfolioBlock extends Component {
+const BlogPreview = (props) => {
 
-	render() {
+    const frontmatter = props.frontmatter;
 
-		return (
-			<BlogPreview className="blog-preview">
-                <Link to={this.props.article.fields.slug}>
-                    <Img outerWrapperClassName="thumbnail" 
-                        sizes={this.props.article.frontmatter.thumbnail.image.childImageSharp.sizes} 
-                        alt={this.props.article.frontmatter.thumbnail.alt}
-                    />
-                </Link>
-                <div className="content">
-                    <header className="header">
-                        <Link to={this.props.article.fields.slug}>
-                            {this.props.article.frontmatter.title}
-                        </Link>
-                    </header>
-                    <span className="date">
-                        {this.props.article.frontmatter.date}
-                    </span>
-                    <p className="excerpt">
-                        {this.props.article.frontmatter.excerpt}
-                    </p>
-                    <ContentMeta
-                        category={this.props.article.frontmatter.category}
-                        tags={this.props.article.frontmatter.tags}
-                    />
-                    <Link to={this.props.article.fields.slug}  
-                        className="link">
-                        Read More
+    
+    return (
+        <article className={`${props.className} blog-preview`}>
+            <Link to={props.fields.slug}>
+                <Img outerWrapperClassName="thumbnail" 
+                    sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
+                    alt={frontmatter.thumbnail.alt}
+                />
+            </Link>
+            <div className="content">
+                <header className="header">
+                    <Link to={props.fields.slug}>
+                        {frontmatter.title}
                     </Link>
-                </div>
-            </BlogPreview>
-		)
-	}
+                </header>
+                <span className="date">
+                    {frontmatter.date}
+                </span>
+                <p className="excerpt">
+                    {frontmatter.excerpt}
+                </p>
+                <ContentMeta
+                    category={frontmatter.category}
+                    tags={frontmatter.tags}
+                />
+                <Link to={props.fields.slug}  
+                    className="link">
+                    Read More
+                </Link>
+            </div>
+        </article>
+    )
 }
 
-const BlogPreview = styled.article`
+
+BlogPreview.propTypes = {
+    // blog: PropTypes.array.isRequired,
+};
+
+const StyledBlogPreview = styled(BlogPreview)`
     font-size: 1.5rem;
     transition: ${transition};
-    color: ${colors.gray};
 
     .content {
         position: relative;
     }
 
-    .thumbnail {
+    .gatsby-image-wrapper {
         /* width: 100%; */
         /* height: auto; */
         margin-bottom: 1rem;
@@ -78,7 +84,7 @@ const BlogPreview = styled.article`
             ${fonts.sanSerif}
             text-decoration: none;
             color: currentColor;
-            ${animations.highlight()}
+            ${animations.highlight(theme.active, theme.light, theme.active)};
         }
     }
 
@@ -90,26 +96,31 @@ const BlogPreview = styled.article`
         position: absolute;
         top: .80rem;
         right: 0rem;
+        color: ${theme.disabled};
     }
 
     .excerpt {
         ${fonts.sanSerif}
         font-size: 1em;
         margin: 1rem 0;
+        color: ${theme.dark};
     }
 
     .meta {
         font-size: .8em;
         ${fonts.condensed}
         margin: 1.5rem 10em 0 0;
+        color: ${theme.disabled};
     }
 
     .link {
         color: currentColor;
-        ${animations.highlight()}
+        ${animations.highlight(theme.active, theme.light, theme.active)};
         ${fonts.inlineLink}
         position: absolute;
         right: 0;
         bottom: 0;
     }
 `
+
+export default StyledBlogPreview;

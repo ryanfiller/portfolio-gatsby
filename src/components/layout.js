@@ -230,7 +230,8 @@ const StyledContent = styled.div`
 
 	main {
 		flex: 1;
-		overflow: scroll;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 
 	${breaks.phone(`
