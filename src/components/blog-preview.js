@@ -49,7 +49,8 @@ const BlogPreview = (props) => {
 
 
 BlogPreview.propTypes = {
-    // blog: PropTypes.array.isRequired,
+    fields: PropTypes.object.isRequired,
+    frontmatter: PropTypes.object.isRequired,
 };
 
 const StyledBlogPreview = styled(BlogPreview)`
