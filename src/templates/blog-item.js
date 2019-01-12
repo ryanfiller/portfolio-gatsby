@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import Img from 'gatsby-image';
 
 import styled from 'styled-components';
-import { animations, breaks, colors, containers, fonts, overlays } from '../config/styles'
+import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles'
 
 import ContentMeta from '../components/content-meta';
 import MarkdownBlock from '../components/markdown-block';
@@ -83,11 +83,12 @@ BlogArticle.propTypes = {
 const StyledBlogArticle = styled(BlogArticle)`
 	.blog-banner {
 		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
-        background: ${colors.orange};
+        background: ${theme.highlight};
         width: 100vw;
         position: relative;
 		overflow: hidden;
-		${overlays.rgbPixels}
+		${overlays.pixels}
+		/* ${overlays.dark} */
 		font-size: 2rem;
 
 		${breaks.tablet(`
@@ -95,7 +96,7 @@ const StyledBlogArticle = styled(BlogArticle)`
 		`)}
     
         .text {
-            color: ${colors.white};
+            color: ${theme.light};
             margin: 0;
             position: relative;
             z-index: 3;
@@ -178,7 +179,7 @@ const StyledBlogArticle = styled(BlogArticle)`
         }
 
         .scroll-link {
-            color: ${colors.white};
+            color: ${theme.light};
             height: 4rem;
             width: 4rem;
             position: absolute;
@@ -282,7 +283,7 @@ const StyledBlogArticle = styled(BlogArticle)`
     }
 
     .content {
-        background-color: ${colors.white};
+        background-color: ${theme.light};
 		padding: 6rem 0 4rem 0;
         position: relative;
         z-index: 5;
