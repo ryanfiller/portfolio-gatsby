@@ -8,6 +8,17 @@ function slugify(string) {
     .replace(/-+$/, '');            // Trim - from end of text
 };
 
+function getParent(location) {
+
+    const url = location.match(/\/(.*?)\//)[0];
+    const title = url.replace(/\//g, '');
+
+    return {
+        url: url,
+        title, title
+    };
+}
+
 function initialFormState(form) {
 
     let fields = {};
@@ -36,5 +47,6 @@ function disableFormButton(fields, state) {
 module.exports = {
     slugify,
     initialFormState,
-    disableFormButton
+    disableFormButton,
+    getParent
 };

@@ -15,7 +15,29 @@ const Button = (props) => {
         onClick,
     } = props;
 
-    const StyledButton = styled.button`
+    return (
+        <button 
+            className={props.className}
+            onClick={onClick}
+            disabled={disabled}
+        >
+            <span>
+                {text}
+            </span>
+        </button>
+    )
+}
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired,
+	color: PropTypes.string,
+	active: PropTypes.string,
+    background: PropTypes.string,
+    disabled: PropTypes.bool,
+	onClick: PropTypes.func,
+};
+
+const StyledButton = styled(Button)`
         ${fonts.condensed()}
         font-size: 1em;
         display: block;
@@ -26,12 +48,12 @@ const Button = (props) => {
         border: 0;
         transition: ${transition};
 
-        color: ${color || theme.light};
-        background-color: ${background || theme.highlight};
+        color: ${props => props.color || theme.light};
+        background-color: ${props => props.background || theme.highlight};
 
         &:hover,
 	    &:focus {
-            background-color: ${active || theme.active};
+            background-color: ${props => props.active || theme.active};
             cursor: pointer;
         }
 
@@ -47,25 +69,4 @@ const Button = (props) => {
         }
     `
 
-    return (
-        <StyledButton 
-            onClick={onClick}
-            disabled={disabled}
-        >
-            <span>
-                {text}
-            </span>
-        </StyledButton>
-    )
-}
-
-Button.propTypes = {
-    text: PropTypes.string.isRequired,
-	color: PropTypes.string,
-	active: PropTypes.string,
-    background: PropTypes.string,
-    disabled: PropTypes.bool,
-	onClick: PropTypes.func,
-};
-
-export default Button;
+export default StyledButton;

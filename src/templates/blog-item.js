@@ -1,16 +1,17 @@
-import React from "react"
-import { graphql } from 'gatsby'
+import React from "react";
 import PropTypes from "prop-types";
+import { graphql } from 'gatsby';
 
 // TODO SEO HELP
 // import Helmet from 'react-helmet'
 import Img from 'gatsby-image';
 
 import styled from 'styled-components';
-import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles'
+import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles';
 
 import ContentMeta from '../components/content-meta';
 import MarkdownBlock from '../components/markdown-block';
+import BackButton from '../components/back-button';
 
 export const postQuery = graphql`
 	query BlogPost($slug: String!) {
@@ -71,6 +72,7 @@ const BlogArticle = (props) => {
 			
 			<section id="content">
 				<MarkdownBlock post={post.htmlAst} />
+				<BackButton location={props.location} />
 			</section>
 		</article>
 	);
@@ -282,11 +284,12 @@ const StyledBlogArticle = styled(BlogArticle)`
 		`)}
     }
 
-    .content {
+    #content {
         background-color: ${theme.light};
 		padding: 6rem 0 4rem 0;
         position: relative;
         z-index: 5;
+		text-align: center;
 
         &:before, &:after {
             content: '';

@@ -43,6 +43,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
     padding-bottom: calc(2*${padding});
     ${containers.container()};
     ${containers.readable()};
+    text-align: left;
 
     & > div {
         height: auto;

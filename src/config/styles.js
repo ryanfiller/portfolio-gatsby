@@ -77,7 +77,8 @@ export const overlays = {
 
 }
 
-export const arrows = () => {
+export const arrows = (direction='right') => {
+
     return`
         position: relative;
         padding-right: 1.25em;
@@ -87,12 +88,12 @@ export const arrows = () => {
             display: block;
             width: 0; 
             height: 0; 
-            border-top: .4em solid transparent;
-            border-bottom: .4em solid transparent;
-            border-left: .4em solid currentColor;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            border-top: .4em solid transparent;
+            border-bottom: .4em solid transparent;
+            border-left: .4em solid currentColor;
         }
     
         &:before {
@@ -102,6 +103,23 @@ export const arrows = () => {
         &:after {
             right: 0;
         }
+
+        ${direction === 'left' ? `
+            padding-right: 0;
+            padding-left: 1.25em;
+
+            &:before, &:after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            &:before {
+                left: .5em;
+            }
+        
+            &:after {
+                left: 0;
+            }
+        ` : null}
     `
 }
 
@@ -123,13 +141,13 @@ export const fonts = {
         `;
     },
 
-    inlineLink: () => {
+    inlineLink: (direction='right') => {
         return`
             text-transform: uppercase;
             text-decoration: none;
             position: relative;
             padding-right: 1.25em;
-            ${arrows()}
+            ${arrows(direction)}
         `
     },
 

@@ -1,46 +1,14 @@
-import React from "react"
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from 'gatsby';
 
-import { animations, breaks, colors, fonts, padding } from '../config/styles'
+import styled from 'styled-components';
+import { animations, breaks, colors, fonts, padding } from '../config/styles';
 
-import PortfolioGallery from '../components/portfolio-gallery'
-import ContentMeta from '../components/content-meta'
-import MarkdownBlock from '../components/markdown-block'
-
-export default ({data}) => {
-
-	const post = data.markdownRemark.frontmatter;
-
-	return (
-		<StyledPortfolioItem>
-			<PortfolioGallery slides={post.slides} color={post.color} />
-
-			<div className="content">
-				<header className="header">
-					<h1>
-						{post.title}
-					</h1>
-
-					<ContentMeta tags={post.tags} />
-
-					<a className="" href={post.clienturl}>
-						{post.client}
-					</a>
-				</header>
-
-				<MarkdownBlock post={data.markdownRemark.htmlAst}/>
-
-				{/* TODO */}
-				{/* <a className="back-link" href="/{{ page.parent }}"> Back to {{ page.parent }}</a> */}
-
-				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{post.gifattribution}</span>
-				</cite>
-			</div>
-		</StyledPortfolioItem>
-	);
-};
+import PortfolioGallery from '../components/portfolio-gallery';
+import ContentMeta from '../components/content-meta';
+import MarkdownBlock from '../components/markdown-block';
+import BackButton from '../components/back-button';
 
 export const postQuery = graphql`
 	query PortfolioPost($slug: String!) {
@@ -71,7 +39,44 @@ export const postQuery = graphql`
 	}
 `
 
-const StyledPortfolioItem = styled.div`
+const PortfolioItem = (props) => {
+
+	const post = props.data.markdownRemark.frontmatter;
+
+	return (
+		<article className={props.className}>
+			<PortfolioGallery slides={post.slides} color={post.color} />
+
+			<div className="content">
+				<header className="header">
+					<h1>
+						{post.title}
+					</h1>
+
+					<ContentMeta tags={post.tags} />
+
+					<a className="" href={post.clienturl}>
+						{post.client}
+					</a>
+				</header>
+
+				<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
+
+				<BackButton location={props.location} />
+
+				<cite className="gif-credit">
+					Grid Page .gif Credit: <span>{post.gifattribution}</span>
+				</cite>
+			</div>
+		</article>
+	);
+};
+
+PortfolioItem.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+const StyledPortfolioItem = styled(PortfolioItem)`
 	display: block;
 	height: auto;
 	
@@ -91,6 +96,7 @@ const StyledPortfolioItem = styled.div`
 
     .content {
 		padding-top: 0;
+		text-align: center;
 
 		${breaks.tablet(`
 			height: auto;
@@ -198,3 +204,5 @@ const StyledPortfolioItem = styled.div`
 		`)}
     }
 `
+
+export default StyledPortfolioItem;
