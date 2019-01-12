@@ -54,7 +54,7 @@ Our final designs went in the direction of highlighting the simplicity of the pa
 
 This project was the first at RocketFuel to utilize an interactive style tile using <a href="http://acme.ftsdev.com/styleguide/templates" >Corkscrew</a>[Corkscrew]. With this system I was able to make several static html components that the dev team could plug into our CMS. This also let me focus on fine-tuning some of the more complex interactions we designed for the site and how they would work with client editable content.
 
-<iframe height='500' scrolling='no' title='Steel•Tek Hover Hex' src='//codepen.io/ryanfiller89/embed/qrpXBO/?height=463&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ryanfiller89/pen/qrpXBO/'>Steel•Tek Hover Hex</a> by Ryan Filler (<a href='https://codepen.io/ryanfiller89'>@ryanfiller89</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Steel•Tek Hover Hex' src='//codepen.io/ryanfiller89/embed/qrpXBO/?height=463&theme-id=0&default-tab=result&embed-version=2' frameborder='no' style='width: 100%;'>See the Pen <a href='https://codepen.io/ryanfiller89/pen/qrpXBO/'>Steel•Tek Hover Hex</a> by Ryan Filler (<a href='https://codepen.io/ryanfiller89'>@ryanfiller89</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Marketing to Millenials

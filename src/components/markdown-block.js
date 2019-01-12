@@ -26,7 +26,10 @@ const MarkdownBlock = (props) => {
 }
 
 MarkdownBlock.propTypes = {
-    post: PropTypes.array.isRequired,
+    post: PropTypes.oneOfType([
+        PropTypes.array.isRequired,
+        PropTypes.object.isRequired,
+      ]),
 };
 
 const StyledMarkdownBlock = styled(MarkdownBlock)`
@@ -121,6 +124,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
         padding-left: .5em;
         margin: 1em 0;
         position: relative;
+        color: ${theme.highlight};
     
         &:before {
             content: '"';

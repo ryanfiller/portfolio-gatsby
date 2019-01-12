@@ -1,20 +1,49 @@
 import React from "react"
 import { graphql } from 'gatsby'
-// import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
+import PropTypes from "prop-types";
 
-import styled from 'styled-components'
+// TODO SEO HELP
+// import Helmet from 'react-helmet'
+import Img from 'gatsby-image';
+
+import styled from 'styled-components';
 import { animations, breaks, colors, containers, fonts, overlays } from '../config/styles'
 
-import ContentMeta from '../components/content-meta'
-import MarkdownBlock from '../components/markdown-block'
+import ContentMeta from '../components/content-meta';
+import MarkdownBlock from '../components/markdown-block';
 
-export default ({data}) => {
+export const postQuery = graphql`
+	query BlogPost($slug: String!) {
 
-	const post = data.markdownRemark;
+		markdownRemark(fields: { slug: { eq: $slug } }) {
+			htmlAst
+			frontmatter {
+				banner {
+					alt
+					image {
+						childImageSharp {
+							sizes(maxWidth: 2000 ) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+				} 
+				title
+				date(formatString: "MMM.DD.YY")
+				category
+				tags
+				excerpt
+			}
+		}
+	}
+`
+
+const BlogArticle = (props) => {
+
+	const post = props.data.markdownRemark;
 
 	return (
-		<StyledBlogArticle>
+		<article className={props.className} >
 			<header className="blog-banner">
 				<div className="text">
 					<h1 className="title">
@@ -43,36 +72,15 @@ export default ({data}) => {
 			<section id="content">
 				<MarkdownBlock post={post.htmlAst} />
 			</section>
-		</StyledBlogArticle>
+		</article>
 	);
 };
 
-export const postQuery = graphql`
-	query BlogPost($slug: String!) {
+BlogArticle.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			htmlAst
-			frontmatter {
-				banner {
-					alt
-					image {
-						childImageSharp {
-							sizes(maxWidth: 2000 ) {
-								...GatsbyImageSharpSizes
-							}
-						}
-					}
-				} 
-				title
-				date(formatString: "MMM.DD.YY")
-				category
-				tags
-				excerpt
-			}
-		}
-	}
-`
-const StyledBlogArticle = styled.main`
+const StyledBlogArticle = styled(BlogArticle)`
 	.blog-banner {
 		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
         background: ${colors.orange};
@@ -289,3 +297,5 @@ const StyledBlogArticle = styled.main`
         }
     }
 `
+
+export default StyledBlogArticle;
