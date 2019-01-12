@@ -8,9 +8,6 @@ const Button = (props) => {
 
     const {
         text,
-        color,
-        active,
-        background,
         disabled,
         onClick,
     } = props;

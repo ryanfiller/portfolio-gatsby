@@ -15,7 +15,7 @@ function getParent(location) {
 
     return {
         url: url,
-        title, title
+        title: title
     };
 }
 
