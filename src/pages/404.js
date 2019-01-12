@@ -191,7 +191,6 @@ const StyledFourOhFour = styled(FourOhFour)`
     max-width: 100%;
     /* background-image: url("/images/site-assets/2001.gif"); */
     background-image: url("/images/site-assets/grass.gif");
-    /* background-image: url('https://media3.giphy.com/media/GC7C2Fi902BDG/giphy.gif'); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

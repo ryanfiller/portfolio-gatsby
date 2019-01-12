@@ -22,12 +22,15 @@ export const theme = {
 
 var pixelSize = '.25rem'
 var pixels = '/images/site-assets/screendoor.png'
+var r = 'rgba(255, 0, 0, .10)';
+var g = 'rgba(0, 255, 0, .10)';
+var b = 'rgba(0, 0, 255, .10)';
 var rgb = `
     repeating-linear-gradient(
         to bottom,
-        ${colors.r} calc(0*${pixelSize}), ${colors.r} calc(1*${pixelSize}),
-        ${colors.g} calc(1*${pixelSize}), ${colors.g} calc(2*${pixelSize}),
-        ${colors.b} calc(2*${pixelSize}), ${colors.b} calc(3*${pixelSize})
+        ${r} calc(0*${pixelSize}), ${r} calc(1*${pixelSize}),
+        ${g} calc(1*${pixelSize}), ${g} calc(2*${pixelSize}),
+        ${b} calc(2*${pixelSize}), ${b} calc(3*${pixelSize})
     );
 `
 var overlay = (styles) => {
@@ -55,7 +58,7 @@ export const overlays = {
     dark: overlay(`
         background-color: ${transparentize(.5, colors.grayDark)};
         @supports (mix-blend-mode: multiply) {
-            background-color: ${colors.gray};
+            background-color: ${transparentize(.66, colors.gray)};
             mix-blend-mode: multiply;
         }
     `),
