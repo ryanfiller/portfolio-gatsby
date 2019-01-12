@@ -72,6 +72,7 @@ const FourOhFour = (props) => {
 		setMenuIndex(menuIndex - links.length)
 	}
 
+	// TODO, up up and down down make the arrow dissapear
 	if (menuIndex < 0) {
 		setMenuIndex(menuIndex + links.length)
 	}
@@ -107,10 +108,10 @@ const FourOhFour = (props) => {
 			e.preventDefault();
 		}
 
-        window.addEventListener('keydown', handleKeydown);
+        document.addEventListener('keydown', handleKeydown);
 
         return () => {
-          window.removeEventListener('keydown', handleKeydown);
+          document.removeEventListener('keydown', handleKeydown);
         };
       });
 		
