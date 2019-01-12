@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { animations, breaks, colors, fonts, padding } from '../config/styles';
+import { animations, breaks, fonts, padding, theme } from '../config/styles';
 
 import PortfolioGallery from '../components/portfolio-gallery';
 import ContentMeta from '../components/content-meta';
@@ -123,6 +123,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             text-align: center;
 			text-transform: uppercase;
 			${fonts.condensed()}
+			color: ${theme.primary}
         }
 
         .meta {
@@ -131,7 +132,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             text-align: center;
 
             .meta__tag {
-                color: ${colors.lightGray};
+                color: ${theme.disabled};
             }
         }
 
@@ -141,7 +142,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             margin: 0 auto;
             margin-top: .75em;
             text-decoration: none;
-            ${animations.highlight(colors.blue, colors.white, colors.blue)}
+            ${animations.highlight(theme.active, theme.light, theme.active)}
 		}
 		
 		&:after {
@@ -149,8 +150,8 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 			display: block;
 			width: 1rem;
 			height: 1rem;
-			border-right: 2px solid ${colors.orange};
-			border-bottom: 2px solid ${colors.orange};
+			border-right: 2px solid ${theme.active};
+			border-bottom: 2px solid ${theme.active};
 			margin: 0 auto;
 			transform: rotate(45deg);
 			margin-top: 2rem;
@@ -179,7 +180,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             height: calc(${padding}*6);
             width: 50%;
             z-index: 2;
-            background: linear-gradient(to top, ${colors.white}, transparent);
+            background: linear-gradient(to top, ${theme.light}, transparent);
 			pointer-events: none;
 			
 			${breaks.tablet(`
@@ -190,7 +191,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 
     .gif-credit {
         ${fonts.condensed()}
-        color: ${colors.darkGray};
+        color: ${theme.primary};
         display: none;
         text-align: center;
         margin-top: 4rem;

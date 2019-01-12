@@ -106,7 +106,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         transform: translate(-50%, -50%);
         backface-visibility: hidden;
         transition: ${transition};
-        transition-timing-function: steps(6, end);
+        transition-timing-function: steps(4, end);
 
         img {
         width: 100%;

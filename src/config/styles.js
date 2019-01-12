@@ -311,12 +311,13 @@ export const animations = {
         return`
             animation-name: floating;
             animation-duration: ${transition};
+            animation-timing-function: steps(2, end);
             animation-iteration-count: infinite;
             position: relative;
             
             @keyframes floating {
                 from { top: 0; }
-                50%  { top: -.125em; }
+                50%  { top: -.25rem; }
                 to   { top: 0; }    
             }
         `

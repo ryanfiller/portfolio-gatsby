@@ -57,7 +57,7 @@ const StyledSocialList = styled(SocialList)`
 				`fill: currentColor;`
 			}
 
-			/* TODO something is funk with this when oneColor = true */
+			/* TODO something is funky with this when oneColor = true */
 			${breaks.phone(`
 				fill: ${props => props.color};
 			`)}
