@@ -179,12 +179,16 @@ function gradient() {
 
 const GlobalStyle = createGlobalStyle`
 	#header {
-			display: none;
-		}
+		display: none;
+	}
+
+	#content {
+		display: flex;
+		align-items: stretch;
+	}
 `
 
 const StyledFourOhFour = styled(FourOhFour)`
-	height: 100%;
     font-family: 'VT323', monospace;
     color: white;
     margin: 0;
