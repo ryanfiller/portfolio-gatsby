@@ -15,18 +15,16 @@ const BlogPreview = (props) => {
 
     
     return (
-        <article className={`${props.className} blog-preview`}>
-            <Link to={props.fields.slug}>
-                <Img outerWrapperClassName="thumbnail" 
-                    sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
-                    alt={frontmatter.thumbnail.alt}
-                />
-            </Link>
+        <Link to={props.fields.slug} className={`${props.className} blog-preview`}>
+            <Img outerWrapperClassName="thumbnail" 
+                sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
+                alt={frontmatter.thumbnail.alt}
+            />
             <div className="content">
                 <header className="header">
-                    <Link to={props.fields.slug}>
+                    <span className="header__text">
                         {frontmatter.title}
-                    </Link>
+                    </span>
                 </header>
                 <span className="date">
                     {frontmatter.date}
@@ -38,12 +36,11 @@ const BlogPreview = (props) => {
                     category={frontmatter.category}
                     tags={frontmatter.tags}
                 />
-                <Link to={props.fields.slug}  
-                    className="link">
+                <span className="link">
                     Read More
-                </Link>
+                </span>
             </div>
-        </article>
+        </Link>
     )
 }
 
@@ -56,14 +53,13 @@ BlogPreview.propTypes = {
 const StyledBlogPreview = styled(BlogPreview)`
     font-size: 1.5rem;
     transition: ${transition};
+    text-decoration: none;
 
     .content {
         position: relative;
     }
 
     .gatsby-image-wrapper {
-        /* width: 100%; */
-        /* height: auto; */
         margin-bottom: 1rem;
 
         img {
@@ -77,7 +73,7 @@ const StyledBlogPreview = styled(BlogPreview)`
         font-size: 1.5em;
         margin-right: 2.75em;
         
-        a {
+        &__text {
             display: inline;
             font-size: 1em;
             line-height: 1.125em;
@@ -121,6 +117,13 @@ const StyledBlogPreview = styled(BlogPreview)`
         position: absolute;
         right: 0;
         bottom: 0;
+    }
+
+    &:hover {
+        background-color: ${theme.primary};
+        * {
+             color: ${theme.light};
+        }
     }
 `
 

@@ -33,6 +33,8 @@ const StyledBlogList = styled(BlogList)`
 
 	${breaks.phone(`
 		display: flex;
+		flex-wrap: wrap;
+		align-items: start;
 
 		& > * {
 			flex: 1;
