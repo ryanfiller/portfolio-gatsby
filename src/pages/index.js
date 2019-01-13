@@ -9,43 +9,11 @@ import { breaks } from '../config/styles';
 import { arrayZip } from '../helpers/helpers';
 
 import PortfolioGrid from '../components/portfolio-grid';
+import BlogPreview from '../components/blog-preview';
+import PortfolioBlock from '../components/portfolio-block.js'
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
-
-// export const query = graphql`
-// 	query HomepagePortfolioList {
-// 		allMarkdownRemark(
-// 			sort: { order: DESC, fields: [frontmatter___date]},
-// 			filter: {
-// 				fields: {slug: { regex: "//portfolio//" }},
-// 				frontmatter: { published: { eq: true } }
-// 			},
-// 		) {
-// 			edges {
-// 				node {
-// 					fields {
-// 						slug
-// 					}
-// 					frontmatter {
-// 						title
-// 						color
-// 						backgroundgif {
-// 							relativePath
-// 							publicURL
-// 						}
-// 						category
-// 						tags
-// 						logowhite {
-// 							relativePath
-// 							publicURL
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// `
 
 export const query = graphql`
 	query HomepageBlocks {
@@ -59,8 +27,22 @@ export const query = graphql`
 	) {
 		edges {
 			node {
+				fields {
+					slug
+				}
 				frontmatter {
-				title
+					title
+					color
+					backgroundgif {
+						relativePath
+						publicURL
+					}
+					category
+					tags
+					logowhite {
+						relativePath
+						publicURL
+					}
 				}
 			}
 		}
@@ -75,8 +57,25 @@ export const query = graphql`
 			) {
 				edges {
 					node {
+						fields {
+							slug
+						}
 						frontmatter {
 							title
+							date(formatString: "MMM.DD.YY")
+							category
+							tags
+							excerpt
+							thumbnail {
+								alt
+								image {
+									childImageSharp {
+										sizes(maxWidth: 1200 ) {
+											...GatsbyImageSharpSizes
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -106,8 +105,7 @@ const Homepage = (props) => {
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;
-
-	arrayZip(portfolio, blog, 2, 1);
+	const gridItems = arrayZip(portfolio, blog, 2, 1);
 
 	return (
 		<React.Fragment>
@@ -116,6 +114,20 @@ const Homepage = (props) => {
 				portfolio={props.data.allMarkdownRemark.edges}
 				currentCategory="all"
 			/> */}
+			<div>
+				{gridItems.map( (chunk, index) => {
+					if (index % 2 === 0) { // is even, is porfolio
+						return chunk.map( (item, index) => {
+							return <PortfolioBlock {...item.node} key={index}/>
+						})
+
+					} else { // is odd, is blog
+						return chunk.map( (item, index) => {
+							return <BlogPreview {...item.node} key={index}/>
+						})
+					}
+				})}
+			</div>
 		</React.Fragment>
 	)
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from "prop-types";
 
-import styled from 'styled-components'
-import { breaks, padding } from '../config/styles'
+import styled from 'styled-components';
+import { breaks, padding } from '../config/styles';
 
-import BlogPreview from './blog-preview'
+import BlogPreview from './blog-preview';
 
 const BlogList = (props) => {
 	return (
