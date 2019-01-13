@@ -6,42 +6,81 @@ import { graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 import { breaks } from '../config/styles';
 
+import { arrayZip } from '../helpers/helpers';
+
 import PortfolioGrid from '../components/portfolio-grid';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 
+// export const query = graphql`
+// 	query HomepagePortfolioList {
+// 		allMarkdownRemark(
+// 			sort: { order: DESC, fields: [frontmatter___date]},
+// 			filter: {
+// 				fields: {slug: { regex: "//portfolio//" }},
+// 				frontmatter: { published: { eq: true } }
+// 			},
+// 		) {
+// 			edges {
+// 				node {
+// 					fields {
+// 						slug
+// 					}
+// 					frontmatter {
+// 						title
+// 						color
+// 						backgroundgif {
+// 							relativePath
+// 							publicURL
+// 						}
+// 						category
+// 						tags
+// 						logowhite {
+// 							relativePath
+// 							publicURL
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// `
+
 export const query = graphql`
-	query HomepagePortfolioList {
-		allMarkdownRemark(
-			sort: { order: DESC, fields: [frontmatter___date]},
-			filter: {
-				fields: {slug: { regex: "//portfolio//" }},
-				frontmatter: { published: { eq: true } }
-			},
-		) {
-			edges {
-				node {
-					fields {
-						slug
-					}
-					frontmatter {
-						title
-						color
-						backgroundgif {
-							relativePath
-							publicURL
-						}
-						category
-						tags
-						logowhite {
-							relativePath
-							publicURL
+	query HomepageBlocks {
+	portfolio: allMarkdownRemark(
+		sort: { order: DESC, fields: [frontmatter___date]},
+		filter: {
+			fields: {slug: { regex: "//portfolio//" }},
+			frontmatter: { published: { eq: true } }
+		},
+		# limit: 4,
+	) {
+		edges {
+			node {
+				frontmatter {
+				title
+				}
+			}
+		}
+	}
+	blog: allMarkdownRemark(
+				sort: { order: DESC, fields: [frontmatter___date]},
+				filter: {
+					fields: {slug: { regex: "//blog//" }},
+					frontmatter: { published: { eq: true } }
+				},
+			# limit: 2,
+			) {
+				edges {
+					node {
+						frontmatter {
+							title
 						}
 					}
 				}
 			}
-		}
 	}
 `
 
@@ -63,15 +102,20 @@ const Homepage = (props) => {
         return () => {
           document.removeEventListener('wheel', scrollDirectionConverter);
         };
-	  });
+	});
+
+	const portfolio = props.data.portfolio.edges;
+	const blog = props.data.blog.edges;
+
+	arrayZip(portfolio, blog, 2, 1);
 
 	return (
 		<React.Fragment>
 			{/* <GlobalStyle /> */}
-			<PortfolioGrid 
+			{/* <PortfolioGrid 
 				portfolio={props.data.allMarkdownRemark.edges}
 				currentCategory="all"
-			/>
+			/> */}
 		</React.Fragment>
 	)
 }
