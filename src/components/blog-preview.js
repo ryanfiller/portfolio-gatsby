@@ -15,16 +15,18 @@ const BlogPreview = (props) => {
 
     
     return (
-        <Link to={props.fields.slug} className={`${props.className} blog-preview`}>
-            <Img outerWrapperClassName="thumbnail" 
-                sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
-                alt={frontmatter.thumbnail.alt}
-            />
+        <article className={`${props.className} blog-preview`}>
+            <Link to={props.fields.slug}>
+                <Img outerWrapperClassName="thumbnail" 
+                    sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
+                    alt={frontmatter.thumbnail.alt}
+                />
+            </Link>
             <div className="content">
                 <header className="header">
-                    <span className="header__text">
+                    <Link to={props.fields.slug} className="header__text">
                         {frontmatter.title}
-                    </span>
+                    </Link>
                 </header>
                 <span className="date">
                     {frontmatter.date}
@@ -36,11 +38,11 @@ const BlogPreview = (props) => {
                     category={frontmatter.category}
                     tags={frontmatter.tags}
                 />
-                <span className="link">
+                <Link to={props.fields.slug} className="link">
                     Read More
-                </span>
+                </Link>
             </div>
-        </Link>
+        </article>
     )
 }
 
@@ -117,13 +119,6 @@ const StyledBlogPreview = styled(BlogPreview)`
         position: absolute;
         right: 0;
         bottom: 0;
-    }
-
-    &:hover {
-        background-color: ${theme.primary};
-        * {
-             color: ${theme.light};
-        }
     }
 `
 

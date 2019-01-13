@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby'
 
-import BlogList from '../components/blog-list'
+import { graphql } from 'gatsby';
+
+import styled from 'styled-components';
+import { breaks, padding } from '../config/styles';
+
+import BlogPreview from '../components/blog-preview';
 
 export const query = graphql`
 	query BlogListQuery {
@@ -43,7 +47,11 @@ export const query = graphql`
 
 const Blog = (props) => {
 	return (
-		<BlogList blog={props.data.allMarkdownRemark.edges} />
+		<section className={`${props.className} blog-list`}>
+			{props.data.allMarkdownRemark.edges.map(({ node }, index) => (
+				<BlogPreview {...node} key={index}/>
+			))} 
+		</section>
 	)
 }
 
@@ -51,4 +59,40 @@ Blog.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
-export default Blog;
+const StyledBlog = styled(Blog)`
+
+	width: 100%;
+	display: block;
+	padding: ${padding};
+
+	& > * {
+		width: 100%;
+		box-sizing: border-box;
+		padding: ${padding};
+	}
+
+	${breaks.phone(`
+		display: flex;
+		flex-wrap: wrap;
+		align-items: start;
+
+		& > * {
+			flex: 1;
+			max-width: 50%;
+		}
+	`)}
+
+	${breaks.tablet(`
+		& > * {
+			max-width: 33.333vw;
+		}
+	`)}
+
+	${breaks.desktop(`
+		& > * {
+			max-width: 25%;
+		}
+	`)}
+`
+
+export default StyledBlog;

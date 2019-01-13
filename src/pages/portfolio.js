@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import styled from 'styled-components';
+import { breaks } from '../config/styles';
+
 import Filter from '../components/filter';
-import PortfolioGrid from '../components/portfolio-grid';
+import PortfolioBlock from '../components/portfolio-block';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
@@ -65,7 +68,7 @@ const Portfolio = ( props ) => {
 	};
 
 	return (
-		<React.Fragment>
+		<section className={props.className}>
 
 			<Filter 
 				currentFilter={currentFilter} 
@@ -73,12 +76,15 @@ const Portfolio = ( props ) => {
 				filters={getCategories(data.allMarkdownRemark.edges)} 
 			/>
 
-			<PortfolioGrid 
-				currentFilter={currentFilter} 
-				portfolio={data.allMarkdownRemark.edges}
-			/>
+			<section className="portfolio-grid">
+				{data.allMarkdownRemark.edges.map(({ node }, index) => (
+					!currentFilter || currentFilter === 'all' || node.frontmatter.category.includes(currentFilter) ?
+						<PortfolioBlock {...node} key={index}/>
+					: null
+				))} 
+			</section>
 
-		</React.Fragment>
+		</section>
 	);
 }
 
@@ -86,4 +92,53 @@ Portfolio.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
-export default Portfolio;
+const StyledPortfolio = styled(Portfolio)`
+
+	.portfolio-grid {
+		width: 100%;
+		display: block;
+
+		& > * {
+			width: 100%;
+			height: 75vw;
+		}
+
+		${breaks.phone(`
+
+			display: flex;
+			flex-wrap: wrap;
+
+			& > * {
+				width: 50%;
+				height: 50vw;
+			}
+
+			@supports(display: grid) {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: auto;
+
+				& > * {
+					width: 100%;
+					height: 33.333vw;
+				}
+			}
+		`)}
+
+		${breaks.tablet(`
+			@supports(display: grid) {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: auto;
+
+				& > * {
+					&:nth-child(4n-2), &:nth-child(4n-1) {
+						grid-column: span 2;
+					}
+				}
+			}
+		`)}	
+	}
+`
+
+export default StyledPortfolio;

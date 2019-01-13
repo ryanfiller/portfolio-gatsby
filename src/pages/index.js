@@ -8,71 +8,69 @@ import { breaks } from '../config/styles';
 
 import { arrayZip } from '../helpers/helpers';
 
-import PortfolioGrid from '../components/portfolio-grid';
-import BlogPreview from '../components/blog-preview';
 import PortfolioBlock from '../components/portfolio-block.js'
+import BlogPreview from '../components/blog-preview';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 
 export const query = graphql`
 	query HomepageBlocks {
-	portfolio: allMarkdownRemark(
-		sort: { order: DESC, fields: [frontmatter___date]},
-		filter: {
-			fields: {slug: { regex: "//portfolio//" }},
-			frontmatter: { published: { eq: true } }
-		},
-		# limit: 4,
-	) {
-		edges {
-			node {
-				fields {
-					slug
-				}
-				frontmatter {
-					title
-					color
-					backgroundgif {
-						relativePath
-						publicURL
+		portfolio: allMarkdownRemark(
+			sort: { order: DESC, fields: [frontmatter___date]},
+			filter: {
+				fields: {slug: { regex: "//portfolio//" }},
+				frontmatter: { published: { eq: true } }
+			},
+			# limit: 4,
+		) {
+			edges {
+				node {
+					fields {
+						slug
 					}
-					category
-					tags
-					logowhite {
-						relativePath
-						publicURL
+					frontmatter {
+						title
+						color
+						backgroundgif {
+							relativePath
+							publicURL
+						}
+						category
+						tags
+						logowhite {
+							relativePath
+							publicURL
+						}
 					}
 				}
 			}
 		}
-	}
-	blog: allMarkdownRemark(
-				sort: { order: DESC, fields: [frontmatter___date]},
-				filter: {
-					fields: {slug: { regex: "//blog//" }},
-					frontmatter: { published: { eq: true } }
-				},
-			# limit: 2,
-			) {
-				edges {
-					node {
-						fields {
-							slug
-						}
-						frontmatter {
-							title
-							date(formatString: "MMM.DD.YY")
-							category
-							tags
-							excerpt
-							thumbnail {
-								alt
-								image {
-									childImageSharp {
-										sizes(maxWidth: 1200 ) {
-											...GatsbyImageSharpSizes
-										}
+		blog: allMarkdownRemark(
+			sort: { order: DESC, fields: [frontmatter___date]},
+			filter: {
+				fields: {slug: { regex: "//blog//" }},
+				frontmatter: { published: { eq: true } }
+			},
+		# limit: 2,
+		) {
+			edges {
+				node {
+					fields {
+						slug
+					}
+					frontmatter {
+						title
+						date(formatString: "MMM.DD.YY")
+						category
+						tags
+						excerpt
+						thumbnail {
+							alt
+							image {
+								childImageSharp {
+									sizes(maxWidth: 1200 ) {
+										...GatsbyImageSharpSizes
 									}
 								}
 							}
@@ -80,6 +78,7 @@ export const query = graphql`
 					}
 				}
 			}
+		}
 	}
 `
 
