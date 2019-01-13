@@ -17,6 +17,9 @@ import OffCanvas from './off-canvas';
 import Overlay from './overlay';
 // import Transition from './transition'
 
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
+
 export const NavContext = React.createContext();
 
 const Layout = (props) => {
@@ -92,7 +95,7 @@ const Layout = (props) => {
 					/>
 				: null}
 
-				<div className="site-content">
+				<div id="site-content">
 
 					{offCanvasOpen === true ? 
 						<Overlay 
@@ -192,7 +195,7 @@ const StyledLayout = styled(Layout)`
 		}
 	}
 
-	.site-content {
+	#site-content {
 		background-color: ${theme.light};
 		min-height: 100vh;
 		height: auto;

@@ -1,41 +1,15 @@
-import React from 'react';
-import { graphql } from 'gatsby'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-// import { injectGlobal } from 'styled-components'
-import { breaks } from '../config/styles'
+import { graphql } from 'gatsby';
 
-import PortfolioGrid from '../components/portfolio-grid'
+import { createGlobalStyle } from 'styled-components';
+import { breaks } from '../config/styles';
 
-export default class Homepage extends React.Component {
+import PortfolioGrid from '../components/portfolio-grid';
 
-	componentDidMount() {
-		document.addEventListener('wheel', this.onScroll);
-	}
-	
-	componentWillUnmount() {
-		document.removeEventListener('wheel', this.onScroll);
-	  }
-	
-	onScroll(e) {
-		var container = document.getElementsByClassName('portfolio-grid');
-	
-		if (window.innerWidth > breaks.tablet) {
-			container[0].scrollLeft += e.deltaY;
-			container[0].scrollLeft += e.deltaX;
-	
-			e.preventDefault();
-		}
-	}
-
-  	render() {
-		return (
-			<PortfolioGrid 
-				portfolio={this.props.data.allMarkdownRemark.edges}
-				currentCategory="all"
-			/>
-		)
-	}
-}
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
 export const query = graphql`
 	query HomepagePortfolioList {
@@ -71,128 +45,167 @@ export const query = graphql`
 	}
 `
 
-// injectGlobal`
-// 	${breaks.tablet(`
-// 		@supports(display: grid) {
-// 			.site.horizontal {
-// 				.site-content {
-// 					display: grid;
-// 					grid-template-columns: 80vw 20vw;
-// 					grid-template-rows: 1fr auto;
+const Homepage = (props) => {
+	useEffect(() => {
 
-// 					.header, .footer {
-// 						grid-column-start: 2;
-// 						grid-column-end: 3;
-// 						z-index: 10;
-// 						box-shadow: 0px 0px 1.25rem $color-black;
-// 					}
-
-// 					.header {
-// 						grid-row-start: 1;
-// 						grid-row-end: 2;
-// 					}
-
-// 					.footer {
-// 						grid-row-start: 2;
-// 						grid-row-end: 3;
-// 					}
-
-// 					main{
-// 						grid-column-start: 1;
-// 						grid-column-end: 2;
-// 						grid-row-start: 1;
-// 						grid-row-end: 3;
-// 						overflow-x: scroll;
-// 					}
-// 				}
-
-// 				.header {
-// 					flex-wrap: wrap;
-// 					justify-content: center;
-// 					align-items: space-around;
-
-// 					.rf-logo {
-// 						font-size: 2.5em;
-
-// 						.r {
-// 							filter: drop-shadow( .25em 0px 0px $color-black ); 
-// 							margin-right: -.7em;
-// 						}
+        const scrollDirectionConverter = (e) => {
+			var container = document.getElementsByClassName('portfolio-grid');
 		
-// 						.f {
-// 							transform: rotateY(180deg);
-// 							margin-right: 0;
-// 							margin-left: .15em;
-// 						}
+			if (window.innerWidth > breaks.tablet) {
+				container[0].scrollLeft += e.deltaY;
+				container[0].scrollLeft += e.deltaX;
+				e.preventDefault();
+			}
+		}
+
+        document.addEventListener('wheel', scrollDirectionConverter);
+
+        return () => {
+          document.removeEventListener('wheel', scrollDirectionConverter);
+        };
+	  });
+
+	return (
+		<React.Fragment>
+			<GlobalStyle />
+			<PortfolioGrid 
+				portfolio={props.data.allMarkdownRemark.edges}
+				currentCategory="all"
+			/>
+		</React.Fragment>
+	)
+}
+
+Homepage.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Homepage;
+
+// TODO - refactor all of this
+const GlobalStyle = createGlobalStyle`
+	${breaks.tablet(`
+		@supports(display: grid) {
+			#site {
+				#site-content {
+					display: grid;
+					grid-template-columns: 80vw 20vw;
+					grid-template-rows: 1fr auto;
+
+					#header, #footer {
+						grid-column-start: 2;
+						grid-column-end: 3;
+						z-index: 10;
+						box-shadow: 0px 0px 1.25rem $color-black;
+					}
+
+					#header {
+						grid-row-start: 1;
+						grid-row-end: 2;
+					}
+
+					#footer {
+						grid-row-start: 2;
+						grid-row-end: 3;
+					}
+
+					main {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 1;
+						grid-row-end: 3;
+						overflow-x: scroll;
+					}
+				}
+
+				#header {
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: space-around;
+
+					a { //logo
+						font-size: 2.5em;
+
+						.r {
+							filter: drop-shadow( .25em 0px 0px $color-black ); 
+							margin-right: -.7em;
+						}
 		
-// 						.yan, .iller {
-// 							max-width: 0;
-// 						}
-// 					}
+						.f {
+							transform: rotateY(180deg);
+							margin-right: 0;
+							margin-left: .15em;
+						}
+		
+						.yan, .iller {
+							max-width: 0;
+						}
+					}
 
-// 					.nav {
-// 						width: 100%;
-// 						flex: initial;
-// 						display: block;
-// 						text-align: center;
+					nav {
+						width: 100%;
+						flex: initial;
+						display: block;
+						text-align: center;
 
-// 						a {
-// 							display: inline-block;
-// 							margin: .5em;
-// 						}
-// 					}
-// 				}
+						a {
+							font-size: 2rem;
+							display: inline-block !important;
+							margin: .5em !important;
+						}
+					}
+				}
 
-// 				.portfolio-grid {
-// 					height: 100vh;
-// 					width: auto;
-// 					display: grid;
-// 					grid-auto-flow: row;
-// 					grid-template-columns: repeat(auto-fill, 50vh);
-// 					grid-template-rows: 50vh 50vh;
-// 					overflow-x: scroll;
+				#portfolio-grid {
+					height: 100vh;
+					width: auto;
+					display: grid;
+					grid-auto-flow: row;
+					grid-template-columns: repeat(auto-fill, 50vh);
+					grid-template-rows: 50vh 50vh;
+					overflow-x: scroll;
 
-// 					& > * {
-// 						width: 100vh;
-// 						height: 50vh;
-// 						grid-column-end: span 2;
+					& > * {
+						width: 100vh;
+						height: 50vh;
+						grid-column-end: span 2;
 
-// 						&:first-child, &:last-child {
-// 							width: 50vh;
-// 							grid-column-end: span 1;
-// 						}
+						&:first-child, &:last-child {
+							width: 50vh;
+							grid-column-end: span 1;
+						}
 
-// 						&:nth-child(odd) {
-// 							grid-row-start: 1;
-// 							grid-row-end: 2;
-// 						}
+						&:nth-child(odd) {
+							grid-row-start: 1;
+							grid-row-end: 2;
+						}
 
-// 						&:nth-child(even) {
-// 							grid-row-start: 2;
-// 							grid-row-end: 3;
-// 						}
-// 					}
-// 				}
+						&:nth-child(even) {
+							grid-row-start: 2;
+							grid-row-end: 3;
+						}
+					}
+				}
 			
-// 				.footer {
-// 					display: block;
+				#footer {
+					display: block;
 
-// 					.copyright {
-// 						text-align: center;
-// 						margin-bottom: 1em;
-// 					}
+					.copyright {
+						text-align: center;
+						margin-bottom: 1em;
+					}
 					
-// 					.socials {
-// 						li {
-// 							flex: 1;
-// 						}
+					.socials {
+						li {
+							flex: 1;
+						}
 		
-// 						li {
-// 							width: 100%;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}	
-// 	`)}
-// `
+						li {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}	
+	`)}
+`
