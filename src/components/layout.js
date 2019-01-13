@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
 import { navigate } from 'gatsby';
 
 // import { CSSTransition, TransitionGroup } from "react-transition-group"
 
-import styled, { createGlobalStyle } from 'styled-components'
-import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles'
+import styled, { createGlobalStyle } from 'styled-components';
+import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles';
 import { lighten, transparentize } from 'polished';
 
-import Header from './header'
-import Footer from './footer'
-import OffCanvas from './off-canvas'
-import Overlay from './overlay'
+import SkipToContent from './skip-to-content';
+import Header from './header';
+import Footer from './footer';
+import OffCanvas from './off-canvas';
+import Overlay from './overlay';
 // import Transition from './transition'
 
 export const NavContext = React.createContext();
@@ -49,7 +51,6 @@ const Layout = (props) => {
 			if (e.keyCode === 27) { // escape key
 				setOffCanvasOpen(false);
 			}
-			e.preventDefault();
 		}
 
         document.addEventListener('keydown', handleKeydown);
@@ -66,10 +67,10 @@ const Layout = (props) => {
 			toggleOffCanvas: toggleOffCanvas,
 			currentPage: props.location.pathname,
 		}}>
-			<StyledSite 
+			<div 
 				className={`site ${offCanvasOpen === true ? 'open' : null} ${props.className}`} 
 				id="site"
-			
+				tabIndex="0"
 			>
 				<GlobalStyle />
 
@@ -81,9 +82,7 @@ const Layout = (props) => {
 					]}
 				/>
 					
-				<StyledSkipToContent href={`${props.location.pathname}#content`}>
-					Skip to Content
-				</StyledSkipToContent>
+				<SkipToContent />
 
 				{offCanvasOpen === true ? 
 					<OffCanvas 
@@ -93,7 +92,7 @@ const Layout = (props) => {
 					/>
 				: null}
 
-				<StyledContent className="site-content">
+				<div className="site-content">
 
 					{offCanvasOpen === true ? 
 						<Overlay 
@@ -120,11 +119,15 @@ const Layout = (props) => {
 						background={theme.dark}
 					/>
 
-				</StyledContent >
-			</StyledSite>
+				</div>
+			</div>
 		</NavContext.Provider>
 	)
 }
+
+Layout.propTypes = {
+	children: PropTypes.object.isRequired,
+};
 
 const GlobalStyle = createGlobalStyle`
   	html, body {
@@ -169,64 +172,45 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-const StyledSkipToContent = styled.a`
-	display: block;
-	transition: ${transition};
-	max-height: 0;
-	overflow: hidden;
-	box-sizing: border-box;
-	font-size: 1.5rem;
-	padding: 0 .5rem;
-	text-align: center;
-	background: ${theme.highlight};
-	color: ${theme.light};
-	${fonts.condensed};
-	text-decoration: none;
-	text-transform: uppercase;
+const StyledLayout = styled(Layout)`
+	#site {
+		position: relative;
+		will-change: transform;
+		transition: ${transition};
 
-	&:focus {
-		padding: .5rem;
-		max-height: 100%;
+		&.open {
+			transform: 
+				translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+
+			${breaks.phone(`
+				transform: translateX(-50vw);
+			`)}
+
+			${breaks.tablet(`
+				transform: translateX(-33.33vw);
+			`)}
+		}
 	}
-`
 
-const StyledSite = styled.div`
-	position: relative;
-    will-change: transform;
-    transition: ${transition};
+	.site-content {
+		background-color: ${theme.light};
+		min-height: 100vh;
+		height: auto;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 
-    &.open {
-		transform: 
-			translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+		main {
+			flex: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
 
 		${breaks.phone(`
-			transform: translateX(-50vw);
-		`)}
-
-		${breaks.tablet(`
-			transform: translateX(-33.33vw);
+			height: 100vh;
 		`)}
 	}
 `
 
-const StyledContent = styled.div`
-	background-color: ${theme.light};
-	min-height: 100vh;
-	height: auto;
-	width: 100vw;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-
-	main {
-		flex: 1;
-		overflow-x: hidden;
-		overflow-y: auto;
-	}
-
-	${breaks.phone(`
-		height: 100vh;
-	`)}
-`
-
-export default Layout;
+export default StyledLayout;

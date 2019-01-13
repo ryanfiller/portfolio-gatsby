@@ -37,7 +37,7 @@ const Navigation = (props) => {
 						onClick={ click }
 						key={page} 
 						data-text={page}
-						// className={currentPage.includes(`/${page}`) ? 'active' : ''}
+						className={currentPage.includes(`/${page}`) ? 'active' : ''}
 					>
 						{page}
 					</a>
