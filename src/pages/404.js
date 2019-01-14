@@ -118,7 +118,7 @@ const FourOhFour = (props) => {
 	return (
 		<section className={props.className} tab-index="0">
 
-			<GlobalStyle />
+			<FourOhFourGlobalStyle />
 
 			<h1 className="header">
 				<span className="code">Error: 404.</span>
@@ -177,7 +177,7 @@ function gradient() {
 	`
 }
 
-const GlobalStyle = createGlobalStyle`
+const FourOhFourGlobalStyle = createGlobalStyle`
 	#header {
 		display: none;
 	}

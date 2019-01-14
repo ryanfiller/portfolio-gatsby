@@ -10,6 +10,6 @@ I have experience with print and web design using a wide variety of technologies
 
 I have a passion for clean designs, stylized illustrations, and an innovative but accessible internet. I do my best to let that show through everything I do.
 
-Outside of working I enjoy watching old movies, reading books and comics, amateur wood working, being terrible at video games, replica prop construction, DIY home automation, keeping tropical fish, and hanging out with my cats and dog.
+Outside of working I enjoy watching old movies, reading books and comics, amateur wood working, being terrible at video games, replica prop construction, DIY home automation, keeping tropical fish, and hanging out with my cats, dog, and wife.
 
 My full resume can be found on my <a href="https://www.linkedin.com/in/ryanfiller/">LinkedIn page.</a>

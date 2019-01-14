@@ -5,23 +5,24 @@ import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { animations, fonts, transition, theme } from '../config/styles'
+import { animations, fonts, padding, transition, theme } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
 const BlogPreview = (props) => {
 
     const frontmatter = props.frontmatter;
-
     
     return (
         <article className={`${props.className} blog-preview`}>
-            <Link to={props.fields.slug}>
-                <Img outerWrapperClassName="thumbnail" 
-                    sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
-                    alt={frontmatter.thumbnail.alt}
-                />
-            </Link>
+            {frontmatter.thumbnail ? 
+                <Link to={props.fields.slug}>
+                    <Img outerWrapperClassName="thumbnail" 
+                        sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
+                        alt={frontmatter.thumbnail.alt}
+                    />
+                </Link>
+            : null}
             <div className="content">
                 <header className="header">
                     <Link to={props.fields.slug} className="header__text">
@@ -46,7 +47,6 @@ const BlogPreview = (props) => {
     )
 }
 
-
 BlogPreview.propTypes = {
     fields: PropTypes.object.isRequired,
     frontmatter: PropTypes.object.isRequired,
@@ -56,6 +56,11 @@ const StyledBlogPreview = styled(BlogPreview)`
     font-size: 1.5rem;
     transition: ${transition};
     text-decoration: none;
+    padding: ${padding};
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .content {
         position: relative;

@@ -5,7 +5,7 @@ import Link from 'gatsby-link';
 import SVG  from 'react-inlinesvg';
 
 import styled from 'styled-components';
-import { breaks, transition } from '../config/styles';
+import { breaks, theme } from '../config/styles';
 
 import r from "../images/logo/r.svg";
 import yan from "../images/logo/yan.svg";
@@ -44,16 +44,10 @@ const StyledLogo = styled(Logo)`
 		height: 1em;	
 		fill: ${props => props.color};
 		pointer-events: none;
-		transition: ${transition};
-	}
-
-	.r, .yan, .f, .iller {
-		transition: ${transition};
 	}
 
 	.r {
-		/* TODO what??? */
-		/* filter: drop-shadow(.25em 0px 0px ${props => props.backround});  */
+		filter: drop-shadow(.25em 0px 0px ${theme.dark}); 
 		margin-right: -.1675em;
 		position: relative;
 		z-index: 2;

@@ -1,5 +1,5 @@
 ---
-title: Grid Thoughts about CSS And Print Design
+title: Grid Thoughts About CSS And Print Design
 excerpt: Thoughts on CSS Grid from someone who learned about typographic grids for print in design school
 thumbnail: 
   image: "../../images/uploads/css-grid-tron.jpg"

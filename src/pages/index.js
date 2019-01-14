@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
-import { createGlobalStyle } from 'styled-components';
-import { breaks } from '../config/styles';
+import styled, { createGlobalStyle } from 'styled-components';
+import { breaks, theme } from '../config/styles';
 
 import { arrayZip } from '../helpers/helpers';
 
@@ -36,8 +37,6 @@ export const query = graphql`
 							relativePath
 							publicURL
 						}
-						category
-						tags
 						logowhite {
 							relativePath
 							publicURL
@@ -62,19 +61,7 @@ export const query = graphql`
 					frontmatter {
 						title
 						date(formatString: "MMM.DD.YY")
-						category
-						tags
 						excerpt
-						thumbnail {
-							alt
-							image {
-								childImageSharp {
-									sizes(maxWidth: 1200 ) {
-										...GatsbyImageSharpSizes
-									}
-								}
-							}
-						}
 					}
 				}
 			}
@@ -108,12 +95,14 @@ const Homepage = (props) => {
 
 	return (
 		<React.Fragment>
-			{/* <GlobalStyle /> */}
-			{/* <PortfolioGrid 
-				portfolio={props.data.allMarkdownRemark.edges}
-				currentCategory="all"
-			/> */}
-			<div>
+
+			<Helmet>
+				<body className="homepage" />
+			</Helmet>
+
+			<HomepageGlobalStyle />
+
+			<section className={`homepage-grid ${props.className}`}>
 				{gridItems.map( (chunk, index) => {
 					if (index % 2 === 0) { // is even, is porfolio
 						return chunk.map( (item, index) => {
@@ -126,7 +115,7 @@ const Homepage = (props) => {
 						})
 					}
 				})}
-			</div>
+			</section>
 		</React.Fragment>
 	)
 }
@@ -135,132 +124,159 @@ Homepage.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
-export default Homepage;
+const StyledHomepage = styled(Homepage)`
 
-// TODO - refactor all of this
-// const GlobalStyle = createGlobalStyle`
-// 	${breaks.tablet(`
-// 		@supports(display: grid) {
-// 			#site {
-// 				#site-content {
-// 					display: grid;
-// 					grid-template-columns: 80vw 20vw;
-// 					grid-template-rows: 1fr auto;
+	width: 100%;
+	display: block;
 
-// 					#header, #footer {
-// 						grid-column-start: 2;
-// 						grid-column-end: 3;
-// 						z-index: 10;
-// 						box-shadow: 0px 0px 1.25rem $color-black;
-// 					}
+	& > * {
+		width: 100%;
+		height: 75vw;
+	}
 
-// 					#header {
-// 						grid-row-start: 1;
-// 						grid-row-end: 2;
-// 					}
+	${breaks.phone(`
 
-// 					#footer {
-// 						grid-row-start: 2;
-// 						grid-row-end: 3;
-// 					}
+		.blog-preview .excerpt {
+			display: none !important;
+		}
 
-// 					main {
-// 						grid-column-start: 1;
-// 						grid-column-end: 2;
-// 						grid-row-start: 1;
-// 						grid-row-end: 3;
-// 						overflow-x: scroll;
-// 					}
-// 				}
+		display: flex;
+		flex-wrap: wrap;
 
-// 				#header {
-// 					flex-wrap: wrap;
-// 					justify-content: center;
-// 					align-items: space-around;
+		& > * {
+			width: 50%;
+			height: 50vw;
+		}
 
-// 					a { //logo
-// 						font-size: 2.5em;
+		@supports(display: grid) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
 
-// 						.r {
-// 							filter: drop-shadow( .25em 0px 0px $color-black ); 
-// 							margin-right: -.7em;
-// 						}
-		
-// 						.f {
-// 							transform: rotateY(180deg);
-// 							margin-right: 0;
-// 							margin-left: .15em;
-// 						}
-		
-// 						.yan, .iller {
-// 							max-width: 0;
-// 						}
-// 					}
+			& > * {
+				width: 100%;
+				// height: 33.333vw;
+			}
+		}
+	`)}
 
-// 					nav {
-// 						width: 100%;
-// 						flex: initial;
-// 						display: block;
-// 						text-align: center;
+	${breaks.tablet(`
 
-// 						a {
-// 							font-size: 2rem;
-// 							display: inline-block !important;
-// 							margin: .5em !important;
-// 						}
-// 					}
-// 				}
+		.blog-preview .excerpt {
+			display: block !important;
+		}
 
-// 				#portfolio-grid {
-// 					height: 100vh;
-// 					width: auto;
-// 					display: grid;
-// 					grid-auto-flow: row;
-// 					grid-template-columns: repeat(auto-fill, 50vh);
-// 					grid-template-rows: 50vh 50vh;
-// 					overflow-x: scroll;
+		@supports(display: grid) {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: auto;
 
-// 					& > * {
-// 						width: 100vh;
-// 						height: 50vh;
-// 						grid-column-end: span 2;
+			& > * {
+				&:nth-child(4n-2), &:nth-child(4n-1) {
+					grid-column: span 2;
+				}
+			}
+		}
+	`)}	
+`
 
-// 						&:first-child, &:last-child {
-// 							width: 50vh;
-// 							grid-column-end: span 1;
-// 						}
+const HomepageGlobalStyle = createGlobalStyle`
+	body.homepage {
+		${breaks.tablet(`
+			@supports(display: grid) {
+				#site {
+					#site-content {
+						display: grid;
+						grid-template-columns: 80vw 20vw;
+						grid-template-rows: 1fr auto;
 
-// 						&:nth-child(odd) {
-// 							grid-row-start: 1;
-// 							grid-row-end: 2;
-// 						}
+						#header, #footer {
+							grid-column-start: 2;
+							grid-column-end: 3;
+							z-index: 10;
+							box-shadow: 0px 0px 1.25rem $color-black;
+						}
 
-// 						&:nth-child(even) {
-// 							grid-row-start: 2;
-// 							grid-row-end: 3;
-// 						}
-// 					}
-// 				}
+						#header {
+							grid-row-start: 1;
+							grid-row-end: 2;
+						}
+
+						#footer {
+							grid-row-start: 2;
+							grid-row-end: 3;
+						}
+
+						main {
+							grid-column-start: 1;
+							grid-column-end: 2;
+							grid-row-start: 1;
+							grid-row-end: 3;
+							overflow-x: scroll;
+						}
+					}
+
+					#header {
+						flex-wrap: wrap;
+						justify-content: center;
+						align-items: space-around;
+
+						// TODO - fix this style
+						a { //logo
+							font-size: 2.5em;
+
+							.r {
+								filter: drop-shadow(.25em 0px 0px ${theme.dark});
+								margin-right: -.7em;
+							}
 			
-// 				#footer {
-// 					display: block;
+							.f {
+								transform: rotateY(180deg);
+								margin-right: 0;
+								margin-left: .15em;
+							}
+			
+							.yan, .iller {
+								max-width: 0;
+							}
+						}
 
-// 					.copyright {
-// 						text-align: center;
-// 						margin-bottom: 1em;
-// 					}
-					
-// 					.socials {
-// 						li {
-// 							flex: 1;
-// 						}
-		
-// 						li {
-// 							width: 100%;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}	
-// 	`)}
-// `
+						nav {
+							width: 100%;
+							flex: initial;
+							display: block;
+							text-align: center;
+
+							a {
+								font-size: 2rem;
+								display: inline-block !important;
+								margin: .5em !important;
+							}
+						}
+					}
+				
+					#footer {
+						display: block;
+
+						.copyright {
+							text-align: center;
+							margin-bottom: 1em;
+						}
+						
+						.socials {
+							li {
+								flex: 1;
+							}
+			
+							li {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}	
+		`)}
+	}
+`
+
+export default StyledHomepage;

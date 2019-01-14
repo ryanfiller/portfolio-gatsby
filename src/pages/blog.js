@@ -67,8 +67,6 @@ const StyledBlog = styled(Blog)`
 
 	& > * {
 		width: 100%;
-		box-sizing: border-box;
-		padding: ${padding};
 	}
 
 	${breaks.phone(`

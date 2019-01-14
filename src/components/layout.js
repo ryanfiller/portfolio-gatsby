@@ -167,23 +167,62 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	svg, svg * {
-		transition: $transition;
+		transition: fill ${transition};
 	}
 	
 	.gatsby-resp-image-wrapper img {
 		box-shadow: none !important;
 	}
-`
 
-const StyledLayout = styled(Layout)`
 	#site {
 		position: relative;
 		will-change: transform;
 		transition: ${transition};
 
 		&.open {
-			transform: 
-				translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+
+			${breaks.phone(`
+				transform: translateX(-50vw);
+			`)}
+
+			${breaks.tablet(`
+				transform: translateX(-33.33vw);
+			`)}
+		}
+	}
+
+	#site-content {
+		background-color: ${theme.light};
+		min-height: 100vh;
+		height: auto;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+
+		main {
+			flex: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		${breaks.phone(`
+			height: 100vh;
+		`)}
+	}
+`
+
+const StyledLayout = styled(Layout)`
+
+	/* TODO WHY ISN'T THIS WORKING HERE?? */
+	#site {
+		position: relative;
+		will-change: transform;
+		transition: ${transition};
+
+		&.open {
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
 
 			${breaks.phone(`
 				transform: translateX(-50vw);
