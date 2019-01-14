@@ -167,16 +167,27 @@ const StyledHomepage = styled(Homepage)`
 		}
 
 		@supports(display: grid) {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-			grid-template-rows: auto;
+			height: 100vh;
+			width: auto;
+			overflow-x: auto;
+			overflow-y: hidden;
 
-			& > * {
-				&:nth-child(4n-2), &:nth-child(4n-1) {
-					grid-column: span 2;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, 50vh);
+			grid-template-rows: 50vh 50vh;
+			grid-auto-flow: column;
+
+				& > * {
+					grid-column: span 1;
+					grid-row: span 1;
+					height: 100%;
+					min-width: 50vh;
+					
+					&:nth-child(4n-2), &:nth-child(4n-1) {
+						grid-column: span 2;
+					}
 				}
 			}
-		}
 	`)}	
 `
 
