@@ -11,6 +11,7 @@ import { arrayZip } from '../helpers/helpers';
 
 import PortfolioBlock from '../components/portfolio-block.js'
 import BlogPreview from '../components/blog-preview';
+import ReadMore from '../components/read-more';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
@@ -115,6 +116,7 @@ const Homepage = (props) => {
 						})
 					}
 				})}
+				<ReadMore />
 			</section>
 		</React.Fragment>
 	)
@@ -144,19 +146,9 @@ const StyledHomepage = styled(Homepage)`
 		flex-wrap: wrap;
 
 		& > * {
-			width: 50%;
+			flex: 1;
+			flex-basis: 50%;
 			height: 50vw;
-		}
-
-		@supports(display: grid) {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: auto;
-
-			& > * {
-				width: 100%;
-				// height: 33.333vw;
-			}
 		}
 	`)}
 
