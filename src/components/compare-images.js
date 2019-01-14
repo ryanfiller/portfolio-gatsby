@@ -2,9 +2,9 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { navBreak, padding, transition, theme } from '../config/styles'
+import { colors, navBreak, padding, transition } from '../config/styles'
 
-// TODO fix meeeee
+// TODO fiiix meee
 
 export default (props) => {
 	return (
@@ -49,11 +49,11 @@ const StyledCompareImages = styled.figure`
 
     figcaption {
         width: 100%;
-        background-color: ${theme.disabled};
+        background-color: ${colors.gray};
         font-size: .75em;
         padding: .125em;
         text-align: center;
-        color: ${theme.light};
+        color: ${colors.white};
 
         &:after {
             content: ' (Hover)';
