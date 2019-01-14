@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { colors, navBreak, padding, transition } from '../config/styles'
 
+// TODO fiiix meee
+
 export default (props) => {
 	return (
 		<StyledCompareImages className={`image-compare ${props.alignment}`}>

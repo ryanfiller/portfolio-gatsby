@@ -1,27 +1,36 @@
-import { lighten } from 'polished'
+import { lighten, transparentize } from 'polished'
 
 export const colors = {
-    blue: '#3f7cac',
-    orange: '#f89c7d',
-    white: '#fcfaf6',
-    black: '#1e2223',
-    gray: lighten(.10, '#1e2223'),
-    lightGray: lighten(.40, '#1e2223'),
-    darkGray: lighten(.025, '#1e2223'),
-    
-    r: 'rgba(255, 0, 0, .10)',
-    g: 'rgba(0, 255, 0, .10)',
-    b: 'rgba(0, 0, 255, .10)',
+    white: '#fff7ff',
+    black: '#1e053f',
+    orange: '#ed6554',
+    blue: '#192368',
+    purple: '#7c1863',
+    grayLight: lighten(.30, '#2f323a'),
+    gray: lighten(.15, '#2f323a'),
+    grayDark: '#2f323a',
+}
+
+export const theme = {
+    dark: colors.black,
+    light: colors.white,
+    primary: colors.blue,
+    active: colors.orange,
+    highlight: colors.purple,
+    disabled: colors.gray,
 }
 
 var pixelSize = '.25rem'
 var pixels = '/images/site-assets/screendoor.png'
+var r = 'rgba(255, 0, 0, .10)';
+var g = 'rgba(0, 255, 0, .10)';
+var b = 'rgba(0, 0, 255, .10)';
 var rgb = `
     repeating-linear-gradient(
         to bottom,
-        ${colors.r} calc(0*${pixelSize}), ${colors.r} calc(1*${pixelSize}),
-        ${colors.g} calc(1*${pixelSize}), ${colors.g} calc(2*${pixelSize}),
-        ${colors.b} calc(2*${pixelSize}), ${colors.b} calc(3*${pixelSize})
+        ${r} calc(0*${pixelSize}), ${r} calc(1*${pixelSize}),
+        ${g} calc(1*${pixelSize}), ${g} calc(2*${pixelSize}),
+        ${b} calc(2*${pixelSize}), ${b} calc(3*${pixelSize})
     );
 `
 var overlay = (styles) => {
@@ -47,7 +56,11 @@ var overlay = (styles) => {
 export const overlays = {
 
     dark: overlay(`
-        background-color: transparentize(.5, ${colors.darkGray});
+        background-color: ${transparentize(.5, colors.grayDark)};
+        @supports (mix-blend-mode: multiply) {
+            background-color: ${transparentize(.66, colors.gray)};
+            mix-blend-mode: multiply;
+        }
     `),
 
     pixels: overlay(`
@@ -67,7 +80,8 @@ export const overlays = {
 
 }
 
-export const arrows = () => {
+export const arrows = (direction='right') => {
+
     return`
         position: relative;
         padding-right: 1.25em;
@@ -77,12 +91,12 @@ export const arrows = () => {
             display: block;
             width: 0; 
             height: 0; 
-            border-top: .4em solid transparent;
-            border-bottom: .4em solid transparent;
-            border-left: .4em solid currentColor;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            border-top: .4em solid transparent;
+            border-bottom: .4em solid transparent;
+            border-left: .4em solid currentColor;
         }
     
         &:before {
@@ -92,6 +106,23 @@ export const arrows = () => {
         &:after {
             right: 0;
         }
+
+        ${direction === 'left' ? `
+            padding-right: 0;
+            padding-left: 1.25em;
+
+            &:before, &:after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            &:before {
+                left: .5em;
+            }
+        
+            &:after {
+                left: 0;
+            }
+        ` : null}
     `
 }
 
@@ -113,77 +144,77 @@ export const fonts = {
         `;
     },
 
-    inlineLink: () => {
+    inlineLink: (direction='right') => {
         return`
             text-transform: uppercase;
             text-decoration: none;
             position: relative;
             padding-right: 1.25em;
-            ${arrows()}
-        `
-    }
-}
-
-export const transition = '.2s';
-
-export const breaks = {
-    large: 1200,
-    tablet: 768,
-    phone: 480, 
-}
-
-export const naviconWidth = '40px';
-export const navBreak = breaks.tablet;
-
-export const functions = {
-    phoneBreak: (styles) => {
-        return `
-            @media (min-width: ${breaks.phone}px) {
-                ${styles}
-            }
-        `
-    },
-    
-    tabletBreak: (styles) => {
-        return `
-            @media (min-width: ${breaks.tablet}px) {
-                ${styles}
-            }
-        `
-    },
-    
-    desktopBreak: (styles) => {
-        return `
-            @media (min-width: ${breaks.desktop}px) {
-                ${styles}
-            }
+            ${arrows(direction)}
         `
     },
 
-    desktopLargeBreak: (styles) => {
+    sizes: (small, medium, large) => {
         return `
-            @media (min-width: ${breaks.large}px) {
-                ${styles}
-            }
-        `
-    },
-
-    fontSizes: (small, medium, large) => {
-        return `
-            @media (min-width: ${breaks.phone}px) {
+            @media (min-width: ${breakPoints.phone}px) {
                 font-size: ${small}
             }
-            @media (min-width: ${breaks.tablet}px) {
+            @media (min-width: ${breakPoints.tablet}px) {
                 font-size: ${medium}
             }
-            @media (min-width: ${breaks.desktop}px) {
+            @media (min-width: ${breakPoints.desktop}px) {
                 font-size: ${large}
             }
         `
     }
 }
 
-export const padding = '1rem';
+export const transition = '.3s';
+
+export const breakPoints = {
+    large: 1200,
+    tablet: 768,
+    phone: 480, 
+}
+
+export const naviconWidth = '40px';
+export const navBreak = breakPoints.tablet;
+
+export const breaks = {
+    phone: (styles) => {
+        return `
+            @media (min-width: ${breakPoints.phone}px) {
+                ${styles}
+            }
+        `
+    },
+    
+    tablet: (styles) => {
+        return `
+            @media (min-width: ${breakPoints.tablet}px) {
+                ${styles}
+            }
+        `
+    },
+    
+    desktop: (styles) => {
+        return `
+            @media (min-width: ${breakPoints.desktop}px) {
+                ${styles}
+            }
+        `
+    },
+
+    desktopLarge: (styles) => {
+        return `
+            @media (min-width: ${breakPoints.large}px) {
+                ${styles}
+            }
+        `
+    }
+}
+
+export const padding = '2rem';
 
 export const containers = {
     container: () => {
@@ -283,12 +314,13 @@ export const animations = {
         return`
             animation-name: floating;
             animation-duration: ${transition};
+            animation-timing-function: steps(2, end);
             animation-iteration-count: infinite;
             position: relative;
             
             @keyframes floating {
                 from { top: 0; }
-                50%  { top: -.125em; }
+                50%  { top: -.25rem; }
                 to   { top: 0; }    
             }
         `

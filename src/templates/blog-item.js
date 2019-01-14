@@ -1,20 +1,50 @@
-import React from "react"
-import { graphql } from 'gatsby'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from 'gatsby';
+
+// TODO SEO HELP
 // import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
+import Img from 'gatsby-image';
 
-import styled from 'styled-components'
-import { animations, colors, containers, fonts, functions, overlays } from '../config/styles'
+import styled from 'styled-components';
+import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles';
 
-import ContentMeta from '../components/content-meta'
-import MarkdownBlock from '../components/markdown-block'
+import ContentMeta from '../components/content-meta';
+import MarkdownBlock from '../components/markdown-block';
+import BackButton from '../components/back-button';
 
-export default ({data}) => {
+export const postQuery = graphql`
+	query BlogPost($slug: String!) {
 
-	const post = data.markdownRemark;
+		markdownRemark(fields: { slug: { eq: $slug } }) {
+			htmlAst
+			frontmatter {
+				banner {
+					alt
+					image {
+						childImageSharp {
+							sizes(maxWidth: 2000 ) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+				} 
+				title
+				date(formatString: "MMM.DD.YY")
+				category
+				tags
+				excerpt
+			}
+		}
+	}
+`
+
+const BlogArticle = (props) => {
+
+	const post = props.data.markdownRemark;
 
 	return (
-		<StyledBlogArticle>
+		<article className={props.className} >
 			<header className="blog-banner">
 				<div className="text">
 					<h1 className="title">
@@ -42,52 +72,33 @@ export default ({data}) => {
 			
 			<section id="content">
 				<MarkdownBlock post={post.htmlAst} />
+				<BackButton location={props.location} />
 			</section>
-		</StyledBlogArticle>
+		</article>
 	);
 };
 
-export const postQuery = graphql`
-	query BlogPost($slug: String!) {
+BlogArticle.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			htmlAst
-			frontmatter {
-				banner {
-					alt
-					image {
-						childImageSharp {
-							sizes(maxWidth: 2000 ) {
-								...GatsbyImageSharpSizes
-							}
-						}
-					}
-				} 
-				title
-				date(formatString: "MMM.DD.YY")
-				category
-				tags
-				excerpt
-			}
-		}
-	}
-`
-const StyledBlogArticle = styled.main`
+const StyledBlogArticle = styled(BlogArticle)`
 	.blog-banner {
-		${functions.fontSizes('1.5rem', '1.75rem, 2rem')}
-        background: ${colors.orange};
+		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
+        background: ${theme.highlight};
         width: 100vw;
         position: relative;
 		overflow: hidden;
-		${overlays.rgbPixels}
+		${overlays.pixels}
+		/* ${overlays.dark} */
 		font-size: 2rem;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			font-size: 2.75rem;
 		`)}
     
         .text {
-            color: ${colors.white};
+            color: ${theme.light};
             margin: 0;
             position: relative;
             z-index: 3;
@@ -102,7 +113,7 @@ const StyledBlogArticle = styled.main`
         }
 
         .title {
-			${functions.fontSizes('2em', '2.5em, 3em')}
+			${fonts.sizes('2em', '2.5em, 3em')}
             ${fonts.sansSerif}
             text-transform: uppercase;
 			margin: 0;
@@ -138,7 +149,7 @@ const StyledBlogArticle = styled.main`
                 line-height: 1em;
             }
 
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
@@ -170,7 +181,7 @@ const StyledBlogArticle = styled.main`
         }
 
         .scroll-link {
-            color: ${colors.white};
+            color: ${theme.light};
             height: 4rem;
             width: 4rem;
             position: absolute;
@@ -222,7 +233,7 @@ const StyledBlogArticle = styled.main`
 			z-index: 0;
 		}
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			@supports (display: grid) {
 
 				.text {
@@ -273,11 +284,12 @@ const StyledBlogArticle = styled.main`
 		`)}
     }
 
-    .content {
-        background-color: ${colors.white};
+    #content {
+        background-color: ${theme.light};
 		padding: 6rem 0 4rem 0;
         position: relative;
         z-index: 5;
+		text-align: center;
 
         &:before, &:after {
             content: '';
@@ -289,3 +301,5 @@ const StyledBlogArticle = styled.main`
         }
     }
 `
+
+export default StyledBlogArticle;

@@ -1,46 +1,14 @@
-import React from "react"
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from 'gatsby';
 
-import { animations, colors, fonts, padding, functions } from '../config/styles'
+import styled from 'styled-components';
+import { animations, breaks, fonts, padding, theme } from '../config/styles';
 
-import PortfolioGallery from '../components/portfolio-gallery'
-import ContentMeta from '../components/content-meta'
-import MarkdownBlock from '../components/markdown-block'
-
-export default ({data}) => {
-
-	const post = data.markdownRemark.frontmatter;
-
-	return (
-		<StyledPortfolioItem>
-			<PortfolioGallery slides={post.slides} color={post.color} />
-
-			<div className="content">
-				<header className="header">
-					<h1>
-						{post.title}
-					</h1>
-
-					<ContentMeta tags={post.tags} />
-
-					<a className="" href={post.clienturl}>
-						{post.client}
-					</a>
-				</header>
-
-				<MarkdownBlock post={data.markdownRemark.htmlAst}/>
-
-				{/* TODO */}
-				{/* <a className="back-link" href="/{{ page.parent }}"> Back to {{ page.parent }}</a> */}
-
-				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{post.gifattribution}</span>
-				</cite>
-			</div>
-		</StyledPortfolioItem>
-	);
-};
+import PortfolioGallery from '../components/portfolio-gallery';
+import ContentMeta from '../components/content-meta';
+import MarkdownBlock from '../components/markdown-block';
+import BackButton from '../components/back-button';
 
 export const postQuery = graphql`
 	query PortfolioPost($slug: String!) {
@@ -71,11 +39,48 @@ export const postQuery = graphql`
 	}
 `
 
-const StyledPortfolioItem = styled.div`
+const PortfolioItem = (props) => {
+
+	const post = props.data.markdownRemark.frontmatter;
+
+	return (
+		<article className={props.className}>
+			<PortfolioGallery slides={post.slides} color={post.color} />
+
+			<div className="content">
+				<header className="header">
+					<h1>
+						{post.title}
+					</h1>
+
+					<ContentMeta tags={post.tags} />
+
+					<a className="" href={post.clienturl}>
+						{post.client}
+					</a>
+				</header>
+
+				<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
+
+				<BackButton location={props.location} />
+
+				<cite className="gif-credit">
+					Grid Page .gif Credit: <span>{post.gifattribution}</span>
+				</cite>
+			</div>
+		</article>
+	);
+};
+
+PortfolioItem.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+const StyledPortfolioItem = styled(PortfolioItem)`
 	display: block;
 	height: auto;
 	
-	${functions.tabletBreak(`
+	${breaks.tablet(`
 		display: flex;
 		width: 100vw;
 		height: 100%;
@@ -84,15 +89,16 @@ const StyledPortfolioItem = styled.div`
     .portfolio-gallery {
 		width: 100%;
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			width: 50vw;
 		`)}
     }
 
     .content {
 		padding-top: 0;
+		text-align: center;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			height: auto;
 			padding-top: calc(3*${padding});
         	padding-bottom: calc(3*${padding});
@@ -105,7 +111,7 @@ const StyledPortfolioItem = styled.div`
         position: relative;
 		text-align: center;
 		
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			padding-top: 25vh;
 			padding-bottom: 15vh;	
 		`)}
@@ -117,6 +123,7 @@ const StyledPortfolioItem = styled.div`
             text-align: center;
 			text-transform: uppercase;
 			${fonts.condensed()}
+			color: ${theme.primary}
         }
 
         .meta {
@@ -125,7 +132,7 @@ const StyledPortfolioItem = styled.div`
             text-align: center;
 
             .meta__tag {
-                color: ${colors.lightGray};
+                color: ${theme.disabled};
             }
         }
 
@@ -135,7 +142,7 @@ const StyledPortfolioItem = styled.div`
             margin: 0 auto;
             margin-top: .75em;
             text-decoration: none;
-            ${animations.highlight(colors.blue, colors.white, colors.blue)}
+            ${animations.highlight(theme.active, theme.light, theme.active)}
 		}
 		
 		&:after {
@@ -143,8 +150,8 @@ const StyledPortfolioItem = styled.div`
 			display: block;
 			width: 1rem;
 			height: 1rem;
-			border-right: 2px solid ${colors.orange};
-			border-bottom: 2px solid ${colors.orange};
+			border-right: 2px solid ${theme.active};
+			border-bottom: 2px solid ${theme.active};
 			margin: 0 auto;
 			transform: rotate(45deg);
 			margin-top: 2rem;
@@ -156,7 +163,7 @@ const StyledPortfolioItem = styled.div`
 		width: 100%;
         overflow: scroll;
 
-		${functions.tabletBreak(`
+		${breaks.tablet(`
 			width: 50vw;
 		`)}
     }
@@ -173,10 +180,10 @@ const StyledPortfolioItem = styled.div`
             height: calc(${padding}*6);
             width: 50%;
             z-index: 2;
-            background: linear-gradient(to top, ${colors.white}, transparent);
+            background: linear-gradient(to top, ${theme.light}, transparent);
 			pointer-events: none;
 			
-			${functions.tabletBreak(`
+			${breaks.tablet(`
 				display: block;
 			`)}
         }
@@ -184,7 +191,7 @@ const StyledPortfolioItem = styled.div`
 
     .gif-credit {
         ${fonts.condensed()}
-        color: ${colors.darkGray};
+        color: ${theme.primary};
         display: none;
         text-align: center;
         margin-top: 4rem;
@@ -193,8 +200,10 @@ const StyledPortfolioItem = styled.div`
             font-weight: bold;
         }
 		
-		${functions.phoneBreak(`
+		${breaks.phone(`
 			display: block;
 		`)}
     }
 `
+
+export default StyledPortfolioItem;

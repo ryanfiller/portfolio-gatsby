@@ -1,101 +1,126 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import MediaQuery from 'react-responsive';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import { pages } from '../config/config';
-import { animations, colors, containers, fonts, functions, navBreak, transition } from '../config/styles';
 
-export default class Navigation extends Component {
+import { NavContext } from './layout';
 
-	render() {
-		return (
-			<StyledNav className="nav" role="navigation">
-				{ pages.map((page) =>
-					{if(page !== 'contact'){
-						return(
-							<StyledNavLink 
-								href={page}
-								onClick={(e) => {this.props.handleNavigate(e)}}
-								key={page} 
-								data-text={page}
-								className={this.props.currentPage.includes(`/${page}`) ? 'active' : ''}
-							>
-								{page}
-							</StyledNavLink>
-						)
-					} else {
-						return(
-							<MediaQuery query={`(min-width: ${navBreak}px)`}>
-								<StyledNavLink
-									href="#contact-form"
-									onClick={(e) => {this.props.toggleOffCanvas(e, '#contact-form')}} 
-									key={page} 
-									data-text={page} 
-									id={page} 
-								>
-									{page}
-								</StyledNavLink>
-							</MediaQuery>
-						)
-					}}
-				)}
-			</StyledNav>
-		)
-	}
+import styled from 'styled-components';
+import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
+
+const Navigation = (props) => {
+	
+	const context = useContext(NavContext);
+	const {
+		handleNavigate,
+        toggleOffCanvas, 
+        currentPage,
+	} = context;
+	
+	return (
+		<nav className={props.className} role="navigation">
+			{ pages.map((page) => {
+
+				let click;
+
+				if (page === 'contact') {
+					click = (e) => {toggleOffCanvas(e, '#contact-form')};
+				} else if(props.navFunction) {
+					click = props.navFunction;
+				} else {
+					click = (e) => {handleNavigate(e)};
+				}
+
+				return (
+					<a 
+						href={page === 'contact' ? '#contact-form' : page}
+						onClick={ click }
+						key={page} 
+						data-text={page}
+						className={currentPage.includes(`/${page}`) ? 'active' : ''}
+					>
+						{page}
+					</a>
+				)
+			})}
+		</nav>
+	)
 }
 
-const StyledNav = styled.nav`
-	.header & {
-		color: ${colors.white};
-		flex: 1;
-		display: flex;
-		justify-content: flex-end;
-	}
+Navigation.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+	orientation: PropTypes.string.isRequired,
+	navFunction: PropTypes.func
+};
 
-	.off-canvas & {
-		color: ${colors.white};
-		display: flex;
+const StyledNavigation = styled(Navigation)`
+	display: flex;
+	color: ${props => props.color};
+
+	${props => props.orientation === 'vertical' ? `
 		flex-direction: column;
 		align-items: center;
-		${containers.container()}
+	` : null}
 
-		a {
-			font-size: 2em;
-			margin: .5em 0;
+	a {
+		text-decoration: none;
+		${fonts.condensed()}
+		text-transform: uppercase;
+		font-size: 1em;
+		color: currentColor;
+		transition: ${transition};
+
+		${props => props.orientation === 'horizontal' ? `
+			margin-right: 2rem;
+
+			&:last-child() {
+				margin-right: 0;
+			}
+		` : null}
+
+		${props => props.orientation === 'vertical' ? `
+			margin-bottom: 1rem;
+
+			&:last-child() {
+				margin-bottom: 0;
+			}
+		` : null}
+
+		&.active {
+			color: ${props => props.active};
+		}
+
+		&:hover,
+		&:focus {
+			color: ${props => props.active};
+			cursor: pointer;
+			${breaks.tablet(`
+				${animations.glitch(props => props.active, props => props.background)}
+			`)}
+		}
+
+		#site.open & {
+			${breaks.tablet(`
+				color: ${props => props.color};
+			`)}
+
+			&[href='#contact-form'] {
+				position: relative;
+				z-index: 100;
+				color: ${props => props.active};
+			}
+		}
+
+		&[href='#contact-form'] {
+			display: none;
+
+			@media(min-width: ${navBreak}px) {
+				display: block;
+			}
 		}
 	}
 `
 
-const StyledNavLink = styled.a`
-	text-decoration: none;
-	margin-left: 2rem;
-	${fonts.condensed()}
-	text-transform: uppercase;
-	font-size: 1em;
-	color: ${colors.white};
-	transition: ${transition};
-
-	&.active {
-		color: ${colors.orange};
-	}
-
-	&:hover {
-		color: ${colors.orange};
-		cursor: pointer;
-		${functions.tabletBreak(`
-			${animations.glitch(colors.orange, colors.black)}
-		`)}
-	}
-
-	#site.open & {
-		${functions.tabletBreak(`
-			color: ${colors.white};
-		`)}
-		
-		&#contact {
-			position: relative;
-			z-index: 100;
-			color: ${colors.orange};
-		}
-	}
-`
+export default StyledNavigation;

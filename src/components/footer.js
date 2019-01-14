@@ -1,25 +1,34 @@
 import React from 'react'
-import styled from 'styled-components'
+import PropTypes from "prop-types";
 
-import { colors, containers, fonts, functions } from '../config/styles';
+import styled from 'styled-components'
+import { breaks, containers, fonts, theme, transition } from '../config/styles';
 
 import SocialsList from './socials'
 
-const Footer = () => (
-    <StyledFooter className="footer">
-        <div className="copyright">
-            Copyright 2012 - { new Date().getFullYear() }, 
-            Built with <a href="https://www.gatsbyjs.org/">GatbyJS</a> and <a href="https://www.netlifycms.org/">NetlifyCMS</a>
-        </div>
-        <SocialsList />
-    </StyledFooter>
-)
+const Footer = (props) => {
+    const {
+        color
+    } = props;
 
-export default Footer;
+    return (
+        <footer id="footer" className={props.className}>
+            <div className="copyright">
+                Copyright 2012 - { new Date().getFullYear() }, 
+                Built with <a href="https://www.gatsbyjs.org/">GatbyJS</a> and hosted on <a href="https://www.netlify.com/">Netlify</a>
+            </div>
+            <SocialsList 
+                color={color}
+                active={theme.highlight}
+                oneColor={true}
+            />
+        </footer>
+    )
+}
 
-const StyledFooter = styled.footer`
-    background-color: ${colors.black};
-    color: ${colors.white};
+const StyledFooter = styled(Footer)`
+    background-color: ${props => props.background};
+    color: ${props => props.color};
     display: block;
     font-size: 1rem;
 
@@ -36,16 +45,17 @@ const StyledFooter = styled.footer`
         }
 
         a {
-            color: ${colors.white};
+            transition: ${transition};
+            color: currentColor;
             text-decoration: none;
 
             &:hover {
-                color: ${colors.orange};
+                color: ${props => props.active};
             }
         }
     }
 
-    ${functions.phoneBreak(`
+    ${breaks.phone(`
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -55,3 +65,11 @@ const StyledFooter = styled.footer`
         }
     `)}
 `
+
+Footer.propTypes = {
+    color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+};
+
+export default StyledFooter;

@@ -1,46 +1,36 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { navigate } from "gatsby"
-import Link from 'gatsby-link'
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { CSSTransition, TransitionGroup } from "react-transition-group"
+import Helmet from 'react-helmet';
+import { navigate } from 'gatsby';
 
-import styled, { injectGlobal } from 'styled-components'
-import { colors, fonts, functions, naviconWidth, transition } from '../config/styles'
+// import { CSSTransition, TransitionGroup } from "react-transition-group"
 
-import Header from './header'
-import Footer from './footer'
-import OffCanvas from './off-canvas'
-import Overlay from './overlay'
+import styled, { createGlobalStyle } from 'styled-components';
+import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles';
+import { lighten, transparentize } from 'polished';
+
+import SkipToContent from './skip-to-content';
+import Header from './header';
+import Footer from './footer';
+import OffCanvas from './off-canvas';
+import Overlay from './overlay';
 // import Transition from './transition'
 
-export default class Layout extends React.Component {
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
-	constructor({ data, children }) {
-		super({ data, children });
-		this.handleNavigate = this.handleNavigate.bind(this)
-		this.onKeydown = this.onKeydown.bind(this)
-		this.toggleOffCanvas = this.toggleOffCanvas.bind(this)
-		this.closeAndNavigate = this.closeAndNavigate.bind(this)
-		this.state = {
-			open: false,
-		};
-	}
+export const NavContext = React.createContext();
 
-	componentDidMount() {
-		document.addEventListener('keydown', this.onKeydown)
-	 }
+const Layout = (props) => {
 
-	onKeydown = (e) => {
-		if (e.keyCode === 27) {
-			this.setState({open: false});
-		}
-	}
+	const [offCanvasOpen, setOffCanvasOpen] = useState(false);
 
-	toggleOffCanvas(e, target) {
+	const toggleOffCanvas = (e, target) => {
 		e.preventDefault();
-		this.setState({open: !this.state.open})
+		setOffCanvasOpen(!offCanvasOpen);
 		
+		// TODO use ref to target contact form somehow
 		// if (window.location.hash.length) {
 		// 	window.history.back()
 		// } else {
@@ -48,92 +38,106 @@ export default class Layout extends React.Component {
 		// }
 	}
 
-	handleNavigate(e) {
+	const handleNavigate = (e) => {
 		e.preventDefault()
 		navigate(`/${e.target.getAttribute("href")}`)
 	}
 
-	closeAndNavigate(e) {
+	const closeAndNavigate = (e) => {
 		e.preventDefault()
 		navigate(`/${e.target.getAttribute("href")}`)
-		this.setState({open: !this.state.open})
+		setOffCanvasOpen(false);
 	}
 
-	render() {
-
-		let orientation
-
-		if (this.props.location.pathname === '/') {
-            orientation = 'horizontal'
-        } else {
-			orientation = 'vertical'
+	useEffect(() => {
+        const handleKeydown = (e) => {
+			if (e.keyCode === 27) { // escape key
+				setOffCanvasOpen(false);
+			}
 		}
-		
-		const className = this.state.open === false ? `site ${orientation}` : `open site ${orientation}`
-		
-		return (
-            <StyledSite 
-            className={className} 
-            id="site">
+
+        document.addEventListener('keydown', handleKeydown);
+
+        return () => {
+          document.removeEventListener('keydown', handleKeydown);
+        };
+	  });
+	  
+	  return (
+		<NavContext.Provider value={{
+			handleNavigate: handleNavigate,
+			closeAndNavigate: closeAndNavigate,
+			toggleOffCanvas: toggleOffCanvas,
+			currentPage: props.location.pathname,
+		}}>
+			<div 
+				className={`site ${offCanvasOpen === true ? 'open' : null} ${props.className}`} 
+				id="site"
+				tabIndex="0"
+			>
+				<GlobalStyle />
 
 				<Helmet
 					title="ryanfiller.com"
 					meta={[
-					{ name: 'description', content: 'Sample' },
-					{ name: 'keywords', content: 'sample, something' },
+						{ name: 'description', content: 'Sample' },
+						{ name: 'keywords', content: 'sample, something' },
 					]}
 				/>
-				
-				<StyledSkipToContent href={`${this.props.location.pathname}#content`}>
-					Skip to Content
-				</StyledSkipToContent>
+					
+				<SkipToContent />
 
-				{
-					this.state.open ? 
-						<OffCanvas 
-							handleNavigate={this.closeAndNavigate}
-							toggleOffCanvas={this.toggleOffCanvas}
-                        	currentPage={this.props.location.pathname}
-                        />
-					: ''
-				}
+				{offCanvasOpen === true ? 
+					<OffCanvas 
+						color={theme.light}
+						active={theme.active}
+						background={theme.primary}
+					/>
+				: null}
 
-				<StyledContent className="site-content">
+				<div id="site-content">
 
-					{
-						this.state.open ? 
-							<Overlay toggleOffCanvas={this.toggleOffCanvas} /> 
-						: ''
-					}
+					{offCanvasOpen === true ? 
+						<Overlay 
+							background={theme.disabled}
+						/> 
+					: null}
 
 					<Header 
-						handleNavigate={this.handleNavigate} 
-						toggleOffCanvas={this.toggleOffCanvas}
-                    	currentPage={this.props.location.pathname}
-                    />
+						color={theme.light}
+						active={theme.active}
+						background={theme.dark}
+					/>
 
 
 					<main id="content">
-						{/* <Transition location={this.props.location}> */}
-                    		{this.props.children}
+						{/* <Transition location={props.location}> */}
+							{props.children}
 						{/* </Transition> */}
 					</main>
 
-					<Footer />
+					<Footer 
+						color={theme.light}
+						active={theme.active}
+						background={theme.dark}
+					/>
 
-				</StyledContent >
-
-			</StyledSite>
-		)
-	}
+				</div>
+			</div>
+		</NavContext.Provider>
+	)
 }
 
-injectGlobal`
+Layout.propTypes = {
+	children: PropTypes.object.isRequired,
+};
+
+const GlobalStyle = createGlobalStyle`
   	html, body {
 		padding: 0;
 		margin: 0;
 		font-size: 12px;
-		background-color: ${colors.black};
+		background-color: ${theme.dark};
 		${fonts.sansSerif()}
 	}
 
@@ -143,80 +147,112 @@ injectGlobal`
 
 	* {
 		box-sizing: border-box;
+		&:focus {
+			outline: none;
+		}
+		&::selection {
+			/* background: ${lighten(.30, theme.highlight)}; */
+			/* background: ${transparentize(.25, theme.highlight)}; */
+			background: ${theme.highlight};
+			color: ${theme.light};
+		}
 	}
 
 	img {
     	image-rendering: pixelated !important;
 	}
 
-	a, a * {
-		transition: $transition;
+	a {
+		transition: ${transition};
 	}
 
 	svg, svg * {
-		transition: $transition;
+		transition: fill ${transition};
 	}
 	
 	.gatsby-resp-image-wrapper img {
 		box-shadow: none !important;
 	}
-`
 
-const StyledSkipToContent = styled.a`
-	display: block;
-	transition: ${transition};
-	max-height: 0;
-	overflow: hidden;
-	box-sizing: border-box;
-	font-size: 1.5rem;
-	padding: 0 .5rem;
-	text-align: center;
-	background: ${colors.orange};
-	color: ${colors.black};
-	${fonts.condensed};
-	text-decoration: none;
-	text-transform: uppercase;
+	#site {
+		position: relative;
+		will-change: transform;
+		transition: ${transition};
 
-	&:focus {
-		padding: .5rem;
-		max-height: 100%;
+		&.open {
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+
+			${breaks.phone(`
+				transform: translateX(-50vw);
+			`)}
+
+			${breaks.tablet(`
+				transform: translateX(-33.33vw);
+			`)}
+		}
 	}
-`
 
-const StyledSite = styled.div`
-	position: relative;
-    will-change: transform;
-    transition: ${transition};
+	#site-content {
+		background-color: ${theme.light};
+		min-height: 100vh;
+		height: auto;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 
-    &.open {
-		transform: 
-			translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+		main {
+			flex: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
 
-		${functions.phoneBreak(`
-			transform: translateX(-50vw);
-		`)}
-
-		${functions.tabletBreak(`
-			transform: translateX(-33.33vw);
+		${breaks.phone(`
+			height: 100vh;
 		`)}
 	}
 `
 
-const StyledContent = styled.div`
-	background-color: ${colors.white};
-	min-height: 100vh;
-	height: auto;
-	width: 100vw;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
+const StyledLayout = styled(Layout)`
 
-	main {
-		flex: 1;
-		overflow: scroll;
+	/* TODO WHY ISN'T THIS WORKING HERE?? */
+	#site {
+		position: relative;
+		will-change: transform;
+		transition: ${transition};
+
+		&.open {
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+
+			${breaks.phone(`
+				transform: translateX(-50vw);
+			`)}
+
+			${breaks.tablet(`
+				transform: translateX(-33.33vw);
+			`)}
+		}
 	}
 
-	${functions.phoneBreak(`
-		height: 100vh;
-	`)}
+	#site-content {
+		background-color: ${theme.light};
+		min-height: 100vh;
+		height: auto;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+
+		main {
+			flex: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		${breaks.phone(`
+			height: 100vh;
+		`)}
+	}
 `
+
+export default StyledLayout;

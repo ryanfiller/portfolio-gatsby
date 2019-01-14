@@ -3,7 +3,7 @@ import Swiper from 'react-id-swiper'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
-import { arrows, colors, functions, overlays, padding } from '../config/styles'
+import { arrows, breaks, colors, overlays, padding } from '../config/styles'
 
 export default class PortfolioGallery extends React.Component {
 	render() {
@@ -129,7 +129,7 @@ const StyledPortfolioGallery = styled.div`
                     left: calc(3*${padding});
                 }
 
-                ${functions.phoneBreak(`
+                ${breaks.phone(`
                     display: flex;
                 `)}
             }

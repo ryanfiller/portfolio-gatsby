@@ -1,59 +1,87 @@
-import React from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+
+import { NavContext } from './layout';
+
 import MediaQuery from 'react-responsive';
-
 import styled from 'styled-components';
-import { colors, functions, navBreak, naviconWidth, padding, transition } from '../config/styles';
+import { theme, breaks, navBreak, naviconWidth, padding } from '../config/styles';
 
-import Navigation from './navigation'
-import Form from './contact-form'
+import Navigation from './navigation';
+import Form from './form';
+import { ContactForm } from '../config/forms';
 
-export default class OffCanvas extends React.Component {
+const OffCanvas = (props) => {
 
-	render() {
-		return (
-			<StyledOffCanvas className="off-canvas">
-				<MediaQuery query={`(max-width: ${navBreak}px)`}>
-					<Navigation 
-						handleNavigate={this.props.handleNavigate} 
-						currentPage={this.props.currentPage}
-					/>
-				</MediaQuery>
-				<Form />
-			</StyledOffCanvas>
-		);
-	}
+	const {
+		color,
+		active,
+		background,
+	} = props;
+
+	const context = useContext(NavContext);
+	const {
+        closeAndNavigate, 
+	} = context;
+
+	return (
+		<div className={props.className} id="off-canvas">
+			<MediaQuery query={`(max-width: ${navBreak}px)`}>
+				<Navigation 
+					color={color} 
+                    active={active}
+					background={background}
+					orientation={'vertical'}
+					navFunction={closeAndNavigate}
+				/>
+			</MediaQuery>
+			<Form 
+				form={ContactForm}
+				color={color} 
+				active={theme.highlight}
+				background={background}
+			/>
+		</div>
+	);
 }
 
-const StyledOffCanvas = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	/* transition: ${transition} * 2; */
+Navigation.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+};
+
+const StyledOffCanvas = styled(OffCanvas)`
+	display: block;
 	position: absolute;
 	top: 0;
 	left: 100%;
-	background-color: ${colors.blue};
+	background-color: ${props => props.background};
 	height: 100%;
 	width: 33.33vw;
 	padding: ${padding};
+	font-size: 2rem;
+	width: calc(100% - ((${padding}) + ${naviconWidth}));
 
-	align-content: start;
-	width: calc(100% - ((${padding} * 2) + ${naviconWidth}));
-
-	${functions.phoneBreak(`
-		align-content: center;
+	${breaks.phone(`
 		width: 50%;
 	`)}
 
-	${functions.tabletBreak(`
+	${breaks.tablet(`
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 		width: 33.33vw;
 	`)}
 
 	& > * {
 		width: 100%;
-		margin-bottom: calc(2 * ${padding});
+		margin-bottom: ${padding};
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 	}
 `
+
+export default StyledOffCanvas;

@@ -1,105 +1,60 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types';
+
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { arrows, colors, fonts, functions, overlays, padding, transition } from '../config/styles'
+import { arrows, breaks, fonts, overlays, padding, theme, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
-export default class PortfolioBlock extends Component {
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
-	handleMouseHover = this.handleMouseHover.bind(this);
-    state = {
-        isHovering: false,
-    };
+const PortfolioBlock = (props) => {
 
-	handleMouseHover() {
-		this.setState(this.toggleHoverState);
-	}
+    const frontmatter = props.frontmatter;
 
-	toggleHoverState(state) {
-        // TODO this state is reversed if it loads while you are hovering
-		return {
-			isHovering: !state.isHovering,
-		};
-	}
+    const [hovering, setHovering] = useState(false);
 
-	render() {
+    // TODO maybe remove color?
+    const style = {
+        color: frontmatter.color,
+        backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
+    }
 
-		let color = {
-			color: this.props.card.frontmatter.color,
-		};
-
-		let colorAndBackground = {
-			color: this.props.card.frontmatter.color,
-			backgroundImage: "url(" + this.props.card.frontmatter.backgroundgif.publicURL + ")",
-        };
-
-		return (
-			<StyledPortfolioBlock to={this.props.card.fields.slug}
-				onMouseEnter={this.handleMouseHover}
-				onMouseLeave={this.handleMouseHover}
-				style={this.state.isHovering ? colorAndBackground : color}
-				className="portfolio-block">
-				<svg width="0" height="0">
-					<defs>
-						<clipPath id="tv-shape">
-							<path d="M5,
-								5S17.5,
-								0,
-								36,
-								0,
-								67,
-								5,
-								67,
-								5s5,
-								12.5,
-								5,
-								31-5,
-								31-5,
-								31a98.6,
-								98.6,
-								0,
-								0,
-								1-31,
-								5A98.6,
-								98.6,
-								0,
-								0,
-								1,
-								5,
-								67,
-								98.6,
-								98.6,
-								0,
-								0,
-								1,
-								5,
-								5Z"/>
-						</clipPath>
-					</defs>
-				</svg>
-				<div className="logo">
-					<img src={this.props.card.frontmatter.logowhite.publicURL} alt="TODO" />
-				</div>
-				<div className="content">
-					<h2 className="title">
-						{this.props.card.frontmatter.title}
-					</h2>
-					<ContentMeta
-						category={this.props.card.frontmatter.category}
-						tags={this.props.card.frontmatter.tags}
-					/>
-					<span className="link">
-						Read More
-            		</span>
-				</div>
-			</StyledPortfolioBlock>
-		)
-	}
+    return (
+        <Link to={props.fields.slug}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            style={style}
+            className={`${props.className} portfolio-block`}
+        >
+            <div className="logo">
+                <img src={frontmatter.logowhite.publicURL} alt="TODO" />
+            </div>
+            <div className="content">
+                <h2 className="title">
+                    {frontmatter.title}
+                </h2>
+                <ContentMeta
+                    category={frontmatter.category}
+                    tags={frontmatter.tags}
+                />
+                <span className="link">
+                    Read More
+                </span>
+            </div>
+        </Link>
+    )
 }
 
-const StyledPortfolioBlock = styled(Link)`
+PortfolioBlock.propTypes = {
+    fields: PropTypes.object.isRequired,
+    frontmatter: PropTypes.object.isRequired,
+};
+
+const StyledPortfolioBlock = styled(PortfolioBlock)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,8 +68,29 @@ const StyledPortfolioBlock = styled(Link)`
     position: relative;
     overflow: hidden;
 
+    /* TODO this gets weird when you filter
+    maybe move to class names based on .map key? */
+
+    &:nth-child(4n+1) {
+        background-color: ${theme.primary};
+    }
+
+    &:nth-child(4n+2) {
+        background-color: ${theme.highlight};
+    }
+
+    &:nth-child(4n+3) {
+        background-color: ${theme.active};
+    }
+
+    &:nth-child(4n+4) {
+        background-color: ${theme.dark};
+    }
+
     ${overlays.pixels}
     ${overlays.dark}
+
+    transform-origin: center center;
 
     .logo {
         flex: 1;
@@ -124,6 +100,14 @@ const StyledPortfolioBlock = styled(Link)`
         align-items: center;
         justify-content: center;
 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        transition: ${transition};
+        transition-timing-function: steps(4, end);
+
         img {
         width: 100%;
         height: 100%;
@@ -131,7 +115,7 @@ const StyledPortfolioBlock = styled(Link)`
         max-height: 100%;
         max-width: 75%;
 
-            ${functions.phoneBreak(`
+            ${breaks.phone(`
                 max-width: 30vw;
                 max-height: 15vw;
             `)}
@@ -140,14 +124,21 @@ const StyledPortfolioBlock = styled(Link)`
 
     .content {
         text-align: center;
-        color: ${colors.white};
+        color: ${theme.light};
         max-height: 100%;
         overflow: hidden;
         transition: ${transition};
         font-size: 1rem;
 
-        ${functions.tabletBreak(`
-            max-height: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(180deg);
+        backface-visibility: hidden;
+        transition-timing-function: steps(4, end);
+
+        ${breaks.tablet(`
+            // max-height: 0;
             font-size: 1.5rem;
         `)}
     }
@@ -182,41 +173,16 @@ const StyledPortfolioBlock = styled(Link)`
 
     &:hover, &:focus {  
         cursor: pointer; 
-        box-shadow: inset 0px 0px 5rem ${colors.black};
         &:before {
             opacity: .5;
         }
+        .logo {
+            transform: translate(-50%, -50%) rotateX(180deg);
+        }
         .content {
-            max-height: 100%;
+            transform: translate(-50%, -50%);
         }
     }
-
-     /* @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-         transition: .2s;
-         clip-path: polygon(
-             0 0,
-             100% 0, 
-             100% 100%, 
-             0 100%
-         );
-
-         &:hover, &:focus {
-             clip-path: polygon(
-                 1rem 2rem, 
-                 calc(100% - 2rem) 1rem, 
-                 calc(100% - 1rem) calc(100% - 2rem), 
-                 2rem calc(100% - 1rem)
-             );
-         // clip-path: url(#tv-shape);
-         }
-
-         &:nth-child(odd):hover, &:nth-child(odd):focus {
-             clip-path: polygon(
-                 2rem 1rem, 
-                 calc(100% - 1rem) 2rem, 
-                 calc(100% - 2rem) calc(100% - 1rem), 
-                 2rem calc(100% - 2rem)
-             );
-         }
-     } */
 `
+
+export default StyledPortfolioBlock;

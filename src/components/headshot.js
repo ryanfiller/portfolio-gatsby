@@ -1,12 +1,12 @@
 import React from 'react'
+
 import { StaticQuery, graphql } from 'gatsby'
 import Img from "gatsby-image"
 
 import styled from 'styled-components'
+import { breaks, padding, theme, transition } from '../config/styles'
 
-import { colors, functions, overlays, padding, transition } from '../config/styles'
-
-export default () => {
+const Headshot = (props) => {
 	return (
 		<StaticQuery
 			query={graphql`
@@ -32,48 +32,47 @@ export default () => {
 				}
 			`}
 			render={ data => (
-				<StyledHeadshot className="headshot">
-					<Img outerWrapperClassName="hover" sizes={data.hover.childImageSharp.sizes} />
-					<Img outerWrapperClassName="regular" sizes={data.regular.childImageSharp.sizes} />
-				</StyledHeadshot>
+				<picture className={`headshot ${props.className}`}>
+					<Img Tag={'span'} className="hover" sizes={data.hover.childImageSharp.sizes} />
+					<Img Tag={'span'} className="regular" sizes={data.regular.childImageSharp.sizes} />
+				</picture>
 			)}
 		/>
 	)
 }
 
-const StyledHeadshot = styled.picture`
+const StyledHeadshot = styled(Headshot)`
 	display: block;
 	overflow: hidden;
 	border-radius: 50%;
 	margin: ${padding} auto;
 	width: 50%;
 	height: auto;
+	cursor: help;
 
 	.hover {
 		display: none;
+	}
+
+	span {
+		display: block;
 	}
 
 	img {
 		width: 100%;
 	}
 
-	${functions.phoneBreak(`
+	${breaks.phone(`
 		width: 25%;
 		float: right;
 		margin: ${padding};
 		margin-right: 0;
 	`)}
 
-
 	@supports(mix-blend-mode: multiply) {
-		background-color: ${colors.blue};
+		background-color: ${theme.highlight};
 		position: relative;
-		${overlays.pixels};
-
-		&:before {
-			transition: ${transition};
-			z-index: 2;
-		}
+		transition: ${transition};
 
 		.hover {
 			display: block;
@@ -93,9 +92,7 @@ const StyledHeadshot = styled.picture`
 		}
 
 		&:hover {
-			&:before {
-				opacity: .5;
-			}
+			background-color: ${theme.active};
 
 			.regular {
 				opacity: .75;
@@ -103,3 +100,5 @@ const StyledHeadshot = styled.picture`
 		}
 	}
 `
+
+export default StyledHeadshot;

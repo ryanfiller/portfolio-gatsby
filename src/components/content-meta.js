@@ -1,50 +1,59 @@
-import React, { Component } from 'react'
+import React from 'react';
+import PropTypes from "prop-types";
+
 // TODO
 // hooks up links for meta content
 // import Link from 'gatsby-link'
 
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { fonts, padding } from '../config/styles';
 
-import { fonts, padding } from '../config/styles'
+const ContentMeta = (props) => {
 
-export default class ContentMeta extends Component {
-  render() {
-
-    let tags;
-    if(this.props.tags != null){
-        tags = this.props.tags.map((name, index) => {
-            return <span key={ index }>{name}</span>;
-        })
-    }
-
-    let categories;
-    if(this.props.category != null){
-        categories = this.props.category.map((name, index) => {
-            return <span key={ index }>{name}</span>;
-        })
-    }
+    const {
+        date,
+        tags,
+        category
+    } = props;
 
     return (
-        <StyledMeta className="meta">
+        <div className={`meta ${props.className}`}>
             {
-                this.props.date ?
+                date ?
                 <div className="date">
-                    {this.props.date}  
+                    {date}  
                 </div>
-                : ''
+                : null
             }
-            <div className="category">
-                {categories}  
-            </div>
-            <div className="tag">
-                {tags}
-            </div>
-        </StyledMeta>
+            {
+                category ?
+                <div className="category">
+                  {category.map((name, index) => {
+                        return <span key={ index }>{name}</span>;
+                    })}  
+                </div>              
+                : null
+            }
+            {
+                tags ?
+                <div className="tag">
+                    {tags.map((name, index) => {
+                        return <span key={ index }>{name}</span>;
+                    })}
+                </div>
+                : null
+            }
+        </div>
     )
-  }
 }
 
-const StyledMeta = styled.div`
+ContentMeta.propTypes = {
+	date: PropTypes.string,
+    tags: PropTypes.array,
+    category: PropTypes.array
+};
+
+const StyledContentMeta = styled(ContentMeta)`
     margin: calc(${padding}/4) 0;
     ${fonts.sansSerif()}
 
@@ -85,3 +94,5 @@ const StyledMeta = styled.div`
         }
     }
 `
+
+export default StyledContentMeta;

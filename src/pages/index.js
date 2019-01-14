@@ -1,50 +1,30 @@
-import React from 'react';
-import { graphql } from 'gatsby'
+import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-import { injectGlobal } from 'styled-components'
-import { breaks, functions } from '../config/styles'
+import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
-import PortfolioGrid from '../components/portfolio-grid'
+import styled, { createGlobalStyle } from 'styled-components';
+import { breaks,breakPoints, theme } from '../config/styles';
 
-export default class Homepage extends React.Component {
+import { arrayZip } from '../helpers/helpers';
 
-	componentDidMount() {
-		document.addEventListener('wheel', this.onScroll);
-	}
-	
-	componentWillUnmount() {
-		document.removeEventListener('wheel', this.onScroll);
-	  }
-	
-	onScroll(e) {
-		var container = document.getElementsByClassName('portfolio-grid');
-	
-		if (window.innerWidth > breaks.tablet) {
-			container[0].scrollLeft += e.deltaY;
-			container[0].scrollLeft += e.deltaX;
-	
-			e.preventDefault();
-		}
-	}
+import PortfolioBlock from '../components/portfolio-block.js'
+import BlogPreview from '../components/blog-preview';
+import ReadMore from '../components/read-more';
 
-  	render() {
-		return (
-			<PortfolioGrid 
-				portfolio={this.props.data.allMarkdownRemark.edges}
-				currentCategory="all"
-			/>
-		)
-	}
-}
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
 export const query = graphql`
-	query HomepagePortfolioList {
-		allMarkdownRemark(
+	query HomepageBlocks {
+		portfolio: allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
 				fields: {slug: { regex: "//portfolio//" }},
 				frontmatter: { published: { eq: true } }
 			},
+			# limit: 4,
 		) {
 			edges {
 				node {
@@ -58,8 +38,6 @@ export const query = graphql`
 							relativePath
 							publicURL
 						}
-						category
-						tags
 						logowhite {
 							relativePath
 							publicURL
@@ -68,131 +46,244 @@ export const query = graphql`
 				}
 			}
 		}
+		blog: allMarkdownRemark(
+			sort: { order: DESC, fields: [frontmatter___date]},
+			filter: {
+				fields: {slug: { regex: "//blog//" }},
+				frontmatter: { published: { eq: true } }
+			},
+		# limit: 2,
+		) {
+			edges {
+				node {
+					fields {
+						slug
+					}
+					frontmatter {
+						title
+						date(formatString: "MMM.DD.YY")
+						excerpt
+					}
+				}
+			}
+		}
 	}
 `
 
-injectGlobal`
-	${functions.tabletBreak(`
+const Homepage = (props) => {
+
+	const gridRef = useRef(null);
+
+	useEffect(() => {
+
+        const scrollDirectionConverter = (e) => {
+			if (window.innerWidth > breakPoints.tablet) {
+				gridRef.current.scrollLeft += e.deltaY;
+				gridRef.current.scrollLeft += e.deltaX;
+				e.preventDefault();
+			}
+		}
+
+        document.addEventListener('wheel', scrollDirectionConverter);
+
+        return () => {
+          document.removeEventListener('wheel', scrollDirectionConverter);
+        };
+	});
+
+	const portfolio = props.data.portfolio.edges;
+	const blog = props.data.blog.edges;
+	const gridItems = arrayZip(portfolio, blog, 2, 1);
+
+	return (
+		<React.Fragment>
+
+			<Helmet>
+				<body className="homepage" />
+			</Helmet>
+
+			<HomepageGlobalStyle />
+
+			<section 
+				ref={gridRef}
+				className={`homepage-grid ${props.className}`}
+			>
+				{gridItems.map( (chunk, index) => {
+					if (index % 2 === 0) { // is even, is porfolio
+						return chunk.map( (item, index) => {
+							return <PortfolioBlock {...item.node} key={index}/>
+						})
+
+					} else { // is odd, is blog
+						return chunk.map( (item, index) => {
+							return <BlogPreview {...item.node} key={index}/>
+						})
+					}
+				})}
+				<ReadMore />
+			</section>
+		</React.Fragment>
+	)
+}
+
+Homepage.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+const StyledHomepage = styled(Homepage)`
+
+	width: 100%;
+	display: block;
+
+	& > * {
+		width: 100%;
+		height: 75vw;
+	}
+
+	${breaks.phone(`
+
+		.blog-preview .excerpt {
+			display: none !important;
+		}
+
+		display: flex;
+		flex-wrap: wrap;
+
+		& > * {
+			flex: 1;
+			flex-basis: 50%;
+			height: 50vw;
+		}
+	`)}
+
+	${breaks.tablet(`
+
+		.blog-preview .excerpt {
+			display: block !important;
+		}
+
 		@supports(display: grid) {
-			.site.horizontal {
-				.site-content {
-					display: grid;
-					grid-template-columns: 80vw 20vw;
-					grid-template-rows: 1fr auto;
+			height: 100vh;
+			width: auto;
+			overflow-x: auto;
+			overflow-y: hidden;
 
-					.header, .footer {
-						grid-column-start: 2;
-						grid-column-end: 3;
-						z-index: 10;
-						box-shadow: 0px 0px 1.25rem $color-black;
-					}
+			display: grid;
+			grid-template-columns: repeat(auto-fill, 50vh);
+			grid-template-rows: 50vh 50vh;
+			grid-auto-flow: column;
 
-					.header {
-						grid-row-start: 1;
-						grid-row-end: 2;
-					}
-
-					.footer {
-						grid-row-start: 2;
-						grid-row-end: 3;
-					}
-
-					main{
-						grid-column-start: 1;
-						grid-column-end: 2;
-						grid-row-start: 1;
-						grid-row-end: 3;
-						overflow-x: scroll;
+				& > * {
+					grid-column: span 1;
+					grid-row: span 1;
+					height: 100%;
+					min-width: 50vh;
+					
+					&:nth-child(4n-2), &:nth-child(4n-1) {
+						grid-column: span 2;
 					}
 				}
+			}
+	`)}	
+`
 
-				.header {
-					flex-wrap: wrap;
-					justify-content: center;
-					align-items: space-around;
+const HomepageGlobalStyle = createGlobalStyle`
+	body.homepage {
+		${breaks.tablet(`
+			@supports(display: grid) {
+				#site {
+					#site-content {
+						display: grid;
+						grid-template-columns: 80vw 20vw;
+						grid-template-rows: 1fr auto;
 
-					.rf-logo {
-						font-size: 2.5em;
-
-						.r {
-							filter: drop-shadow( .25em 0px 0px $color-black ); 
-							margin-right: -.7em;
-						}
-		
-						.f {
-							transform: rotateY(180deg);
-							margin-right: 0;
-							margin-left: .15em;
-						}
-		
-						.yan, .iller {
-							max-width: 0;
-						}
-					}
-
-					.nav {
-						width: 100%;
-						flex: initial;
-						display: block;
-						text-align: center;
-
-						a {
-							display: inline-block;
-							margin: .5em;
-						}
-					}
-				}
-
-				.portfolio-grid {
-					height: 100vh;
-					width: auto;
-					display: grid;
-					grid-auto-flow: row;
-					grid-template-columns: repeat(auto-fill, 50vh);
-					grid-template-rows: 50vh 50vh;
-					overflow-x: scroll;
-
-					& > * {
-						width: 100vh;
-						height: 50vh;
-						grid-column-end: span 2;
-
-						&:first-child, &:last-child {
-							width: 50vh;
-							grid-column-end: span 1;
+						#header, #footer {
+							grid-column-start: 2;
+							grid-column-end: 3;
+							z-index: 10;
+							box-shadow: 0px 0px 1.25rem $color-black;
 						}
 
-						&:nth-child(odd) {
+						#header {
 							grid-row-start: 1;
 							grid-row-end: 2;
 						}
 
-						&:nth-child(even) {
+						#footer {
 							grid-row-start: 2;
 							grid-row-end: 3;
 						}
-					}
-				}
-			
-				.footer {
-					display: block;
 
-					.copyright {
-						text-align: center;
-						margin-bottom: 1em;
-					}
-					
-					.socials {
-						li {
-							flex: 1;
+						main {
+							grid-column-start: 1;
+							grid-column-end: 2;
+							grid-row-start: 1;
+							grid-row-end: 3;
+							overflow-x: scroll;
 						}
-		
-						li {
+					}
+
+					#header {
+						flex-wrap: wrap;
+						justify-content: center;
+						align-items: space-around;
+
+						// TODO - fix this style
+						a { //logo
+							font-size: 2.5em;
+
+							.r {
+								filter: drop-shadow(.25em 0px 0px ${theme.dark});
+								margin-right: -.7em;
+							}
+			
+							.f {
+								transform: rotateY(180deg);
+								margin-right: 0;
+								margin-left: .15em;
+							}
+			
+							.yan, .iller {
+								max-width: 0;
+							}
+						}
+
+						nav {
 							width: 100%;
+							flex: initial;
+							display: block;
+							text-align: center;
+
+							a {
+								font-size: 2rem;
+								display: inline-block !important;
+								margin: .5em !important;
+							}
+						}
+					}
+				
+					#footer {
+						display: block;
+
+						.copyright {
+							text-align: center;
+							margin-bottom: 1em;
+						}
+						
+						.socials {
+							li {
+								flex: 1;
+							}
+			
+							li {
+								width: 100%;
+							}
 						}
 					}
 				}
-			}
-		}	
-	`)}
+			}	
+		`)}
+	}
 `
+
+export default StyledHomepage;
