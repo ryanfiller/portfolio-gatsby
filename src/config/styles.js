@@ -156,13 +156,13 @@ export const fonts = {
 
     sizes: (small, medium, large) => {
         return `
-            @media (min-width: ${breaksPoints.phone}px) {
+            @media (min-width: ${breakPoints.phone}px) {
                 font-size: ${small}
             }
-            @media (min-width: ${breaksPoints.tablet}px) {
+            @media (min-width: ${breakPoints.tablet}px) {
                 font-size: ${medium}
             }
-            @media (min-width: ${breaksPoints.desktop}px) {
+            @media (min-width: ${breakPoints.desktop}px) {
                 font-size: ${large}
             }
         `
@@ -171,19 +171,19 @@ export const fonts = {
 
 export const transition = '.3s';
 
-export const breaksPoints = {
+export const breakPoints = {
     large: 1200,
     tablet: 768,
     phone: 480, 
 }
 
 export const naviconWidth = '40px';
-export const navBreak = breaksPoints.tablet;
+export const navBreak = breakPoints.tablet;
 
 export const breaks = {
     phone: (styles) => {
         return `
-            @media (min-width: ${breaksPoints.phone}px) {
+            @media (min-width: ${breakPoints.phone}px) {
                 ${styles}
             }
         `
@@ -191,7 +191,7 @@ export const breaks = {
     
     tablet: (styles) => {
         return `
-            @media (min-width: ${breaksPoints.tablet}px) {
+            @media (min-width: ${breakPoints.tablet}px) {
                 ${styles}
             }
         `
@@ -199,7 +199,7 @@ export const breaks = {
     
     desktop: (styles) => {
         return `
-            @media (min-width: ${breaksPoints.desktop}px) {
+            @media (min-width: ${breakPoints.desktop}px) {
                 ${styles}
             }
         `
@@ -207,7 +207,7 @@ export const breaks = {
 
     desktopLarge: (styles) => {
         return `
-            @media (min-width: ${breaksPoints.large}px) {
+            @media (min-width: ${breakPoints.large}px) {
                 ${styles}
             }
         `

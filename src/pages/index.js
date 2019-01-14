@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import styled, { createGlobalStyle } from 'styled-components';
-import { breaks, theme } from '../config/styles';
+import { breaks,breakPoints, theme } from '../config/styles';
 
 import { arrayZip } from '../helpers/helpers';
 
@@ -71,14 +71,15 @@ export const query = graphql`
 `
 
 const Homepage = (props) => {
+
+	const gridRef = useRef(null);
+
 	useEffect(() => {
 
         const scrollDirectionConverter = (e) => {
-			var container = document.getElementsByClassName('portfolio-grid');
-		
-			if (window.innerWidth > breaks.tablet) {
-				container[0].scrollLeft += e.deltaY;
-				container[0].scrollLeft += e.deltaX;
+			if (window.innerWidth > breakPoints.tablet) {
+				gridRef.current.scrollLeft += e.deltaY;
+				gridRef.current.scrollLeft += e.deltaX;
 				e.preventDefault();
 			}
 		}
@@ -103,7 +104,10 @@ const Homepage = (props) => {
 
 			<HomepageGlobalStyle />
 
-			<section className={`homepage-grid ${props.className}`}>
+			<section 
+				ref={gridRef}
+				className={`homepage-grid ${props.className}`}
+			>
 				{gridItems.map( (chunk, index) => {
 					if (index % 2 === 0) { // is even, is porfolio
 						return chunk.map( (item, index) => {
