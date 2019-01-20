@@ -79,10 +79,15 @@ function disableFormButton(fields, state) {
     return disableButton;
 }
 
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 module.exports = {
     slugify,
     initialFormState,
     disableFormButton,
     getParent,
-    arrayZip
+    arrayZip,
+    randomNumber
 };
