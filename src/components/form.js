@@ -56,8 +56,12 @@ const Form = (props) => {
                     name="contact-form"
                     method="post"
                     data-netlify="true"
+                    data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                 >
+                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="bot-field" />
+
                     {Object.keys(formFields).map( (field, index) => {
 
                         const Element = formFields[field].element;
