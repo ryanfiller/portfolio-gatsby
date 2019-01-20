@@ -53,10 +53,9 @@ const Form = (props) => {
                 <form
                     id={props.form.name}
                     tabIndex="1"
-                    name="contact"
+                    name="contact-form"
                     method="post"
                     data-netlify="true"
-                    // data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                 >
                     {Object.keys(formFields).map( (field, index) => {
