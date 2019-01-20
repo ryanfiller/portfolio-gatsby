@@ -27,7 +27,7 @@ export const NavContext = React.createContext();
 
 const Layout = (props) => {
 
-	const [match ] = useKonamiListener();
+	const [match, reset] = useKonamiListener();
 	const [offCanvasOpen, setOffCanvasOpen] = useState(false);
 
 	const toggleOffCanvas = (e, target) => {
@@ -121,7 +121,7 @@ const Layout = (props) => {
 						{/* </Transition> */}
 					</main>
 
-					<Pokemon show={match} />
+					<Pokemon show={match} reset={reset} />
 
 					<Footer 
 						color={theme.light}

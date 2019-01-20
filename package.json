@@ -35,7 +35,7 @@
 		"react-dom": "^16.7.0-alpha.0",
 		"react-google-recaptcha": "^0.12.0",
 		"react-helmet": "^5.2.0",
-		"react-hook-konami-code-listener": "^1.1.0",
+		"react-hook-konami-code-listener": "^1.1.1",
 		"react-id-swiper": "^1.6.8",
 		"react-inlinesvg": "^0.7.5",
 		"react-responsive": "^4.1.0",
