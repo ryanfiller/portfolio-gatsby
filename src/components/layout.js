@@ -15,7 +15,10 @@ import Header from './header';
 import Footer from './footer';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';
-// import Transition from './transition'
+// import Transition from './transition';
+import Pokemon from './pokemon';
+
+import useKonamiListener from 'react-hook-konami-code-listener';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
@@ -24,6 +27,7 @@ export const NavContext = React.createContext();
 
 const Layout = (props) => {
 
+	const [match ] = useKonamiListener();
 	const [offCanvasOpen, setOffCanvasOpen] = useState(false);
 
 	const toggleOffCanvas = (e, target) => {
@@ -61,15 +65,16 @@ const Layout = (props) => {
         return () => {
           document.removeEventListener('keydown', handleKeydown);
         };
-	  });
+	});
 	  
-	  return (
+	return (
 		<NavContext.Provider value={{
 			handleNavigate: handleNavigate,
 			closeAndNavigate: closeAndNavigate,
 			toggleOffCanvas: toggleOffCanvas,
 			currentPage: props.location.pathname,
 		}}>
+
 			<div 
 				className={`site ${offCanvasOpen === true ? 'open' : null} ${props.className}`} 
 				id="site"
@@ -115,6 +120,8 @@ const Layout = (props) => {
 							{props.children}
 						{/* </Transition> */}
 					</main>
+
+					<Pokemon show={match} />
 
 					<Footer 
 						color={theme.light}

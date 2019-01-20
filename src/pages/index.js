@@ -194,12 +194,13 @@ const HomepageGlobalStyle = createGlobalStyle`
 				#site {
 					#site-content {
 						display: grid;
-						grid-template-columns: 80vw 20vw;
+						// TODO use named areas for this
+						grid-template-columns: 20vw 80vw;
 						grid-template-rows: 1fr auto;
 
 						#header, #footer {
-							grid-column-start: 2;
-							grid-column-end: 3;
+							grid-column-start: 1;
+							grid-column-end: 2;
 							z-index: 10;
 							box-shadow: 0px 0px 1.25rem $color-black;
 						}
@@ -215,8 +216,8 @@ const HomepageGlobalStyle = createGlobalStyle`
 						}
 
 						main {
-							grid-column-start: 1;
-							grid-column-end: 2;
+							grid-column-start: 2;
+							grid-column-end: 3;
 							grid-row-start: 1;
 							grid-row-end: 3;
 							overflow-x: scroll;
