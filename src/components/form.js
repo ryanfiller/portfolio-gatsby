@@ -59,7 +59,7 @@ const Form = (props) => {
                     data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                 >
-                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="form-name" value="contact-form" />
                     <input type="hidden" name="bot-field" />
 
                     {Object.keys(formFields).map( (field, index) => {
