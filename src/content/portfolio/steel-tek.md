@@ -2,7 +2,7 @@
 published: true
 title: Steel•Tek
 custompath: ''
-customtemplate: ''
+customtemplate: 'portfolio-item-old'
 date: 2016-07-04T00:00:00-05:00
 category:
   - design

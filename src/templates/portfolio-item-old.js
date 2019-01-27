@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { animations, breaks, fonts, padding, theme } from '../config/styles';
+import { animations, breaks, containers, fonts, padding, theme } from '../config/styles';
 
 import PortfolioGallery from '../components/portfolio-gallery';
 import ContentMeta from '../components/content-meta';
@@ -106,6 +106,8 @@ const StyledPortfolioItem = styled(PortfolioItem)`
     }
 
     .header {
+		${containers.container()};
+    	${containers.readable()};
         padding-top: calc(3*${padding});
         padding-bottom: calc(3*${padding});
         position: relative;

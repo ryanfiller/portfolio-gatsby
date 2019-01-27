@@ -1,13 +1,13 @@
 ---
-published: true
+published: false
 title: Crump Firm Architects
 custompath: ''
-customtemplate: ''
+customtemplate: 'portfolio-item-old'
 date: 2017-05-04T00:00:00-05:00
 category:
   - dev
 tags:
-  - front end dev
+  - front-end
 client: crumpfirm.com
 clienturl: 'https://www.crumpfirm.com/'
 color: '#4c3041'
@@ -26,4 +26,4 @@ slides:
     - image: "../../images/uploads/steeltek-slider-social.png"
 ---
 
-Crump Stuff
+> I tried to keep it minimalistic, open and elegant to show off their architecture work since they had such good photos. I also wanted the site to have a feeling of modern architecture and some deliberate and meaningful asymmetry as a nod to floor plans and architectural elements.

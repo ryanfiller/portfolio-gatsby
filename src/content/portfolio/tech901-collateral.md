@@ -2,7 +2,7 @@
 published: true
 title: Tech 901
 custompath: ''
-customtemplate: ''
+customtemplate: 'portfolio-item-old'
 date: 2015-11-09T00:00:00-05:00
 category:
   - design
