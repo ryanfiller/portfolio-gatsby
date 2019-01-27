@@ -105,6 +105,7 @@ function formatPortfolioObject(htmlAst) {
             return child.tagName === 'span'
         })[0]
 
+        // TODO this fails with gifs : /
         const backgroundImage = wrapper.children.filter( (child) => {
             return child.tagName === 'span'
         })[0]

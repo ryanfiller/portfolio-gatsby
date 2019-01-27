@@ -8,6 +8,7 @@ category:
   - dev
 tags:
   - front-end
+  - interaction design
 client: crumpfirm.com
 clienturl: 'https://www.crumpfirm.com/'
 color: '#4c3041'
@@ -15,21 +16,17 @@ backgroundgif: ../../images/uploads/crump-looney-tunes.gif
 gifattribution:  Looney Tunes, Warner Brothers
 logocolor: ../../images/uploads/crump-logo-color.svg
 logowhite: ../../images/uploads/crump-logo-white.svg
-slides:
-  - slide:
-    - image: "../../images/uploads/steeltek-slider-desktop.png"
-  - slide:
-    - image: "../../images/uploads/steeltek-slider-tablet.png"
-  - slide:
-    - image: "../../images/uploads/steeltek-slider-mobile.png"
-  - slide:
-    - image: "../../images/uploads/steeltek-slider-social.png"
 ---
 
 <portfolio-header>
-  <h2>Isometric Illustration</h2>
-  <img src="../../images/uploads/hack-memphis-color-options.jpg" alt="Geometry Gif">
+  <h2>Architecture & Asymmetry</h2>
+  <img src="../../images/uploads/crump-homepage-still.jpg" alt="homepage screenshot" />
+  <img src="../../images/uploads/crump-homepage-scroll.gif" alt="homepage scrolling" />
 </portfolio-header>
+
+
+
+The Crump Firm is a Memphis based based architecture firm that's been designing both public and private buildings for almost 50 years. In line with the firm's mission statement of "Creating Inspired Architecture That Endures," RocketFuel designed a unique site based heavily on photography that was also meant to endure.
 
 > I tried to keep it minimalistic, open and elegant to show off their architecture work since they had such good photos. I also wanted the site to have a feeling of modern architecture and some deliberate and meaningful asymmetry as a nod to floor plans and architectural elements.
 

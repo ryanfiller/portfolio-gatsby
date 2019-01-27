@@ -60,8 +60,6 @@ const PortfolioItem = (props) => {
 	let last_known_scroll_position = 0;
 	let ticking = false;
 
-	console.log(scrollRef);
-
 	const scrollListener = () => {
 		if (mode !== 'scroll') {setMode('scroll')}
 		
