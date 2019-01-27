@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 title: Crump Firm Architects
 custompath: ''
-customtemplate: 'portfolio-item-old'
+customtemplate: ''
 date: 2017-05-04T00:00:00-05:00
 category:
   - dev
@@ -25,5 +25,10 @@ slides:
   - slide:
     - image: "../../images/uploads/steeltek-slider-social.png"
 ---
+
+<portfolio-header>
+  <h2>Isometric Illustration</h2>
+  <img src="../../images/uploads/hack-memphis-color-options.jpg" alt="Geometry Gif">
+</portfolio-header>
 
 > I tried to keep it minimalistic, open and elegant to show off their architecture work since they had such good photos. I also wanted the site to have a feeling of modern architecture and some deliberate and meaningful asymmetry as a nod to floor plans and architectural elements.
