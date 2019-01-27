@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
@@ -56,7 +56,7 @@ const PortfolioItem = (props) => {
 	const [scroll, setScroll] = useState(0);
 	const [mode, setMode] = useState('');
 
-	let scrollRef = React.createRef();
+	const scrollRef = useRef(null);
 	let last_known_scroll_position = 0;
 	let ticking = false;
 
@@ -259,5 +259,5 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 		`)}
     }
 `
-export default PortfolioItem;
-// export default StyledPortfolioItem;
+
+export default StyledPortfolioItem;
