@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import rehypeReact from 'rehype-react'
 import Headshot from './headshot'
 import CompareImages from './compare-images'
+import PortfolioHeader from './portfolio-header'
 
 import styled from 'styled-components';
 
@@ -13,7 +14,8 @@ const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: { 
         'headshot': Headshot,
-        'compare-images': CompareImages
+        'compare-images': CompareImages,
+        "portfolio-header" : PortfolioHeader
     }
 }).Compiler
 
