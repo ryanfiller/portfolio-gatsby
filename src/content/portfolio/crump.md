@@ -33,7 +33,7 @@ Because the clients were able to provide a large amount of great photography and
 
 <portfolio-header>
   <h2>Architecture & Asymmetry</h2>
-  <img src="../../images/uploads/crump-about-page.png" alt="about page screenshot showing asymmetric images">
+  <img src="../../images/uploads/crump-about-page.jpg" alt="about page screenshot showing asymmetric images">
 </portfolio-header>
 
 >I wanted the site to have a feeling of modern architecture and some deliberate and meaningful asymmetry as a nod to floor plans and architectural elements.
