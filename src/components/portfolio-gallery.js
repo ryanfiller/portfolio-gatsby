@@ -63,6 +63,8 @@ const PortfolioGallery = (props) => {
     )
 }
 
+// TODO: final styles
+
 const StyledPortfolioGallery = styled(PortfolioGallery)`
     padding: 0;
     margin: 0;
@@ -78,21 +80,22 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         ${arrows()}
         cursor: pointer;
         padding: ${padding} 0;
-        width: calc(6*${padding});
+        width: calc(3*${padding});
         background-color: ${colors.grayDark};
         justify-content: center;
         align-items: center;
         position: absolute;
         z-index: 25;
-        height: calc(3*${padding});
+        height: calc(1*${padding});
         display: none;
         color: ${colors.white};
+        cursor: pointer;
         &:before {
-            right: calc(3*${padding});
+            right: calc(1.5*${padding});
         }
         &:after {
             right: 0;
-            left: calc(3*${padding});
+            left: calc(1.5*${padding});
         }
         ${breaks.phone(`
             display: flex;
