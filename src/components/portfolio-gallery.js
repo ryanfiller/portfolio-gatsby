@@ -55,8 +55,8 @@ const PortfolioGallery = (props) => {
                                 : null
                             )
                         })}
-                    <button className="button button-next" onClick={handleNext} />
-                    <button className="button button-previous" onClick={handlePrevious} />
+                    {/* <button className="button button-next" onClick={handleNext} /> */}
+                    {/* <button className="button button-previous" onClick={handlePrevious} /> */}
                 </TransitionGroup>   
             )}
         </GalleryContext.Consumer>
