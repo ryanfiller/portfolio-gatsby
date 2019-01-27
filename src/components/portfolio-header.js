@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react'
 
 import MediaQuery from 'react-responsive'
-import { breaks } from '../config/styles'
+import { breakPoints } from '../config/styles'
 import { slugify, getOwnHeaderIndex } from '../helpers/helpers'
 
 import { GalleryContext } from '../templates/portfolio-item';
@@ -43,7 +43,7 @@ const PortfolioHeader = (props) => {
                 </a>
                 {headerText}
             </h2>
-            <MediaQuery query={`(max-width: ${breaks.tablet - 1}px)`}>
+            <MediaQuery query={`(max-width: ${breakPoints.tablet - 1}px)`}>
                 {image}
             </MediaQuery>
         </React.Fragment>
