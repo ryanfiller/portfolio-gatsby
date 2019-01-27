@@ -60,6 +60,8 @@ const PortfolioItem = (props) => {
 	let last_known_scroll_position = 0;
 	let ticking = false;
 
+	console.log(scrollRef);
+
 	const scrollListener = () => {
 		if (mode !== 'scroll') {setMode('scroll')}
 		
@@ -257,5 +259,5 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 		`)}
     }
 `
-
-export default StyledPortfolioItem;
+export default PortfolioItem;
+// export default StyledPortfolioItem;

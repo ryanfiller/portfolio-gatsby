@@ -79,7 +79,7 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         cursor: pointer;
         padding: ${padding} 0;
         width: calc(6*${padding});
-        background-color: ${colors.darkGray};
+        background-color: ${colors.grayDark};
         justify-content: center;
         align-items: center;
         position: absolute;
