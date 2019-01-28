@@ -55,8 +55,8 @@ const PortfolioGallery = (props) => {
                                 : null
                             )
                         })}
-                    {/* <button className="button button-next" onClick={handleNext} /> */}
-                    {/* <button className="button button-previous" onClick={handlePrevious} /> */}
+                    <button className="button button-next" onClick={handleNext} />
+                    <button className="button button-previous" onClick={handlePrevious} />
                 </TransitionGroup>   
             )}
         </GalleryContext.Consumer>
@@ -79,14 +79,13 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         border: 0;
         ${arrows()}
         cursor: pointer;
-        padding: ${padding} 0;
+        padding: calc(.75*${padding}) 0;
         width: calc(3*${padding});
         background-color: ${colors.grayDark};
         justify-content: center;
         align-items: center;
         position: absolute;
         z-index: 25;
-        height: calc(1*${padding});
         display: none;
         color: ${colors.white};
         cursor: pointer;
