@@ -45,6 +45,8 @@ Achieving such a irregular design within the constraints of client editable cont
 
 Instead, this column was made the full width of the page, and any direct elements inside were given a max-width. Since image placement is handled with left and right floats, this layout system let them go to the outer most edges of the page while keeping text content centered at a readable width. This system also worked on pages that needed a left-hand sidebar, and left floated images could be pulled over to overlap with a negative margin.
 
+<!-- TODO maybe use different devices for grids here -->
+
 <portfolio-header>
   <h2>Many Types of Grid Styles</h2>
   <img src="../../images/uploads/crump-grids.png" alt="projects, services, team, and news grids">
@@ -67,7 +69,7 @@ Because of the architectural theme used throughout the site, a number of differe
 
 {% block card_content %}
     <a href="{{ list_item.uri }}"">
-      content...        
+      content...
     </a>
 {% endblock %}
 ```
@@ -137,10 +139,32 @@ export default class Card extends Component {
 
 <portfolio-header>
   <h2>Frosted Mobile Nav</h2>
-  <img src="../../images/uploads/crump-about-page.jpg" alt="about page screenshot showing asymmetric images">
+  <img src="../../images/uploads/crump-mobile-nav.png" alt="about page screenshot showing asymmetric images">
 </portfolio-header>
 
 The main demographic for this website was going to be desktop users viewing large imagery, but there were still opportunities to make references to the client's architectural style in the responsive version of the site. The Crump Firm Incorporate a lot of glass into their interior design, and we saw the opportunity to do something similar with site's mobile navigation.
 
 <iframe height="350" style="width: 100%;" scrolling="no" title="Crump Navicon" src="//codepen.io/ryanfiller89/embed/gvMLJQ/?height=325&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
+
+Since the [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) property wasn't supported in many browser at the time of developing this site, this effect was achieved by placing the mobile nav above the rest of the site and applying a [`filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) to the element wrapping the rest of the site.
+
+``` 
+// html
+<div class="site-wrap">
+  <div class="mobile-nav-overlay"></div>
+
+  <div class="site">
+    content...
+  </div>
+</div>
+
+// css
+.site {
+    .open & {
+        filter: blur(10px);
+        max-height: 100vh;
+        overflow: hidden;
+    }
+}
+```
