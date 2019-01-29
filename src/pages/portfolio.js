@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { breaks } from '../config/styles';
+import { breaks, theme } from '../config/styles';
+
+import { colorizeBlocks } from '../helpers/helpers';
 
 import Filter from '../components/filter';
 import PortfolioBlock from '../components/portfolio-block';
@@ -49,6 +51,8 @@ const Portfolio = ( props ) => {
 		data 
 	} = props;
 
+	const portfolio = data.allMarkdownRemark.edges;
+
 	const [currentFilter, setCurrentFilter] = useState('all');
 
 	const getCategories = (data) => {
@@ -67,6 +71,8 @@ const Portfolio = ( props ) => {
 		).sort();
 	};
 
+	const gridColors = colorizeBlocks(0, 4, theme.primary, portfolio);
+
 	return (
 		<section className={props.className}>
 
@@ -77,9 +83,9 @@ const Portfolio = ( props ) => {
 			/>
 
 			<section className="portfolio-grid">
-				{data.allMarkdownRemark.edges.map(({ node }, index) => (
+				{portfolio.map(({ node }, index) => (
 					!currentFilter || currentFilter === 'all' || node.frontmatter.category.includes(currentFilter) ?
-						<PortfolioBlock {...node} key={index}/>
+						<PortfolioBlock {...node} key={index} backgroundColor={gridColors[index]}/>
 					: null
 				))} 
 			</section>

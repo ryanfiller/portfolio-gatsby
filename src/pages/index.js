@@ -114,7 +114,7 @@ const Homepage = (props) => {
 		}
 	})
 	
-	const gridColors = colorizeBlocks(-2, 2, theme.primary, gridBlocks);
+	const gridColors = colorizeBlocks(0, 4, theme.primary, gridBlocks);
 
 	return (
 		<React.Fragment>

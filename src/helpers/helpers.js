@@ -85,37 +85,35 @@ function randomNumber(min, max) {
 
 const polished = require('polished')
 
-function colorizeBlocks(min, max, color, array) {
-    // console.log(polished.lighten);
-    // console.log(polished.darken);
-    
-    // console.log(min);
-    // console.log(max);
-    // console.log(color);
-    // console.log(arrayLength);
-
+function colorizeBlocks(min, max, startColor, array, repeat = 4) {
     let randomColors = [];
 
-    for (let i = 0; i < array.length; i++) {
-        let percent;
-
-        function setPercent() {
-            percent = randomNumber(min, max) / 20
-
-            if (percent === randomColors[i - 1]) {
-                setPercent()
-            } else if (percent === randomColors[i - 2]) {
-                setPercent()
-            }
-        }
-
-        setPercent();
-
-        if (percent <= 0) {
-            randomColors.push(polished.darken(percent * -1, color))
+    function modifyColor(modifier) {
+        if (modifier <= 0) {
+            return polished.darken(modifier * -1, startColor);
         } else  {
-            randomColors.push(polished.lighten(percent, color))
+            return polished.lighten(modifier, startColor);
         }
+    }
+
+    function setNewColor(i) {
+        let newColor = modifyColor(randomNumber(min, max) / 20);
+
+        console.log(i, randomColors.slice(i - repeat, i))
+        console.log('newColor', newColor)
+        console.log('-----')
+
+        if (randomColors.slice(i - repeat, i).includes(newColor)) {
+            console.log('there was a duplicate')
+            setNewColor(i);
+        } else {
+            randomColors.push(newColor);
+            return;
+        }
+    }
+
+    for (let i = 0; randomColors.length <= array.length; i++) {
+        setNewColor(i);
     }
 
     return randomColors;
