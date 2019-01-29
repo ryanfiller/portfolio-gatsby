@@ -83,11 +83,50 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const polished = require('polished')
+
+function colorizeBlocks(min, max, color, array) {
+    // console.log(polished.lighten);
+    // console.log(polished.darken);
+    
+    // console.log(min);
+    // console.log(max);
+    // console.log(color);
+    // console.log(arrayLength);
+
+    let randomColors = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let percent;
+
+        function setPercent() {
+            percent = randomNumber(min, max) / 20
+
+            if (percent === randomColors[i - 1]) {
+                setPercent()
+            } else if (percent === randomColors[i - 2]) {
+                setPercent()
+            }
+        }
+
+        setPercent();
+
+        if (percent <= 0) {
+            randomColors.push(polished.darken(percent * -1, color))
+        } else  {
+            randomColors.push(polished.lighten(percent, color))
+        }
+    }
+
+    return randomColors;
+}
+
 module.exports = {
     slugify,
     initialFormState,
     disableFormButton,
     getParent,
     arrayZip,
-    randomNumber
+    randomNumber,
+    colorizeBlocks
 };
