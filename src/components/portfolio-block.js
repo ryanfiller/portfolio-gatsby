@@ -17,9 +17,7 @@ const PortfolioBlock = (props) => {
 
     const [hovering, setHovering] = useState(false);
 
-    // TODO maybe remove color?
     const style = {
-        color: frontmatter.color,
         backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
     }
 
@@ -59,7 +57,6 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: currentColor;
     background-position: center center;
     background-blend-mode: luminosity; //multiply or luminosity?
     background-size: cover;
@@ -68,24 +65,12 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     position: relative;
     overflow: hidden;
 
-    /* TODO this gets weird when you filter
-    maybe move to class names based on .map key? */
-
-    &:nth-child(4n+1) {
-        background-color: ${theme.primary};
-    }
-
-    &:nth-child(4n+2) {
-        background-color: ${theme.highlight};
-    }
-
-    &:nth-child(4n+3) {
-        background-color: ${theme.active};
-    }
-
-    &:nth-child(4n+4) {
-        background-color: ${theme.dark};
-    }
+    ${props => (`
+        background-color: ${props.backgroundColor};
+        &:hover {
+            background-color: ${theme.highlight};
+        }
+    `)}
 
     ${overlays.pixels}
     ${overlays.dark}
@@ -162,8 +147,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     }
 
     .link {
-        ${fonts.sansSerif()}
-        ${arrows()}
+        ${fonts.inlineLink}
     }
 	
     &:before {

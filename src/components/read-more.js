@@ -21,7 +21,7 @@ const StyledReadMore = styled(ReadMore)`
     justify-content: center;
     align-items: center;
     color: ${theme.light};
-    background-color: ${theme.active};
+    background-color: ${theme.dark};
     font-size: 2rem;
 
     a {
@@ -29,7 +29,7 @@ const StyledReadMore = styled(ReadMore)`
         margin-bottom: ${padding};
         ${fonts.inlineLink()}
         color: ${theme.light};
-        ${animations.highlight(theme.light, theme.active, theme.light)};
+        ${animations.highlight(theme.light, theme.light, theme.active)};
 
         &:last-child {
             margin-bottom: 0;

@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { arrows, breaks, colors, overlays, padding, transition } from '../config/styles'
+import { arrows, breaks, colors, overlays, padding, theme, transition } from '../config/styles'
 
 import { GalleryContext } from '../templates/portfolio-item';
 
@@ -68,7 +68,7 @@ const PortfolioGallery = (props) => {
 const StyledPortfolioGallery = styled(PortfolioGallery)`
     padding: 0;
     margin: 0;
-    background-color: currentColor;
+    background-color: ${theme.highlight};
     position: relative;
     ${overlays.pixels}
     overflow: hidden;

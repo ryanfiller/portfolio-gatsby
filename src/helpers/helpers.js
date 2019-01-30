@@ -146,6 +146,46 @@ function getOwnHeaderIndex(array, header) {
     return(match[0].arrayIndex);
 }
 
+const polished = require('polished')
+
+function colorizeBlocks(min, max, startColor, array, lookback = 4) {
+    let randomColors = [];
+
+    function modifyColor(modifier) {
+        if (modifier <= 0) {
+            return polished.darken(modifier * -1, startColor);
+        } else  {
+            return polished.lighten(modifier, startColor);
+        }
+    }
+
+    function setNewColor(i) {
+        let newColor = modifyColor(randomNumber(min, max) / 20);
+
+        if (i < lookback) {
+            if (randomColors.includes(newColor)) {
+                setNewColor(i);
+            } else {
+                randomColors.push(newColor);
+                return;
+            }
+        } else {
+            if (randomColors.slice(i - lookback, i).includes(newColor)) {
+                setNewColor(i);
+            } else {
+                randomColors.push(newColor);
+                return;
+            }
+        }
+    }
+
+    for (let i = 0; randomColors.length <= array.length; i++) {
+        setNewColor(i);
+    }
+
+    return randomColors;
+}
+
 module.exports = {
     slugify,
     initialFormState,
@@ -154,5 +194,6 @@ module.exports = {
     arrayZip,
     randomNumber,
     formatPortfolioObject,
-    getOwnHeaderIndex
+    getOwnHeaderIndex,
+    colorizeBlocks
 };
