@@ -125,6 +125,18 @@ const StyledBlogPreview = styled(BlogPreview)`
         right: 0;
         bottom: 0;
     }
+
+    ${props => (props.backgroundColor ? `
+        background-color: ${props.backgroundColor};
+
+        * {
+            color: ${theme.light} !important;
+        }
+
+        &:hover {
+            background-color: ${theme.highlight};
+        }
+    ` : null)}
 `
 
 export default StyledBlogPreview;

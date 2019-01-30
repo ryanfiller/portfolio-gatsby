@@ -5,9 +5,9 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import styled, { createGlobalStyle } from 'styled-components';
-import { breaks,breakPoints, theme } from '../config/styles';
+import { breaks, breakPoints, theme } from '../config/styles';
 
-import { arrayZip } from '../helpers/helpers';
+import { arrayZip, colorizeBlocks } from '../helpers/helpers';
 
 import PortfolioBlock from '../components/portfolio-block.js'
 import BlogPreview from '../components/blog-preview';
@@ -93,7 +93,28 @@ const Homepage = (props) => {
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;
-	const gridItems = arrayZip(portfolio, blog, 2, 1);
+	const gridData = arrayZip(portfolio, blog, 2, 1);
+	const gridBlocks = [];
+	gridData.map( (chunk, index) => {
+		if (index % 2 === 0) { // is even, is porfolio
+			return chunk.map( (item) => {
+				gridBlocks.push({
+					component: 'PortfolioBlock',
+					node: item.node
+				})
+			})
+
+		} else { // is odd, is blog
+			return chunk.map( (item) => {
+				gridBlocks.push({
+					component: 'BlogPreview',
+					node: item.node
+				})
+			})
+		}
+	})
+	
+	const gridColors = colorizeBlocks(0, 4, theme.primary, gridBlocks);
 
 	return (
 		<React.Fragment>
@@ -108,17 +129,10 @@ const Homepage = (props) => {
 				ref={gridRef}
 				className={`homepage-grid ${props.className}`}
 			>
-				{gridItems.map( (chunk, index) => {
-					if (index % 2 === 0) { // is even, is porfolio
-						return chunk.map( (item, index) => {
-							return <PortfolioBlock {...item.node} key={index}/>
-						})
-
-					} else { // is odd, is blog
-						return chunk.map( (item, index) => {
-							return <BlogPreview {...item.node} key={index}/>
-						})
-					}
+				{gridBlocks.map( (block, index) => {
+					return block.component === 'PortfolioBlock' ? 
+						<PortfolioBlock {...block.node} key={index} backgroundColor={gridColors[index]} /> : 
+						<BlogPreview {...block.node} key={index} backgroundColor={gridColors[index]} />
 				})}
 				<ReadMore />
 			</section>
@@ -174,13 +188,16 @@ const StyledHomepage = styled(Homepage)`
 			grid-auto-flow: column;
 
 				& > * {
-					grid-column: span 1;
+					width: 100vh;
+					grid-column: span 2;
 					grid-row: span 1;
 					height: 100%;
 					min-width: 50vh;
 					
-					&:nth-child(4n-2), &:nth-child(4n-1) {
-						grid-column: span 2;
+					&:first-child,
+					&:last-child {
+						width: 50vh;
+						grid-column: span 1;
 					}
 				}
 			}
