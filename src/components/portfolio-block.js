@@ -147,8 +147,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     }
 
     .link {
-        ${fonts.sansSerif()}
-        ${arrows()}
+        ${fonts.inlineLink}
     }
 	
     &:before {

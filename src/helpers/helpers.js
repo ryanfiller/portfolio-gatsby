@@ -85,7 +85,7 @@ function randomNumber(min, max) {
 
 const polished = require('polished')
 
-function colorizeBlocks(min, max, startColor, array, repeat = 4) {
+function colorizeBlocks(min, max, startColor, array, lookback = 4) {
     let randomColors = [];
 
     function modifyColor(modifier) {
@@ -99,16 +99,20 @@ function colorizeBlocks(min, max, startColor, array, repeat = 4) {
     function setNewColor(i) {
         let newColor = modifyColor(randomNumber(min, max) / 20);
 
-        console.log(i, randomColors.slice(i - repeat, i))
-        console.log('newColor', newColor)
-        console.log('-----')
-
-        if (randomColors.slice(i - repeat, i).includes(newColor)) {
-            console.log('there was a duplicate')
-            setNewColor(i);
+        if (i < lookback) {
+            if (randomColors.includes(newColor)) {
+                setNewColor(i);
+            } else {
+                randomColors.push(newColor);
+                return;
+            }
         } else {
-            randomColors.push(newColor);
-            return;
+            if (randomColors.slice(i - lookback, i).includes(newColor)) {
+                setNewColor(i);
+            } else {
+                randomColors.push(newColor);
+                return;
+            }
         }
     }
 

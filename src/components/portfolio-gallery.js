@@ -3,7 +3,7 @@ import Swiper from 'react-id-swiper'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
-import { arrows, breaks, colors, overlays, padding } from '../config/styles'
+import { arrows, breaks, colors, theme, overlays, padding } from '../config/styles'
 
 export default class PortfolioGallery extends React.Component {
 	render() {
@@ -29,12 +29,8 @@ export default class PortfolioGallery extends React.Component {
 			}
 		}
 
-		var color = {
-			color: this.props.color,
-		};
-
 		return (
-			<StyledPortfolioGallery className="portfolio-gallery" style={color}>
+			<StyledPortfolioGallery className="portfolio-gallery" >
 				<Swiper {...params}>
 					{this.props.slides.map(({ slide, slidetype }, index) => (
 						<div key={index}>
@@ -53,7 +49,7 @@ export default class PortfolioGallery extends React.Component {
 const StyledPortfolioGallery = styled.div`
     padding: 0;
     margin: 0;
-    background-color: currentColor;
+    background-color: ${theme.highlight};
     position: relative;
     ${overlays.pixels}
 
