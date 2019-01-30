@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -71,7 +71,7 @@ const Portfolio = ( props ) => {
 		).sort();
 	};
 
-	const gridColors = colorizeBlocks(0, 4, theme.primary, portfolio);
+	const gridColors = useMemo(() => colorizeBlocks(0, 4, theme.primary, portfolio));
 
 	return (
 		<section className={props.className}>

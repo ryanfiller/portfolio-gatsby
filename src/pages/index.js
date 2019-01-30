@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { graphql } from 'gatsby';
@@ -114,7 +114,7 @@ const Homepage = (props) => {
 		}
 	})
 	
-	const gridColors = colorizeBlocks(0, 4, theme.primary, gridBlocks);
+	const gridColors = useMemo(() => colorizeBlocks(0, 4, theme.primary, portfolio));
 
 	return (
 		<React.Fragment>
