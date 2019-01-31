@@ -101,6 +101,8 @@ function formatPortfolioObject(htmlAst) {
         })[0].value;
 
         // TODO fix this with recursive search
+        // https://twitter.com/wesbos/status/1090624545990590465
+        // ^ this might be the answer?
         const wrapper = PortfolioHeader.children.filter( (child) => {
             return child.tagName === 'span'
         })[0]
