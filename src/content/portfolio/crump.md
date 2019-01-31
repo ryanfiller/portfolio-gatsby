@@ -21,13 +21,11 @@ logowhite: ../../images/uploads/crump-logo-white.svg
 ---
 
 <portfolio-header>
-  <h2>Project Introduction (need a better title?)</h2>
+  <h2>An Architecture Inspired Site</h2>
   <img src="../../images/uploads/crump-whole-homepage.png" alt="homepage screenshots" />
   <!-- <img src="../../images/uploads/crump-homepage-still.jpg" alt="homepage screenshot" /> -->
   <!-- <img src="../../images/uploads/crump-homepage-scroll.gif" alt="homepage scrolling" /> -->
 </portfolio-header>
-
-
 
 The Crump Firm is a Memphis based architecture firm that has worked to design both public and private buildings for almost 50 years. Building upon the firm's mission statement of "Creating Inspired Architecture That Endures," RocketFuel created a unique site based heavily on photography that is also meant to endure.
 
@@ -45,8 +43,6 @@ Achieving this irregular design within the constraints of client editable conten
 
 Instead, this column was made the full width of the page, and any direct elements inside were given a max-width. Since image placement is handled with left and right floats, this layout system lets them be positioned relative to the outer most edges of the page while keeping text content centered at a readable width. This system also worked on pages that needed a left-hand sidebar, and left floated images could be pulled over to overlap with a negative margin.
 
-<!-- TODO maybe use different devices for grids here -->
-
 <portfolio-header>
   <h2>Many Types of Grid Styles</h2>
   <img src="../../images/uploads/crump-grids.png" alt="projects, services, team, and news grids">
@@ -57,7 +53,7 @@ Because of the architectural theme used throughout the site, a number of unique 
 ``` twig
 // card.twig
 <article class="card {% block card_name %}{% endblock %}">
-    {% block card_content %}{% endblock %}   
+    {% block card_content %}{% endblock %}
 </article>
 
 // team-member.twig
@@ -139,7 +135,7 @@ export default class Card extends Component {
 
 <portfolio-header>
   <h2>Frosted Mobile Nav</h2>
-  <img src="../../images/uploads/crump-mobile-nav.png" alt="about page screenshot showing asymmetric images">
+  <img src="../../images/uploads/crump-mobile-nav.png" alt="screenshots of mobile nav">
 </portfolio-header>
 
 While the primary demographic for this website are desktop users viewing large photgraphy, there were still opportunities to reference the client's architectural style in the responsive version of the site. The Crump Firm incorporates glass features into their interior design, and we saw an opportunity to play off of this in a similar manner in site's mobile navigation.
@@ -149,7 +145,7 @@ While the primary demographic for this website are desktop users viewing large p
 
 Since the [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) property wasn't supported in many browser at the time of developing this site, this effect was achieved by placing the mobile nav above the rest of the site and applying a [`filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) to the element wrapping the rest of the site.
 
-``` 
+``` html
 // html
 <div class="site-wrap">
   <div class="mobile-nav-overlay"></div>
@@ -168,3 +164,12 @@ Since the [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/b
     }
 }
 ```
+
+<portfolio-header>
+  <h2>Takeaways From This Project</h2>
+  <img src="../../images/uploads/crump-grid-and-active-hover.png" alt="grid and mobile hover state">
+</portfolio-header>
+
+This was a fun project to work on and was more irregular and asymmetric than most websites I've developed. Flexbox is a super powerful tool to achieve layouts like this. Having three elements in a flexed row and giving them all very specific flex grow values like `46.25`, `30`, and `23.75`, and `align-self` values of `flex-start`, `stretch` and `flex-end` can be a great way to build a very fluid design that still maintains a specific aspect ratio.
+
+Also, when working with so many card styles that all hide information behind a hover interaction, it can be helpful to this hover state to a scss mixin. This make it very easy to all this both inside a `&:hover` declaration, as well as inside of an `@media` query so that on touch only devices this information can be the default.
