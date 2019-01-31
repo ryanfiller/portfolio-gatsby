@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useRef, useState } from "react"
 import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
-import styled from 'styled-components';
-import { animations, breaks, fonts, padding, theme } from '../config/styles';
+import MediaQuery from 'react-responsive';
+import styled from 'styled-components'
+import { animations, breaks, breakPoints, containers, fonts, padding, theme } from '../config/styles'
 
-import PortfolioGallery from '../components/portfolio-gallery';
-import ContentMeta from '../components/content-meta';
-import MarkdownBlock from '../components/markdown-block';
+import { formatPortfolioObject } from '../helpers/helpers'
+
+import PortfolioGallery from '../components/portfolio-gallery'
+import ContentMeta from '../components/content-meta'
+import MarkdownBlock from '../components/markdown-block'
 import BackButton from '../components/back-button';
+
+import {setConfig} from 'react-hot-loader';
+setConfig({pureSFC: true});
 
 export const postQuery = graphql`
 	query PortfolioPost($slug: String!) {
-
 		markdownRemark(fields: { slug: { eq: $slug } }) {
 			htmlAst
 			frontmatter {
@@ -39,37 +44,82 @@ export const postQuery = graphql`
 	}
 `
 
+export const GalleryContext = React.createContext();
+
 const PortfolioItem = (props) => {
 
 	const post = props.data.markdownRemark.frontmatter;
 
+	const portfolioItems = formatPortfolioObject(props.data.markdownRemark.htmlAst);
+
+	const [current, setCurrent] = useState(0);
+	const [scroll, setScroll] = useState(0);
+	const [mode, setMode] = useState('');
+
+	const scrollRef = useRef(null);
+	let last_known_scroll_position = 0;
+	let ticking = false;
+
+	const scrollListener = () => {
+		if (mode !== 'scroll') {setMode('scroll')}
+		
+		last_known_scroll_position = scrollRef.current.scrollTop;
+			if (!ticking) {
+				window.requestAnimationFrame(function() {
+					let halfway = last_known_scroll_position + scrollRef.current.offsetHeight / 2;
+					setScroll(halfway);
+					ticking = false;
+				});
+			ticking = true;
+		}
+	}
+
+	const galleryValue = {
+		current: current,
+		setCurrent: setCurrent,
+		portfolioItems: portfolioItems,
+		scroll: scroll,
+		mode: mode,
+		setMode: setMode
+    };
+
 	return (
-		<article className={props.className}>
-			<PortfolioGallery slides={post.slides} color={post.color} />
+		<GalleryContext.Provider value={galleryValue}>
+			<article className={props.className}>
+				<MediaQuery query={`(min-width: ${breakPoints.tablet}px)`}>
+					<PortfolioGallery 
+						slides={portfolioItems}
+						color={post.color} 
+					/>
+				</MediaQuery>
+				
+				<div className="content" 
+					ref={scrollRef}
+					onScroll={scrollListener}
+				>
+					<header className="header">
+                        <h1>
+                            {post.title}
+                        </h1>
 
-			<div className="content">
-				<header className="header">
-					<h1>
-						{post.title}
-					</h1>
+                        <ContentMeta tags={post.tags} />
 
-					<ContentMeta tags={post.tags} />
+                        <a className="" href={post.clienturl}>
+                            {post.client}
+                        </a>
+                    </header>
 
-					<a className="" href={post.clienturl}>
-						{post.client}
-					</a>
-				</header>
+					<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
 
-				<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
+                    <BackButton location={props.location} />
 
-				<BackButton location={props.location} />
-
-				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{post.gifattribution}</span>
-				</cite>
-			</div>
-		</article>
-	);
+                    <cite className="gif-credit">
+                        Grid Page .gif Credit: <span>{post.gifattribution}</span>
+                    </cite>
+				</div>
+			</article>
+		</GalleryContext.Provider>
+	)
 };
 
 PortfolioItem.propTypes = {
@@ -106,6 +156,8 @@ const StyledPortfolioItem = styled(PortfolioItem)`
     }
 
     .header {
+		${containers.container()};
+    	${containers.readable()};
         padding-top: calc(3*${padding});
         padding-bottom: calc(3*${padding});
         position: relative;

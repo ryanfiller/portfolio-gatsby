@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import rehypeReact from 'rehype-react'
 import Headshot from './headshot'
 import CompareImages from './compare-images'
+import PortfolioHeader from './portfolio-header'
 
 import styled from 'styled-components';
 
@@ -13,7 +14,8 @@ const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: { 
         'headshot': Headshot,
-        'compare-images': CompareImages
+        'compare-images': CompareImages,
+        "portfolio-header" : PortfolioHeader
     }
 }).Compiler
 
@@ -228,8 +230,8 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
     /* TODO see if it is possible to make a component out of this */
     /* https://using-remark.gatsbyjs.org/custom-components/#mapping-from-generic-html-elements */
     .gatsby-highlight {
-        width: calc(100% + (2 * ${padding}));
-        margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+        width: calc(100% + ${padding});
+        margin: 0 calc(-.5*${padding}) ${padding} calc(-.5*${padding});
         
         pre {
             overflow: scroll;
@@ -264,8 +266,8 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
     code[class*="language-"],
     pre[class*="language-"] {
         font-family: 'Cutive Mono', monospace;
-        font-size: 1.125em;
-        line-height: 1.5;
+        font-size: 1em;
+        line-height: 1.25;
         direction: ltr;
         text-align: left;
         white-space: pre;

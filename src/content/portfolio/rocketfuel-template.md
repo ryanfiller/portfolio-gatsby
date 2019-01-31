@@ -2,7 +2,7 @@
 published: false
 title: RocketFuel Templated CMS
 custompath: ''
-customtemplate: ''
+customtemplate: 'portfolio-item-old'
 date: 2018-02-01T00:00:00-06:00
 category:
   - dev

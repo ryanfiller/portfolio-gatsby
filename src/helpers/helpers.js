@@ -83,6 +83,69 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function formatPortfolioObject(htmlAst) {
+
+    const headers = htmlAst.children.filter((child) => child.tagName === 'portfolio-header' );
+
+    var items = [];
+    
+    headers.map( (PortfolioHeader, index) => {
+
+        // get data to rebuild gatsby-image
+
+        // get the h2 text
+        const header = PortfolioHeader.children.filter( (child) => {
+            return child.tagName === 'h2'
+        })[0].children.filter( (child) => {
+            return child.type === 'text'
+        })[0].value;
+
+        // TODO fix this with recursive search
+        const wrapper = PortfolioHeader.children.filter( (child) => {
+            return child.tagName === 'span'
+        })[0]
+
+        // TODO this fails with gifs : /
+        const backgroundImage = wrapper.children.filter( (child) => {
+            return child.tagName === 'span'
+        })[0]
+
+        // grab only the encoded image
+        const base64 = backgroundImage.properties.style.match(/(?=data:)(.*)(?='\))/)[0]
+
+        const img = backgroundImage.children.filter( (child) => {
+            return child.tagName === 'img'
+        })[0]
+
+        // console.log('height', img.properties.src, 'width', img.properties.src.naturalWidth,)
+
+        items.push(
+            {
+                'header': header,
+                // TODO get aspect reatio
+                'aspectRatio': 2,
+                'base64': base64,
+                'sizes': img.properties.sizes.join(' '),
+                'src': img.properties.src,
+                'srcSet': img.properties.srcSet.join(',\n'),
+                'alt': img.properties.alt,
+                'arrayIndex': index,
+            }
+        );
+    })
+
+    return items;
+}
+
+function getOwnHeaderIndex(array, header) {
+
+    const match = array.filter( (item) => {
+        return item.header === header
+    })
+
+    return(match[0].arrayIndex);
+}
+
 const polished = require('polished')
 
 function colorizeBlocks(min, max, startColor, array, lookback = 4) {
@@ -130,5 +193,7 @@ module.exports = {
     getParent,
     arrayZip,
     randomNumber,
+    formatPortfolioObject,
+    getOwnHeaderIndex,
     colorizeBlocks
 };

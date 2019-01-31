@@ -33,7 +33,7 @@ const Pokemon = (props) => {
                 timeout={200}
                 classNames="pokemon"
                 unmountOnExit
-                onEnter={() => console.log('Thank you pokeapi.co!')}
+                onEnter={() => (console.log(`it's a ${pokemon.name}!`), console.log('thank you pokeapi.co!'))}
                 onExited={() => (props.reset, pokeApi())}
             >
                 <img 

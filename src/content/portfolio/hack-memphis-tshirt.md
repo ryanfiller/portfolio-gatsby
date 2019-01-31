@@ -2,7 +2,7 @@
 published: true
 title: Hack Memphis 2016
 custompath: ''
-customtemplate: ''
+customtemplate: 'portfolio-item-old'
 date: 2016-09-01T05:00:00.000Z
 category:
   - draw
