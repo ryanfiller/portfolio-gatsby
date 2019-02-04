@@ -34,6 +34,7 @@ export const query = graphql`
 					frontmatter {
 						title
 						color
+						category
 						backgroundgif {
 							relativePath
 							publicURL
