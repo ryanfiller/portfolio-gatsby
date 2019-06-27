@@ -193,6 +193,7 @@ const StyledFourOhFour = styled(FourOhFour)`
     color: white;
     margin: 0;
     padding: 0 ${padding};
+	width: 100%;
     max-width: 100%;
     /* background-image: url("/images/site-assets/2001.gif"); */
     background-image: url("/images/site-assets/grass.gif");
@@ -213,6 +214,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 		${fonts.sizes('3rem', '4rem, 4rem')}
 		text-shadow: -.075em .075em black;
 		line-height: 1.25em;
+		width: 100%;
 
 		.code, .text {
 			display: block;
