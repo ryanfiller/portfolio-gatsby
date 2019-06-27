@@ -23,8 +23,8 @@ const Navigation = (props) => {
 
 				let click;
 
-				if (page === 'contact') {
-					click = (e) => {toggleOffCanvas(e, '#contact-form')};
+				if (page.name === 'contact') {
+					click = (e) => {toggleOffCanvas(e, '#contact')};
 				} else if(props.navFunction) {
 					click = props.navFunction;
 				} else {
@@ -33,13 +33,13 @@ const Navigation = (props) => {
 
 				return (
 					<a 
-						href={page === 'contact' ? '#contact-form' : page}
+						href={page.url || page.name}
 						onClick={ click }
-						key={page} 
-						data-text={page}
-						className={currentPage.includes(`/${page}`) ? 'active' : ''}
+						key={page.name} 
+						data-text={page.name}
+						className={currentPage.includes(`/${page.name}`) ? 'active' : ''}
 					>
-						{page}
+						{page.name}
 					</a>
 				)
 			})}
@@ -106,14 +106,14 @@ const StyledNavigation = styled(Navigation)`
 				color: ${props => props.color};
 			`)}
 
-			&[href='#contact-form'] {
+			&[href='#contact'] {
 				position: relative;
 				z-index: 100;
 				color: ${props => props.active};
 			}
 		}
 
-		&[href='#contact-form'] {
+		&[href='#contact'] {
 			display: none;
 
 			@media(min-width: ${navBreak}px) {

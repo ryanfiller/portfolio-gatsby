@@ -225,7 +225,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 	}
 
 	ul {
-		background-image: ${gradient()}
+		background-image: ${gradient()};
 		box-shadow: inset 0px 0px 0px calc(${border}/2) ${borderShadow};
 		align-self: flex-end;
 		padding: ${padding};

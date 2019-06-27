@@ -1,5 +1,5 @@
 export const ContactForm = {
-    name: 'contact-form',
+    name: 'contact',
     fields: {
         name : {
             type: 'text',

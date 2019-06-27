@@ -53,13 +53,13 @@ const Form = (props) => {
                 <form
                     id={props.form.name}
                     tabIndex="1"
-                    name="contact-form"
+                    name="contact"
                     method="post"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                 >
-                    <input type="hidden" name="form-name" value="contact-form" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <input type="hidden" name="bot-field" />
 
                     {Object.keys(formFields).map( (field, index) => {
