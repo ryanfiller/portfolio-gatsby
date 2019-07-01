@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
-import Header from '../header';
+import { ThemeContext } from 'styled-components'
+
+import Header from './header'
 
 const Page = (props) => {
-  const {
-    pageContent
-  } = props;
+
+  const theme = useContext(ThemeContext)
 
   return (
     <div>
-      <Header 
-        color='lightblue'
-        active='red'
-        background='purple'
-      />
-      {pageContent}
+      <Header />
+      {props.pageContent}
     </div>
   )
 }

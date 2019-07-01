@@ -51,6 +51,7 @@ const Layout = (props) => {
             handleNavigate: handleNavigate,
             closeAndNavigate: closeAndNavigate,
             toggleOffCanvas: toggleOffCanvas,
+            offCanvasOpen: offCanvasOpen,
             currentPage: props.location.pathname,
           }}>
             <Page pageContent={props.children} />

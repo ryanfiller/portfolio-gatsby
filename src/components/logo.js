@@ -1,35 +1,31 @@
-import React from 'react';
-import PropTypes from "prop-types";
+import React, { useContext } from 'react';
 
 import Link from 'gatsby-link';
 import SVG  from 'react-inlinesvg';
 
-import styled from 'styled-components';
-import { breaks, theme } from '../config/styles';
+import styled, { ThemeContext } from 'styled-components';
+import { breaks } from '../config/styles';
 
 import r from "../images/logo/r.svg";
 import yan from "../images/logo/yan.svg";
 import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
 
-const Logo = (props) => {
+const Logo = () => {
+
+	const theme = useContext(ThemeContext)
+
 	return (
-		<Link className={props.className} to="/">
+		<StyledLogo theme={theme} to="/">
 			<SVG className="r" src={r} />
 			<SVG className="yan" src={yan} />
 			<SVG className="f" src={f} />
 			<SVG className="iller" src={iller} />
-		</Link>
+		</StyledLogo>
 	)
 }
 
-Logo.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	background: PropTypes.string.isRequired
-};
-
-const StyledLogo = styled(Logo)`
+const StyledLogo = styled(Link)`
 	display: inline-flex;
 	justify-content: flex-start;
 	position: relative;
@@ -42,12 +38,17 @@ const StyledLogo = styled(Logo)`
 		display: block;
 		width: auto;
 		height: 1em;	
-		fill: ${props => props.color};
 		pointer-events: none;
+		fill: ${props => props.theme.darkNav ? props.theme.light : props.theme.dark};
 	}
 
-	.r {
-		filter: drop-shadow(.25em 0px 0px ${theme.dark}); 
+	.r { 
+		filter: ${props => (
+			props.theme.darkNav ? 
+				`drop-shadow(.25em 0px 0px ${props.theme.dark})`
+			:
+				`drop-shadow(.25em 0px 0px ${props.theme.light})`
+		)};
 		margin-right: -.1675em;
 		position: relative;
 		z-index: 2;
@@ -67,7 +68,7 @@ const StyledLogo = styled(Logo)`
 	&:hover,
 	&:focus {
 		svg {
-			fill: ${props => props.active};
+			fill: ${props => props.theme.active};
 		}
 	}
 
@@ -99,4 +100,4 @@ const StyledLogo = styled(Logo)`
 	`)}
 `
 
-export default StyledLogo;
+export default Logo;

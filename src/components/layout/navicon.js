@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavContext } from './layout';
 
 import styled from 'styled-components'
-import { naviconWidth, transition } from '../config/styles'
+import { naviconWidth, transition } from '../../config/styles'
 
 const Navicon = (props) => {
 
