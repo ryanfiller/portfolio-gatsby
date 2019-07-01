@@ -9,7 +9,7 @@ import { transition } from '../config/styles';
 const Pokemon = (props) => {
     const [pokemon, choosePokemon ] = useState({
         name: '',
-        image: '',
+        image: ''
     });
 
     function pokeApi() {
