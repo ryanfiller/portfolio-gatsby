@@ -63,7 +63,7 @@ const StyledFilter = styled(Filter)`
             text-transform: uppercase;
             color: currentColor;
             background-color: ${theme.primary};
-            transition: ${transition};
+            transition: ${transition}ms;
             cursor: pointer;
 
             &:focus {

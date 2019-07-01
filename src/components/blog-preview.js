@@ -63,7 +63,7 @@ BlogPreview.propTypes = {
 
 const StyledBlogPreview = styled(BlogPreview)`
     font-size: 1.5rem;
-    transition: ${transition};
+    transition: ${transition}ms;
     text-decoration: none;
     padding: ${padding};
 

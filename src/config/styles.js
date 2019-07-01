@@ -169,7 +169,7 @@ export const fonts = {
     }
 }
 
-export const transition = '.3s';
+export const transition = 300; //ms
 
 export const breakPoints = {
     large: 1200,
@@ -297,7 +297,7 @@ export const animations = {
         backgroundColor = backgroundColor || colors.orange
         return `
             color: ${color};
-            transition: color ${transition}, background ${transition};
+            transition: color ${transition}ms, background ${transition}ms;
             background-image: linear-gradient(to right, transparent 51%, ${backgroundColor} 49%);
             background-position: 0;
             background-size: 200%;
@@ -313,7 +313,7 @@ export const animations = {
     bounce: () => {
         return`
             animation-name: floating;
-            animation-duration: ${transition};
+            animation-duration: ${transition}ms;
             animation-timing-function: steps(2, end);
             animation-iteration-count: infinite;
             position: relative;

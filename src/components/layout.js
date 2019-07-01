@@ -13,7 +13,7 @@ import Header from './header';
 import Footer from './footer';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';
-import Transition from './transition';
+// import Transition from './transition';
 import Pokemon from './pokemon';
 
 import useKonamiListener from 'react-hook-konami-code-listener';
@@ -165,11 +165,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	a {
-		transition: ${transition};
+		transition: ${transition}ms;
 	}
 
 	svg, svg * {
-		transition: fill ${transition};
+		transition: fill ${transition}ms;
 	}
 	
 	.gatsby-resp-image-wrapper img {
@@ -179,7 +179,7 @@ const GlobalStyle = createGlobalStyle`
 	#site {
 		position: relative;
 		will-change: transform;
-		transition: ${transition};
+		transition: ${transition}ms;
 
 		&.open {
 			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
@@ -221,7 +221,7 @@ const StyledLayout = styled(Layout)`
 	#site {
 		position: relative;
 		will-change: transform;
-		transition: ${transition};
+		transition: ${transition}ms;
 
 		&.open {
 			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});

@@ -70,7 +70,7 @@ const StyledNavigation = styled(Navigation)`
 		text-transform: uppercase;
 		font-size: 1em;
 		color: currentColor;
-		transition: ${transition};
+		transition: ${transition}ms;
 
 		${props => props.orientation === 'horizontal' ? `
 			margin-right: 2rem;

@@ -33,7 +33,7 @@ const StyledOverlay = styled(Overlay)`
         bottom: 0;
         left: 0;
         z-index: 40;
-        transition: ${transition};
+        transition: ${transition}ms;
         opacity: 0;
         mix-blend-mode: multiply;
         ${overlays.dark}

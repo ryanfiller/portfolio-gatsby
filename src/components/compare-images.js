@@ -66,7 +66,7 @@ const StyledCompareImages = styled.figure`
 
             &:nth-child(1) {
                 opacity: 1;
-                transition: ${transition};
+                transition: ${transition}ms;
                 z-index: 2;
             }
 

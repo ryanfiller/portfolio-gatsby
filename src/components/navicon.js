@@ -56,18 +56,18 @@ const StyledNavicon = styled(Navicon)`
     .top {
         top: 0;
         transform: rotate(0deg);
-        transition: top ${transition} ease ${transition}, transform ${transition} ease 0s, background-color ${transition};
+        transition: top ${transition}ms ease ${transition}ms, transform ${transition}ms ease 0s, background-color ${transition}ms;
     }
 
     .middle {
-        transition: opacity 0s ease ${transition}, background-color ${transition};
+        transition: opacity 0s ease ${transition}ms, background-color ${transition}ms;
         top: 50%;
         transform: translateY(-50%);
         opacity: 1;
     }
 
     .bottom {
-        transition: bottom ${transition} ease ${transition}, transform ${transition} ease 0s, background-color ${transition};
+        transition: bottom ${transition}ms ease ${transition}ms, transform ${transition}ms ease 0s, background-color ${transition}ms;
         bottom: 0;
     }
 
@@ -80,18 +80,18 @@ const StyledNavicon = styled(Navicon)`
         }
 
         .top {
-            transition: top ${transition} ease 0s, transform ${transition} ease ${transition};
+            transition: top ${transition}ms ease 0s, transform ${transition}ms ease ${transition}ms;
             top: calc(50% - .125rem);
             transform: rotate(45deg);
         }
 
         .middle {
-            transition: opacity 0s ease ${transition};
+            transition: opacity 0s ease ${transition}ms;
             opacity: 0;
         }
 
         .bottom {
-            transition: bottom ${transition} ease 0s, transform ${transition} ease ${transition};
+            transition: bottom ${transition}ms ease 0s, transform ${transition}ms ease ${transition}ms;
             bottom: calc(50% - .125rem);
             transform: rotate(-45deg);
         }
