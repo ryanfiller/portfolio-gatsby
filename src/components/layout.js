@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { navigate } from 'gatsby';
 
-import styled, { createGlobalStyle } from 'styled-components';
-import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles';
-import { lighten, transparentize } from 'polished';
+import styled from 'styled-components';
+import { breaks, naviconWidth, transition, theme } from '../config/styles';
 
 import SkipToContent from './skip-to-content';
 import Header from './header';
@@ -78,8 +77,6 @@ const Layout = (props) => {
 				id="site"
 				tabIndex="0"
 			>
-				<GlobalStyle />
-
 				<Helmet
 					title="ryanfiller.com"
 					meta={[
@@ -90,13 +87,13 @@ const Layout = (props) => {
 					
 				<SkipToContent />
 
-				{offCanvasOpen === true ? 
+				{/* {offCanvasOpen === true ? 
 					<OffCanvas 
 						color={theme.light}
 						active={theme.active}
 						background={theme.primary}
 					/>
-				: null}
+				: null} */}
 
 				<div id="site-content">
 
@@ -133,87 +130,6 @@ const Layout = (props) => {
 Layout.propTypes = {
 	children: PropTypes.object.isRequired,
 };
-
-const GlobalStyle = createGlobalStyle`
-  	html, body {
-		padding: 0;
-		margin: 0;
-		font-size: 12px;
-		background-color: ${theme.dark};
-		${fonts.sansSerif()}
-	}
-
-	main, article, aside, blockquote, caption, header, footer {
-		display: block;
-	}
-
-	* {
-		box-sizing: border-box;
-		&:focus {
-			outline: none;
-		}
-		&::selection {
-			/* background: ${lighten(.30, theme.highlight)}; */
-			/* background: ${transparentize(.25, theme.highlight)}; */
-			background: ${theme.highlight};
-			color: ${theme.light};
-		}
-	}
-
-	img {
-    	image-rendering: pixelated !important;
-	}
-
-	a {
-		transition: ${transition}ms;
-	}
-
-	svg, svg * {
-		transition: fill ${transition}ms;
-	}
-	
-	.gatsby-resp-image-wrapper img {
-		box-shadow: none !important;
-	}
-
-	#site {
-		position: relative;
-		will-change: transform;
-		transition: ${transition}ms;
-
-		&.open {
-			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
-
-			${breaks.phone(`
-				transform: translateX(-50vw);
-			`)}
-
-			${breaks.tablet(`
-				transform: translateX(-33.33vw);
-			`)}
-		}
-	}
-
-	#site-content {
-		background-color: ${theme.light};
-		min-height: 100vh;
-		height: auto;
-		width: 100vw;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-
-		main {
-			flex: 1;
-			overflow-x: hidden;
-			overflow-y: auto;
-		}
-
-		${breaks.phone(`
-			height: 100vh;
-		`)}
-	}
-`
 
 const StyledLayout = styled(Layout)`
 

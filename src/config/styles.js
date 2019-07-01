@@ -11,7 +11,17 @@ export const colors = {
     grayDark: '#2f323a',
 }
 
+// delete this theme later
 export const theme = {
+    dark: colors.black,
+    light: colors.white,
+    primary: colors.blue,
+    active: colors.orange,
+    highlight: colors.purple,
+    disabled: colors.gray,
+}
+
+export const defaultTheme = {
     dark: colors.black,
     light: colors.white,
     primary: colors.blue,

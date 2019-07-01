@@ -45,7 +45,7 @@ const OffCanvas = (props) => {
 	);
 }
 
-Navigation.propTypes = {
+OffCanvas.propTypes = {
 	color: PropTypes.string.isRequired,
 	active: PropTypes.string.isRequired,
 	background: PropTypes.string.isRequired,
