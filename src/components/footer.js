@@ -45,7 +45,7 @@ const StyledFooter = styled(Footer)`
         }
 
         a {
-            transition: ${transition};
+            transition: ${transition}ms;
             color: currentColor;
             text-decoration: none;
 

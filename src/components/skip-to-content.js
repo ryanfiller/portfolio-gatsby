@@ -13,7 +13,7 @@ const SkipToContent = (props) => {
 
 const StyledSkipToContent = styled(SkipToContent)`
     display: block;
-    transition: ${transition};
+    transition: ${transition}ms;
     max-height: 0;
     overflow: hidden;
     box-sizing: border-box;

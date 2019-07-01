@@ -74,7 +74,7 @@ const StyledSocialList = styled(SocialList)`
 			right: 0;
 			bottom: 0;
 			margin-top: 100%;
-			transition: ${transition};
+			transition: ${transition}ms;
 
 			${breaks.phone(`
 				display: block;

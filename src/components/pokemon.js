@@ -54,7 +54,7 @@ const StyledPokemon = styled(Pokemon)`
     bottom: 0;
     height: 150px;
     width: auto;
-    transition: ${transition};
+    transition: ${transition}ms;
     opacity: 0;
     cursor: e-resize;
 
