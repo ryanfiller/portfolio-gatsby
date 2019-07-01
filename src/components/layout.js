@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { navigate } from 'gatsby';
 
-// import { CSSTransition, TransitionGroup } from "react-transition-group"
-
 import styled, { createGlobalStyle } from 'styled-components';
 import { breaks, fonts, naviconWidth, transition, theme } from '../config/styles';
 import { lighten, transparentize } from 'polished';
@@ -15,7 +13,7 @@ import Header from './header';
 import Footer from './footer';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';
-// import Transition from './transition';
+import Transition from './transition';
 import Pokemon from './pokemon';
 
 import useKonamiListener from 'react-hook-konami-code-listener';
@@ -114,11 +112,8 @@ const Layout = (props) => {
 						background={theme.dark}
 					/>
 
-
 					<main id="content">
-						{/* <Transition location={props.location}> */}
-							{props.children}
-						{/* </Transition> */}
+						{props.children}
 					</main>
 
 					<Pokemon show={match} reset={reset} />
