@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { pages } from '../config/config';
 
-import { NavContext } from './layout';
+import { NavContext } from './layout/layout';
 
 import styled from 'styled-components';
 import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
