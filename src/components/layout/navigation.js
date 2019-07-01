@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { pages } from '../config/config';
+import { pages } from '../../config/config';
 
-import { NavContext } from './layout/layout';
+import { NavContext } from './layout';
 
 import styled from 'styled-components';
-import { animations, breaks, fonts, navBreak, transition } from '../config/styles';
+import { animations, breaks, fonts, navBreak, transition } from '../../config/styles';
 
 const Navigation = (props) => {
 	

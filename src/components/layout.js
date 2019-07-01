@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { breaks, naviconWidth, transition, theme } from '../config/styles';
 
 import SkipToContent from './skip-to-content';
-import Header from './header';
+import Header from './layout/header';
 import Footer from './footer';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';

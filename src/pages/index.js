@@ -80,22 +80,22 @@ const Homepage = (props) => {
 
 	const gridRef = useRef(null);
 
-	useEffect(() => {
+	// useEffect(() => {
 
-        const scrollDirectionConverter = (e) => {
-			if (window.innerWidth > breakPoints.tablet) {
-				gridRef.current.scrollLeft += e.deltaY;
-				gridRef.current.scrollLeft += e.deltaX;
-				e.preventDefault();
-			}
-		}
+	// 	const scrollDirectionConverter = (e) => {
+	// 		if (window.innerWidth > breakPoints.tablet) {
+	// 			gridRef.current.scrollLeft += e.deltaY;
+	// 			gridRef.current.scrollLeft += e.deltaX;
+	// 			e.preventDefault();
+	// 		}
+	// 	}
 
-        document.addEventListener('wheel', scrollDirectionConverter);
+	// 	document.addEventListener('wheel', scrollDirectionConverter);
 
-        return () => {
-          document.removeEventListener('wheel', scrollDirectionConverter);
-        };
-	});
+	// 	return () => {
+	// 		document.removeEventListener('wheel', scrollDirectionConverter);
+	// 	}
+	// })
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;

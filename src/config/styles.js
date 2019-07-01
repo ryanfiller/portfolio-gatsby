@@ -22,6 +22,7 @@ export const theme = {
 }
 
 export const defaultTheme = {
+    darkNav: true,
     dark: colors.black,
     light: colors.white,
     primary: colors.blue,

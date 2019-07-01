@@ -7,7 +7,7 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import { theme, breaks, navBreak, naviconWidth, padding } from '../config/styles';
 
-import Navigation from './navigation';
+import Navigation from './layout/navigation';
 import Form from './form';
 import { ContactForm } from '../config/forms';
 
