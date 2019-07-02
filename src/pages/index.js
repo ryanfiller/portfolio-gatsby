@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
@@ -88,10 +90,10 @@ const Homepage = (props) => {
 		}
 	}
 
-	// useEffect(() => {
-	// 	document.addEventListener('wheel', scrollDirectionConverter);
-	// 	return () => document.removeEventListener('wheel', scrollDirectionConverter)
-	// })
+	useEffect(() => {
+		document.addEventListener('wheel', scrollDirectionConverter);
+		return () => document.removeEventListener('wheel', scrollDirectionConverter)
+	})
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;
@@ -105,7 +107,6 @@ const Homepage = (props) => {
 					node: item.node
 				})
 			})
-
 		} else { // is odd, is blog
 			return chunk.map( (item) => {
 				gridBlocks.push({
