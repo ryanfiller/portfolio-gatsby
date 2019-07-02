@@ -9,14 +9,9 @@ import styled from 'styled-components';
 import { animations, breaks, fonts, navBreak, transition } from '../../config/styles';
 
 const Navigation = (props) => {
-	
-	const context = useContext(NavContext);
-	const {
-		handleNavigate,
-        toggleOffCanvas, 
-        currentPage,
-	} = context;
-	
+
+	const nav = useContext(NavContext);
+
 	return (
 		<nav className={props.className} role="navigation">
 			{ pages.map((page) => {
@@ -24,11 +19,11 @@ const Navigation = (props) => {
 				let click;
 
 				if (page.name === 'contact') {
-					click = (e) => {toggleOffCanvas(e, '#contact')};
+					click = (e) => {nav.toggleOffCanvas(e, '#contact')};
 				} else if(props.navFunction) {
 					click = props.navFunction;
 				} else {
-					click = (e) => {handleNavigate(e)};
+					click = (e) => {nav.handleNavigate(e)};
 				}
 
 				return (
@@ -37,7 +32,7 @@ const Navigation = (props) => {
 						onClick={ click }
 						key={page.name} 
 						data-text={page.name}
-						className={currentPage.includes(`/${page.name}`) ? 'active' : ''}
+						className={nav.currentPage.includes(`/${page.name}`) ? 'active' : ''}
 					>
 						{page.name}
 					</a>
