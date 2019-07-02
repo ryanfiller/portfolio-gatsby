@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Link from 'gatsby-link';
 import SVG  from 'react-inlinesvg';
 
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import { breaks } from '../config/styles';
 
 import r from "../images/logo/r.svg";
@@ -11,21 +12,19 @@ import yan from "../images/logo/yan.svg";
 import f from "../images/logo/f.svg";
 import iller from "../images/logo/iller.svg";
 
-const Logo = () => {
-
-	const theme = useContext(ThemeContext)
+const Logo = (props) => {
 
 	return (
-		<StyledLogo theme={theme} to="/">
+		<Link className={props.className} to="/">
 			<SVG className="r" src={r} />
 			<SVG className="yan" src={yan} />
 			<SVG className="f" src={f} />
 			<SVG className="iller" src={iller} />
-		</StyledLogo>
+		</Link>
 	)
 }
 
-const StyledLogo = styled(Link)`
+const StyledLogo = styled(Logo)`
 	display: inline-flex;
 	justify-content: flex-start;
 	position: relative;
@@ -39,16 +38,11 @@ const StyledLogo = styled(Link)`
 		width: auto;
 		height: 1em;	
 		pointer-events: none;
-		fill: ${props => props.theme.darkNav ? props.theme.light : props.theme.dark};
+		fill: ${props => props.color};
 	}
 
 	.r { 
-		filter: ${props => (
-			props.theme.darkNav ? 
-				`drop-shadow(.25em 0px 0px ${props.theme.dark})`
-			:
-				`drop-shadow(.25em 0px 0px ${props.theme.light})`
-		)};
+		filter: ${props => `drop-shadow(.25em 0px 0px ${props.background})`};
 		margin-right: -.1675em;
 		position: relative;
 		z-index: 2;
@@ -68,11 +62,11 @@ const StyledLogo = styled(Link)`
 	&:hover,
 	&:focus {
 		svg {
-			fill: ${props => props.theme.active};
+			fill: ${props => props.active};
 		}
 	}
 
-	${breaks.phone(`
+	${props => breaks[props.breakpoint](`
 		font-size: 1.25em;
 
 		.r {
@@ -100,4 +94,11 @@ const StyledLogo = styled(Link)`
 	`)}
 `
 
-export default Logo;
+Logo.propTypes = {
+	color: PropTypes.string.isRequired,
+	active: PropTypes.string.isRequired,
+	background: PropTypes.string.isRequired,
+	breakpoint: PropTypes.string.isRequired,
+};
+
+export default StyledLogo;
