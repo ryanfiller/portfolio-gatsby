@@ -7,11 +7,7 @@ import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import { breaks, naviconWidth, transition, theme } from '../config/styles';
 
-import SkipToContent from './skip-to-content';
-import Header from './layout/header';
 import Footer from './footer';
-import OffCanvas from './off-canvas';
-import Overlay from './overlay';
 // import Transition from './transition';
 import Pokemon from './pokemon';
 
@@ -85,7 +81,7 @@ const Layout = (props) => {
 					]}
 				/>
 					
-				<SkipToContent />
+				{/* <SkipToContent /> */}
 
 				{/* {offCanvasOpen === true ? 
 					<OffCanvas 
@@ -95,19 +91,19 @@ const Layout = (props) => {
 					/>
 				: null} */}
 
-				<div id="site-content">
+				<div id="content">
 
-					{offCanvasOpen === true ? 
+					{/* {offCanvasOpen === true ? 
 						<Overlay 
 							background={theme.disabled}
 						/> 
-					: null}
+					: null} */}
 
-					<Header 
+					{/* <Header 
 						color={theme.light}
 						active={theme.active}
 						background={theme.dark}
-					/>
+					/> */}
 
 					<main id="content">
 						{props.children}
@@ -152,7 +148,7 @@ const StyledLayout = styled(Layout)`
 		}
 	}
 
-	#site-content {
+	#content {
 		background-color: ${theme.light};
 		min-height: 100vh;
 		height: auto;

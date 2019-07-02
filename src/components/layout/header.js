@@ -4,21 +4,29 @@ import styled, { ThemeContext } from 'styled-components'
 import MediaQuery from 'react-responsive'
 import { containers, navBreak, padding } from '../../config/styles'
 
+import { NavContext } from './layout';
+
 import Logo from '../logo'
 import Navigation from './navigation'
 import Navicon from './navicon'
 
-const Header = () => {
+const Header = (props) => {
 
-	const color = null
-	const active = null
-	const background = null
+	const theme = useContext(ThemeContext)
+	const color = theme.darkNav ? theme.light : theme.dark;
+	const background = theme.darkNav ? theme.dark : theme.light;
+	const active = theme.active;
 
-const theme = useContext(ThemeContext)
+	const nav = useContext(NavContext)
 
 	return (
-		<StyledHeader theme={theme} id="header">
-			<Logo />
+		<header className={props.className} id="header">
+			<Logo
+				breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}
+				color={color} 
+				active={active}
+				background={background}
+			/>
 			
 			<MediaQuery query={`(min-width: ${navBreak}px)`}>
 				<Navigation 
@@ -35,11 +43,11 @@ const theme = useContext(ThemeContext)
 						active={active}
 				/>
 			</MediaQuery>
-		</StyledHeader>
+		</header>
 	)
 }
 
-const StyledHeader = styled.header`
+const StyledHeader = styled(Header)`
 	${props => (
 		props.theme.darkNav ? 
 		`background-color: ${props.theme.dark};
@@ -56,4 +64,4 @@ const StyledHeader = styled.header`
 	${containers.container()}
 ` 
 
-export default Header
+export default StyledHeader

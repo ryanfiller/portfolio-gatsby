@@ -69,7 +69,7 @@ export const overlays = {
     dark: overlay(`
         background-color: ${transparentize(.5, colors.grayDark)};
         @supports (mix-blend-mode: multiply) {
-            background-color: ${transparentize(.66, colors.gray)};
+            background-color: ${transparentize(.25, colors.gray)};
             mix-blend-mode: multiply;
         }
     `),

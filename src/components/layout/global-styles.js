@@ -64,7 +64,7 @@ const Styles = createGlobalStyle`
 		}
 	}
 
-	#site-content {
+	#content {
 		background-color: ${props => props.theme.light};
 		min-height: 100vh;
 		height: auto;

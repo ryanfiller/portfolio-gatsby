@@ -1,11 +1,13 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { fonts, transition, theme } from '../config/styles';
+import { fonts, transition, theme } from '../../config/styles';
+
+// todo tabs are generally broken in firefox
 
 const SkipToContent = (props) => {
     return(
-        <a className={props.className} href="#content">
+        <a className={props.className} href="#content" tabIndex="1">
             Skip to Content
         </a>
     )
