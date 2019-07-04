@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should match snapshot 1`] = `
+<ContextMock>
+  <ThemeProvider
+    theme={
+      Object {
+        "active": "#ed6554",
+        "dark": "#1e053f",
+        "darkNav": true,
+        "disabled": "#515664",
+        "highlight": "#7c1863",
+        "light": "#fff7ff",
+        "primary": "#192368",
+      }
+    }
+  >
+    <header__StyledHeader>
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "header__StyledHeader-sc-1un6j1h-0",
+              "isStatic": false,
+              "lastClassName": "dzBYMK",
+              "rules": Array [
+                [Function],
+                " display:flex;justify-content:space-between;align-items:center;padding:calc(",
+                "2rem",
+                " / 2);font-size:2rem;",
+                "
+            padding-left: 1rem;
+            padding-right: 1rem;
+        ",
+              ],
+            },
+            "displayName": "header__StyledHeader",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "header__StyledHeader-sc-1un6j1h-0",
+            "target": [Function],
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+      >
+        <Header
+          className="header__StyledHeader-sc-1un6j1h-0 dzBYMK"
+        >
+          <header
+            className="header__StyledHeader-sc-1un6j1h-0 dzBYMK"
+            id="header"
+          >
+            <logo__StyledLogo
+              breakpoint="phone"
+            >
+              <StyledComponent
+                breakpoint="phone"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "logo__StyledLogo-sc-6ahk4j-0",
+                      "isStatic": false,
+                      "lastClassName": "cnmoFT",
+                      "rules": Array [
+                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1.5em;height:1em;width:auto;svg{display:block;width:auto;height:1em;pointer-events:none;fill:",
+                        [Function],
+                        ";}.r{filter:",
+                        [Function],
+                        ";margin-right:-.1675em;position:relative;z-index:2;}.f{transform:rotateY(180deg);margin-right:0;margin-left:.025em;}.yan,.iller{max-width:0;overflow:hidden}&:hover,&:focus{svg{fill:",
+                        [Function],
+                        ";}}",
+                        [Function],
+                      ],
+                    },
+                    "displayName": "logo__StyledLogo",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "logo__StyledLogo-sc-6ahk4j-0",
+                    "target": [Function],
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <Logo
+                  breakpoint="phone"
+                  className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                >
+                  <ForwardRef
+                    className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                    to="/"
+                  >
+                    <GatsbyLink
+                      className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                      innerRef={null}
+                      to="/"
+                    >
+                      <ForwardRef
+                        className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                        getProps={[Function]}
+                        innerRef={[Function]}
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        to="/"
+                      >
+                        <Location>
+                          <LocationProvider
+                            history={
+                              Object {
+                                "_onTransitionComplete": [Function],
+                                "listen": [Function],
+                                "location": Object {
+                                  "assign": [Function],
+                                  "hash": "",
+                                  "host": "localhost",
+                                  "hostname": "localhost",
+                                  "href": "http://localhost/",
+                                  "key": "initial",
+                                  "origin": "http://localhost",
+                                  "pathname": "/",
+                                  "port": "",
+                                  "protocol": "http:",
+                                  "reload": [Function],
+                                  "replace": [Function],
+                                  "search": "",
+                                  "state": null,
+                                  "toString": [Function],
+                                },
+                                "navigate": [Function],
+                                "transitioning": false,
+                              }
+                            }
+                          >
+                            <a
+                              aria-current="page"
+                              className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                              href="/"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              style={Object {}}
+                            >
+                              <InlineSVG
+                                cacheGetRequests={false}
+                                className="r"
+                                onLoad={[Function]}
+                                src="test-file-stub"
+                                supportTest={[Function]}
+                                uniquifyIDs={true}
+                                wrapper={[Function]}
+                              >
+                                <span
+                                  className="isvg loading r"
+                                />
+                              </InlineSVG>
+                              <InlineSVG
+                                cacheGetRequests={false}
+                                className="yan"
+                                onLoad={[Function]}
+                                src="test-file-stub"
+                                supportTest={[Function]}
+                                uniquifyIDs={true}
+                                wrapper={[Function]}
+                              >
+                                <span
+                                  className="isvg loading yan"
+                                />
+                              </InlineSVG>
+                              <InlineSVG
+                                cacheGetRequests={false}
+                                className="f"
+                                onLoad={[Function]}
+                                src="test-file-stub"
+                                supportTest={[Function]}
+                                uniquifyIDs={true}
+                                wrapper={[Function]}
+                              >
+                                <span
+                                  className="isvg loading f"
+                                />
+                              </InlineSVG>
+                              <InlineSVG
+                                cacheGetRequests={false}
+                                className="iller"
+                                onLoad={[Function]}
+                                src="test-file-stub"
+                                supportTest={[Function]}
+                                uniquifyIDs={true}
+                                wrapper={[Function]}
+                              >
+                                <span
+                                  className="isvg loading iller"
+                                />
+                              </InlineSVG>
+                            </a>
+                          </LocationProvider>
+                        </Location>
+                      </ForwardRef>
+                    </GatsbyLink>
+                  </ForwardRef>
+                </Logo>
+              </StyledComponent>
+            </logo__StyledLogo>
+            <MediaQuery
+              query="(min-width: 768px)"
+              values={Object {}}
+            />
+            <MediaQuery
+              query="(max-width: 767px)"
+              values={Object {}}
+            />
+          </header>
+        </Header>
+      </StyledComponent>
+    </header__StyledHeader>
+  </ThemeProvider>
+</ContextMock>
+`;

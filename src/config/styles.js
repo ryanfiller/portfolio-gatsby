@@ -137,8 +137,8 @@ export const arrows = (direction='right') => {
     `
 }
 
-require("typeface-raleway")
-require("typeface-dosis")
+require("typeface-raleway/index.css")
+require("typeface-dosis/index.css")
 
 export const fonts = {
     sansSerif: () => {
