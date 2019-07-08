@@ -1,25 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'gatsby-link';
-import SVG  from 'react-inlinesvg';
 
 import styled from 'styled-components';
-import { breaks } from '../config/styles';
+import { breaks, transition } from '../config/styles';
 
-import r from "../images/logo/r.svg";
-import yan from "../images/logo/yan.svg";
-import f from "../images/logo/f.svg";
-import iller from "../images/logo/iller.svg";
+import RyanFiller from "../images/site-assets/logo.svg";
 
 const Logo = (props) => {
 
 	return (
-		<Link className={props.className} to="/">
-			<SVG className="r" src={r} />
-			<SVG className="yan" src={yan} />
-			<SVG className="f" src={f} />
-			<SVG className="iller" src={iller} />
+		<Link className={props.className} to="/" aria-label="to homepage">
+			<RyanFiller />
 		</Link>
 	)
 }
@@ -29,75 +22,80 @@ const StyledLogo = styled(Logo)`
 	justify-content: flex-start;
 	position: relative;
 	overflow: hidden;
-	font-size: 1.5em;
+	font-size: 1em;
 	height: 1em;
 	width: auto;
+	color: ${props => (
+		props.theme.darkNav ? props.theme.light : props.theme.dark
+	)};
 
 	svg {
 		display: block;
 		width: auto;
 		height: 1em;	
 		pointer-events: none;
-		fill: ${props => props.color};
+		fill: currentColor;
+
+		path {
+			transform-origin: center center;
+			transition: ${transition}ms;
+		}
+	}
+
+	#mask {
+		fill: white;
 	}
 
 	.r { 
-		filter: ${props => `drop-shadow(.25em 0px 0px ${props.background})`};
-		margin-right: -.1675em;
-		position: relative;
-		z-index: 2;
+		transform: translateX(0);
+	}
+
+	.yan {
+		transform: translateX(0);
+		opacity: 0;
 	}
 
 	.f {
-		transform: rotateY(180deg);
-		margin-right: 0;
-		margin-left: .025em;
+		transform: rotateY(180deg) translateX(85%);
+		mask: url(#mask);
 	}
 
-	.yan, .iller {
-		max-width: 0;
-		overflow: hidden
+	.iller {
+		transform: translateX(0);
+		opacity: 0;
 	}
 
 	&:hover,
 	&:focus {
 		svg {
-			fill: ${props => props.active};
+			fill: ${props => props.theme.active};
 		}
 	}
 
 	${props => breaks[props.breakpoint](`
-		font-size: 1.25em;
-
 		.r {
 			filter: none;
-			margin-right: -.033em;
-			position: relative;
-			z-index: 1;       
+			transform: translateX(0);
 		}
 
 		.yan {
-			margin-right: .5em;
-			max-width: 100%;
-			overflow: hidden;
+			transform: translateX(10%);
+			opacity: 1;
 		}
-
+		
 		.f {
-			transform: none;
-			margin-right: .15em;
+			transform: translateX(50%);
+			mask: none;
 		}
 
 		.iller {
-			max-width: 100%;
-			overflow: hidden;
+			transform: translateX(60%);
+			opacity: 1;
 		}
 	`)}
 `
 
 Logo.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	background: PropTypes.string.isRequired,
 	breakpoint: PropTypes.string.isRequired,
 };
 

@@ -5,12 +5,17 @@ import { breaks, fonts, naviconWidth, transition, theme } from '../../config/sty
 import { lighten, transparentize } from 'polished';
 
 const Styles = createGlobalStyle`
-  	html, body {
+	html, body {
 		padding: 0;
 		margin: 0;
 		font-size: 12px;
-		background-color: ${props => props.theme.dark};
 		${fonts.sansSerif()}
+		${props => (
+			props.theme.darkNav ? 
+			`background-color: ${props => props.theme.dark};`
+			:
+			`background-color: ${props => props.theme.light};`
+		)}
 	}
 
 	main, article, aside, blockquote, caption, header, footer {

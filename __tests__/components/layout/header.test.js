@@ -2,25 +2,19 @@ import Header from "../../../src/components/layout/header"
 
 expect.extend(toHaveNoViolations)
 
+const component = mount(
+  <ContextMock>
+    <Header />
+  </ContextMock>
+);
+
 describe('<Header />', () => {
   it('should match snapshot', () => {
-    const header = mount(
-      <ContextMock>
-        <Header />
-      </ContextMock>
-    );
-    expect(header).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   })
 
-  it('should demonstrate this matcher`s usage with react', async () => {
-    const html = ReactDOMServer.renderToString(
-      <ContextMock>
-        <Header />
-      </ContextMock>
-    )
-  
-    const results = await axe(html)
-  
-    expect(results).toHaveNoViolations()
+  it('should be (mostly) assecibility', async () => {
+    const html = ReactDOMServer.renderToString(component)  
+    expect(await axe(html)).toHaveNoViolations()
   })
 });

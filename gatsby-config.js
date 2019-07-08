@@ -48,6 +48,14 @@ module.exports = {
 					component: require.resolve(`./src/components/layout`)
 			}
 		},
+		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /images/
+				}
+			}
+		},
 		`gatsby-image`,
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,

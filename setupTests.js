@@ -27,6 +27,7 @@ global.axe = axe;
 global.toHaveNoViolations = toHaveNoViolations;
 // todo it'd be nice if this was global...
 // import 'jest-axe/extend-expect';
+// expect.extend(toHaveNoViolations)
 
 import ContextMock from './__mocks__/context-mock'
 global.ContextMock = ContextMock;
