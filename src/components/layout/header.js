@@ -13,8 +13,6 @@ import Navicon from './navicon'
 const Header = (props) => {
 	const nav = useContext(NavContext)
 
-	console.log('nav', nav)
-
 	return (
 		<header className={props.className} id="header">
 			<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>

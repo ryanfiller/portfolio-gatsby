@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 
 import { NavContext } from './layout'
 
-import SkipToContent from './skip-to-content';
+// todo
+// import SkipToContent from './skip-to-content';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';
 import Header from './header'
@@ -17,7 +18,7 @@ const Page = (props) => {
       id="site"
       tabIndex="0"
     >
-      <SkipToContent />
+      {/* <SkipToContent /> */}
 
       {nav.offCanvasOpen ? <Overlay /> : null}
 

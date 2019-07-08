@@ -67,13 +67,13 @@ exports[`<Header /> should match snapshot 1`] = `
                     "componentStyle": ComponentStyle {
                       "componentId": "logo__StyledLogo-sc-6ahk4j-0",
                       "isStatic": false,
-                      "lastClassName": "cnmoFT",
+                      "lastClassName": "ieUKBJ",
                       "rules": Array [
-                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1.5em;height:1em;width:auto;svg{display:block;width:auto;height:1em;pointer-events:none;fill:",
+                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1.5em;height:1em;width:auto;color:",
                         [Function],
-                        ";}.r{filter:",
+                        ";svg{display:block;width:auto;height:1em;pointer-events:none;fill:currentColor;}.r{filter:drop-shadow(.25em 0px 0px ",
                         [Function],
-                        ";margin-right:-.1675em;position:relative;z-index:2;}.f{transform:rotateY(180deg);margin-right:0;margin-left:.025em;}.yan,.iller{max-width:0;overflow:hidden}&:hover,&:focus{svg{fill:",
+                        " );margin-right:-.1675em;position:relative;z-index:2;}.f{transform:rotateY(180deg);margin-right:0;margin-left:.025em;}.yan,.iller{max-width:0;overflow:hidden}&:hover,&:focus{svg{fill:",
                         [Function],
                         ";}}",
                         [Function],
@@ -93,19 +93,22 @@ exports[`<Header /> should match snapshot 1`] = `
               >
                 <Logo
                   breakpoint="phone"
-                  className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                  className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
                 >
                   <ForwardRef
-                    className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                    aria-label="to homepage"
+                    className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
                     to="/"
                   >
                     <GatsbyLink
-                      className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                      aria-label="to homepage"
+                      className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
                       innerRef={null}
                       to="/"
                     >
                       <ForwardRef
-                        className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                        aria-label="to homepage"
+                        className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
                         getProps={[Function]}
                         innerRef={[Function]}
                         onClick={[Function]}
@@ -142,64 +145,25 @@ exports[`<Header /> should match snapshot 1`] = `
                           >
                             <a
                               aria-current="page"
-                              className="logo__StyledLogo-sc-6ahk4j-0 cnmoFT"
+                              aria-label="to homepage"
+                              className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
                               href="/"
                               onClick={[Function]}
                               onMouseEnter={[Function]}
                               style={Object {}}
                             >
-                              <InlineSVG
-                                cacheGetRequests={false}
+                              <test-file-stub
                                 className="r"
-                                onLoad={[Function]}
-                                src="test-file-stub"
-                                supportTest={[Function]}
-                                uniquifyIDs={true}
-                                wrapper={[Function]}
-                              >
-                                <span
-                                  className="isvg loading r"
-                                />
-                              </InlineSVG>
-                              <InlineSVG
-                                cacheGetRequests={false}
+                              />
+                              <test-file-stub
                                 className="yan"
-                                onLoad={[Function]}
-                                src="test-file-stub"
-                                supportTest={[Function]}
-                                uniquifyIDs={true}
-                                wrapper={[Function]}
-                              >
-                                <span
-                                  className="isvg loading yan"
-                                />
-                              </InlineSVG>
-                              <InlineSVG
-                                cacheGetRequests={false}
+                              />
+                              <test-file-stub
                                 className="f"
-                                onLoad={[Function]}
-                                src="test-file-stub"
-                                supportTest={[Function]}
-                                uniquifyIDs={true}
-                                wrapper={[Function]}
-                              >
-                                <span
-                                  className="isvg loading f"
-                                />
-                              </InlineSVG>
-                              <InlineSVG
-                                cacheGetRequests={false}
+                              />
+                              <test-file-stub
                                 className="iller"
-                                onLoad={[Function]}
-                                src="test-file-stub"
-                                supportTest={[Function]}
-                                uniquifyIDs={true}
-                                wrapper={[Function]}
-                              >
-                                <span
-                                  className="isvg loading iller"
-                                />
-                              </InlineSVG>
+                              />
                             </a>
                           </LocationProvider>
                         </Location>

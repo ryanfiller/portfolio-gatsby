@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types';
 
 import { NavContext } from './layout';
 
@@ -25,6 +24,7 @@ const nav = useContext(NavContext);
 
 const StyledNavicon = styled(Navicon)`
 	cursor: pointer;
+	color: currentColor;
 	background: transparent;
 	padding: 0;
 	border: 0;
@@ -34,19 +34,20 @@ const StyledNavicon = styled(Navicon)`
 	margin-left: 2rem;
 	display: block;
 	width: ${naviconWidth};
+	min-width: ${naviconWidth};
 
 	.top, .middle, .bottom {
 		display: block;
 		height: .25rem;
 		width: 100%;
-		background-color: ${props => props.color};
+		background-color: currentColor;
 		position: absolute;
 	}
 
 	&:hover,
 	&:focus {
 		.top, .middle, .bottom {
-				background-color: ${props => props.active};
+				background-color: ${props => props.theme.active};
 		}
 	}
 
@@ -73,7 +74,7 @@ const StyledNavicon = styled(Navicon)`
 		z-index: 100;
 
 		.top, .middle, .bottom {
-				background-color: ${props => props.active};
+				background-color: ${props => props.theme.active};
 		}
 
 		.top {
@@ -94,10 +95,5 @@ const StyledNavicon = styled(Navicon)`
 		}
 	}
 `
-
-Navicon.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-};
 
 export default StyledNavicon;
