@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'gatsby-link';
@@ -31,19 +31,22 @@ const StyledLogo = styled(Logo)`
 
 	svg {
 		display: block;
-		width: auto;
 		height: 1em;	
+		width: 1.3em;
 		pointer-events: none;
-		fill: currentColor;
+		transition: ${transition}ms;
 
 		path {
 			transform-origin: center center;
+			fill: currentColor;
 			transition: ${transition}ms;
+			/* todo maybe abstract this out? */
+			/* transition-timing-function: steps(4, end); */
 		}
-	}
 
-	#mask {
-		fill: white;
+		mask path {
+			color: white;
+		}
 	}
 
 	.r { 
@@ -67,30 +70,32 @@ const StyledLogo = styled(Logo)`
 
 	&:hover,
 	&:focus {
-		svg {
-			fill: ${props => props.theme.active};
-		}
+			color: ${props => props.theme.active};
 	}
 
 	${props => breaks[props.breakpoint](`
-		.r {
-			filter: none;
-			transform: translateX(0);
-		}
+		svg {
+			width: 8.45em;
 
-		.yan {
-			transform: translateX(10%);
-			opacity: 1;
-		}
+			.r {
+				filter: none;
+				transform: translateX(0);
+			}
+
+			.yan {
+				transform: translateX(10%);
+				opacity: 1;
+			}
 		
-		.f {
-			transform: translateX(50%);
-			mask: none;
-		}
+			.f {
+				transform: translateX(50%);
+				mask: none;
+			}
 
-		.iller {
-			transform: translateX(60%);
-			opacity: 1;
+			.iller {
+				transform: translateX(60%);
+				opacity: 1;
+			}
 		}
 	`)}
 `
