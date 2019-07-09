@@ -29,5 +29,8 @@ global.toHaveNoViolations = toHaveNoViolations;
 // import 'jest-axe/extend-expect';
 // expect.extend(toHaveNoViolations)
 
+// styled-components
+// import 'jest-styled-components';
+
 import ContextMock from './__mocks__/context-mock'
 global.ContextMock = ContextMock;

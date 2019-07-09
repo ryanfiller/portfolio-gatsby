@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 import styled from 'styled-components';
-import { breaks, transition } from '../config/styles';
+import { breaks, transition2 } from '../config/styles';
 
 import RyanFiller from "../images/site-assets/logo.svg";
 
@@ -34,14 +34,13 @@ const StyledLogo = styled(Logo)`
 		height: 1em;	
 		width: 1.3em;
 		pointer-events: none;
-		transition: ${transition}ms;
+		transition: ${transition2.speed}ms;
 
 		path {
 			transform-origin: center center;
 			fill: currentColor;
-			transition: ${transition}ms;
-			/* todo maybe abstract this out? */
-			/* transition-timing-function: steps(4, end); */
+			transition: ${transition2.speed}ms;
+			transition-timing-function: ${transition2.timing};
 		}
 
 		mask path {

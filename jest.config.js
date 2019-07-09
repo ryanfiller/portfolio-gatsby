@@ -13,8 +13,6 @@ module.exports = {
   },
   testURL: `http://localhost`,
   setupFiles: [
-    // `<rootDir>/loadershim.js`,
-    // `<rootDir>/jestsetup.js`
     `<rootDir>/setupTests.js`
   ],
   snapshotSerializers: [`enzyme-to-json/serializer`]

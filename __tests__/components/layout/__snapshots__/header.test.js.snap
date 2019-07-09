@@ -67,15 +67,19 @@ exports[`<Header /> should match snapshot 1`] = `
                     "componentStyle": ComponentStyle {
                       "componentId": "logo__StyledLogo-sc-6ahk4j-0",
                       "isStatic": false,
-                      "lastClassName": "ieUKBJ",
+                      "lastClassName": "FFixC",
                       "rules": Array [
-                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1.5em;height:1em;width:auto;color:",
+                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1em;height:1em;width:auto;color:",
                         [Function],
-                        ";svg{display:block;width:auto;height:1em;pointer-events:none;fill:currentColor;}.r{filter:drop-shadow(.25em 0px 0px ",
+                        ";svg{display:block;height:1em;width:1.3em;pointer-events:none;transition:",
+                        "200",
+                        "ms;path{transform-origin:center center;fill:currentColor;transition:",
+                        "200",
+                        "ms;transition-timing-function:",
+                        "steps(2, end)",
+                        ";}mask path{color:white;}}.r{transform:translateX(0);}.yan{transform:translateX(0);opacity:0;}.f{transform:rotateY(180deg) translateX(85%);mask:url(#mask);}.iller{transform:translateX(0);opacity:0;}&:hover,&:focus{color:",
                         [Function],
-                        " );margin-right:-.1675em;position:relative;z-index:2;}.f{transform:rotateY(180deg);margin-right:0;margin-left:.025em;}.yan,.iller{max-width:0;overflow:hidden}&:hover,&:focus{svg{fill:",
-                        [Function],
-                        ";}}",
+                        ";}",
                         [Function],
                       ],
                     },
@@ -93,22 +97,22 @@ exports[`<Header /> should match snapshot 1`] = `
               >
                 <Logo
                   breakpoint="phone"
-                  className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
+                  className="logo__StyledLogo-sc-6ahk4j-0 FFixC"
                 >
                   <ForwardRef
                     aria-label="to homepage"
-                    className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
+                    className="logo__StyledLogo-sc-6ahk4j-0 FFixC"
                     to="/"
                   >
                     <GatsbyLink
                       aria-label="to homepage"
-                      className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
+                      className="logo__StyledLogo-sc-6ahk4j-0 FFixC"
                       innerRef={null}
                       to="/"
                     >
                       <ForwardRef
                         aria-label="to homepage"
-                        className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
+                        className="logo__StyledLogo-sc-6ahk4j-0 FFixC"
                         getProps={[Function]}
                         innerRef={[Function]}
                         onClick={[Function]}
@@ -146,24 +150,13 @@ exports[`<Header /> should match snapshot 1`] = `
                             <a
                               aria-current="page"
                               aria-label="to homepage"
-                              className="logo__StyledLogo-sc-6ahk4j-0 ieUKBJ"
+                              className="logo__StyledLogo-sc-6ahk4j-0 FFixC"
                               href="/"
                               onClick={[Function]}
                               onMouseEnter={[Function]}
                               style={Object {}}
                             >
-                              <test-file-stub
-                                className="r"
-                              />
-                              <test-file-stub
-                                className="yan"
-                              />
-                              <test-file-stub
-                                className="f"
-                              />
-                              <test-file-stub
-                                className="iller"
-                              />
+                              <test-file-stub />
                             </a>
                           </LocationProvider>
                         </Location>
@@ -173,14 +166,22 @@ exports[`<Header /> should match snapshot 1`] = `
                 </Logo>
               </StyledComponent>
             </logo__StyledLogo>
-            <MediaQuery
+            <MediaQueryContextConsumer
               query="(min-width: 768px)"
-              values={Object {}}
-            />
-            <MediaQuery
+            >
+              <MediaQuery
+                query="(min-width: 768px)"
+                values={null}
+              />
+            </MediaQueryContextConsumer>
+            <MediaQueryContextConsumer
               query="(max-width: 767px)"
-              values={Object {}}
-            />
+            >
+              <MediaQuery
+                query="(max-width: 767px)"
+                values={null}
+              />
+            </MediaQueryContextConsumer>
           </header>
         </Header>
       </StyledComponent>

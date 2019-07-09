@@ -47,7 +47,7 @@ const Layout = (props) => {
 	}
 
 	useEffect(() => {
-        const handleKeydown = (e) => {
+			const handleKeydown = (e) => {
 			if (e.keyCode === 27) { // escape key
 				setOffCanvasOpen(false);
 			}
