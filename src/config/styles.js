@@ -180,7 +180,13 @@ export const fonts = {
     }
 }
 
-export const transition = 300; //ms
+export const transition2 = {
+    speed: 200, //ms
+    timing: 'steps(2, end)',
+}
+
+export const transition = 200; //ms
+export const transitionTiming = 'steps(2, end)';
 
 export const breakPoints = {
     large: 1200,
