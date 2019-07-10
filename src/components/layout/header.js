@@ -13,15 +13,17 @@ import Navicon from './navicon'
 const Header = (props) => {
 	const nav = useContext(NavContext)
 
+	// values={window.testMediaQueryValues} is for testing react-responsive
+
 	return (
 		<header className={props.className} id="header">
 			<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
 			
-			<MediaQuery query={`(min-width: ${navBreak}px)`}>
+			<MediaQuery query={`(min-width: ${navBreak}px)`} values={window.testMediaQueryValues}>
 				<Navigation orientation={'horizontal'} />
 			</MediaQuery>
 
-			<MediaQuery query={`(max-width: ${navBreak - 1}px)`}>
+			<MediaQuery query={`(max-width: ${navBreak - 1}px)`} values={window.testMediaQueryValues}>
 				<Navicon />
 			</MediaQuery>
 		</header>
