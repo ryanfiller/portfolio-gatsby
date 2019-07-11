@@ -7,7 +7,7 @@ import { navBreak } from '../../../src/config/styles'
 expect.extend(toHaveNoViolations)
 
 const props = {
-  // breakpoint: 'phone',
+  
 }
 
 const makeComponent = (props) => (

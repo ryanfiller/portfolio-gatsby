@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createGlobalStyle } from 'styled-components';
-import { breaks, fonts, naviconWidth, transition, theme } from '../../config/styles';
+import { breaks, fonts, naviconSize, transition, theme } from '../../config/styles';
 import { lighten, transparentize } from 'polished';
 
 const Styles = createGlobalStyle`
@@ -57,7 +57,7 @@ const Styles = createGlobalStyle`
 		transition: ${transition}ms;
 
 		&.open {
-			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconSize});
 
 			${breaks.phone(`
 				transform: translateX(-50vw);

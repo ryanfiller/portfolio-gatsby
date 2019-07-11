@@ -24,16 +24,18 @@ exports[`<Header /> should match snapshot 1`] = `
             "componentStyle": ComponentStyle {
               "componentId": "header__StyledHeader-sc-1un6j1h-0",
               "isStatic": false,
-              "lastClassName": "dzBYMK",
+              "lastClassName": "gxUGik",
               "rules": Array [
                 [Function],
                 " display:flex;justify-content:space-between;align-items:center;padding:calc(",
                 "2rem",
-                " / 2);font-size:2rem;",
+                " / 2);font-size:3rem;",
                 "
             padding-left: 1rem;
             padding-right: 1rem;
         ",
+                " ",
+                [Function],
               ],
             },
             "displayName": "header__StyledHeader",
@@ -49,10 +51,10 @@ exports[`<Header /> should match snapshot 1`] = `
         forwardedRef={null}
       >
         <Header
-          className="header__StyledHeader-sc-1un6j1h-0 dzBYMK"
+          className="header__StyledHeader-sc-1un6j1h-0 gxUGik"
         >
           <header
-            className="header__StyledHeader-sc-1un6j1h-0 dzBYMK"
+            className="header__StyledHeader-sc-1un6j1h-0 gxUGik"
             id="header"
           >
             <logo__StyledLogo

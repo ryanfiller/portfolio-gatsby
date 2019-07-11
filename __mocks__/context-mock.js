@@ -4,19 +4,21 @@ import { ThemeProvider } from 'styled-components'
 import { ThemeOverrideContext, NavContext } from "../src/components/layout/layout.js"
 import { defaultTheme } from "../src/config/styles.js"
 
-// const ThemeOverrideContext = React.createContext();
-// const NavContext = React.createContext();
+export const setTheme = jest.fn()
+export const handleNavigate = jest.fn()
+export const closeAndNavigate = jest.fn()
+export const toggleOffCanvas = jest.fn()
 
 const ContextMock = (props) => {
   return (
     <ThemeOverrideContext.Provider value={{
-      setTheme: jest.fn(),
+      setTheme: setTheme,
 		}}>
       <ThemeProvider theme={defaultTheme}>
         <NavContext.Provider value={{
-          handleNavigate: jest.fn(),
-          closeAndNavigate: jest.fn(),
-          toggleOffCanvas: jest.fn(),
+          handleNavigate: handleNavigate,
+          closeAndNavigate: closeAndNavigate,
+          toggleOffCanvas: toggleOffCanvas,
           currentPage: 'test',
         }}>
           <>{props.children}</>

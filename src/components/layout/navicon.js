@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { NavContext } from './layout';
 
 import styled from 'styled-components'
-import { naviconWidth, transition } from '../../config/styles'
+import { naviconSize, transition } from '../../config/styles'
 
 const Navicon = (props) => {
 
@@ -12,6 +12,7 @@ const nav = useContext(NavContext);
 	return (
 		<button 
 				id="navicon"
+				aria-label="mobile nav toggle"
 				className={props.className}
 				onClick={nav.toggleOffCanvas}
 		>
@@ -33,8 +34,9 @@ const StyledNavicon = styled(Navicon)`
 	position: relative !important;
 	margin-left: 2rem;
 	display: block;
-	width: ${naviconWidth};
-	min-width: ${naviconWidth};
+	width: ${naviconSize};
+	min-width: ${naviconSize};
+	height: ${naviconSize};
 
 	.top, .middle, .bottom {
 		display: block;

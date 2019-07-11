@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import styled from 'styled-components'
 import MediaQuery from 'react-responsive'
-import { containers, navBreak, padding } from '../../config/styles'
+import { breaks, containers, navBreak, padding } from '../../config/styles'
 
 import { NavContext } from './layout';
 
@@ -43,8 +43,12 @@ const StyledHeader = styled(Header)`
 	justify-content: space-between;
 	align-items: center;
 	padding: calc(${padding} / 2);
-	font-size: 2rem;
+	font-size: 3rem;
 	${containers.container()}
+
+	${props => breaks.nav(`
+		font-size: 2rem;
+	`)}
 ` 
 
 export default StyledHeader

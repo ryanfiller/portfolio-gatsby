@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { navigate } from 'gatsby';
 
 import styled from 'styled-components';
-import { breaks, naviconWidth, transition, theme } from '../config/styles';
+import { breaks, naviconSize, transition, theme } from '../config/styles';
 
 import Footer from './footer';
 // import Transition from './transition';
@@ -136,7 +136,7 @@ const StyledLayout = styled(Layout)`
 		transition: ${transition}ms;
 
 		&.open {
-			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconSize});
 
 			${breaks.phone(`
 				transform: translateX(-50vw);

@@ -194,10 +194,17 @@ export const breakPoints = {
     phone: 480, 
 }
 
-export const naviconWidth = '40px';
+export const naviconSize = '40px';
 export const navBreak = breakPoints.tablet;
 
 export const breaks = {
+    nav: (styles) => {
+        return `
+            @media (min-width: ${navBreak}px) {
+                ${styles}
+            }
+        `
+    },
     phone: (styles) => {
         return `
             @media (min-width: ${breakPoints.phone}px) {
