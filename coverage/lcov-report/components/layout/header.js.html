@@ -32,7 +32,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -95,7 +95,11 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,14 +111,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,19 +129,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,7 +156,7 @@
 &nbsp;
 import styled from 'styled-components'
 import MediaQuery from 'react-responsive'
-import { containers, navBreak, padding } from '../../config/styles'
+import { breaks, containers, navBreak, padding } from '../../config/styles'
 &nbsp;
 import { NavContext } from './layout';
 &nbsp;
@@ -159,17 +167,17 @@ import Navicon from './navicon'
 const Header = (props) =&gt; {
 	const nav = useContext(NavContext)
 &nbsp;
-	console.log('nav', nav)
+	// values={window.testMediaQueryValues} is for testing react-responsive
 &nbsp;
 	return (
 		&lt;header className={props.className} id="header"&gt;
 			&lt;Logo breakpoint={nav.currentPage === '/' ? <span class="branch-0 cbranch-no" title="branch not covered" >'desktop' </span>: 'phone'}/&gt;
 			
-			&lt;MediaQuery query={`(min-width: ${navBreak}px)`}&gt;
+			&lt;MediaQuery query={`(min-width: ${navBreak}px)`} values={window.testMediaQueryValues}&gt;
 				&lt;Navigation orientation={'horizontal'} /&gt;
 			&lt;/MediaQuery&gt;
 &nbsp;
-			&lt;MediaQuery query={`(max-width: ${navBreak - 1}px)`}&gt;
+			&lt;MediaQuery query={`(max-width: ${navBreak - 1}px)`} values={window.testMediaQueryValues}&gt;
 				&lt;Navicon /&gt;
 			&lt;/MediaQuery&gt;
 		&lt;/header&gt;
@@ -189,8 +197,12 @@ const StyledHeader = styled(Header)`
 	justify-content: space-between;
 	align-items: center;
 	padding: calc(${padding} / 2);
-	font-size: 2rem;
+	font-size: 3rem;
 	${containers.container()}
+&nbsp;
+	${props =&gt; breaks.nav(`
+		font-size: 2rem;
+	`)}
 ` 
 &nbsp;
 export default StyledHeader</pre></td></tr>
@@ -199,7 +211,7 @@ export default StyledHeader</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 04 2019 07:37:18 GMT-0500 (Central Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 10 2019 21:46:59 GMT-0500 (Central Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

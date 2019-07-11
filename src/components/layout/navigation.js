@@ -43,9 +43,6 @@ const Navigation = (props) => {
 }
 
 Navigation.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	background: PropTypes.string.isRequired,
 	orientation: PropTypes.string.isRequired,
 	navFunction: PropTypes.func
 };
@@ -54,57 +51,61 @@ const StyledNavigation = styled(Navigation)`
 	display: flex;
 	color: ${props => props.color};
 
-	${props => props.orientation === 'vertical' ? `
-		flex-direction: column;
-		align-items: center;
-	` : null}
+	${props => props.orientation === 'vertical' ? 
+		`
+			flex-direction: column;
+			align-items: center;
+		` 
+	: null}
+
 
 	a {
 		text-decoration: none;
 		${fonts.condensed()}
 		text-transform: uppercase;
 		font-size: 1em;
-		/* color: currentColor; */
+		color: currentColor;
 		transition: ${transition}ms;
 
-		${props => props.orientation === 'horizontal' ? `
+		${props => props.orientation === 'horizontal' ? 
+		`
 			margin-right: 2rem;
 
 			&:last-child() {
 				margin-right: 0;
 			}
-		` : null}
+		` 
+		: null}
 
-		${props => props.orientation === 'vertical' ? `
+		${props => props.orientation === 'vertical' ?
+		`
 			margin-bottom: 1rem;
 
 			&:last-child() {
 				margin-bottom: 0;
 			}
-		` : null}
+		` 
+		: null}
 
 		&.active {
-			color: ${props => props.active};
+			color: ${props => props.theme.active};
 		}
 
 		&:hover,
 		&:focus {
-			color: ${props => props.active};
+			color: ${props => props.theme.active};
 			cursor: pointer;
 			${breaks.tablet(`
-				${animations.glitch(props => props.active, props => props.background)}
+				// todo fix the glitch animation 
+				${animations.glitch(props => props.theme.active, 'transparent')}
 			`)}
 		}
 
 		#site.open & {
-			${breaks.tablet(`
-				color: ${props => props.color};
-			`)}
-
 			&[href='#contact'] {
 				position: relative;
 				z-index: 100;
-				color: ${props => props.active};
+				color: ${props => props.theme.active};
 			}
 		}
 

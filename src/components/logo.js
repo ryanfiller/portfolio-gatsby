@@ -25,9 +25,7 @@ const StyledLogo = styled(Logo)`
 	font-size: 1em;
 	height: 1em;
 	width: auto;
-	color: ${props => (
-		props.theme.darkNav ? props.theme.light : props.theme.dark
-	)};
+	color: currentColor;
 
 	svg {
 		display: block;

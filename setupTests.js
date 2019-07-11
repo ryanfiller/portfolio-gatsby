@@ -7,6 +7,8 @@ global.___loader = {
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import { ThemeProvider } from 'styled-components'
+
 // React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -21,6 +23,10 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 
+//styled-components
+global.ThemeProvider = ThemeProvider
+// import 'jest-styled-components';
+
 // a11y tests
 import { axe, toHaveNoViolations } from 'jest-axe';
 global.axe = axe;
@@ -28,9 +34,6 @@ global.toHaveNoViolations = toHaveNoViolations;
 // todo it'd be nice if this was global...
 // import 'jest-axe/extend-expect';
 // expect.extend(toHaveNoViolations)
-
-// styled-components
-// import 'jest-styled-components';
 
 import ContextMock from './__mocks__/context-mock'
 global.ContextMock = ContextMock;
