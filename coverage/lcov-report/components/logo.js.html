@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
     <p class="quiet">
@@ -159,15 +159,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,7 +176,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,11 +189,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,17 +211,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,10 +243,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,24 +256,17 @@
 import PropTypes from 'prop-types';
 &nbsp;
 import Link from 'gatsby-link';
-import SVG  from 'react-inlinesvg';
 &nbsp;
 import styled from 'styled-components';
-import { breaks } from '../config/styles';
+import { breaks, transition2 } from '../config/styles';
 &nbsp;
-import r from "../images/logo/r.svg";
-import yan from "../images/logo/yan.svg";
-import f from "../images/logo/f.svg";
-import iller from "../images/logo/iller.svg";
+import RyanFiller from "../images/site-assets/logo.svg";
 &nbsp;
 const Logo = (props) =&gt; {
 &nbsp;
 	return (
-		&lt;Link className={props.className} to="/"&gt;
-			&lt;SVG className="r" src={r} /&gt;
-			&lt;SVG className="yan" src={yan} /&gt;
-			&lt;SVG className="f" src={f} /&gt;
-			&lt;SVG className="iller" src={iller} /&gt;
+		&lt;Link className={props.className} to="/" aria-label="to homepage"&gt;
+			&lt;RyanFiller /&gt;
 		&lt;/Link&gt;
 	)
 }
@@ -283,75 +276,82 @@ const StyledLogo = styled(Logo)`
 	justify-content: flex-start;
 	position: relative;
 	overflow: hidden;
-	font-size: 1.5em;
+	font-size: 1em;
 	height: 1em;
 	width: auto;
+	color: currentColor;
 &nbsp;
 	svg {
 		display: block;
-		width: auto;
 		height: 1em;	
+		width: 1.3em;
 		pointer-events: none;
-		fill: ${props =&gt; props.color};
+		transition: ${transition2.speed}ms;
+&nbsp;
+		path {
+			transform-origin: center center;
+			fill: currentColor;
+			transition: ${transition2.speed}ms;
+			transition-timing-function: ${transition2.timing};
+		}
+&nbsp;
+		mask path {
+			color: white;
+		}
 	}
 &nbsp;
 	.r { 
-		filter: ${props =&gt; `drop-shadow(.25em 0px 0px ${props.background})`};
-		margin-right: -.1675em;
-		position: relative;
-		z-index: 2;
+		transform: translateX(0);
+	}
+&nbsp;
+	.yan {
+		transform: translateX(0);
+		opacity: 0;
 	}
 &nbsp;
 	.f {
-		transform: rotateY(180deg);
-		margin-right: 0;
-		margin-left: .025em;
+		transform: rotateY(180deg) translateX(85%);
+		mask: url(#mask);
 	}
 &nbsp;
-	.yan, .iller {
-		max-width: 0;
-		overflow: hidden
+	.iller {
+		transform: translateX(0);
+		opacity: 0;
 	}
 &nbsp;
 	&amp;:hover,
 	&amp;:focus {
-		svg {
-			fill: ${props =&gt; props.active};
-		}
+			color: ${props =&gt; props.theme.active};
 	}
 &nbsp;
 	${props =&gt; breaks[props.breakpoint](`
-		font-size: 1.25em;
+		svg {
+			width: 8.45em;
 &nbsp;
-		.r {
-			filter: none;
-			margin-right: -.033em;
-			position: relative;
-			z-index: 1;       
-		}
+			.r {
+				filter: none;
+				transform: translateX(0);
+			}
 &nbsp;
-		.yan {
-			margin-right: .5em;
-			max-width: 100%;
-			overflow: hidden;
-		}
+			.yan {
+				transform: translateX(10%);
+				opacity: 1;
+			}
+		
+			.f {
+				transform: translateX(50%);
+				mask: none;
+			}
 &nbsp;
-		.f {
-			transform: none;
-			margin-right: .15em;
-		}
-&nbsp;
-		.iller {
-			max-width: 100%;
-			overflow: hidden;
+			.iller {
+				transform: translateX(60%);
+				opacity: 1;
+			}
 		}
 	`)}
 `
 &nbsp;
 Logo.propTypes = {
-	color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	background: PropTypes.string.isRequired,
 	breakpoint: PropTypes.string.isRequired,
 };
 &nbsp;
@@ -361,7 +361,7 @@ export default StyledLogo;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 04 2019 07:37:18 GMT-0500 (Central Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 10 2019 21:46:59 GMT-0500 (Central Daylight Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

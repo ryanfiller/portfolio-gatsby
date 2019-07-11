@@ -14,7 +14,7 @@ const ContextMock = (props) => {
     <ThemeOverrideContext.Provider value={{
       setTheme: setTheme,
 		}}>
-      <ThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={props.theme || defaultTheme}>
         <NavContext.Provider value={{
           handleNavigate: handleNavigate,
           closeAndNavigate: closeAndNavigate,
