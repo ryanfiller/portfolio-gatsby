@@ -227,7 +227,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 &nbsp;
 import { createGlobalStyle } from 'styled-components';
-import { breaks, fonts, naviconWidth, transition, theme } from '../../config/styles';
+import { breaks, fonts, naviconSize, transition, theme } from '../../config/styles';
 import { lighten, transparentize } from 'polished';
 &nbsp;
 const Styles = createGlobalStyle`
@@ -278,7 +278,7 @@ const Styles = createGlobalStyle`
 		transition: ${transition}ms;
 &nbsp;
 		&amp;.open {
-			transform: translateX(-100%) translateX(2rem) translateX(${naviconWidth});
+			transform: translateX(-100%) translateX(2rem) translateX(${naviconSize});
 &nbsp;
 			${breaks.phone(`
 				transform: translateX(-50vw);

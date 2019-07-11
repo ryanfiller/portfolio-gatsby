@@ -4,7 +4,7 @@ import { NavContext } from './layout';
 
 import styled, { ThemeContext } from 'styled-components'
 import MediaQuery from 'react-responsive';
-import { breaks, navBreak, naviconWidth, padding } from '../../config/styles';
+import { breaks, navBreak, naviconSize, padding } from '../../config/styles';
 
 import Navigation from './navigation';
 import Form from '../form';
@@ -46,7 +46,7 @@ const StyledOffCanvas = styled(OffCanvas)`
 	width: 33.33vw;
 	padding: ${padding};
 	font-size: 2rem;
-	width: calc(100% - ((${padding}) + ${naviconWidth}));
+	width: calc(100% - ((${padding}) + ${naviconSize}));
 
 	${breaks.phone(`
 		width: 50%;
