@@ -19,7 +19,7 @@ const ContextMock = (props) => {
           handleNavigate: handleNavigate,
           closeAndNavigate: closeAndNavigate,
           toggleOffCanvas: toggleOffCanvas,
-          currentPage: 'test',
+          currentPage: props.currentPage || 'test',
         }}>
           <>{props.children}</>
         </NavContext.Provider>

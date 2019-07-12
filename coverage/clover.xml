@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1562813219982" clover="3.2.0">
-  <project timestamp="1562813219982" name="All files">
-    <metrics statements="237" coveredstatements="99" conditionals="79" coveredconditionals="13" methods="94" coveredmethods="27" elements="410" coveredelements="139" complexity="0" loc="237" ncloc="237" packages="4" files="15" classes="15"/>
+<coverage generated="1562896736726" clover="3.2.0">
+  <project timestamp="1562896736726" name="All files">
+    <metrics statements="239" coveredstatements="102" conditionals="81" coveredconditionals="21" methods="94" coveredmethods="29" elements="414" coveredelements="152" complexity="0" loc="239" ncloc="239" packages="4" files="15" classes="15"/>
     <package name="components">
       <metrics statements="44" coveredstatements="13" conditionals="22" coveredconditionals="0" methods="21" coveredmethods="3"/>
       <file name="buttons.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/buttons.js">
         <metrics statements="8" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
         <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
       <file name="form.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/form.js">
         <metrics statements="30" coveredstatements="4" conditionals="16" coveredconditionals="0" methods="14" coveredmethods="0"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
@@ -40,51 +40,51 @@
         <line num="67" count="0" type="stmt"/>
         <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="112" count="3" type="stmt"/>
+        <line num="112" count="4" type="stmt"/>
         <line num="146" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="147" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="161" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="181" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="204" count="0" type="stmt"/>
-        <line num="214" count="3" type="stmt"/>
+        <line num="214" count="4" type="stmt"/>
       </file>
       <file name="logo.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/logo.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="70" count="9" type="stmt"/>
-        <line num="73" count="9" type="stmt"/>
-        <line num="100" count="3" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="70" count="10" type="stmt"/>
+        <line num="73" count="10" type="stmt"/>
+        <line num="100" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.layout">
-      <metrics statements="70" coveredstatements="40" conditionals="26" coveredconditionals="11" methods="34" coveredmethods="15"/>
+      <metrics statements="72" coveredstatements="43" conditionals="28" coveredconditionals="19" methods="34" coveredmethods="17"/>
       <file name="global-styles.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/global-styles.js">
         <metrics statements="8" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="15" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
-        <line num="93" count="3" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
       </file>
       <file name="header.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/header.js">
-        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="18" count="6" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
-        <line num="35" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="49" count="6" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="35" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="7" type="stmt"/>
       </file>
       <file name="layout.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/layout.js">
         <metrics statements="18" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
@@ -99,58 +99,60 @@
         <line num="40" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
       </file>
       <file name="navicon.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/navicon.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="10" count="7" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
         <line num="52" count="7" type="stmt"/>
         <line num="79" count="7" type="stmt"/>
       </file>
       <file name="navigation.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/navigation.js">
-        <metrics statements="19" coveredstatements="17" conditionals="14" coveredconditionals="9" methods="12" coveredmethods="9"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="21" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="24" count="0" type="stmt"/>
+        <metrics statements="21" coveredstatements="20" conditionals="16" coveredconditionals="16" methods="12" coveredmethods="11"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="15" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="23" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="25" count="42" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="4" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="54" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="70" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="80" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="108" count="1" type="stmt"/>
+        <line num="28" count="38" type="stmt"/>
+        <line num="31" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="52" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="56" count="11" type="stmt"/>
+        <line num="58" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="95" count="11" type="stmt"/>
+        <line num="100" count="11" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="112" count="11" type="stmt"/>
       </file>
       <file name="off-canvas.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/off-canvas.js">
         <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="13" count="3" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
       </file>
       <file name="overlay.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/overlay.js">
         <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
       </file>
       <file name="page.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/components/layout/page.js">
         <metrics statements="3" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="11" count="3" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
@@ -159,62 +161,62 @@
       <metrics statements="55" coveredstatements="44" conditionals="14" coveredconditionals="2" methods="17" coveredmethods="9"/>
       <file name="config.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/config/config.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
       </file>
       <file name="forms.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/config/forms.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
       </file>
       <file name="styles.js" path="/Users/ryanfiller/Dev/personal/portfolio-gatsby/src/config/styles.js">
         <metrics statements="52" coveredstatements="41" conditionals="14" coveredconditionals="2" methods="17" coveredmethods="9"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="12" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="94" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="48" count="16" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="94" count="4" type="cond" truecount="0" falsecount="1"/>
         <line num="96" count="0" type="stmt"/>
-        <line num="140" count="3" type="stmt"/>
-        <line num="141" count="3" type="stmt"/>
-        <line num="143" count="3" type="stmt"/>
-        <line num="145" count="6" type="stmt"/>
-        <line num="152" count="6" type="stmt"/>
+        <line num="140" count="4" type="stmt"/>
+        <line num="141" count="4" type="stmt"/>
+        <line num="143" count="4" type="stmt"/>
+        <line num="145" count="8" type="stmt"/>
+        <line num="152" count="8" type="stmt"/>
         <line num="159" count="0" type="stmt"/>
         <line num="169" count="0" type="stmt"/>
-        <line num="183" count="3" type="stmt"/>
-        <line num="188" count="3" type="stmt"/>
-        <line num="189" count="3" type="stmt"/>
-        <line num="191" count="3" type="stmt"/>
-        <line num="197" count="3" type="stmt"/>
-        <line num="198" count="3" type="stmt"/>
-        <line num="200" count="3" type="stmt"/>
-        <line num="202" count="6" type="stmt"/>
-        <line num="209" count="18" type="stmt"/>
-        <line num="217" count="9" type="stmt"/>
+        <line num="183" count="4" type="stmt"/>
+        <line num="188" count="4" type="stmt"/>
+        <line num="189" count="4" type="stmt"/>
+        <line num="191" count="4" type="stmt"/>
+        <line num="197" count="4" type="stmt"/>
+        <line num="198" count="4" type="stmt"/>
+        <line num="200" count="4" type="stmt"/>
+        <line num="202" count="7" type="stmt"/>
+        <line num="209" count="22" type="stmt"/>
+        <line num="217" count="12" type="stmt"/>
         <line num="225" count="0" type="stmt"/>
         <line num="233" count="0" type="stmt"/>
-        <line num="241" count="3" type="stmt"/>
-        <line num="243" count="3" type="stmt"/>
-        <line num="245" count="3" type="stmt"/>
+        <line num="241" count="4" type="stmt"/>
+        <line num="243" count="4" type="stmt"/>
+        <line num="245" count="4" type="stmt"/>
         <line num="251" count="0" type="stmt"/>
-        <line num="261" count="6" type="stmt"/>
-        <line num="263" count="6" type="stmt"/>
-        <line num="265" count="126" type="stmt"/>
-        <line num="266" count="126" type="stmt"/>
-        <line num="268" count="126" type="stmt"/>
-        <line num="275" count="6" type="stmt"/>
-        <line num="278" count="3" type="stmt"/>
-        <line num="281" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="282" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="283" count="3" type="stmt"/>
+        <line num="261" count="8" type="stmt"/>
+        <line num="263" count="8" type="stmt"/>
+        <line num="265" count="168" type="stmt"/>
+        <line num="266" count="168" type="stmt"/>
+        <line num="268" count="168" type="stmt"/>
+        <line num="275" count="8" type="stmt"/>
+        <line num="278" count="4" type="stmt"/>
+        <line num="281" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="282" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="283" count="4" type="stmt"/>
         <line num="319" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="320" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="321" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -275,7 +277,7 @@
         <line num="144" count="0" type="stmt"/>
         <line num="145" count="0" type="stmt"/>
         <line num="148" count="0" type="stmt"/>
-        <line num="151" count="3" type="stmt"/>
+        <line num="151" count="4" type="stmt"/>
         <line num="154" count="0" type="stmt"/>
         <line num="157" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="158" count="0" type="stmt"/>
@@ -293,7 +295,7 @@
         <line num="184" count="0" type="stmt"/>
         <line num="185" count="0" type="stmt"/>
         <line num="188" count="0" type="stmt"/>
-        <line num="191" count="3" type="stmt"/>
+        <line num="191" count="4" type="stmt"/>
       </file>
     </package>
   </project>
