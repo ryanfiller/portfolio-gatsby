@@ -19,9 +19,6 @@ const OffCanvas = (props) => {
 		<div className={props.className} id="off-canvas">
 			<MediaQuery query={`(max-width: ${navBreak}px)`}>
 				<Navigation 
-					color={theme.light} 
-					active={theme.active}
-					background={theme.primary}
 					orientation={'vertical'}
 					navFunction={nav.closeAndNavigate}
 				/>

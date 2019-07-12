@@ -12,13 +12,15 @@ const Navigation = (props) => {
 
 	const nav = useContext(NavContext);
 
+	const links = (props.links || pages); // for testing
+
 	return (
 		<nav className={props.className} role="navigation">
-			{ pages.map((page) => {
+			{ links.map((link) => {
 
 				let click;
 
-				if (page.name === 'contact') {
+				if (link.name === 'contact') {
 					click = (e) => {nav.toggleOffCanvas(e, '#contact')};
 				} else if(props.navFunction) {
 					click = props.navFunction;
@@ -26,15 +28,17 @@ const Navigation = (props) => {
 					click = (e) => {nav.handleNavigate(e)};
 				}
 
+				const href = link.url || link.name;
+
 				return (
 					<a 
-						href={page.url || page.name}
+						href={href}
 						onClick={ click }
-						key={page.name} 
-						data-text={page.name}
-						className={nav.currentPage.includes(`/${page.name}`) ? 'active' : ''}
+						key={link.name} 
+						data-text={link.name}
+						className={nav.currentPage.includes(`/${href}`) ? 'active' : null}
 					>
-						{page.name}
+						{link.name}
 					</a>
 				)
 			})}
