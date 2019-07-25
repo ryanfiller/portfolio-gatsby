@@ -51,8 +51,8 @@ The original design was constructed in grayscale tones and converted to color af
 ## Halftones for Two Color Screenprinting
 
 <compare-images caption="Halftones" alignment="left">
-  <img src="../../images/uploads/hack-memphis-hover-solid.jpg" alt="solid colors">
-  <img src="../../images/uploads/hack-memphis-hover-screen.jpg" alt="color halftone">
+  <img src="../../images/uploads/hack-memphis-hover-solid.jpg" alt="solid colors" />
+  <img src="../../images/uploads/hack-memphis-hover-screen.jpg" alt="color halftone" />
 </compare-images>
 Because the inlay needed to be a different color than the body of the H this left one color to be used for all sides of the cube.
 

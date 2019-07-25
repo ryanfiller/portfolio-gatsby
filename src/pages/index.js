@@ -18,7 +18,7 @@ setConfig({pureSFC: true});
 
 export const query = graphql`
 	query HomepageBlocks {
-		portfolio: allMarkdownRemark(
+		portfolio: allMdx(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
 				fields: {slug: { regex: "//portfolio//" }},
@@ -47,7 +47,7 @@ export const query = graphql`
 				}
 			}
 		}
-		blog: allMarkdownRemark(
+		blog: allMdx(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
 				fields: {slug: { regex: "//blog//" }},

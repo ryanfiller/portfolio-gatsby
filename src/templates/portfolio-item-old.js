@@ -12,9 +12,7 @@ import BackButton from '../components/back-button';
 
 export const postQuery = graphql`
 	query PortfolioPostOld($slug: String!) {
-
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			htmlAst
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				category
@@ -35,37 +33,39 @@ export const postQuery = graphql`
 					}
 				}
 			}
+			body
 		}
 	}
 `
 
 const PortfolioItem = (props) => {
 
-	const post = props.data.markdownRemark.frontmatter;
+	const post = props.data.mdx;
+	const { frontmatter } = post;
 
 	return (
 		<article className={props.className}>
-			<PortfolioGallery slides={post.slides} color={post.color} />
+			<PortfolioGallery slides={frontmatter.slides} color={frontmatter.color} />
 
 			<div className="content">
 				<header className="header">
 					<h1>
-						{post.title}
+						{frontmatter.title}
 					</h1>
 
-					<ContentMeta tags={post.tags} />
+					<ContentMeta tags={frontmatter.tags} />
 
-					<a className="" href={post.clienturl}>
-						{post.client}
+					<a className="" href={frontmatter.clienturl}>
+						{frontmatter.client}
 					</a>
 				</header>
 
-				<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
+				<MarkdownBlock post={props.data.mdx.body}/>
 
 				<BackButton location={props.location} />
 
 				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{post.gifattribution}</span>
+					Grid Page .gif Credit: <span>{frontmatter.gifattribution}</span>
 				</cite>
 			</div>
 		</article>

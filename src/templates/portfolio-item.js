@@ -18,8 +18,7 @@ setConfig({pureSFC: true});
 
 export const postQuery = graphql`
 	query PortfolioPost($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			htmlAst
+		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
 				category
@@ -40,6 +39,9 @@ export const postQuery = graphql`
 					}
 				}
 			}
+			body
+			rawBody
+			mdxAST
 		}
 	}
 `
@@ -48,9 +50,10 @@ export const GalleryContext = React.createContext();
 
 const PortfolioItem = (props) => {
 
-	const post = props.data.markdownRemark.frontmatter;
+	const post = props.data.mdx;
+	const { frontmatter } = post; 
 
-	const portfolioItems = formatPortfolioObject(props.data.markdownRemark.htmlAst);
+	const portfolioItems = formatPortfolioObject(post);
 
 	const [current, setCurrent] = useState(0);
 	const [scroll, setScroll] = useState(0);
@@ -81,44 +84,52 @@ const PortfolioItem = (props) => {
 		scroll: scroll,
 		mode: mode,
 		setMode: setMode
-    };
+	};
+
+	// return (
+	// 	<GalleryContext.Provider value={galleryValue}>
+	// 		<article className={props.className}>
+	// 			{/* <MediaQuery query={`(min-width: ${breakPoints.tablet}px)`}>
+	// 				<PortfolioGallery 
+	// 					slides={portfolioItems}
+	// 					color={frontmatter.color} 
+	// 				/>
+	// 			</MediaQuery> */}
+
+	// 			{console.log(portfolioItems)}
+				
+	// 			<div className="content" 
+	// 				ref={scrollRef}
+	// 				onScroll={scrollListener}
+	// 			>
+	// 				<header className="header">
+	// 					<h1>
+	// 							{frontmatter.title}
+	// 					</h1>
+
+	// 					<ContentMeta tags={frontmatter.tags} />
+
+	// 					<a className="" href={frontmatter.clienturl}>
+	// 							{frontmatter.client}
+	// 					</a>
+	// 				</header>
+
+	// 				<MarkdownBlock post={post.body}/>
+
+	// 				<BackButton location={props.location} />
+
+	// 				<cite className="gif-credit">
+	// 						Grid Page .gif Credit: <span>{frontmatter.gifattribution}</span>
+	// 				</cite>
+	// 			</div>
+	// 		</article>
+	// 	</GalleryContext.Provider>
+	// )
 
 	return (
-		<GalleryContext.Provider value={galleryValue}>
-			<article className={props.className}>
-				<MediaQuery query={`(min-width: ${breakPoints.tablet}px)`}>
-					<PortfolioGallery 
-						slides={portfolioItems}
-						color={post.color} 
-					/>
-				</MediaQuery>
-				
-				<div className="content" 
-					ref={scrollRef}
-					onScroll={scrollListener}
-				>
-					<header className="header">
-                        <h1>
-                            {post.title}
-                        </h1>
-
-                        <ContentMeta tags={post.tags} />
-
-                        <a className="" href={post.clienturl}>
-                            {post.client}
-                        </a>
-                    </header>
-
-					<MarkdownBlock post={props.data.markdownRemark.htmlAst}/>
-
-                    <BackButton location={props.location} />
-
-                    <cite className="gif-credit">
-                        Grid Page .gif Credit: <span>{post.gifattribution}</span>
-                    </cite>
-				</div>
-			</article>
-		</GalleryContext.Provider>
+		<div>
+			<MarkdownBlock post={post.body}/>
+		</div>
 	)
 };
 
@@ -156,12 +167,12 @@ const StyledPortfolioItem = styled(PortfolioItem)`
     }
 
     .header {
-		${containers.container()};
+			${containers.container()};
     	${containers.readable()};
-        padding-top: calc(3*${padding});
-        padding-bottom: calc(3*${padding});
-        position: relative;
-		text-align: center;
+			padding-top: calc(3*${padding});
+			padding-bottom: calc(3*${padding});
+			position: relative;
+			text-align: center;
 		
 		${breaks.tablet(`
 			padding-top: 25vh;

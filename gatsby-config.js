@@ -1,23 +1,11 @@
 module.exports = {
 	siteMetadata: {
 		title: 'ryanfiller.com',
-		siteUrl: `https://www.ryanfiller.com`
+		siteUrl: `https://www.ryanfiller.com`,
+		description: 'ryanblog',
+		author: 'Ryan Filler'
 	},
 	plugins: [
-		{
-            resolve: `gatsby-plugin-layout`,
-            options: {
-                component: require.resolve(`./src/components/layout`)
-            }
-		},
-		`gatsby-plugin-sitemap`,
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				trackingId: "UA-27684935-1",
-				head: true,
-			},
-		},
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: `gatsby-plugin-favicon`,
@@ -37,39 +25,51 @@ module.exports = {
 				}
 			}
 		},
-		// {
-		// 	resolve: `gatsby-plugin-netlify-cms`,
-		// 	options: {
-		// 		// One convention is to place your Netlify CMS customization code in a
-		// 		// `src/cms` directory.
-		// 		// modulePath: `${__dirname}/src/cms/cms.js`,
-		// 	},
-		// },
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: `gatsby-plugin-google-analytics`,
 			options: {
-				name: `content`,
-				path: `${__dirname}/src/content/`,
+				trackingId: "UA-27684935-1",
+				head: true,
 			},
 		},
+		`gatsby-plugin-sitemap`,
+		`gatsby-plugin-styled-components`,
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: `gatsby-plugin-layout`,
 			options: {
-				name: `img`,
-				path: `${__dirname}/src/images/`
+					component: require.resolve(`./src/components/layout`)
 			}
 		},
 		`gatsby-image`,
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
 		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				plugins: [
-					`gatsby-remark-autolink-headers`,
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+				extensions: [`.mdx`, `.md`, `.markdown`],
+				defaultLayouts: {
+          content: require.resolve("./src/components/markdown-block.js"),
+				},
+				gatsbyRemarkPlugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 1400,
+							linkImagesToOriginal: false,	
+							backgroundColor: 'transparent',
+						},
+					},
+					{
+						resolve: `gatsby-remark-prismjs`,
+						options: {
+							classPrefix: "language-",
+							inlineCodeMarker: null,
+							aliases: {},
+						},
+					},
 					{
 						resolve: `gatsby-remark-custom-blocks`,
-						options: {
+						pluginOptions: {
 						  blocks: {
 							imgCenter: {
 								classes: "image-center"
@@ -89,28 +89,22 @@ module.exports = {
 						  },
 						},
 					},
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							maxWidth: 1400,
-							linkImagesToOriginal: false,	
-						},
-					},
-					{
-						resolve: `gatsby-remark-component`,
-						options: { components: ["header", "img-left"] }
-					},
-					{
-						resolve: `gatsby-remark-prismjs`,
-						options: {
-							classPrefix: "language-",
-							inlineCodeMarker: null,
-							aliases: {},
-						},
-					},
-				],
+        ],
+      },
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `content`,
+				path: `${__dirname}/src/content/`,
 			},
 		},
-		`gatsby-plugin-styled-components`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `img`,
+				path: `${__dirname}/src/images/`
+			}
+		},
 	]
 };

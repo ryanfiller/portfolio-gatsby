@@ -7,18 +7,26 @@ import MarkdownBlock from '../components/markdown-block';
 
 export const query = graphql`
 	query AboutPage {
-		markdownRemark( frontmatter: { title: { eq: "about" } } ) {
-			htmlAst
-			frontmatter {
-				title
+		allMdx (
+			filter: {
+				fileAbsolutePath: { 
+					regex: "/about[.]mdx/" 
+				}
+			}
+		) {
+			nodes {
+				body
 			}
 		}
 	}
 `
 
 const About = (props) => {
+	
+	const post = props.data.allMdx.nodes[0].body
+
 	return (
-		<MarkdownBlock post={ props.data.markdownRemark.htmlAst } />
+		<MarkdownBlock post={ post } />
 	)
 }
 

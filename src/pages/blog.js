@@ -10,7 +10,7 @@ import BlogPreview from '../components/blog-preview';
 
 export const query = graphql`
 	query BlogListQuery {
-		allMarkdownRemark(
+		allMdx(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
 				fields: {slug: { regex: "//blog//" }},
@@ -48,7 +48,7 @@ export const query = graphql`
 const Blog = (props) => {
 	return (
 		<section className={`${props.className} blog-list`}>
-			{props.data.allMarkdownRemark.edges.map(({ node }, index) => (
+			{props.data.allMdx.edges.map(({ node }, index) => (
 				<BlogPreview {...node} key={index}/>
 			))} 
 		</section>

@@ -83,60 +83,62 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function formatPortfolioObject(htmlAst) {
+function formatPortfolioObject(post) {
 
-    const headers = htmlAst.children.filter((child) => child.tagName === 'portfolio-header' );
+    console.log('post', post.mdxAST)
 
-    var items = [];
+    // const headers = post.children.filter((child) => child.tagName === 'portfolio-header' );
+
+    // var items = [];
     
-    headers.map( (PortfolioHeader, index) => {
+    // headers.map( (PortfolioHeader, index) => {
 
-        // get data to rebuild gatsby-image
+    //     // get data to rebuild gatsby-image
 
-        // get the h2 text
-        const header = PortfolioHeader.children.filter( (child) => {
-            return child.tagName === 'h2'
-        })[0].children.filter( (child) => {
-            return child.type === 'text'
-        })[0].value;
+    //     // get the h2 text
+    //     const header = PortfolioHeader.children.filter( (child) => {
+    //         return child.tagName === 'h2'
+    //     })[0].children.filter( (child) => {
+    //         return child.type === 'text'
+    //     })[0].value;
 
-        // TODO fix this with recursive search
-        // https://twitter.com/wesbos/status/1090624545990590465
-        // ^ this might be the answer?
-        const wrapper = PortfolioHeader.children.filter( (child) => {
-            return child.tagName === 'span'
-        })[0]
+    //     // TODO fix this with recursive search
+    //     // https://twitter.com/wesbos/status/1090624545990590465
+    //     // ^ this might be the answer?
+    //     const wrapper = PortfolioHeader.children.filter( (child) => {
+    //         return child.tagName === 'span'
+    //     })[0]
 
-        // TODO this fails with gifs : /
-        const backgroundImage = wrapper.children.filter( (child) => {
-            return child.tagName === 'span'
-        })[0]
+    //     // TODO this fails with gifs : /
+    //     const backgroundImage = wrapper.children.filter( (child) => {
+    //         return child.tagName === 'span'
+    //     })[0]
 
-        // grab only the encoded image
-        const base64 = backgroundImage.properties.style.match(/(?=data:)(.*)(?='\))/)[0]
+    //     // grab only the encoded image
+    //     const base64 = backgroundImage.properties.style.match(/(?=data:)(.*)(?='\))/)[0]
 
-        const img = backgroundImage.children.filter( (child) => {
-            return child.tagName === 'img'
-        })[0]
+    //     const img = backgroundImage.children.filter( (child) => {
+    //         return child.tagName === 'img'
+    //     })[0]
 
-        // console.log('height', img.properties.src, 'width', img.properties.src.naturalWidth,)
+    //     // console.log('height', img.properties.src, 'width', img.properties.src.naturalWidth,)
 
-        items.push(
-            {
-                'header': header,
-                // TODO get aspect reatio
-                'aspectRatio': 2,
-                'base64': base64,
-                'sizes': img.properties.sizes.join(' '),
-                'src': img.properties.src,
-                'srcSet': img.properties.srcSet.join(',\n'),
-                'alt': img.properties.alt,
-                'arrayIndex': index,
-            }
-        );
-    })
+    //     items.push(
+    //         {
+    //             'header': header,
+    //             // TODO get aspect reatio
+    //             'aspectRatio': 2,
+    //             'base64': base64,
+    //             'sizes': img.properties.sizes.join(' '),
+    //             'src': img.properties.src,
+    //             'srcSet': img.properties.srcSet.join(',\n'),
+    //             'alt': img.properties.alt,
+    //             'arrayIndex': index,
+    //         }
+    //     );
+    // })
 
-    return items;
+    // return items;
 }
 
 function getOwnHeaderIndex(array, header) {

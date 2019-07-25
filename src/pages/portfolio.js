@@ -15,7 +15,7 @@ setConfig({pureSFC: true});
 
 export const query = graphql`
 	query PortfolioListQuery {
-		allMarkdownRemark(
+		allMdx(
 			sort: { order: DESC, fields: [frontmatter___date]},
 			filter: {
 				fields: {slug: { regex: "//portfolio//" }},
@@ -51,7 +51,7 @@ const Portfolio = ( props ) => {
 		data 
 	} = props;
 
-	const portfolio = data.allMarkdownRemark.edges;
+	const portfolio = data.allMdx.edges;
 
 	const [currentFilter, setCurrentFilter] = useState('all');
 
@@ -79,7 +79,7 @@ const Portfolio = ( props ) => {
 			<Filter 
 				currentFilter={currentFilter} 
 				setCurrentFilter={setCurrentFilter}
-				filters={getCategories(data.allMarkdownRemark.edges)} 
+				filters={getCategories(data.allMdx.edges)} 
 			/>
 
 			<section className="portfolio-grid">
