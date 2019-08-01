@@ -144,6 +144,8 @@ exports.createPages = ({ graphql, actions }) => {
 								alt
 							}
 						}
+						body
+						rawBody
 					}
 				}
 			}
