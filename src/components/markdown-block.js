@@ -25,7 +25,7 @@ const MarkdownBlock = (props) => {
 	return (
 		<MDXProvider components={components}>
 			<article className={props.className}>
-				<MDXRenderer >
+				<MDXRenderer>
 					{props.post}
 				</MDXRenderer>
 			</article>
