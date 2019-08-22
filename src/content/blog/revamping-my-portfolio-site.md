@@ -27,6 +27,8 @@ published: false
 - lighthouse for performance checks
 - organizing with github cards
 
+- manually init netfliy cms https://zslabs.com/articles/consolidating-netlify-cms
+
 not done yet
  - testing
  - lighthouse for accesibility

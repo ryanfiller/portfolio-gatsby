@@ -33,6 +33,13 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sitemap`,
+		{
+			resolve: `gatsby-plugin-netlify-cms`,
+			options: {
+				manualInit: true,
+				modulePath: `${__dirname}/src/cms/cms.js`,
+			},
+		},
 		`gatsby-plugin-styled-components`,
 		{
 			resolve: `gatsby-plugin-layout`,
