@@ -1,8 +1,6 @@
 ---
-published: true
 title: Hack Memphis 2016
-custompath: ''
-customtemplate: 'portfolio-item-old'
+published: true
 date: 2016-09-01T05:00:00.000Z
 category:
   - draw
@@ -12,19 +10,11 @@ tags:
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-backgroundgif: ../../images/uploads/ghost-in-the-shell.gif
+backgroundgif: >-
+  https://res.cloudinary.com/ryanfiller/image/upload/v1566582140/hack-memphis/creature-from-the-black-lagoon_isldcc.gif
 gifattribution: 'Ghost in the Shell, Bandai'
 logocolor: ../../images/uploads/hack-memphis-logo-color.svg
 logowhite: ../../images/uploads/hack-memphis-logo-white.svg
-slides:
-  - slide:
-    - image: "../../images/uploads/hack-memphis-slider-shirt.png"
-    - alt: "tshirt mockup"
-    # - slidetype: none
-  - slide:
-    - image: "../../images/uploads/hack-memphis-slider-design.jpg"
-    - alt: "flat design"
-    # - slidetype: none
 ---
 
 <!-- TODO right, small class -->
