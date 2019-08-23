@@ -11,11 +11,14 @@ thumbnailgif:
   attribution: 'Ghost in the Shell, Bandai'
   url: >-
     https://res.cloudinary.com/ryanfiller/image/upload/v1566582360/hack-memphis/ghost-in-the-shell_pmalhr.gif
+logo:
+  color: >-
+    https://res.cloudinary.com/ryanfiller/image/upload/v1566581849/hack-memphis/hack-memphis-logo-color_wkgrm1.svg
+  white: >-
+    https://res.cloudinary.com/ryanfiller/image/upload/v1566581849/hack-memphis/hack-memphis-logo-white_iyhkav.svg
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-logocolor: ../../images/uploads/hack-memphis-logo-color.svg
-logowhite: ../../images/uploads/hack-memphis-logo-white.svg
 ---
 
 <!-- TODO right, small class -->
