@@ -7,12 +7,13 @@ category:
 tags:
   - digital illustration
   - apparel design
+thumbnailgif:
+  attribution: 'Ghost in the Shell, Bandai'
+  url: >-
+    https://res.cloudinary.com/ryanfiller/image/upload/v1566582360/hack-memphis/ghost-in-the-shell_pmalhr.gif
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
-backgroundgif: >-
-  https://res.cloudinary.com/ryanfiller/image/upload/v1566582360/hack-memphis/ghost-in-the-shell_pmalhr.gif
-gifattribution: 'Ghost in the Shell, Bandai'
 logocolor: ../../images/uploads/hack-memphis-logo-color.svg
 logowhite: ../../images/uploads/hack-memphis-logo-white.svg
 ---
