@@ -15,7 +15,7 @@ logo:
   color: >-
     https://res.cloudinary.com/ryanfiller/image/upload/fl_sanitize/v1566581849/hack-memphis/hack-memphis-logo-color_wkgrm1.svg
   white: >-
-    https://res.cloudinary.com/ryanfiller/image/upload/fl_sanitize/v1566581849/hack-memphis/hack-memphis-logo-color_wkgrm1.svg
+    https://res.cloudinary.com/ryanfiller/image/upload/fl_sanitize/v1566581849/hack-memphis/hack-memphis-logo-white_iyhkav.svg
 client: hackmemphis.com
 clienturl: 'http://www.hackmemphis.com'
 color: '#E86724'
