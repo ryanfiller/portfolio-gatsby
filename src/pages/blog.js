@@ -11,10 +11,10 @@ import BlogPreview from '../components/blog-preview';
 export const query = graphql`
 	query BlogListQuery {
 		allMdx(
-			sort: { order: DESC, fields: [frontmatter___date]},
+			sort: { order: DESC, fields: [frontmatter___meta___date]},
 			filter: {
 				fields: {slug: { regex: "//blog//" }},
-				frontmatter: { published: { eq: true } }
+				frontmatter: { options: { published: { eq: true } } }
 			},
 		) {
 			edges {
@@ -24,19 +24,15 @@ export const query = graphql`
 					}
 					frontmatter {
 						title
-						date(formatString: "MMM.DD.YY")
-						category
-						tags
-						excerpt
+						meta {
+							date(formatString: "MMM.DD.YY")
+							category
+							tags
+							# excerpt
+						}
 						thumbnail {
-							alt
-							image {
-								childImageSharp {
-									sizes(maxWidth: 1200 ) {
-										...GatsbyImageSharpSizes
-									}
-								}
-							}
+							url
+							attribution
 						}
 					}
 				}

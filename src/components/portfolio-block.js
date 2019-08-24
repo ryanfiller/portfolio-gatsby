@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 
 import Link from 'gatsby-link'
+import { default as SVG } from 'react-inlinesvg'
 
 import styled from 'styled-components'
-import { arrows, breaks, fonts, overlays, padding, theme, transition } from '../config/styles'
+import { animations, breaks, fonts, overlays, padding, theme, transition } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -18,7 +19,19 @@ const PortfolioBlock = (props) => {
     const [hovering, setHovering] = useState(false);
 
     const style = {
-        backgroundImage: hovering ? "url(" + frontmatter.backgroundgif.publicURL + ")" : null,
+        backgroundImage: hovering ? "url(" + frontmatter.thumbnail.url + ")" : null,
+    }
+
+    const Logo = (props) => {
+        if (props.logo.white) {
+            return (
+                <SVG src={props.logo.white} />
+            )
+        } else {
+            return (
+                <SVG className='white' src={props.logo.color} />
+            )
+        } 
     }
 
     return (
@@ -29,16 +42,13 @@ const PortfolioBlock = (props) => {
             className={`${props.className} portfolio-block`}
         >
             <div className="logo">
-                <img src={frontmatter.logowhite.publicURL} alt="TODO" />
+                <Logo logo={frontmatter.client.logo} />
             </div>
             <div className="content">
                 <h2 className="title">
                     {frontmatter.title}
                 </h2>
-                <ContentMeta
-                    category={frontmatter.category}
-                    tags={frontmatter.tags}
-                />
+                <ContentMeta {...frontmatter.meta}/>
                 <span className="link">
                     Read More
                 </span>
@@ -93,17 +103,24 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         transition: ${transition};
         transition-timing-function: steps(4, end);
 
-        img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        max-height: 100%;
-        max-width: 75%;
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            max-height: 100%;
+            max-width: 75%;
 
             ${breaks.phone(`
                 max-width: 30vw;
                 max-height: 15vw;
             `)}
+        }
+
+        .white {
+            svg, 
+            svg * {
+                fill: white;
+            }
         }
     }
 
@@ -134,6 +151,10 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         text-align: center;
         line-height: 1em;
         margin: calc(${padding}/2) 0;
+
+        &:hover {
+            ${animations.highlight(theme.active, theme.light, theme.active)};
+        }
     }
 
     .meta {
@@ -147,7 +168,11 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     }
 
     .link {
-        ${fonts.inlineLink}
+        ${fonts.inlineLink};
+
+        &:hover {
+            ${animations.highlight(theme.active, theme.light, theme.active)};
+        }
     }
 	
     &:before {

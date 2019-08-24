@@ -17,21 +17,23 @@ export const postQuery = graphql`
 	query BlogPost($slug: String!) {
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
-				banner {
-					alt
-					image {
-						childImageSharp {
-							sizes(maxWidth: 2000 ) {
-								...GatsbyImageSharpSizes
-							}
-						}
-					}
-				} 
+				# banner {
+				# 	alt
+				# 	image {
+				# 		childImageSharp {
+				# 			sizes(maxWidth: 2000 ) {
+				# 				...GatsbyImageSharpSizes
+				# 			}
+				# 		}
+				# 	}
+				# } 
 				title
-				date(formatString: "MMM.DD.YY")
-				category
-				tags
-				excerpt
+				meta {
+					date(formatString: "MMM.DD.YY")
+					category
+					tags
+					# excerpt
+				}
 			}
 			body
 		}
@@ -49,6 +51,7 @@ const BlogArticle = (props) => {
 					<h1 className="title">
 						{post.frontmatter.title}
 					</h1>
+					{/* <ContentMeta {...frontmatter.meta}/> */}
 					<ContentMeta
 						date={post.frontmatter.date}
 						category={post.frontmatter.category}
@@ -63,10 +66,10 @@ const BlogArticle = (props) => {
 						</span>
 					</a>
 				</div>
-				<Img outerWrapperClassName="image" 
+				{/* <Img outerWrapperClassName="image" 
 					sizes={post.frontmatter.banner.image.childImageSharp.sizes} 
 					alt={post.frontmatter.banner.alt}
-				/>
+				/> */}
 			</header>
 			
 			<section id="content">

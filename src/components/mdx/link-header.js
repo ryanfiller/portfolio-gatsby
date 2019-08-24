@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-import { slugify } from '../helpers/helpers'
+import { slugify } from '../../helpers/helpers'
 
 const LinkHeader = (props) => {
 

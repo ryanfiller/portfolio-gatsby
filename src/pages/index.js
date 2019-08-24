@@ -19,10 +19,10 @@ setConfig({pureSFC: true});
 export const query = graphql`
 	query HomepageBlocks {
 		portfolio: allMdx(
-			sort: { order: DESC, fields: [frontmatter___date]},
+			sort: { order: DESC, fields: [frontmatter___meta___date]},
 			filter: {
 				fields: {slug: { regex: "//portfolio//" }},
-				frontmatter: { published: { eq: true } }
+				frontmatter: { options: { published: { eq: true } } }
 			},
 			# limit: 4,
 		) {
@@ -33,25 +33,28 @@ export const query = graphql`
 					}
 					frontmatter {
 						title
-						color
-						category
-						backgroundgif {
-							relativePath
-							publicURL
+						meta {
+							category
 						}
-						logowhite {
-							relativePath
-							publicURL
+						client {
+							logo {
+								color
+								white
+							}
+						}
+						thumbnail {
+							url
+							attribution
 						}
 					}
 				}
 			}
 		}
 		blog: allMdx(
-			sort: { order: DESC, fields: [frontmatter___date]},
+			sort: { order: DESC, fields: [frontmatter___meta___date]},
 			filter: {
 				fields: {slug: { regex: "//blog//" }},
-				frontmatter: { published: { eq: true } }
+				frontmatter: { options: { published: { eq: true } } }
 			},
 		# limit: 2,
 		) {
@@ -62,8 +65,10 @@ export const query = graphql`
 					}
 					frontmatter {
 						title
-						date(formatString: "MMM.DD.YY")
-						excerpt
+						meta {
+							date(formatString: "MMM.DD.YY")
+							# excerpt
+						}
 					}
 				}
 			}

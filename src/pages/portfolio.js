@@ -16,10 +16,10 @@ setConfig({pureSFC: true});
 export const query = graphql`
 	query PortfolioListQuery {
 		allMdx(
-			sort: { order: DESC, fields: [frontmatter___date]},
+			sort: { order: DESC, fields: [frontmatter___meta___date]},
 			filter: {
 				fields: {slug: { regex: "//portfolio//" }},
-				frontmatter: { published: { eq: true } }
+				frontmatter: { options: { published: { eq: true } } }
 			},
 		) {
 			edges {
@@ -29,14 +29,18 @@ export const query = graphql`
 					}
 					frontmatter {
 						title
-						color
-						backgroundgif {
-							publicURL
+						meta {
+							category
+							tags
 						}
-						category
-						tags
-						logowhite {
-							publicURL
+						thumbnail {
+							url
+						}
+						client {
+							logo {
+								color
+								white
+							}
 						}
 					}
 				}
@@ -59,7 +63,7 @@ const Portfolio = ( props ) => {
 		var categories = [];
 
 		data.map(({ node }) => (
-			node.frontmatter.category.forEach((item) => {
+			node.frontmatter.meta.category.forEach((item) => {
 				categories.push(item);
 			})
 		));
@@ -84,7 +88,7 @@ const Portfolio = ( props ) => {
 
 			<section className="portfolio-grid">
 				{portfolio.map(({ node }, index) => (
-					!currentFilter || currentFilter === 'all' || node.frontmatter.category.includes(currentFilter) ?
+					!currentFilter || currentFilter === 'all' || node.frontmatter.meta.category.includes(currentFilter) ?
 						<PortfolioBlock {...node} key={index} backgroundColor={gridColors[index]}/>
 					: null
 				))} 

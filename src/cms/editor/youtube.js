@@ -21,7 +21,7 @@ const youtube = {
   // (component gives better render performance)
   toPreview: function(obj) {
     return (
-      '<img style="display: block; width: 100%;" src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+      '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
     );
   }
 }

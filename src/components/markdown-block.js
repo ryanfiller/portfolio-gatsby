@@ -4,8 +4,9 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from '@mdx-js/react'
 
 // import Img from "gatsby-image"
-import LinkHeader from './link-header'
+import LinkHeader from './mdx/link-header'
 import PortfolioHeader from './portfolio-header'
+import Image from './mdx/image'
 
 import styled from 'styled-components';
 import { animations, breaks, containers, fonts, padding, theme } from '../config/styles'
@@ -15,7 +16,7 @@ setConfig({pureSFC: true});
 
 const components = {
 	h2: LinkHeader,
-	// img: Img,
+	Image: Image,
 	// pre: CodeBlock,
 	PortfolioHeader: PortfolioHeader,
 }
@@ -156,79 +157,6 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 					margin-right: .5em;
 				}
 		}
-	}
-
-	img {
-		height: auto;
-	}
-
-	/* img.center */
-	.image-center {
-		display: block;
-		margin: 0 auto;
-		width: auto;
-		max-width: 100%;
-	}
-
-	.image-left, .image-right, .image-full {
-		width: calc(100% + (2 * ${padding}));
-		height: auto;
-		margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
-
-		img {
-				width: 100%;
-		}
-	}
-
-	.image-left {
-		${breaks.phone(`
-				float: left;
-				margin: 0 ${padding} ${padding} calc(-1*${padding});
-				width: 50%;
-		`)}
-	}
-
-	.image-right {
-		${breaks.phone(`
-				float: right;
-				margin: 0 calc(-1*${padding}) ${padding} ${padding};
-				width: 50%;
-		`)}
-	}
-
-	.image-full {
-		${breaks.phone(`
-				display: block;
-				width: calc(100% + (2 * ${padding}));
-				height: auto;
-				margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
-		`)}
-	}
-
-	.image-small {
-		width: 50%;
-
-		${breaks.tablet(`
-				width: 25%;
-
-				&.image-left {
-					margin: 0 ${padding} 0 0;
-				}
-				&.image-right {
-					margin: 0 0 ${padding} 0;
-				}
-		`)}
-
-		${breaks.desktop(`
-				width: 25%;
-
-				&.image-left {
-					margin: 0;
-				}
-				&.image-right {
-					margin: 0;
-				}
-		`)}
 	}
 
 	/* TODO see if it is possible to make a component out of this */

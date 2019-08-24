@@ -21,12 +21,18 @@ export const postQuery = graphql`
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
-				category
-				tags
-				color
-				gifattribution
-				client
-				clienturl
+				meta {
+					category
+					tags
+				}
+				thumbnail {
+					attribution
+				}
+				client {
+					name
+					website
+					color
+				}
 				slides {
 					slide {
 						image {

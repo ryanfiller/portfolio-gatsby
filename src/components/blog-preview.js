@@ -11,34 +11,46 @@ import ContentMeta from './content-meta'
 
 const BlogPreview = (props) => {
 
+    const {
+        thumbnail,
+        title,
+        meta
+    } = props.frontmatter
+
+    console.log(props)
+
     const frontmatter = props.frontmatter;
     
     return (
         <article className={`${props.className} blog-preview`}>
-            {frontmatter.thumbnail ? 
+            {thumbnail ? 
                 <Link to={props.fields.slug}>
-                    <Img outerWrapperClassName="thumbnail" 
-                        sizes={frontmatter.thumbnail.image.childImageSharp.sizes} 
-                        alt={frontmatter.thumbnail.alt}
+                    {/* <Img outerWrapperClassName="thumbnail" 
+                        sizes={thumbnail.image.childImageSharp.sizes} 
+                        alt={thumbnail.alt}
+                    /> */}
+                    <img 
+                        src={thumbnail.url}
+                        alt={thumbnail.attribution}
                     />
                 </Link>
             : null}
             <div className="content">
                 <header className="header">
                     <Link to={props.fields.slug} className="header__text">
-                        {frontmatter.title}
+                        {title}
                     </Link>
                 </header>
-                <span className="date">
-                    {frontmatter.date}
+                {/* <span className="date">
+                    {meta.date}
                 </span>
                 <p className="excerpt">
-                    {frontmatter.excerpt}
+                    {meta.excerpt}
                 </p>
                 <ContentMeta
-                    category={frontmatter.category}
-                    tags={frontmatter.tags}
-                />
+                    category={meta.category}
+                    tags={meta.tags}
+                /> */}
                 <Link to={props.fields.slug} className="link">
                     Read More
                 </Link>

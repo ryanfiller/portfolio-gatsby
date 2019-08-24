@@ -13,14 +13,14 @@ exports.onCreateNode = ({ node, actions }) => {
 		if (node.fileAbsolutePath.includes('/portfolio/')) {
 			slugDir = '/portfolio/';
 
-			if (node.frontmatter.custompath) {
-				slugFile = node.frontmatter.custompath;
+			if (node.frontmatter.options.custompath) {
+				slugFile = slugify(node.frontmatter.options.custompath);
 			} else {
 				slugFile = slugify(node.frontmatter.title);
 			}
 
-			if (node.frontmatter.customtemplate) {
-				template = node.frontmatter.customtemplate;
+			if (node.frontmatter.options.customtemplate) {
+				template = node.frontmatter.options.customtemplate;
 			} else {
 				template = 'portfolio-item';
 			}
@@ -31,14 +31,14 @@ exports.onCreateNode = ({ node, actions }) => {
 		if (node.fileAbsolutePath.includes('/blog/')) {
 			slugDir = '/blog/';
 
-			if (node.frontmatter.custompath) {
-				slugFile = node.frontmatter.custompath;
+			if (node.frontmatter.options.custompath) {
+				slugFile = slugify(node.frontmatter.options.custompath);
 			} else {
 				slugFile = slugify(node.frontmatter.title);
 			}
 			
-			if (node.frontmatter.customtemplate) {
-				template = node.frontmatter.customtemplate;
+			if (node.frontmatter.options.customtemplate) {
+				template = node.frontmatter.options.customtemplate;
 			} else {
 				template = 'blog-item';
 			}
@@ -65,6 +65,7 @@ exports.onCreateNode = ({ node, actions }) => {
     })
 	}
 }
+// regex: "/((\/portfolio\/|\/blog\/))/" 
 
 exports.createPages = ({ graphql, actions }) => {
 	graphql(`
@@ -85,9 +86,11 @@ exports.createPages = ({ graphql, actions }) => {
 							template
 						}
 						frontmatter {
-							custompath
-							customtemplate
 							title
+							options {
+								custompath
+								customtemplate
+							}
 						}
 					}
 				}
@@ -123,10 +126,10 @@ exports.createPages = ({ graphql, actions }) => {
 				}
 			}
 			allMdx(
-				sort: { order: DESC, fields: [frontmatter___date]},
+				sort: { order: DESC, fields: [frontmatter___meta___date]},
 				filter: {
 					fields: {slug: { regex: "//blog//" }},
-					frontmatter: { published: { eq: true } }
+					frontmatter: { options: { published: { eq: true } } }
 				},
 			) {
 				edges {
@@ -136,12 +139,18 @@ exports.createPages = ({ graphql, actions }) => {
 						}
 						frontmatter {
 							title
-							date(formatString: "MMM.DD.YY")
-							category
-							tags
-							excerpt
+							meta {
+								date(formatString: "MMM.DD.YY")
+								category
+								tags
+								excerpt
+							}
 							thumbnail {
-								alt
+								attribution
+								url
+							}
+							banner {
+								url
 							}
 						}
 						body

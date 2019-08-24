@@ -1,18 +1,26 @@
-import React from 'react'
 import CMS from 'netlify-cms-app'
-import cloudinary from 'netlify-cms-media-library-cloudinary';
 
+// previews
+// import PortfolioPreview from './preview/portfolio'
+
+// cms partials
 import { blog } from './blog-fields'
 import { portfolio } from './portfolio-fields'
 
-import { TestControl, TestPreview } from './widget/test.js'
+import cloudinary from 'netlify-cms-media-library-cloudinary';
 
 import youtube from './editor/youtube.js'
+import image from './editor/image.js'
 
-// CMS.registerWidget('test', TestControl, TestPreview);
+// import styles from './cms.css'
+// CMS.registerPreviewStyle(styles.toString(), { raw: true })
+
+CMS.registerMediaLibrary(cloudinary);
 
 CMS.registerEditorComponent(youtube);
-CMS.registerMediaLibrary(cloudinary);
+CMS.registerEditorComponent(image);
+
+// CMS.registerPreviewTemplate('portfolio', PortfolioPreview);
 
 CMS.init({
   config: {
@@ -23,26 +31,15 @@ CMS.init({
       branch: 'master',
       publish_mode: 'editorial_workflow',
     },
-    // media_library: {
-    //   name: 'cloudinary',
-    //   config: {
-    //     cloud_name: 'your_name',
-    //     api_key: 'YOUR_API_KEY_HERE',
-    //     default_transformations: [
-    //       [
-    //         {
-    //           width: 2000,
-    //           quality: 80,
-    //           crop: 'limit',
-    //         },
-    //       ],
-    //     ],
-    //   },
-    // },
-    media_folder: 'static/images/uploads',
-    public_folder: 'images/uploads',
+    media_library:{
+      name: 'cloudinary',
+      config: {
+        cloud_name: 'ryanfiller',
+        api_key: '244836398385633'
+      }
+    },
     collections: [
-      // blog,
+      blog,
       portfolio
     ]
   },

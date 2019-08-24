@@ -85,8 +85,6 @@ function randomNumber(min, max) {
 
 function formatPortfolioObject(post) {
 
-    console.log('post', post.mdxAST)
-
     // const headers = post.children.filter((child) => child.tagName === 'portfolio-header' );
 
     // var items = [];

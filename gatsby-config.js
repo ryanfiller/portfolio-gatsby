@@ -74,28 +74,6 @@ module.exports = {
 							aliases: {},
 						},
 					},
-					{
-						resolve: `gatsby-remark-custom-blocks`,
-						pluginOptions: {
-						  blocks: {
-							imgCenter: {
-								classes: "image-center"
-							},
-							imgLeft: {
-								classes: "image-left"
-							},
-							imgRight: {
-								classes: "image-right"
-							},
-							imgFull: {
-								classes: "image-full"
-							},
-							imgSmall: {
-								classes: "image-small"
-							},
-						  },
-						},
-					},
         ],
       },
 		},
@@ -113,5 +91,15 @@ module.exports = {
 				path: `${__dirname}/src/images/`
 			}
 		},
+
+		{
+			resolve:`gatsby-source-cloudinary`,
+			options:{
+				cloudName: 'ryanfiller',
+				apiKey: '244836398385633',
+				apiSecret: 'K9JubqsYaMlZtwvqzGgKwJl5owk',
+				resourceType: 'image',
+			}
+		}
 	]
 };

@@ -15,12 +15,18 @@ export const postQuery = graphql`
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				title
-				category
-				tags
-				color
-				gifattribution
-				client
-				clienturl
+				meta {
+					category
+					tags
+				}
+				thumbnail {
+					attribution
+				}
+				client {
+					name
+					website
+					color
+				}
 				slides {
 					slide {
 						image {
@@ -45,7 +51,7 @@ const PortfolioItem = (props) => {
 
 	return (
 		<article className={props.className}>
-			<PortfolioGallery slides={frontmatter.slides} color={frontmatter.color} />
+			<PortfolioGallery slides={frontmatter.slides} color={frontmatter.client.color} />
 
 			<div className="content">
 				<header className="header">
@@ -53,10 +59,10 @@ const PortfolioItem = (props) => {
 						{frontmatter.title}
 					</h1>
 
-					<ContentMeta tags={frontmatter.tags} />
+					<ContentMeta {...frontmatter.meta} />
 
-					<a className="" href={frontmatter.clienturl}>
-						{frontmatter.client}
+					<a className="" href={frontmatter.client.website}>
+						{frontmatter.client.name}
 					</a>
 				</header>
 
@@ -65,7 +71,7 @@ const PortfolioItem = (props) => {
 				<BackButton location={props.location} />
 
 				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{frontmatter.gifattribution}</span>
+					Grid Page .gif Credit: <span>{frontmatter.thumbnail.attribution}</span>
 				</cite>
 			</div>
 		</article>

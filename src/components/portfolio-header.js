@@ -33,7 +33,6 @@ const PortfolioHeader = (props) => {
 	// 	context.setCurrent(ownIndex)
 	// }
 
-	console.log(image)
 	return (
 		<React.Fragment>
 			<h2 ref={headerRef} id={slugify(headerText)} >

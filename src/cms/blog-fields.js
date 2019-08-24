@@ -2,69 +2,116 @@ export const blog = {
   label: 'Blog',
   name: 'blog',
   folder: 'src/content/blog',
+  extension: 'mdx',
+  format: 'frontmatter',
   create: true,
+  delete: true,
   fields: [
     {
-      label: 'Title',
       name: 'title',
-      widget: 'string',
-    },
-    
-    { 
-      label: 'Published',
-      name: 'published',
-      widget: 'boolean',
-      default: false
-    },
-    { 
-      widget: 'hidden',
-      name: 'template',
-      default: 'blog-item'
-    },
-    
-    { 
       label: 'Title',
-      name: 'title',
       widget: 'string' 
     },
-    { 
-      label: 'excerpt',
-      name: 'excerpt',
-      widget: 'text' 
+    {
+      name: 'options',
+      label: 'Options',
+      widget: 'object',
+      fields: [
+        {
+          name: 'published',
+          abel: 'Published',
+          widget: 'boolean', 
+          default: false
+        },
+        {
+          name: 'custompath',
+          label: 'Custom Path',
+          widget: 'string', 
+          default: '',
+          required: false
+        },
+        {
+          name: 'customtemplate',
+          label: 'Custom Template',
+          widget: 'string',
+          default: '', 
+          required: false
+        },
+      ]
     },
-    { 
-      label: 'Banner',
+    {
       name: 'banner',
-      widget: 'image' 
+      label: 'Banner',
+      widget: 'object',
+      fields: [
+        {
+          name: 'url',
+          label: 'Image',
+          widget: 'image',
+        },
+        {
+          name: 'attribution',
+          label: 'Attribution',
+          widget: 'string',
+          required: false,
+        }
+      ]
     },
-    { 
-      label: 'Url',
-      name: 'path',
-      widget: 'string' 
+    {
+      name: 'meta',
+      label: 'Meta',
+      widget: 'object',
+      fields: [
+        {
+          name: 'date',
+          label: 'Date',
+          widget: 'date' 
+        },
+        {
+          name: 'category',
+          label: 'Category',
+          widget: 'list',
+          // widget: 'select',
+          // multiple: 'true',
+          // options: [
+          //   'design',
+          //   'dev',
+          //   'draw'
+          // ],
+          required: false
+        },
+        {
+          name: 'tags',
+          label: 'Tags',
+          widget: 'list',
+          required: false
+        },
+      ]
     },
-    { 
-      label: 'Date',
-      name: 'date',
-      widget: 'date' 
+    {
+      name: 'thumbnail',
+      label: 'Thumbnail',
+      widget: 'object',
+      fields: [
+        {
+          name: 'url',
+          label: 'Image',
+          widget: 'image',
+        },
+        {
+          name: 'attribution',
+          label: 'Attribution',
+          widget: 'string',
+          required: false,
+        }
+      ],  
+      required: false,
     },
-    
-    { 
-      label: 'Category',
-      name: 'category',
-      widget: 'string',
-      required: false 
-    },
-    { 
-      label: 'Tags',
-      name: 'tags',
-      widget: 'list',
-      required: false
-    },
-    
-    { 
-      label: 'Body',
+    {
       name: 'body',
+      label: 'Body',
+      // widget: 'mdx' 
       widget: 'markdown' 
     },
-  ],
+  ]
 };

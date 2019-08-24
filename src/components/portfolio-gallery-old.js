@@ -9,7 +9,6 @@ export default class PortfolioGallery extends React.Component {
 	render() {
 
         let params
-
 		if (this.props.slides.length > 1) {
 			params = {
 				loop: true,
