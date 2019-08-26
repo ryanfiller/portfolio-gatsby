@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react'
 
 import MediaQuery from 'react-responsive'
 import { breakPoints } from '../config/styles'
-import { slugify, getOwnHeaderIndex } from '../helpers/helpers'
+import { slugify, getOwnHeaderIndex } from '../helpers'
 
 import { GalleryContext } from '../templates/portfolio-item';
 

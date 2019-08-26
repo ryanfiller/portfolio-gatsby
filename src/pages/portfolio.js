@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { breaks, theme } from '../config/styles';
 
-import { colorizeBlocks } from '../helpers/helpers';
+import { colorizeBlocks } from '../helpers';
 
 import Filter from '../components/filter';
 import PortfolioBlock from '../components/portfolio-block';

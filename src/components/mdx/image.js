@@ -7,7 +7,7 @@ const Image = (props) => {
 	const {
 		alt,
 		src,
-		// title,
+		title,
 	} = props
 
 	const addParams = (url, params) => {
@@ -38,8 +38,8 @@ const Image = (props) => {
 					title={title}
 				/>
 			</picture>
-    	// {title && <figcaption>{title}</figcaption>}
-		// </figure>
+    	{title && <figcaption>{title}</figcaption>}
+		</figure>
 	)
 }
 
@@ -71,6 +71,7 @@ const StyledImage = styled(Image)`
 				margin: 0 ${padding} ${padding} calc(-1*${padding});
 				width: 50%;
 		`)}
+		` : null)
 	}
 
 	&.right {
@@ -89,10 +90,6 @@ const StyledImage = styled(Image)`
 				margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
 		`)}
 	}
-
-	/* TODO small image checkbox */
-	/* &.small {
-		width: 50%;
 
 	${props => (props.small === 'true' && props.align !== 'full' ? `
 		margin: 0 auto 1em auto;

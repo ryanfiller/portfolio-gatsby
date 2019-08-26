@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'gatsby-link'
-import { getParent } from '../helpers/helpers';
+import { getParent } from '../helpers';
 
 import styled from 'styled-components';
 import { animations, fonts, theme } from '../config/styles';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { randomNumber } from '../helpers/helpers';
+import { randomNumber } from '../helpers';
 
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';

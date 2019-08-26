@@ -5,7 +5,7 @@ import Button from './buttons';
 
 import styled from 'styled-components';
 import { fonts, padding, transition, theme } from '../config/styles';
-import { initialFormState, disableFormButton } from '../helpers/helpers'
+import { initialFormState, disableFormButton } from '../helpers'
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});

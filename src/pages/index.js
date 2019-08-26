@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 import styled, { createGlobalStyle } from 'styled-components';
 import { breaks, breakPoints, theme } from '../config/styles';
 
-import { arrayZip, colorizeBlocks } from '../helpers/helpers';
+import { arrayZip, colorizeBlocks } from '../helpers';
 
 import PortfolioBlock from '../components/portfolio-block.js'
 import BlogPreview from '../components/blog-preview';

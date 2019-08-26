@@ -1,6 +1,6 @@
 const path = require(`path`)
 const fs = require(`fs`)
-const { slugify } = require(`./src/helpers/helpers`)
+const { slugify } = require(`./src/helpers`)
 
 exports.onCreateNode = ({ node, actions }) => {
 	const { createNodeField } = actions

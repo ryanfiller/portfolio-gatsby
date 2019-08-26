@@ -6,7 +6,7 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components'
 import { animations, breaks, breakPoints, containers, fonts, padding, theme } from '../config/styles'
 
-import { formatPortfolioObject } from '../helpers/helpers'
+import { formatPortfolioObject } from '../helpers'
 
 import PortfolioGallery from '../components/portfolio-gallery'
 import ContentMeta from '../components/content-meta'
