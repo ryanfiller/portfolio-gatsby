@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 
 // TODO SEO HELP
 // import Helmet from 'react-helmet'
-import Img from 'gatsby-image';
 
 import styled from 'styled-components';
 import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles';

@@ -5,7 +5,7 @@ options:
   customtemplate: ''
   published: true
 banner:
-  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1565620978/sample.jpg'
+  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1567645191/blog/css-grid/css-grid-tron_tka8sn.jpg'
 meta:
   category:
     - code
@@ -18,7 +18,7 @@ meta:
     - typography
     - design-systems
 thumbnail:
-  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1565620978/sample.jpg'
+  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1567645191/blog/css-grid/css-grid-tron_tka8sn.jpg'
 ---
 
 CSS Grid is great, by this point in time everyone on the internet has covered that at length. Grid is a powerful front end layout tool, and the more time I spend using it the more it reminds me of the lessons I learned in my college typography class, and of my time as a print designer using Adobe InDesign.
@@ -34,8 +34,7 @@ Having the ability to specifically define how content and images span both rows 
 
 ## Configuring Grids in Different Environments
 
-[[imgLeft]]
-| ![print screenshot](../../images/uploads/css-grid-print.jpg)
+<Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1567645193/blog/css-grid/css-grid-print_o4ijfd.jpg" alt="print screenshot" title="" align="left" small="false" />
 
 **Swiss Modular Grid**
 - four column modular grid
@@ -43,8 +42,7 @@ Having the ability to specifically define how content and images span both rows 
 
 <div style="clear:both;"></div>
 
-[[imgRight]]
-| ![indesign screenshot of grid](../../images/uploads/css-grid-indesign-screenshot.jpg)
+<Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1567645192/blog/css-grid/css-grid-indesign-screenshot_ihwoah.jpg" alt="indesign screenshot of grid" title="" align="right" small="false" />
 
 **Adobe InDesign Grid**
 - font-size 12pt
@@ -55,8 +53,7 @@ Having the ability to specifically define how content and images span both rows 
 
 <div style="clear:both;"></div>
 
-[[imgLeft]]
-| ![codepen screenshot](../../images/uploads/css-grid-code-screenshot.jpg)
+<Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1567645194/blog/css-grid/css-grid-code-screenshot_n79f3k.jpg" alt="codepen screenshot" title="" align="left" small="false" />
 
 **CSS Grid Layout**
 - font-size: 12px; (.75rem)
@@ -125,9 +122,7 @@ However, there are certain areas where I think this kind of attention to detail 
 
 Of course, another huge variable here is working with clients and having editable, variable lengths of text on the site since that introduces a lot of unknowns into the equation. I think the best scenario in this case is having the content maintained by someone who is both design and code savvy, as they'll know what looks good and also a little of what's going on with the CSS to achieve the design.
 
-
-[[imgRight]]
-| ![indesign screenshot of text threading](../../images/uploads/css-grid-text-threads.jpg)
+<Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1567645194/blog/css-grid/css-grid-text-threads_ry1owx.jpg" alt="indesign screenshot of text threading" title="" align="right" small="false" />
 
 Another huge drawback to complex grid layouts is that text flow in browsers works quite differently than in tools like InDesign. Using print layout tools, text boxes can be "threaded" so that when copy overflows one box it will automatically flow into linked text boxes. There's no existing HTML / CSS / Javascript / whatever tool that treats text this way, except maybe `css column-count: #;` and event that isn't ideal because a user would end up scrolling to the bottom of the page and then back to the top to read additional columns. 
 
