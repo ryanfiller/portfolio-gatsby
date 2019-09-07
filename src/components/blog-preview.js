@@ -7,6 +7,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { animations, fonts, padding, transition, theme } from '../config/styles'
 
+import Image from './mdx/image'
 import ContentMeta from './content-meta'
 
 const BlogPreview = (props) => {
@@ -25,11 +26,7 @@ const BlogPreview = (props) => {
         <article className={`${props.className} blog-preview`}>
             {thumbnail ? 
                 <Link to={props.fields.slug}>
-                    {/* <Img outerWrapperClassName="thumbnail" 
-                        sizes={thumbnail.image.childImageSharp.sizes} 
-                        alt={thumbnail.alt}
-                    /> */}
-                    <img 
+                    <Image
                         src={thumbnail.url}
                         alt={thumbnail.attribution}
                     />
@@ -41,7 +38,7 @@ const BlogPreview = (props) => {
                         {title}
                     </Link>
                 </header>
-                {/* <span className="date">
+                <span className="date">
                     {meta.date}
                 </span>
                 <p className="excerpt">
@@ -50,7 +47,7 @@ const BlogPreview = (props) => {
                 <ContentMeta
                     category={meta.category}
                     tags={meta.tags}
-                /> */}
+                />
                 <Link to={props.fields.slug} className="link">
                     Read More
                 </Link>
@@ -78,13 +75,10 @@ const StyledBlogPreview = styled(BlogPreview)`
         position: relative;
     }
 
-    .gatsby-image-wrapper {
+    ${Image} {
+        width: 100%;
+        margin: 0;
         margin-bottom: 1rem;
-
-        img {
-            width: 100%;
-            height: auto !important;
-        }
     }
 
     .header {
@@ -122,10 +116,10 @@ const StyledBlogPreview = styled(BlogPreview)`
         color: ${theme.dark};
     }
 
-    .meta {
+    ${ContentMeta} {
         font-size: .8em;
         ${fonts.condensed}
-        margin: 1.5rem 10em 0 0;
+        margin: 1.5rem 10em 1rem 0;
         color: ${theme.disabled};
     }
 

@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles';
 
+import Banner from '../components/banner';
 import ContentMeta from '../components/content-meta';
 import MarkdownBlock from '../components/markdown-block';
 import BackButton from '../components/back-button';
@@ -16,22 +17,16 @@ export const postQuery = graphql`
 	query BlogPost($slug: String!) {
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
-				# banner {
-				# 	alt
-				# 	image {
-				# 		childImageSharp {
-				# 			sizes(maxWidth: 2000 ) {
-				# 				...GatsbyImageSharpSizes
-				# 			}
-				# 		}
-				# 	}
-				# } 
 				title
 				meta {
 					date(formatString: "MMM.DD.YY")
 					category
 					tags
-					# excerpt
+					excerpt
+				}
+				banner {
+					url
+					attribution
 				}
 			}
 			body
@@ -42,34 +37,34 @@ export const postQuery = graphql`
 const BlogArticle = (props) => {
 
 	const post = props.data.mdx;
+	const { frontmatter } = post;
+
+	console.log(frontmatter)
 
 	return (
 		<article className={props.className} >
-			<header className="blog-banner">
-				<div className="text">
+			<Banner
+					src={frontmatter.banner.url}
+					alt={frontmatter.banner.attribution}
+				>
 					<h1 className="title">
 						{post.frontmatter.title}
 					</h1>
-					{/* <ContentMeta {...frontmatter.meta}/> */}
+					<ContentMeta {...frontmatter.meta}/>
 					<ContentMeta
 						date={post.frontmatter.date}
 						category={post.frontmatter.category}
 						tags={post.frontmatter.tags}
 					/>
 					<p className="excerpt">
-						{post.frontmatter.excerpt}
+						{post.frontmatter.meta.excerpt}
 					</p>
 					<a className="scroll-link" href="#content">
 						<span>
 							Skip To Content
 						</span>
 					</a>
-				</div>
-				{/* <Img outerWrapperClassName="image" 
-					sizes={post.frontmatter.banner.image.childImageSharp.sizes} 
-					alt={post.frontmatter.banner.alt}
-				/> */}
-			</header>
+				</Banner>
 			
 			<section id="content">
 				<MarkdownBlock post={post.body} />
@@ -84,22 +79,21 @@ BlogArticle.propTypes = {
 };
 
 const StyledBlogArticle = styled(BlogArticle)`
-	.blog-banner {
+	${Banner} .content {
 		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
 		background: ${theme.highlight};
 		width: 100vw;
 		position: relative;
 		overflow: hidden;
 		${overlays.pixels}
-		/* ${overlays.dark} */
 		font-size: 2rem;
+		color: ${theme.light};
 
 		${breaks.tablet(`
 			font-size: 2.75rem;
 		`)}
     
 		.text {
-			color: ${theme.light};
 			margin: 0;
 			position: relative;
 			z-index: 3;
@@ -119,7 +113,6 @@ const StyledBlogArticle = styled(BlogArticle)`
 			text-transform: uppercase;
 			margin: 0;
 			margin-bottom: .5em;
-			width: 75%;
 			text-align: center;
 		}
 
@@ -219,36 +212,22 @@ const StyledBlogArticle = styled(BlogArticle)`
 				overflow: hidden;
 			}
 		}
-    
-		.gatsby-image-wrapper {
-			height: auto;
-			min-height: 100%;
-			width: auto;
-			min-width: 100vw;
-			object-fit: cover;
-			position: absolute !important; /* gatsby-image override */
-			right: 0;
-			left: 50%;
-			top: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			z-index: 0;
-		}
 		
-		${breaks.tablet(`
+		/* ${breaks.tablet(`
 			@supports (display: grid) {
-
-				.text {
-					display: grid;
-					grid-template-columns: 75vw 25vw;
-					grid-template-rows: auto 1fr;
-				}
-
 				.title {
 					text-align: left;
 					${containers.container()}
 					grid-column-start: 1;
 					grid-column-end: 2;
 					align-self: start;
+					width: 75%;
+				}
+
+				.text {
+					display: grid;
+					grid-template-columns: 75vw 25vw;
+					grid-template-rows: auto 1fr;
 				}
 
 				.meta {
@@ -282,7 +261,7 @@ const StyledBlogArticle = styled(BlogArticle)`
 					text-align: left;
 				}
 			}
-		`)}
+		`)} */
 	}
 
 	#content {

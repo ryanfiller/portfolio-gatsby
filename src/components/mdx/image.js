@@ -16,7 +16,7 @@ const Image = (props) => {
 	}
 
 	return (
-		<figure className={props.className}>
+		<figure className={`${props.className} ${props.align}`}>
 			<picture>
 				{!src.includes('.gif'|| '.svg') &&
 					<>
@@ -65,19 +65,25 @@ const StyledImage = styled(Image)`
 		background-color: ${colors.grayLight};
 	}
 
-	${props => (props.align === 'center' ? `
+	&.center {
 		${breaks.phone(`
-				float: left;
-				margin: 0 ${padding} ${padding} calc(-1*${padding});
+				margin: 0 auto;
 				width: 50%;
 		`)}
-		` : null)
 	}
 
 	&.right {
 		${breaks.phone(`
 				float: right;
 				margin: 0 calc(-1*${padding}) ${padding} ${padding};
+				width: 50%;
+		`)}
+	}
+
+	&.left {
+		${breaks.phone(`
+				float: left;
+				margin: 0 ${padding} ${padding} calc(-1*${padding});
 				width: 50%;
 		`)}
 	}
