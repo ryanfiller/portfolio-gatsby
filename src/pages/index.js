@@ -44,7 +44,7 @@ export const query = graphql`
 						}
 						thumbnail {
 							url
-							attribution
+							alt
 						}
 					}
 				}

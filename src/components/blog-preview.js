@@ -28,7 +28,7 @@ const BlogPreview = (props) => {
                 <Link to={props.fields.slug}>
                     <Image
                         src={thumbnail.url}
-                        alt={thumbnail.attribution}
+                        alt={thumbnail.alt}
                     />
                 </Link>
             : null}

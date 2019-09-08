@@ -121,8 +121,8 @@ export const portfolio = {
           widget: 'image',
         },
         {
-          name: 'attribution',
-          label: 'Attribution',
+          name: 'alt',
+          label: 'Alt',
           widget: 'string',
           required: false,
         }

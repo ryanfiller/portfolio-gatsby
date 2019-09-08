@@ -20,7 +20,7 @@ export const postQuery = graphql`
 					tags
 				}
 				thumbnail {
-					attribution
+					alt
 				}
 				client {
 					name
@@ -71,7 +71,7 @@ const PortfolioItem = (props) => {
 				<BackButton location={props.location} />
 
 				<cite className="gif-credit">
-					Grid Page .gif Credit: <span>{frontmatter.thumbnail.attribution}</span>
+					Grid Page .gif Credit: <span>{frontmatter.thumbnail.alt}</span>
 				</cite>
 			</div>
 		</article>

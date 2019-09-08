@@ -26,7 +26,7 @@ export const postQuery = graphql`
 				}
 				banner {
 					url
-					attribution
+					alt
 				}
 			}
 			body
@@ -45,7 +45,7 @@ const BlogArticle = (props) => {
 		<article className={props.className} >
 			<Banner
 					src={frontmatter.banner.url}
-					alt={frontmatter.banner.attribution}
+					alt={frontmatter.banner.alt}
 				>
 					<h1 className="title">
 						{post.frontmatter.title}

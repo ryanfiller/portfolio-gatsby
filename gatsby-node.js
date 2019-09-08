@@ -146,10 +146,11 @@ exports.createPages = ({ graphql, actions }) => {
 								excerpt
 							}
 							thumbnail {
-								attribution
+								alt
 								url
 							}
 							banner {
+								alt
 								url
 							}
 						}
