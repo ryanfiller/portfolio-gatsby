@@ -3,7 +3,8 @@ module.exports = {
 		title: 'ryanfiller.com',
 		siteUrl: `https://www.ryanfiller.com`,
 		description: 'ryanblog',
-		author: 'Ryan Filler'
+		author: 'Ryan Filler',
+		cloudinaryCloud: 'ryanfiller'
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',

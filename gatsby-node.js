@@ -123,6 +123,7 @@ exports.createPages = ({ graphql, actions }) => {
 					author
 					siteUrl
 					description
+					cloudinaryCloud
 				}
 			}
 			allMdx(
