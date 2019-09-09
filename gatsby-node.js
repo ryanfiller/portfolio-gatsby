@@ -141,7 +141,7 @@ exports.createPages = ({ graphql, actions }) => {
 						frontmatter {
 							title
 							meta {
-								date(formatString: "MMM.DD.YY")
+								date
 								category
 								tags
 								excerpt
