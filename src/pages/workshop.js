@@ -9,11 +9,11 @@ import MarkdownBlock from '../components/markdown-block';
 
 export const query = graphql`
 	query WorkshopPage {
-		markdownRemark( frontmatter: { title: { eq: "workshop" } } ) {
-			htmlAst
+		mdx(frontmatter: { title: { eq: "workshop" } } ) {
 			frontmatter {
 				title
 			}
+			body
 		}
 	}
 `
@@ -37,7 +37,7 @@ const Workshop = (props) => {
 	})
 
 	return (
-		<MarkdownBlock post={ props.data.markdownRemark.htmlAst } />
+		<MarkdownBlock post={ props.data.mdx.body } />
 	)
 }
 

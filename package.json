@@ -43,6 +43,7 @@
 		"react-helmet": "^5.2.0",
 		"react-hook-konami-code-listener": "^1.1.1",
 		"react-id-swiper": "^1.6.8",
+		"react-inlinesvg": "^1.1.6",
 		"react-responsive": "7.0.0",
 		"react-transition-group": "^2.5.0",
 		"styled-components": "^4.1.3",
