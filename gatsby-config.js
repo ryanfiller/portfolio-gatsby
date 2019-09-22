@@ -45,15 +45,15 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-layout`,
 			options: {
-					component: require.resolve(`./src/components/layout`)
+					component: require.resolve(`./src/components/layout/layout`)
 			}
 		},
 		{
-			resolve: "gatsby-plugin-react-svg",
+			resolve: 'gatsby-plugin-react-svg',
 			options: {
-				rule: {
-					include: /images/
-				}
+					rule: {
+						include: /images/
+					}
 			}
 		},
 		`gatsby-image`,

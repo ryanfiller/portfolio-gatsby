@@ -114,11 +114,9 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
                 max-width: 30vw;
                 max-height: 15vw;
             `)}
-        }
 
-        .white {
-            svg, 
-            svg * {
+            &.white,
+            &.white * {
                 fill: white;
             }
         }
