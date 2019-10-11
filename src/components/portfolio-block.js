@@ -100,7 +100,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         left: 50%;
         transform: translate(-50%, -50%);
         backface-visibility: hidden;
-        transition: ${transition};
+        transition: ${transition}ms;
         transition-timing-function: steps(4, end);
 
         svg {
@@ -114,11 +114,9 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
                 max-width: 30vw;
                 max-height: 15vw;
             `)}
-        }
 
-        .white {
-            svg, 
-            svg * {
+            &.white,
+            &.white * {
                 fill: white;
             }
         }
@@ -129,7 +127,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         color: ${theme.light};
         max-height: 100%;
         overflow: hidden;
-        transition: ${transition};
+        transition: ${transition}ms;
         font-size: 1rem;
 
         position: absolute;

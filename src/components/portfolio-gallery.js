@@ -119,7 +119,7 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         }
         /* TODO abstract this somehow */
         overflow: hidden;
-        transition: ${transition};
+        transition: ${transition}ms;
         &.fade-enter {
             opacity: 0;
         }

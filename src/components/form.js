@@ -53,13 +53,13 @@ const Form = (props) => {
                 <form
                     id={props.form.name}
                     tabIndex="1"
-                    name="contact-form"
+                    name="contact"
                     method="post"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                 >
-                    <input type="hidden" name="form-name" value="contact-form" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <input type="hidden" name="bot-field" />
 
                     {Object.keys(formFields).map( (field, index) => {
@@ -154,7 +154,7 @@ const StyledForm = styled(Form)`
                 order: 2;
                 display: flex;
                 align-items: center;
-                transition: ${transition};
+                transition: ${transition}ms;
             }
 
             input, textarea {
@@ -164,7 +164,7 @@ const StyledForm = styled(Form)`
                 padding: calc(${padding} / 4);
                 border: 2px solid transparent;
                 border-radius: 0;
-                transition: ${transition};
+                transition: ${transition}ms;
                 flex: 1;
                 order: 1;
                 -webkit-appearence: none;
@@ -183,7 +183,7 @@ const StyledForm = styled(Form)`
 
                     &::-webkit-input-placeholder,
                     &::-moz-placeholder {
-                        transition: ${transition};
+                        transition: ${transition}ms;
                         color: transparent;
                     }
                     + label {

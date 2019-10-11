@@ -1,0 +1,540 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should match snapshot 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  font-size: 1em;
+  height: 1em;
+  width: auto;
+  color: currentColor;
+}
+
+.c1 svg {
+  display: block;
+  height: 1em;
+  width: 1.3em;
+  pointer-events: none;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.c1 svg path {
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  fill: currentColor;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  -webkit-transition-timing-function: steps(2,end);
+  transition-timing-function: steps(2,end);
+}
+
+.c1 svg mask path {
+  color: white;
+}
+
+.c1 .r {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.c1 .yan {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 0;
+}
+
+.c1 .f {
+  -webkit-transform: rotateY(180deg) translateX(85%);
+  -ms-transform: rotateY(180deg) translateX(85%);
+  transform: rotateY(180deg) translateX(85%);
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+}
+
+.c1 .iller {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 0;
+}
+
+.c1:hover,
+.c1:focus {
+  color: #ed6554;
+}
+
+.c2 {
+  cursor: pointer;
+  color: currentColor;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: auto;
+  position: relative !important;
+  margin-left: 2rem;
+  display: block;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+}
+
+.c2 .top,
+.c2 .middle,
+.c2 .bottom {
+  display: block;
+  height: .25rem;
+  width: 100%;
+  background-color: currentColor;
+  position: absolute;
+}
+
+.c2:hover .top,
+.c2:focus .top,
+.c2:hover .middle,
+.c2:focus .middle,
+.c2:hover .bottom,
+.c2:focus .bottom {
+  background-color: #ed6554;
+}
+
+.c2 .top {
+  top: 0;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: top 200ms ease 200ms,-webkit-transform 200ms ease 0s,background-color 200ms;
+  -webkit-transition: top 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
+  transition: top 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
+}
+
+.c2 .middle {
+  -webkit-transition: opacity 0s ease 200ms,background-color 200ms;
+  transition: opacity 0s ease 200ms,background-color 200ms;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.c2 .bottom {
+  -webkit-transition: bottom 200ms ease 200ms,-webkit-transform 200ms ease 0s,background-color 200ms;
+  -webkit-transition: bottom 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
+  transition: bottom 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
+  bottom: 0;
+}
+
+.site.open .c2 {
+  position: relative;
+  z-index: 100;
+}
+
+.site.open .c2 .top,
+.site.open .c2 .middle,
+.site.open .c2 .bottom {
+  background-color: #ed6554;
+}
+
+.site.open .c2 .top {
+  -webkit-transition: top 200ms ease 0s,-webkit-transform 200ms ease 200ms;
+  -webkit-transition: top 200ms ease 0s,transform 200ms ease 200ms;
+  transition: top 200ms ease 0s,transform 200ms ease 200ms;
+  top: calc(50% - .125rem);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.site.open .c2 .middle {
+  -webkit-transition: opacity 0s ease 200ms;
+  transition: opacity 0s ease 200ms;
+  opacity: 0;
+}
+
+.site.open .c2 .bottom {
+  -webkit-transition: bottom 200ms ease 0s,-webkit-transform 200ms ease 200ms;
+  -webkit-transition: bottom 200ms ease 0s,transform 200ms ease 200ms;
+  transition: bottom 200ms ease 0s,transform 200ms ease 200ms;
+  bottom: calc(50% - .125rem);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.c0 {
+  background-color: #fff7ff;
+  color: #1e053f;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: calc(2rem / 2);
+  font-size: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width:480px) {
+  .c1 svg {
+    width: 8.45em;
+  }
+
+  .c1 svg .r {
+    -webkit-filter: none;
+    filter: none;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .c1 svg .yan {
+    -webkit-transform: translateX(10%);
+    -ms-transform: translateX(10%);
+    transform: translateX(10%);
+    opacity: 1;
+  }
+
+  .c1 svg .f {
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+    -webkit-mask: none;
+    mask: none;
+  }
+
+  .c1 svg .iller {
+    -webkit-transform: translateX(60%);
+    -ms-transform: translateX(60%);
+    transform: translateX(60%);
+    opacity: 1;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    font-size: 2rem;
+  }
+}
+
+<ContextMock>
+  <ThemeProvider
+    theme={
+      Object {
+        "active": "#ed6554",
+        "dark": "#1e053f",
+        "darkNav": false,
+        "disabled": "#515664",
+        "highlight": "#7c1863",
+        "light": "#fff7ff",
+        "primary": "#192368",
+      }
+    }
+  >
+    <header__StyledHeader>
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "header__StyledHeader-sc-1un6j1h-0",
+              "isStatic": false,
+              "lastClassName": "c0",
+              "rules": Array [
+                [Function],
+                " display:flex;justify-content:space-between;align-items:center;padding:calc(",
+                "2rem",
+                " / 2);font-size:3rem;",
+                "
+            padding-left: 1rem;
+            padding-right: 1rem;
+        ",
+                " ",
+                [Function],
+              ],
+            },
+            "displayName": "header__StyledHeader",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "header__StyledHeader-sc-1un6j1h-0",
+            "target": [Function],
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+      >
+        <Header
+          className="c0"
+        >
+          <header
+            className="c0"
+            id="header"
+          >
+            <logo__StyledLogo
+              breakpoint="phone"
+            >
+              <StyledComponent
+                breakpoint="phone"
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "logo__StyledLogo-sc-6ahk4j-0",
+                      "isStatic": false,
+                      "lastClassName": "c1",
+                      "rules": Array [
+                        "display:inline-flex;justify-content:flex-start;position:relative;overflow:hidden;font-size:1em;height:1em;width:auto;color:currentColor;svg{display:block;height:1em;width:1.3em;pointer-events:none;transition:",
+                        "200",
+                        "ms;path{transform-origin:center center;fill:currentColor;transition:",
+                        "200",
+                        "ms;transition-timing-function:",
+                        "steps(2, end)",
+                        ";}mask path{color:white;}}.r{transform:translateX(0);}.yan{transform:translateX(0);opacity:0;}.f{transform:rotateY(180deg) translateX(85%);mask:url(#mask);}.iller{transform:translateX(0);opacity:0;}&:hover,&:focus{color:",
+                        [Function],
+                        ";}",
+                        [Function],
+                      ],
+                    },
+                    "displayName": "logo__StyledLogo",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "logo__StyledLogo-sc-6ahk4j-0",
+                    "target": [Function],
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <Logo
+                  breakpoint="phone"
+                  className="c1"
+                >
+                  <ForwardRef
+                    aria-label="to homepage"
+                    className="c1"
+                    to="/"
+                  >
+                    <GatsbyLink
+                      aria-label="to homepage"
+                      className="c1"
+                      innerRef={null}
+                      to="/"
+                    >
+                      <ForwardRef
+                        aria-label="to homepage"
+                        className="c1"
+                        getProps={[Function]}
+                        innerRef={[Function]}
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        to="/"
+                      >
+                        <Location>
+                          <LocationProvider
+                            history={
+                              Object {
+                                "_onTransitionComplete": [Function],
+                                "listen": [Function],
+                                "location": Object {
+                                  "assign": [Function],
+                                  "hash": "",
+                                  "host": "localhost",
+                                  "hostname": "localhost",
+                                  "href": "http://localhost/",
+                                  "key": "initial",
+                                  "origin": "http://localhost",
+                                  "pathname": "/",
+                                  "port": "",
+                                  "protocol": "http:",
+                                  "reload": [Function],
+                                  "replace": [Function],
+                                  "search": "",
+                                  "state": null,
+                                  "toString": [Function],
+                                },
+                                "navigate": [Function],
+                                "transitioning": false,
+                              }
+                            }
+                          >
+                            <a
+                              aria-current="page"
+                              aria-label="to homepage"
+                              className="c1"
+                              href="/"
+                              onClick={[Function]}
+                              onMouseEnter={[Function]}
+                              style={Object {}}
+                            >
+                              <test-file-stub />
+                            </a>
+                          </LocationProvider>
+                        </Location>
+                      </ForwardRef>
+                    </GatsbyLink>
+                  </ForwardRef>
+                </Logo>
+              </StyledComponent>
+            </logo__StyledLogo>
+            <MediaQueryContextConsumer
+              query="(min-width: 768px)"
+              values={
+                Object {
+                  "width": 668,
+                }
+              }
+            >
+              <MediaQuery
+                query="(min-width: 768px)"
+                values={
+                  Object {
+                    "width": 668,
+                  }
+                }
+              />
+            </MediaQueryContextConsumer>
+            <MediaQueryContextConsumer
+              query="(max-width: 767px)"
+              values={
+                Object {
+                  "width": 668,
+                }
+              }
+            >
+              <MediaQuery
+                query="(max-width: 767px)"
+                values={
+                  Object {
+                    "width": 668,
+                  }
+                }
+              >
+                <navicon__StyledNavicon>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "navicon__StyledNavicon-sc-1g0u4jc-0",
+                          "isStatic": false,
+                          "lastClassName": "c2",
+                          "rules": Array [
+                            "cursor:pointer;color:currentColor;background:transparent;padding:0;border:0;align-self:stretch;height:auto;position:relative !important;margin-left:2rem;display:block;width:",
+                            "40px",
+                            ";min-width:",
+                            "40px",
+                            ";height:",
+                            "40px",
+                            ";.top,.middle,.bottom{display:block;height:.25rem;width:100%;background-color:currentColor;position:absolute;}&:hover,&:focus{.top,.middle,.bottom{background-color:",
+                            [Function],
+                            ";}}.top{top:0;transform:rotate(0deg);transition:top ",
+                            "200",
+                            "ms ease ",
+                            "200",
+                            "ms,transform ",
+                            "200",
+                            "ms ease 0s,background-color ",
+                            "200",
+                            "ms;}.middle{transition:opacity 0s ease ",
+                            "200",
+                            "ms,background-color ",
+                            "200",
+                            "ms;top:50%;transform:translateY(-50%);opacity:1;}.bottom{transition:bottom ",
+                            "200",
+                            "ms ease ",
+                            "200",
+                            "ms,transform ",
+                            "200",
+                            "ms ease 0s,background-color ",
+                            "200",
+                            "ms;bottom:0;}.site.open &{position:relative;z-index:100;.top,.middle,.bottom{background-color:",
+                            [Function],
+                            ";}.top{transition:top ",
+                            "200",
+                            "ms ease 0s,transform ",
+                            "200",
+                            "ms ease ",
+                            "200",
+                            "ms;top:calc(50% - .125rem);transform:rotate(45deg);}.middle{transition:opacity 0s ease ",
+                            "200",
+                            "ms;opacity:0;}.bottom{transition:bottom ",
+                            "200",
+                            "ms ease 0s,transform ",
+                            "200",
+                            "ms ease ",
+                            "200",
+                            "ms;bottom:calc(50% - .125rem);transform:rotate(-45deg);}}",
+                          ],
+                        },
+                        "displayName": "navicon__StyledNavicon",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "navicon__StyledNavicon-sc-1g0u4jc-0",
+                        "target": [Function],
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <Navicon
+                      className="c2"
+                    >
+                      <button
+                        aria-label="mobile nav toggle"
+                        className="c2"
+                        id="navicon"
+                        onClick={[MockFunction]}
+                      >
+                        <span
+                          className="top"
+                        />
+                        <span
+                          className="middle"
+                        />
+                        <span
+                          className="bottom"
+                        />
+                      </button>
+                    </Navicon>
+                  </StyledComponent>
+                </navicon__StyledNavicon>
+              </MediaQuery>
+            </MediaQueryContextConsumer>
+          </header>
+        </Header>
+      </StyledComponent>
+    </header__StyledHeader>
+  </ThemeProvider>
+</ContextMock>
+`;

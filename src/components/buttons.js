@@ -43,7 +43,7 @@ const StyledButton = styled(Button)`
         text-decoration: none;
         padding: 1em 2em;
         border: 0;
-        transition: ${transition};
+        transition: ${transition}ms;
 
         color: ${props => props.color || theme.light};
         background-color: ${props => props.background || theme.highlight};

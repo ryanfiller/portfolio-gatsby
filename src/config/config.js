@@ -1,8 +1,21 @@
 export const pages = [
-	'portfolio', 
-	'about',
-	'blog', 
-	'contact'
+	{
+		name: 'portfolio',
+	},
+	{
+		name: 'about',
+	},
+	{
+		name: 'blog',
+	},
+	{
+		name: 'r&d',
+		url: 'workshop'
+	},
+	{
+		name: 'contact',
+		url: '#contact'
+	},
 ]
 
 export const socialMedia = [

@@ -72,7 +72,7 @@ const StyledHeadshot = styled(Headshot)`
 	@supports(mix-blend-mode: multiply) {
 		background-color: ${theme.highlight};
 		position: relative;
-		transition: ${transition};
+		transition: ${transition}ms;
 
 		.hover {
 			display: block;
@@ -85,7 +85,7 @@ const StyledHeadshot = styled(Headshot)`
 		.regular {
 			mix-blend-mode: hard-light;
 			filter: grayscale(100%);
-			transition: ${transition};
+			transition: ${transition}ms;
 			opacity: .85;
 			position: relative;
 			z-index: 1;

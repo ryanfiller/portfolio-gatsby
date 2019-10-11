@@ -11,7 +11,18 @@ export const colors = {
     grayDark: '#2f323a',
 }
 
+// delete this theme later
 export const theme = {
+    dark: colors.black,
+    light: colors.white,
+    primary: colors.blue,
+    active: colors.orange,
+    highlight: colors.purple,
+    disabled: colors.gray,
+}
+
+export const defaultTheme = {
+    darkNav: true,
     dark: colors.black,
     light: colors.white,
     primary: colors.blue,
@@ -58,7 +69,7 @@ export const overlays = {
     dark: overlay(`
         background-color: ${transparentize(.5, colors.grayDark)};
         @supports (mix-blend-mode: multiply) {
-            background-color: ${transparentize(.66, colors.gray)};
+            background-color: ${transparentize(.25, colors.gray)};
             mix-blend-mode: multiply;
         }
     `),
@@ -126,8 +137,8 @@ export const arrows = (direction='right') => {
     `
 }
 
-require("typeface-raleway")
-require("typeface-dosis")
+require("typeface-raleway/index.css")
+require("typeface-dosis/index.css")
 
 export const fonts = {
     sansSerif: () => {
@@ -169,7 +180,13 @@ export const fonts = {
     }
 }
 
-export const transition = '.3s';
+export const transition2 = {
+    speed: 200, //ms
+    timing: 'steps(2, end)',
+}
+
+export const transition = 200; //ms
+export const transitionTiming = 'steps(2, end)';
 
 export const breakPoints = {
     large: 1200,
@@ -177,10 +194,17 @@ export const breakPoints = {
     phone: 480, 
 }
 
-export const naviconWidth = '40px';
+export const naviconSize = '40px';
 export const navBreak = breakPoints.tablet;
 
 export const breaks = {
+    nav: (styles) => {
+        return `
+            @media (min-width: ${navBreak}px) {
+                ${styles}
+            }
+        `
+    },
     phone: (styles) => {
         return `
             @media (min-width: ${breakPoints.phone}px) {
@@ -297,7 +321,7 @@ export const animations = {
         backgroundColor = backgroundColor || colors.orange
         return `
             color: ${color};
-            transition: color ${transition}, background ${transition};
+            transition: color ${transition}ms, background ${transition}ms;
             background-image: linear-gradient(to right, transparent 51%, ${backgroundColor} 49%);
             background-position: 0;
             background-size: 200%;
@@ -313,7 +337,7 @@ export const animations = {
     bounce: () => {
         return`
             animation-name: floating;
-            animation-duration: ${transition};
+            animation-duration: ${transition}ms;
             animation-timing-function: steps(2, end);
             animation-iteration-count: infinite;
             position: relative;

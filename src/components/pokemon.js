@@ -9,7 +9,7 @@ import { transition } from '../config/styles';
 const Pokemon = (props) => {
     const [pokemon, choosePokemon ] = useState({
         name: '',
-        image: '',
+        image: ''
     });
 
     function pokeApi() {
@@ -54,7 +54,7 @@ const StyledPokemon = styled(Pokemon)`
     bottom: 0;
     height: 150px;
     width: auto;
-    transition: ${transition};
+    transition: ${transition}ms;
     opacity: 0;
     cursor: e-resize;
 

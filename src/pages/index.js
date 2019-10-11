@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
@@ -80,22 +82,18 @@ const Homepage = (props) => {
 
 	const gridRef = useRef(null);
 
-	useEffect(() => {
-
-        const scrollDirectionConverter = (e) => {
-			if (window.innerWidth > breakPoints.tablet) {
-				gridRef.current.scrollLeft += e.deltaY;
-				gridRef.current.scrollLeft += e.deltaX;
-				e.preventDefault();
-			}
+	const scrollDirectionConverter = (e) => {
+		if (window.innerWidth > breakPoints.tablet) {
+			e.preventDefault();
+			gridRef.current.scrollLeft += e.deltaY;
+			gridRef.current.scrollLeft += e.deltaX;
 		}
+	}
 
-        document.addEventListener('wheel', scrollDirectionConverter);
-
-        return () => {
-          document.removeEventListener('wheel', scrollDirectionConverter);
-        };
-	});
+	useEffect(() => {
+		document.addEventListener('wheel', scrollDirectionConverter);
+		return () => document.removeEventListener('wheel', scrollDirectionConverter)
+	})
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;
@@ -109,7 +107,6 @@ const Homepage = (props) => {
 					node: item.node
 				})
 			})
-
 		} else { // is odd, is blog
 			return chunk.map( (item) => {
 				gridBlocks.push({
@@ -215,7 +212,7 @@ const HomepageGlobalStyle = createGlobalStyle`
 		${breaks.tablet(`
 			@supports(display: grid) {
 				#site {
-					#site-content {
+					#content {
 						display: grid;
 						// TODO use named areas for this
 						grid-template-columns: 20vw 80vw;
@@ -255,21 +252,6 @@ const HomepageGlobalStyle = createGlobalStyle`
 						// TODO - fix this style
 						a { //logo
 							font-size: 2.5em;
-
-							.r {
-								filter: drop-shadow(.25em 0px 0px ${theme.dark});
-								margin-right: -.7em;
-							}
-			
-							.f {
-								transform: rotateY(180deg);
-								margin-right: 0;
-								margin-left: .15em;
-							}
-			
-							.yan, .iller {
-								max-width: 0;
-							}
 						}
 
 						nav {
