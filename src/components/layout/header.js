@@ -19,11 +19,15 @@ const Header = (props) => {
 		<header className={props.className} id="header">
 			<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
 			
-			<MediaQuery query={`(min-width: ${navBreak}px)`} values={window.testMediaQueryValues}>
+			<MediaQuery query={`(min-width: ${navBreak}px)`} 
+			// values={window.testMediaQueryValues}
+			>
 				<Navigation orientation={'horizontal'} />
 			</MediaQuery>
 
-			<MediaQuery query={`(max-width: ${navBreak - 1}px)`} values={window.testMediaQueryValues}>
+			<MediaQuery query={`(max-width: ${navBreak - 1}px)`} 
+			// values={window.testMediaQueryValues}
+			>
 				<Navicon />
 			</MediaQuery>
 		</header>

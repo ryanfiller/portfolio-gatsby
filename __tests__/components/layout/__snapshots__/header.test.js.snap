@@ -75,107 +75,6 @@ exports[`<Header /> should match snapshot 1`] = `
   color: #ed6554;
 }
 
-.c2 {
-  cursor: pointer;
-  color: currentColor;
-  background: transparent;
-  padding: 0;
-  border: 0;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  height: auto;
-  position: relative !important;
-  margin-left: 2rem;
-  display: block;
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
-}
-
-.c2 .top,
-.c2 .middle,
-.c2 .bottom {
-  display: block;
-  height: .25rem;
-  width: 100%;
-  background-color: currentColor;
-  position: absolute;
-}
-
-.c2:hover .top,
-.c2:focus .top,
-.c2:hover .middle,
-.c2:focus .middle,
-.c2:hover .bottom,
-.c2:focus .bottom {
-  background-color: #ed6554;
-}
-
-.c2 .top {
-  top: 0;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: top 200ms ease 200ms,-webkit-transform 200ms ease 0s,background-color 200ms;
-  -webkit-transition: top 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
-  transition: top 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
-}
-
-.c2 .middle {
-  -webkit-transition: opacity 0s ease 200ms,background-color 200ms;
-  transition: opacity 0s ease 200ms,background-color 200ms;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  opacity: 1;
-}
-
-.c2 .bottom {
-  -webkit-transition: bottom 200ms ease 200ms,-webkit-transform 200ms ease 0s,background-color 200ms;
-  -webkit-transition: bottom 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
-  transition: bottom 200ms ease 200ms,transform 200ms ease 0s,background-color 200ms;
-  bottom: 0;
-}
-
-.site.open .c2 {
-  position: relative;
-  z-index: 100;
-}
-
-.site.open .c2 .top,
-.site.open .c2 .middle,
-.site.open .c2 .bottom {
-  background-color: #ed6554;
-}
-
-.site.open .c2 .top {
-  -webkit-transition: top 200ms ease 0s,-webkit-transform 200ms ease 200ms;
-  -webkit-transition: top 200ms ease 0s,transform 200ms ease 200ms;
-  transition: top 200ms ease 0s,transform 200ms ease 200ms;
-  top: calc(50% - .125rem);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.site.open .c2 .middle {
-  -webkit-transition: opacity 0s ease 200ms;
-  transition: opacity 0s ease 200ms;
-  opacity: 0;
-}
-
-.site.open .c2 .bottom {
-  -webkit-transition: bottom 200ms ease 0s,-webkit-transform 200ms ease 200ms;
-  -webkit-transition: bottom 200ms ease 0s,transform 200ms ease 200ms;
-  transition: bottom 200ms ease 0s,transform 200ms ease 200ms;
-  bottom: calc(50% - .125rem);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
 .c0 {
   background-color: #fff7ff;
   color: #1e053f;
@@ -406,130 +305,19 @@ exports[`<Header /> should match snapshot 1`] = `
             </logo__StyledLogo>
             <MediaQueryContextConsumer
               query="(min-width: 768px)"
-              values={
-                Object {
-                  "width": 668,
-                }
-              }
             >
               <MediaQuery
                 query="(min-width: 768px)"
-                values={
-                  Object {
-                    "width": 668,
-                  }
-                }
+                values={null}
               />
             </MediaQueryContextConsumer>
             <MediaQueryContextConsumer
               query="(max-width: 767px)"
-              values={
-                Object {
-                  "width": 668,
-                }
-              }
             >
               <MediaQuery
                 query="(max-width: 767px)"
-                values={
-                  Object {
-                    "width": 668,
-                  }
-                }
-              >
-                <navicon__StyledNavicon>
-                  <StyledComponent
-                    forwardedComponent={
-                      Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "attrs": Array [],
-                        "componentStyle": ComponentStyle {
-                          "componentId": "navicon__StyledNavicon-sc-1g0u4jc-0",
-                          "isStatic": false,
-                          "lastClassName": "c2",
-                          "rules": Array [
-                            "cursor:pointer;color:currentColor;background:transparent;padding:0;border:0;align-self:stretch;height:auto;position:relative !important;margin-left:2rem;display:block;width:",
-                            "40px",
-                            ";min-width:",
-                            "40px",
-                            ";height:",
-                            "40px",
-                            ";.top,.middle,.bottom{display:block;height:.25rem;width:100%;background-color:currentColor;position:absolute;}&:hover,&:focus{.top,.middle,.bottom{background-color:",
-                            [Function],
-                            ";}}.top{top:0;transform:rotate(0deg);transition:top ",
-                            "200",
-                            "ms ease ",
-                            "200",
-                            "ms,transform ",
-                            "200",
-                            "ms ease 0s,background-color ",
-                            "200",
-                            "ms;}.middle{transition:opacity 0s ease ",
-                            "200",
-                            "ms,background-color ",
-                            "200",
-                            "ms;top:50%;transform:translateY(-50%);opacity:1;}.bottom{transition:bottom ",
-                            "200",
-                            "ms ease ",
-                            "200",
-                            "ms,transform ",
-                            "200",
-                            "ms ease 0s,background-color ",
-                            "200",
-                            "ms;bottom:0;}.site.open &{position:relative;z-index:100;.top,.middle,.bottom{background-color:",
-                            [Function],
-                            ";}.top{transition:top ",
-                            "200",
-                            "ms ease 0s,transform ",
-                            "200",
-                            "ms ease ",
-                            "200",
-                            "ms;top:calc(50% - .125rem);transform:rotate(45deg);}.middle{transition:opacity 0s ease ",
-                            "200",
-                            "ms;opacity:0;}.bottom{transition:bottom ",
-                            "200",
-                            "ms ease 0s,transform ",
-                            "200",
-                            "ms ease ",
-                            "200",
-                            "ms;bottom:calc(50% - .125rem);transform:rotate(-45deg);}}",
-                          ],
-                        },
-                        "displayName": "navicon__StyledNavicon",
-                        "foldedComponentIds": Array [],
-                        "render": [Function],
-                        "styledComponentId": "navicon__StyledNavicon-sc-1g0u4jc-0",
-                        "target": [Function],
-                        "toString": [Function],
-                        "warnTooManyClasses": [Function],
-                        "withComponent": [Function],
-                      }
-                    }
-                    forwardedRef={null}
-                  >
-                    <Navicon
-                      className="c2"
-                    >
-                      <button
-                        aria-label="mobile nav toggle"
-                        className="c2"
-                        id="navicon"
-                        onClick={[MockFunction]}
-                      >
-                        <span
-                          className="top"
-                        />
-                        <span
-                          className="middle"
-                        />
-                        <span
-                          className="bottom"
-                        />
-                      </button>
-                    </Navicon>
-                  </StyledComponent>
-                </navicon__StyledNavicon>
-              </MediaQuery>
+                values={null}
+              />
             </MediaQueryContextConsumer>
           </header>
         </Header>

@@ -8,10 +8,10 @@ export const pages = [
 	{
 		name: 'blog',
 	},
-	{
-		name: 'r&d',
-		url: 'workshop'
-	},
+	// {
+	// 	name: 'r&d',
+	// 	url: 'workshop'
+	// },
 	{
 		name: 'contact',
 		url: '#contact'

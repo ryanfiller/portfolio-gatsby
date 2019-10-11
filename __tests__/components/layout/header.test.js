@@ -32,23 +32,23 @@ describe('<Header />', () => {
     })
   })
 
-  describe('responsive layout', () => {
-    it('should render the logo and nav when large', () => {
-      window.testMediaQueryValues = {width: navBreak + 100};
-      const component = makeComponent();
-      expect(component.find(Logo).length).toBe(1);
-      expect(component.find(Navigation).length).toBe(1);
-      expect(component.find(Navicon).length).toBe(0);
-    })
+  // describe('responsive layout', () => {
+  //   it('should render the logo and nav when large', () => {
+  //     window.testMediaQueryValues = {width: navBreak + 100};
+  //     const component = makeComponent();
+  //     expect(component.find(Logo).length).toBe(1);
+  //     expect(component.find(Navigation).length).toBe(1);
+  //     expect(component.find(Navicon).length).toBe(0);
+  //   })
 
-    it('should render the logo and navicon when small', () => {
-      window.testMediaQueryValues = {width: navBreak - 100};
-      const component = makeComponent();
-      expect(component.find(Logo).length).toBe(1);
-      expect(component.find(Navigation).length).toBe(0);
-      expect(component.find(Navicon).length).toBe(1);
-    })
-  });
+  //   it('should render the logo and navicon when small', () => {
+  //     window.testMediaQueryValues = {width: navBreak - 100};
+  //     const component = makeComponent();
+  //     expect(component.find(Logo).length).toBe(1);
+  //     expect(component.find(Navigation).length).toBe(0);
+  //     expect(component.find(Navicon).length).toBe(1);
+  //   })
+  // });
 
   it('should match snapshot', () => {
     const component = makeComponent();
