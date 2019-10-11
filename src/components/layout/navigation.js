@@ -14,34 +14,39 @@ const Navigation = (props) => {
 
 	const links = (props.links || pages); // for testing
 
+	const buildLinks = (links) => {
+
+		return links.map((link) => {
+
+			let click;
+
+			if (link.name === 'contact') {
+				click = (e) => {nav.toggleOffCanvas(e, '#contact')};
+			} else if(props.navFunction) {
+				click = props.navFunction;
+			} else {
+				click = (e) => {nav.handleNavigate(e)};
+			}
+
+			const href = link.url || link.name;
+
+			return (
+				<a 
+					href={href}
+					onClick={ click }
+					key={link.name} 
+					data-text={link.name}
+					className={nav.currentPage.includes(`/${href}`) ? 'active' : null}
+				>
+					{link.name}
+				</a>
+			)
+		})
+	}
+
 	return (
 		<nav className={props.className} role="navigation">
-			{ links.map((link) => {
-
-				let click;
-
-				if (link.name === 'contact') {
-					click = (e) => {nav.toggleOffCanvas(e, '#contact')};
-				} else if(props.navFunction) {
-					click = props.navFunction;
-				} else {
-					click = (e) => {nav.handleNavigate(e)};
-				}
-
-				const href = link.url || link.name;
-
-				return (
-					<a 
-						href={href}
-						onClick={ click }
-						key={link.name} 
-						data-text={link.name}
-						className={nav.currentPage.includes(`/${href}`) ? 'active' : null}
-					>
-						{link.name}
-					</a>
-				)
-			})}
+			{buildLinks(links)}
 		</nav>
 	)
 }
