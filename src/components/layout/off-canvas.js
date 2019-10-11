@@ -18,10 +18,7 @@ const OffCanvas = (props) => {
 	return (
 		<div className={props.className} id="off-canvas">
 			<MediaQuery query={`(max-width: ${navBreak}px)`}>
-				<Navigation 
-					orientation={'vertical'}
-					navFunction={nav.closeAndNavigate}
-				/>
+				{/* <Navigation orientation="vertical" navFunction={nav.closeAndNavigate} /> */}
 			</MediaQuery>
 			<Form 
 				form={ContactForm}

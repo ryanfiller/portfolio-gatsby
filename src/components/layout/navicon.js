@@ -24,6 +24,7 @@ const nav = useContext(NavContext);
 }
 
 const StyledNavicon = styled(Navicon)`
+	display: block;
 	cursor: pointer;
 	color: currentColor;
 	background: transparent;
@@ -33,7 +34,6 @@ const StyledNavicon = styled(Navicon)`
 	height: auto;
 	position: relative !important;
 	margin-left: 2rem;
-	display: block;
 	width: ${naviconSize};
 	min-width: ${naviconSize};
 	height: ${naviconSize};

@@ -18,8 +18,6 @@ const BlogPreview = (props) => {
         meta
     } = props.frontmatter
 
-    console.log(props)
-
     const frontmatter = props.frontmatter;
     
     return (
