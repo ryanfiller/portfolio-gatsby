@@ -7,10 +7,10 @@
 		"develop": "gatsby develop",
 		"serve": "gatsby serve",
 		"build": "gatsby build",
-		"test": "start-test develop 8000 test:run",
-		"test:run": "cypress run",
-		"test:open": "cypress open",
-		"predeploy": "CI=1 npm i cypress; npm test",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:coverage": "jest --coverage",
+		"predeploy": "npm test",
 		"deploy": "npm run build"
 	},
 	"dependencies": {
@@ -56,9 +56,16 @@
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.1.0",
+		"babel-jest": "^24.8.0",
 		"babel-plugin-styled-components": "^1.10.6",
 		"babel-preset-gatsby": "^0.2.0",
-		"cypress": "^3.4.1",
-		"start-server-and-test": "^1.10.2"
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.14.0",
+		"enzyme-to-json": "^3.3.5",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^24.8.0",
+		"jest-axe": "^3.1.1",
+		"jest-styled-components": "^6.3.3",
+		"react-test-renderer": "^16.8.6"
 	}
 }
