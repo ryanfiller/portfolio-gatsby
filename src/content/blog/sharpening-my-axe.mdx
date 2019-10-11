@@ -1,0 +1,56 @@
+---
+title: Sharpening My Axe
+options:
+  custompath: ''
+  customtemplate: ''
+  published: false
+banner:
+  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1570200629/blog/sharpening-my-axe/abe_aoou1c.jpg'
+  alt: 'Abraham Lincoln on Mars'
+meta:
+  category:
+    - design
+    - dev
+  date: 2019-10-04T14:49:56.428Z
+  excerpt: >-
+    Thoughts on CSS Grid from someone who learned about typographic grids for
+    print in design school
+  tags:
+    - accessibility
+    - testing
+    - design systems
+thumbnail:
+  url: 'https://res.cloudinary.com/ryanfiller/image/upload/v1570200629/blog/sharpening-my-axe/abe_aoou1c.jpg'
+  alt: 'Abraham Lincoln on Mars'
+---
+
+I am, and always have been, a notorious procrastinator. That said, there's an Abraham Lincoln quote I think about a lot. I even printed it out at a job once and hung it up in a conference room to passive aggressively encourage some coworkers to prep for an upcoming project with an agressive deadline.
+
+> Give me six hours to chop down a tree and I will spend the first four sharpening the ax.
+
+Apparently there is some [discrepancy about whether or not Lincoln actually said this](https://quoteinvestigator.com/2014/03/29/sharp-axe/), but he is who I've always heard this attributed to and I'm pretty dead set on using that image of good, ole Abraham from Adventure Time for the image for this post...
+
+So why is this a blog post? Well, I'm glad you asked. The current iteration of my blog (running Gatsby hosted on Netlify as of this post) as 521 commits, with the first being \
+```
+"initial commit after gatsby new" committed on Jan 23, 2015
+```
+It's been almost two entire years since that first commit, and even ignoring the Jekyll and Wordpress iterations of the site that came before, at no point would I have ever said "yeah, the site is toally done and I'm happy with it."
+
+Realistically, I know the jokes of a designer never being happy with their portfolio personal brand or a developer never being happy with their own website have a lot of truth behind them because of the nature of creative people, but personally, I waste a lot of time. I don't even mean all the time I was flat out not working on my website, I mean all the times I open the project and just sort of wander around the codebase. _I could refactor this to use React hooks instead of lifecycle methods here_, _I could abstract out some of the redundant styles in these two files, or _I could change my testing framework again..._
+
+<Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1570323829/blog/sharpening-my-axe/Confused-Gandalf_aksgog.jpg" alt="Confused Gandalf" title="You are definitely lost." align="right" small="true" />
+
+Another quote I think about a lot is JRR Tolkein's "Not all those who wander are lost" poem, but at a certain point I have to stop and ask myself "what the heck are you even doing anymore?"
+
+So all of THAT to say, I have some down time coming up next week, and I want to finally sharpen my axe. I want to come up with a plan, and I want to be realistic about what I can accomplish in the time I have. 
+
+1. First of all, I need to address my Netlify build times. Netlify recently started [limiting build free build time](https://www.netlify.com/pricing/faq/), and honestly I'm surprised they haven't done this sooner. I'm doing a LOT in my build process, some of it around testing (more on that later), some of it around syndicating posts (more on that later also), but my build time is right around 11 minutes for ever commit to master. Currently that's ~ 27 builds a month, which would _probably still_ be more than I would ever use, but I've got to get that time down.
+2. Related to cutting that build time down,  I need to pick a testing framework and stick with it. Cypress is great and I love the idea of full E2E testing everything, but since Netlify doesn't cache build artifacts I'm having to \`npm install\` it fresh every time (see point number one). I love it, but it might not make sense in the context of my overall stack. Two things that are really important to me are: 
+   * being able to stop myself before I push broken code
+   * being able to extend whatever tool to include [good accesiblity testing](https://github.com/nickcolley/jest-axe)
+   I have a handful of tests to port over to whatever framework I choose, and eventually I want to get to full coverage, but making a choice before I get too involved will ultimately save me time and frustration in the long run.
+3. I need to make my site run better with client-side javascript turned off.
+   <Image src="https://res.cloudinary.com/ryanfiller/image/upload/v1570328985/blog/sharpening-my-axe/Screen_Shot_2019-10-05_at_21.27.10_r8hkdz.png" alt="screenshot of ryanfiller.com with javascript turned off" title="Woof." align="center" small="false" />
+   That probably sounds like a sisyphian task since my JAMstack includes Gatsby, but thanks to some combination of Gatsby SSR and Netlify Prerendering, things _mostly_ work. I'm pretty confident that by weeding through some npm dependencies and being more thoughtful about how I'm writing my components I can get to the point where I'm just doing normal progressive enhancement.
+4. Fix ryan.beardedrobots.com. This currently adds ~1min of build minutes.
+5. (stretch goals) - make netlifycms not break all the time.
