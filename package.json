@@ -11,7 +11,7 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"notpredeploy": "npm test",
-		"deploy": "npm run build"
+		"deploy": "gatsby build"
 	},
 	"dependencies": {
 		"@mdx-js/mdx": "^1.1.0",
