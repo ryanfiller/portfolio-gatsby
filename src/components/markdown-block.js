@@ -3,7 +3,6 @@ import React from 'react';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from '@mdx-js/react'
 
-// import Img from "gatsby-image"
 import LinkHeader from './mdx/link-header'
 import PortfolioHeader from './portfolio-header'
 import Image from './mdx/image'

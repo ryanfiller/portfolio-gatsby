@@ -4,37 +4,49 @@ import styled from 'styled-components'
 import MediaQuery from 'react-responsive'
 import { breaks, containers, navBreak, padding } from '../../config/styles'
 
-import { NavContext } from './layout';
+import { NavContext, LayoutContext } from './layout';
 
 import Logo from '../logo'
 import Navigation from './navigation'
 import Navicon from './navicon'
 
+
 const Header = (props) => {
 	const nav = useContext(NavContext)
+	const layout = useContext(LayoutContext)
 
-	// values={window.testMediaQueryValues} is for testing react-responsive
+	const {
+		jsLoaded,
+		isMouseMode,
+	} = layout
 
-	return (
-		<header className={props.className} id="header">
-			<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
-			
-			<MediaQuery query={`(min-width: ${navBreak}px)`} 
-			// values={window.testMediaQueryValues}
-			>
-				<Navigation orientation={'horizontal'} />
-			</MediaQuery>
+console.log('isMouseMode', isMouseMode)
+		return (
+			<header className={props.className} id="header">
+				<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
 
-			<MediaQuery query={`(max-width: ${navBreak - 1}px)`} 
-			// values={window.testMediaQueryValues}
-			>
-				<Navicon />
-			</MediaQuery>
-		</header>
-	)
+				{!jsLoaded && <Navigation />}
+
+				{jsLoaded &&
+					<>
+						{isMouseMode &&
+							<Navigation />
+						}
+						{!isMouseMode &&
+							<Navicon />
+						}
+					</>
+				}
+			</header>
+		)
 }
 
 const StyledHeader = styled(Header)`
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+
 	${props => (
 		props.theme.darkNav ? 
 		`background-color: ${props.theme.dark};
@@ -43,15 +55,20 @@ const StyledHeader = styled(Header)`
 		`background-color: ${props.theme.light};
 		color: ${props.theme.dark};`
 	)}
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	padding: calc(${padding} / 2);
 	font-size: 3rem;
 	${containers.container()}
 
-	${props => breaks.nav(`
+	.client-side-js & {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	${breaks.nav(`
+		font-size: 1rem;
+		flex-direction: row;
 		font-size: 2rem;
+		justify-content: space-between;
 	`)}
 ` 
 

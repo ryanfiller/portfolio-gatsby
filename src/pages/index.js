@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useContext, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { graphql } from 'gatsby';
@@ -8,6 +8,8 @@ import Helmet from 'react-helmet';
 
 import styled, { createGlobalStyle } from 'styled-components';
 import { breaks, breakPoints, theme } from '../config/styles';
+
+import { LayoutContext } from '../components/layout/layout';
 
 import { arrayZip, colorizeBlocks } from '../helpers';
 
@@ -80,8 +82,13 @@ export const query = graphql`
 
 const Homepage = (props) => {
 
-	const gridRef = useRef(null);
+	const layout = useContext(LayoutContext)
 
+	const {
+		jsLoaded
+	} = layout
+
+	const gridRef = useRef(null);
 	const scrollDirectionConverter = (e) => {
 		if (window.innerWidth > breakPoints.tablet) {
 			e.preventDefault();
@@ -89,11 +96,12 @@ const Homepage = (props) => {
 			gridRef.current.scrollLeft += e.deltaX;
 		}
 	}
-
-	useEffect(() => {
-		document.addEventListener('wheel', scrollDirectionConverter);
-		return () => document.removeEventListener('wheel', scrollDirectionConverter)
-	})
+	if(jsLoaded) {
+		useEffect(() => {
+			document.addEventListener('wheel', scrollDirectionConverter);
+			return () => document.removeEventListener('wheel', scrollDirectionConverter)
+		})
+	}
 
 	const portfolio = props.data.portfolio.edges;
 	const blog = props.data.blog.edges;
@@ -120,13 +128,13 @@ const Homepage = (props) => {
 	const gridColors = useMemo(() => colorizeBlocks(0, 4, theme.primary, portfolio));
 
 	return (
-		<React.Fragment>
+		<>
 
 			<Helmet>
 				<body className="homepage" />
 			</Helmet>
 
-			<HomepageGlobalStyle />
+			{/* <HomepageGlobalStyle /> */}
 
 			<section 
 				ref={gridRef}
@@ -139,7 +147,7 @@ const Homepage = (props) => {
 				})}
 				<ReadMore />
 			</section>
-		</React.Fragment>
+		</>
 	)
 }
 
@@ -173,38 +181,40 @@ const StyledHomepage = styled(Homepage)`
 		}
 	`)}
 
-	${breaks.tablet(`
+	.client-side-js & {
+		${breaks.tablet(`
 
-		.blog-preview .excerpt {
-			display: block !important;
-		}
+			.blog-preview .excerpt {
+				display: block !important;
+			}
 
-		@supports(display: grid) {
-			height: 100vh;
-			width: auto;
-			overflow-x: auto;
-			overflow-y: hidden;
+			@supports(display: grid) {
+				height: 100vh;
+				width: auto;
+				overflow-x: auto;
+				overflow-y: hidden;
 
-			display: grid;
-			grid-template-columns: repeat(auto-fill, 50vh);
-			grid-template-rows: 50vh 50vh;
-			grid-auto-flow: column;
+				display: grid;
+				grid-template-columns: repeat(auto-fill, 50vh);
+				grid-template-rows: 50vh 50vh;
+				grid-auto-flow: column;
 
-				& > * {
-					width: 100vh;
-					grid-column: span 2;
-					grid-row: span 1;
-					height: 100%;
-					min-width: 50vh;
-					
-					&:first-child,
-					&:last-child {
-						width: 50vh;
-						grid-column: span 1;
+					& > * {
+						width: 100vh;
+						grid-column: span 2;
+						grid-row: span 1;
+						height: 100%;
+						min-width: 50vh;
+						
+						&:first-child,
+						&:last-child {
+							width: 50vh;
+							grid-column: span 1;
+						}
 					}
 				}
-			}
-	`)}	
+		`)}	
+	}
 `
 
 const HomepageGlobalStyle = createGlobalStyle`

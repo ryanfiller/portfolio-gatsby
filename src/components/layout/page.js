@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useLayoutEffect, useRef } from 'react'
 
 import { NavContext } from './layout'
 
@@ -9,12 +9,21 @@ import Overlay from './overlay';
 import Header from './header'
 
 const Page = (props) => {
-
+  
   const nav = useContext(NavContext)
+
+  const clientSideRef = useRef(null)
+
+  // layout effect wil run before first paint
+  useLayoutEffect(() => {
+    clientSideRef.current.classList.add("client-side-js")
+  }, []);
+
 
   return (
     <div
-      className={`site ${nav.offCanvasOpen === true ? 'open' : null} ${props.className}`} 
+      ref={clientSideRef}
+      className={`site ${nav.offCanvasOpen === true ? 'open' : ''} ${props.className}`} 
       id="site"
       tabIndex="0"
     >

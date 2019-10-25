@@ -35,6 +35,19 @@ const Styles = createGlobalStyle`
 		}
 	}
 
+	noscript#gatsby-noscript {
+		width: 100%;
+		padding: .25em;
+		width: 100%;
+		display: block;
+		text-align: center;
+
+		${props => (
+			`background-color: ${props.theme.active};
+			color: ${props.theme.dark};`
+		)}
+	}	
+
 	img {
     	image-rendering: pixelated !important;
 	}
@@ -74,7 +87,6 @@ const Styles = createGlobalStyle`
 		min-height: 100vh;
 		height: auto;
 		width: 100vw;
-		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 

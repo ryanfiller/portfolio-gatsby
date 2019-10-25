@@ -10,8 +10,8 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
-		"predeploy": "npm test",
-		"deploy": "npm run build"
+		"notpredeploy": "npm test",
+		"deploy": "gatsby build"
 	},
 	"dependencies": {
 		"@mdx-js/mdx": "^1.1.0",
@@ -46,7 +46,7 @@
 		"react-hook-konami-code-listener": "^1.1.1",
 		"react-id-swiper": "^1.6.8",
 		"react-inlinesvg": "^1.1.6",
-		"react-responsive": "7.0.0",
+		"react-responsive": "8.0.0",
 		"react-transition-group": "^2.5.0",
 		"styled-components": "^4.1.3",
 		"typeface-cutive-mono": "0.0.54",
