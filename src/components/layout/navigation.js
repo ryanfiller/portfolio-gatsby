@@ -44,8 +44,6 @@ const Navigation = (props) => {
 		})
 	}
 
-	console.log(props.test)
-
 	return (
 		<nav className={props.className} role="navigation">
 			{buildLinks(links)}
@@ -64,7 +62,7 @@ Navigation.propTypes = {
 
 const vertical = () => (`
 	display: block;
-
+	background: red;
 
 	a {
 		display: block;
@@ -79,7 +77,7 @@ const vertical = () => (`
 
 const horizontal = () => (`
 	display: flex;
-
+	background: blue;
 
 	a {
 		display: block;
@@ -95,11 +93,14 @@ const horizontal = () => (`
 
 const StyledNavigation = styled(Navigation)`
 	color: ${props => props.color};
-	${vertical()}
+	/* ${vertical()}
 
 	${breaks.nav(`
 		${horizontal()}
-	`)}
+	`)} */
+
+	${props => props.orientation === 'vertical' ? vertical() : ''}
+	${props => props.orientation === 'horizontal' ? horizontal() : ''}
 
 	a {
 		text-decoration: none;

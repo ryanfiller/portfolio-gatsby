@@ -20,19 +20,16 @@ const Header = (props) => {
 		isMouseMode,
 	} = layout
 
-	let test = jsLoaded ? 'client side' : 'server side'
-
-		console.log('test', test)
 		return (
 			<header className={props.className} id="header">
 				<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
 
-				{!jsLoaded && <Navigation test={test} />}
+				{!jsLoaded && <Navigation orientation="vertical" />}
 
 				{jsLoaded &&
 					<>
 						{isMouseMode &&
-							<Navigation test={test} />
+							<Navigation orientation="horizontal" />
 						}
 						{!isMouseMode &&
 							<Navicon />
@@ -46,8 +43,9 @@ const Header = (props) => {
 const StyledHeader = styled(Header)`
 	display: flex;
 	align-items: center;
-	justify-content: start;
-	flex-direction: column;
+	/* justify-content: start; */
+	justify-content: space-between;
+	/* flex-direction: column; */
 
 	${props => (
 		props.theme.darkNav ? 
@@ -61,10 +59,10 @@ const StyledHeader = styled(Header)`
 	font-size: 3rem;
 	${containers.container()}
 
-	.client-side-js & {
+	/* .client-side-js & {
 		flex-direction: row;
 		justify-content: space-between;
-	}
+	} */
 
 	${breaks.nav(`
 		font-size: 1rem;
