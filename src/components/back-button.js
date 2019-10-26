@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import { getParent } from '../helpers';
 
 import styled from 'styled-components';
-import { animations, fonts, theme } from '../config/styles';
+import { animations, fonts } from '../config/styles';
 
 
 const BackButton = (props) => {
@@ -31,7 +31,7 @@ const StyledBackButton = styled(BackButton)`
     font-size: 1.25rem;
     margin: 0 auto;
     ${fonts.inlineLink('left')}
-    ${animations.highlight(theme.active, theme.light, theme.active)};
+    ${animations.highlight()};
 `
 
 export default StyledBackButton;

@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 import { darken } from 'polished';
 
-import { breaks, containers, fonts, overlays, padding } from '../config/styles';
+import { breaks, containers, fonts, overlays } from '../config/styles';
 
 const links = [
 	{
@@ -192,7 +192,7 @@ const StyledFourOhFour = styled(FourOhFour)`
     font-family: 'VT323', monospace;
     color: white;
     margin: 0;
-    padding: 0 ${padding};
+    padding: 0 var(--padding);
 	width: 100%;
     max-width: 100%;
     /* background-image: url("/images/site-assets/2001.gif"); */
@@ -206,10 +206,10 @@ const StyledFourOhFour = styled(FourOhFour)`
     justify-content: center;
     
     ${overlays.rgbPixels}
-	${overlays.dark}
+		${overlays.dark}
 
 	h1 {
-		margin-bottom: calc(4*${padding});
+		margin-bottom: calc(4*var(--padding));
 		text-align: center;
 		${fonts.sizes('3rem', '4rem, 4rem')}
 		text-shadow: -.075em .075em black;
@@ -230,7 +230,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 		background-image: ${gradient()};
 		box-shadow: inset 0px 0px 0px calc(${border}/2) ${borderShadow};
 		align-self: flex-end;
-		padding: ${padding};
+		padding: var(--padding);
 		display: block;
 		position: relative;
 		width: 100%;
@@ -243,7 +243,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 		`)}
 
 		${breaks.tablet(`
-			margin-bottom: ${padding};
+			margin-bottom: var(--padding);
 		`)}
 
 		li {
@@ -251,7 +251,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 			list-style: none;
 			position: relative;
 			z-index: 10;
-			margin: ${padding} 0;
+			margin: var(--padding) 0;
 
 			${breaks.phone(`
 				width: 50%
@@ -264,7 +264,7 @@ const StyledFourOhFour = styled(FourOhFour)`
 				color: white;
 				text-shadow: -.075em .075em black;
 				font-size: 2.5em;
-				padding-left: calc(4*${padding});
+				padding-left: calc(4*var(--padding));
 
 				&:focus, &.active {
 					&:before {
@@ -275,10 +275,10 @@ const StyledFourOhFour = styled(FourOhFour)`
 						background-repeat: no-repeat;
 						background-position: center center;
 						image-rendering: pixelated;
-						height: calc(3*${padding});
-						width: calc(3*${padding});
+						height: calc(3*var(--padding));
+						width: calc(3*var(--padding));
 						position: absolute;
-						left: calc(-.125*${padding});
+						left: calc(-.125*var(--padding));
 					}
 				}
 			}

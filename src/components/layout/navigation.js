@@ -6,7 +6,7 @@ import { pages } from '../../config/config';
 import { NavContext } from './layout';
 
 import styled from 'styled-components';
-import { animations, breaks, fonts, transition } from '../../config/styles';
+import { animations, breaks, fonts } from '../../config/styles';
 
 const Navigation = (props) => {
 
@@ -105,19 +105,18 @@ const StyledNavigation = styled(Navigation)`
 		text-transform: uppercase;
 		font-size: 1em;
 		color: currentColor;
-		transition: ${transition}ms;
+		transition: var(--transitionSpeed);
 
 		&.active {
-			color: ${props => props.theme.active};
+			color: var(--active);
 		}
 
 		&:hover,
 		&:focus {
-			color: ${props => props.theme.active};
+			color: var(--active);
 			cursor: pointer;
 			${breaks.tablet(`
-				// todo fix the glitch animation 
-				${animations.glitch(props => props.theme.active, 'transparent')}
+				${animations.float()}
 			`)}
 		}
 
@@ -125,7 +124,7 @@ const StyledNavigation = styled(Navigation)`
 			&[href='#contact'] {
 				position: relative;
 				z-index: 100;
-				color: ${props => props.theme.active};
+				color: var(--active);
 			}
 		}
 

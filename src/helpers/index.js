@@ -188,6 +188,8 @@ function colorizeBlocks(min, max, startColor, array, lookback = 4) {
     return randomColors;
 }
 
+
+
 module.exports = {
     slugify,
     initialFormState,

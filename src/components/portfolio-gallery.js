@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { arrows, breaks, colors, overlays, padding, theme, transition } from '../config/styles'
+import { arrows, breaks, colors, overlays } from '../config/styles'
 
 import { GalleryContext } from '../templates/portfolio-item';
 
@@ -68,7 +68,7 @@ const PortfolioGallery = (props) => {
 const StyledPortfolioGallery = styled(PortfolioGallery)`
     padding: 0;
     margin: 0;
-    background-color: ${theme.highlight};
+    background-color: var(--highlight);
     position: relative;
     ${overlays.pixels}
     overflow: hidden;
@@ -79,8 +79,8 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         border: 0;
         ${arrows()}
         cursor: pointer;
-        padding: calc(.75*${padding}) 0;
-        width: calc(3*${padding});
+        padding: calc(.75*var(--padding)) 0;
+        width: calc(3*var(--padding));
         background-color: ${colors.grayDark};
         justify-content: center;
         align-items: center;
@@ -90,11 +90,11 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
         color: ${colors.white};
         cursor: pointer;
         &:before {
-            right: calc(1.5*${padding});
+            right: calc(1.5*var(--padding));
         }
         &:after {
             right: 0;
-            left: calc(1.5*${padding});
+            left: calc(1.5*var(--padding));
         }
         ${breaks.phone(`
             display: flex;
@@ -111,15 +111,15 @@ const StyledPortfolioGallery = styled(PortfolioGallery)`
     }
     /* this feels like a lot of work for responsive images :/ */
     .gatsby-image-wrapper {
-        height: calc(100% - 4*${padding});
-        width: calc(100% - 4*${padding});
-        margin: calc(2*${padding});
+        height: calc(100% - 4*var(--padding));
+        width: calc(100% - 4*var(--padding));
+        margin: calc(2*var(--padding));
         img {
             object-fit: contain !important;
         }
         /* TODO abstract this somehow */
         overflow: hidden;
-        transition: ${transition}ms;
+        transition: var(--transitionSpeed);
         &.fade-enter {
             opacity: 0;
         }

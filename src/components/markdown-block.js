@@ -8,7 +8,7 @@ import PortfolioHeader from './portfolio-header'
 import Image from './mdx/image'
 
 import styled from 'styled-components';
-import { animations, breaks, containers, fonts, padding, theme } from '../config/styles'
+import { animations, breaks, containers, fonts } from '../config/styles'
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
@@ -44,9 +44,9 @@ const MarkdownBlock = (props) => {
 const StyledMarkdownBlock = styled(MarkdownBlock)`
 	font-size: 1.5rem;
 	line-height: 1.6em;
-	background: ${theme.light};
-	padding-top: calc(3*${padding});
-	padding-bottom: calc(2*${padding});
+	background: var(--background);
+	padding-top: calc(3*var(--padding));
+	padding-bottom: calc(2*var(--padding));
 	${containers.container()};
 	${containers.readable()};
 	text-align: left;
@@ -58,20 +58,20 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 
 	p {
 		margin: 0;
-		margin-bottom: ${padding};
+		margin-bottom: var(--padding);
 	}
 
 	/* TODO style header links */
 	p a { /* so it doesn't grab h2 headers */
-		color: ${theme.light};
+		color: var(--light);
 		text-decoration: none;
 		border-bottom: 0;
-		background: ${theme.active};
+		background: var(--active);
 
 		${breaks.tablet(`
 				background: transparent;
-				border-bottom: 2px ${theme.active} dotted;
-				${animations.highlight(theme.active, theme.light, theme.active)};
+				border-bottom: 2px var(--active) dotted;
+				${animations.highlight()};
 		`)}
 	}
 
@@ -83,7 +83,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 
 				&:before {
 					content: counter(li);
-					color: ${theme.primary};
+					color: var(--primary);
 					position: relative;
 					left: -.5em;
 				}
@@ -96,7 +96,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 		li {
 				&:before {
 					content: '\2022';
-					color: ${theme.primary};
+					color: var(--primary);
 					position: relative;
 					left: -.5em;
 				}
@@ -105,19 +105,19 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	
 	h2 {
 		${fonts.condensed()};
-		color: ${theme.primary};
+		color: var(--primary);
 		${fonts.sizes('1.75em', '2em, 2.25em')}
 	}
 	
 	h3 {
 		${fonts.condensed()};
-		color: ${theme.highlight};
+		color: var(--highlight);
 		${fonts.sizes('1.5em', '2em, 2.5em')}
 	}
 	
 	h4 {
 		${fonts.sansSerif()};
-		color: ${theme.highlight};
+		color: var(--highlight);
 		font-weight: bold;
 		${fonts.sizes('1em', '1em, 1.5em')}
 		font-size: 1.5em;
@@ -127,15 +127,15 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	blockquote {
 		font-size: 1.125em;
 		line-height: 1.75em;
-		border-left: 1.5em solid ${theme.highlight};
+		border-left: 1.5em solid var(--highlight);
 		padding-left: .5em;
 		margin: 1em 0;
 		position: relative;
-		color: ${theme.highlight};
+		color: var(--highlight);
 	
 		&:before {
 				content: '"';
-				color: ${theme.light};
+				color: var(--light);
 				position: absolute;
 				font-size: 4em;
 				top: 0.5em;
@@ -145,7 +145,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 		}
 	
 		cite {
-				color: ${theme.highlight};
+				color: var(--highlight);
 				display: block;
 				text-align: right;
 				margin-top: .75em;
@@ -161,8 +161,8 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	/* TODO see if it is possible to make a component out of this */
 	/* https://using-remark.gatsbyjs.org/custom-components/#mapping-from-generic-html-elements */
 	.gatsby-highlight {
-		width: calc(100% + ${padding});
-		margin: 0 calc(-.5*${padding}) ${padding} calc(-.5*${padding});
+		width: calc(100% + var(--padding));
+		margin: 0 calc(-.5*var(--padding)) var(--padding) calc(-.5*var(--padding));
 		
 		pre {
 			overflow: scroll;
@@ -170,7 +170,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	}
 
 	iframe {
-		margin-bottom: ${padding};
+		margin-bottom: var(--padding);
 	}
 
 	.video-wrapper {
@@ -178,8 +178,8 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 		padding-bottom: 56.25%; /* 16:9 */
 		padding-top: 25px;
 		height: 0;
-		width: calc(100% + (2 * ${padding}));
-		margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+		width: calc(100% + (2 * var(--padding)));
+		margin: 0 calc(-1*var(--padding)) var(--padding) calc(-1*var(--padding));
 
 		iframe {
 			position: absolute;
@@ -211,14 +211,14 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 		-ms-hyphens: none;
 		hyphens: none;
 		/* background:#2a2734; */
-		background: ${theme.active};
+		background: var(--active);
 		/* color: #afa0fe */
-		color: ${theme.primary};
+		color: var(--primary);
 	}
 
 	code.language-text {
 		background: transparent;
-		color: ${theme.highlight};
+		color: var(--highlight);
 	}
 
 	pre[class*="language-"]::selection,
@@ -250,12 +250,12 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	.token.doctype,
 	.token.cdata {
 		/* color: #6c6783 */
-		color: ${theme.light}
+		color: var(--light)
 	}
 
 	.token.punctuation {
 		/* color: #6c6783 */
-		color: ${theme.dark}
+		color: var(--dark)
 	}
 
 	.token.namespace {
@@ -266,13 +266,13 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	.token.operator,
 	.token.number {
 		/* color: #e09142 */
-		color: ${theme.primary}
+		color: var(--primary)
 	}
 
 	.token.property,
 	.token.function {
 		/* color: #c4b9fe */
-		color: ${theme.primary};
+		color: var(--primary);
 	}
 
 	.token.tag-id,
@@ -284,7 +284,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	code.language-javascript,
 	.token.attr-name {
 		/* color: #c4b9fe */
-		color: ${theme.highlight};
+		color: var(--highlight);
 	}
 
 	code.language-css,
@@ -305,13 +305,13 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 	.token.regex,
 	.token.atrule {
 		/* color: #fc9 */
-		color: ${theme.primary}
+		color: var(--primary)
 	}
 
 	.token.placeholder,
 	.token.variable {
 		/* color: #fc9 */
-		color: ${theme.primary}
+		color: var(--primary)
 	}
 
 	.token.deleted {
@@ -320,7 +320,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 
 	.token.inserted {
 		/* border-bottom: 1px dotted #eeebff; */
-		border-bottom: 1px dotted ${theme.light};
+		border-bottom: 1px dotted var(--light);
 		text-decoration: none
 	}
 
@@ -335,7 +335,7 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 
 	.token.important {
 		/* color: #c4b9fe */
-		color: ${theme.highlight};
+		color: var(--highlight);
 	}
 
 	.token.entity {
@@ -344,25 +344,25 @@ const StyledMarkdownBlock = styled(MarkdownBlock)`
 
 	pre>code.highlight {
 		/* outline: 0.4em solid #8a75f5; */
-		outline: 0.4em solid ${theme.primary};
+		outline: 0.4em solid var(--primary);
 		outline-offset: .4em
 	}
 
 	.line-numbers .line-numbers-rows {
 		/* border-right-color: #2c2937 */
-		border-right-color: ${theme.primary};
+		border-right-color: var(--primary);
 	}
 
 	.line-numbers-rows>span:before {
 		/* color: #3c3949 */
-		color: ${theme.primary};
+		color: var(--primary);
 	}
 
 .line-highlight {
 		/* background: rgba(224, 145, 66, 0.2); */
-		background: ${theme.highlight};
+		background: var(--highlight);
 		/* background: linear-gradient(to right, rgba(224, 145, 66, 0.2) 70%, rgba(224, 145, 66, 0)) */
-		background: linear-gradient(to right, ${theme.highlight} 70%, ${theme.highlight})
+		background: linear-gradient(to right, var(--highlight) 70%, var(--highlight))
 	}
 `
 

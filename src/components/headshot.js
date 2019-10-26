@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 
-import { StaticQuery, graphql } from 'gatsby'
+// import { StaticQuery, graphql } from 'gatsby'
 
 import styled from 'styled-components'
-import { breaks, padding, theme, transition } from '../config/styles'
+import { breaks } from '../config/styles'
 
 const Headshot = (props) => {
 	return (
@@ -45,7 +45,7 @@ const StyledHeadshot = styled(Headshot)`
 	display: block;
 	overflow: hidden;
 	border-radius: 50%;
-	margin: ${padding} auto;
+	margin: var(--padding) auto;
 	width: 50%;
 	height: auto;
 	cursor: help;
@@ -65,14 +65,14 @@ const StyledHeadshot = styled(Headshot)`
 	${breaks.phone(`
 		width: 25%;
 		float: right;
-		margin: ${padding};
+		margin: var(--padding);
 		margin-right: 0;
 	`)}
 
 	@supports(mix-blend-mode: multiply) {
-		background-color: ${theme.highlight};
+		background-color: var(--highlight);
 		position: relative;
-		transition: ${transition}ms;
+		transition: var(--transitionSpeed);
 
 		.hover {
 			display: block;
@@ -85,14 +85,14 @@ const StyledHeadshot = styled(Headshot)`
 		.regular {
 			mix-blend-mode: hard-light;
 			filter: grayscale(100%);
-			transition: ${transition}ms;
+			transition: var(--transitionSpeed);
 			opacity: .85;
 			position: relative;
 			z-index: 1;
 		}
 
 		&:hover {
-			background-color: ${theme.active};
+			background-color: var(--active);
 
 			.regular {
 				opacity: .75;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 import styled from 'styled-components';
-import { breaks, transition2 } from '../config/styles';
+import { animations, breaks } from '../config/styles';
 
 import RyanFiller from "../images/site-assets/logo.svg";
 
@@ -32,13 +32,13 @@ const StyledLogo = styled(Logo)`
 		height: 1em;	
 		width: 1.3em;
 		pointer-events: none;
-		transition: ${transition2.speed}ms;
+		transition: var(--transitionSpeed);
 
 		path {
 			transform-origin: center center;
 			fill: currentColor;
-			transition: ${transition2.speed}ms;
-			transition-timing-function: ${transition2.timing};
+			transition: var(--transitionSpeed);
+			transition-timing-function: var(--transitionTiming);
 		}
 
 		mask path {
@@ -67,7 +67,10 @@ const StyledLogo = styled(Logo)`
 
 	&:hover,
 	&:focus {
-			color: ${props => props.theme.active};
+			color: var(--active)};
+			${breaks.tablet(`
+				${animations.float()}
+			`)}
 	}
 
 	${props => breaks[props.breakpoint](`

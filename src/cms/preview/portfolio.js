@@ -21,8 +21,6 @@ import React from 'react'
 
 
 const PortfolioPreivew = props => {
-  // console.log(props)
-  console.log('props.entry', props.entry)
   return (
     <div>
       it works!!!!

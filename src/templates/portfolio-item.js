@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react"
+import React from "react"
 import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
-import MediaQuery from 'react-responsive';
+// import MediaQuery from 'react-responsive';
 import styled from 'styled-components'
-import { animations, breaks, breakPoints, containers, fonts, padding, theme } from '../config/styles'
+import { animations, breaks, containers, fonts } from '../config/styles'
 
-import { formatPortfolioObject } from '../helpers'
+// import { formatPortfolioObject } from '../helpers'
 
-import PortfolioGallery from '../components/portfolio-gallery'
-import ContentMeta from '../components/content-meta'
+// import PortfolioGallery from '../components/portfolio-gallery'
+// import ContentMeta from '../components/content-meta'
 import MarkdownBlock from '../components/markdown-block'
-import BackButton from '../components/back-button';
+// import BackButton from '../components/back-button';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
@@ -50,40 +50,39 @@ export const GalleryContext = React.createContext();
 const PortfolioItem = (props) => {
 
 	const post = props.data.mdx;
-	const { frontmatter } = post; 
 
-	const portfolioItems = formatPortfolioObject(post);
+	// const portfolioItems = formatPortfolioObject(post);
 
-	const [current, setCurrent] = useState(0);
-	const [scroll, setScroll] = useState(0);
-	const [mode, setMode] = useState('');
+	// const [current, setCurrent] = useState(0);
+	// const [scroll, setScroll] = useState(0);
+	// const [mode, setMode] = useState('');
 
-	const scrollRef = useRef(null);
-	let last_known_scroll_position = 0;
-	let ticking = false;
+	// const scrollRef = useRef(null);
+	// let last_known_scroll_position = 0;
+	// let ticking = false;
 
-	const scrollListener = () => {
-		if (mode !== 'scroll') {setMode('scroll')}
+	// const scrollListener = () => {
+	// 	if (mode !== 'scroll') {setMode('scroll')}
 		
-		last_known_scroll_position = scrollRef.current.scrollTop;
-			if (!ticking) {
-				window.requestAnimationFrame(function() {
-					let halfway = last_known_scroll_position + scrollRef.current.offsetHeight / 2;
-					setScroll(halfway);
-					ticking = false;
-				});
-			ticking = true;
-		}
-	}
+	// 	last_known_scroll_position = scrollRef.current.scrollTop;
+	// 		if (!ticking) {
+	// 			window.requestAnimationFrame(function() {
+	// 				let halfway = last_known_scroll_position + scrollRef.current.offsetHeight / 2;
+	// 				setScroll(halfway);
+	// 				ticking = false;
+	// 			});
+	// 		ticking = true;
+	// 	}
+	// }
 
-	const galleryValue = {
-		current: current,
-		setCurrent: setCurrent,
-		portfolioItems: portfolioItems,
-		scroll: scroll,
-		mode: mode,
-		setMode: setMode
-	};
+	// const galleryValue = {
+	// 	current: current,
+	// 	setCurrent: setCurrent,
+	// 	portfolioItems: portfolioItems,
+	// 	scroll: scroll,
+	// 	mode: mode,
+	// 	setMode: setMode
+	// };
 
 	// return (
 	// 	<GalleryContext.Provider value={galleryValue}>
@@ -160,16 +159,16 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 
 		${breaks.tablet(`
 			height: auto;
-			padding-top: calc(3*${padding});
-        	padding-bottom: calc(3*${padding});
+			padding-top: calc(3*var(--padding));
+        	padding-bottom: calc(3*var(--padding));
 		`)}
     }
 
     .header {
 			${containers.container()};
     	${containers.readable()};
-			padding-top: calc(3*${padding});
-			padding-bottom: calc(3*${padding});
+			padding-top: calc(3*var(--padding));
+			padding-bottom: calc(3*var(--padding));
 			position: relative;
 			text-align: center;
 		
@@ -179,13 +178,13 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 		`)}
 
         h1 {
-            margin: 0;
-            font-size: 4em;
-            line-height: 1em;
-            text-align: center;
-			text-transform: uppercase;
-			${fonts.condensed()}
-			color: ${theme.primary}
+					margin: 0;
+					font-size: 4em;
+					line-height: 1em;
+					text-align: center;
+					text-transform: uppercase;
+					${fonts.condensed()}
+					color: var(--primary);
         }
 
         .meta {
@@ -194,7 +193,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             text-align: center;
 
             .meta__tag {
-                color: ${theme.disabled};
+                color: var(--disabled);
             }
         }
 
@@ -204,7 +203,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             margin: 0 auto;
             margin-top: .75em;
             text-decoration: none;
-            ${animations.highlight(theme.active, theme.light, theme.active)}
+            ${animations.highlight()}
 		}
 		
 		&:after {
@@ -212,12 +211,12 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 			display: block;
 			width: 1rem;
 			height: 1rem;
-			border-right: 2px solid ${theme.active};
-			border-bottom: 2px solid ${theme.active};
+			border-right: 2px solid var(--active);
+			border-bottom: 2px solid var(--active);
 			margin: 0 auto;
 			transform: rotate(45deg);
 			margin-top: 2rem;
-			${animations.bounce}
+			${animations.float}
 		}
     }
 
@@ -239,10 +238,10 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             position: absolute;
             bottom: 100%;
             right: 0;
-            height: calc(${padding}*6);
+            height: calc(var(--padding)*6);
             width: 50%;
             z-index: 2;
-            background: linear-gradient(to top, ${theme.light}, transparent);
+            background: linear-gradient(to top, var(--light), transparent);
 			pointer-events: none;
 			
 			${breaks.tablet(`
@@ -253,7 +252,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 
     .gif-credit {
         ${fonts.condensed()}
-        color: ${theme.primary};
+        color: var(--primary);
         display: none;
         text-align: center;
         margin-top: 4rem;

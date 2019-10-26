@@ -1,13 +1,13 @@
 import React from 'react'
-import Swiper from 'react-id-swiper'
+// import Swiper from 'react-id-swiper'
 
 import styled from 'styled-components'
-import { arrows, breaks, colors, overlays, padding } from '../config/styles'
+import { arrows, breaks, colors, overlays } from '../config/styles'
 
 export default class PortfolioGallery extends React.Component {
 	render() {
 
-        let params
+        // let params
 		// if (this.props.slides.length > 1) {
 		// 	params = {
 		// 		loop: true,
@@ -108,24 +108,24 @@ const StyledPortfolioGallery = styled.div`
             &-prev, &-next {
                 ${arrows()}
                 cursor: pointer;
-                padding: ${padding} 0;
-                width: calc(6*${padding});
+                padding: var(--padding) 0;
+                width: calc(6*var(--padding));
                 background-color: ${colors.darkGray};
                 justify-content: center;
                 align-items: center;
                 position: absolute;
                 z-index: 25;
-                height: calc(3*${padding});
+                height: calc(3*var(--padding));
                 display: none;
                 color: ${colors.white};
 
                 &:before {
-                    right: calc(3*${padding});
+                    right: calc(3*var(--padding));
                 }
 
                 &:after {
                     rigth: 0;
-                    left: calc(3*${padding});
+                    left: calc(3*var(--padding));
                 }
 
                 ${breaks.phone(`
@@ -146,10 +146,10 @@ const StyledPortfolioGallery = styled.div`
         }
 
         &-pagination {
-            height: ${padding};
+            height: var(--padding);
             width: auto;
             position: absolute;
-            bottom: ${padding};
+            bottom: var(--padding);
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;

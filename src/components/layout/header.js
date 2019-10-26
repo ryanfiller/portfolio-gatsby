@@ -1,15 +1,13 @@
 import React, { useContext } from 'react'
 
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
-import { breaks, containers, navBreak, padding } from '../../config/styles'
+import { breaks, containers } from '../../config/styles'
 
 import { NavContext, LayoutContext } from './layout';
 
 import Logo from '../logo'
 import Navigation from './navigation'
 import Navicon from './navicon'
-
 
 const Header = (props) => {
 	const nav = useContext(NavContext)
@@ -20,7 +18,6 @@ const Header = (props) => {
 		isMouseMode,
 	} = layout
 
-console.log('isMouseMode', isMouseMode)
 		return (
 			<header className={props.className} id="header">
 				<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
@@ -42,20 +39,18 @@ console.log('isMouseMode', isMouseMode)
 }
 
 const StyledHeader = styled(Header)`
+	/* overrider header switching for dark mode */
+	--background: var(--dark);
+	--color: var(--light);
+
 	display: flex;
 	align-items: center;
 	justify-content: start;
 	flex-direction: column;
+	background-color: var(--background);
+	color: var(--color);
 
-	${props => (
-		props.theme.darkNav ? 
-		`background-color: ${props.theme.dark};
-		color: ${props.theme.light};`
-		:
-		`background-color: ${props.theme.light};
-		color: ${props.theme.dark};`
-	)}
-	padding: calc(${padding} / 2);
+	padding: calc(var(--padding) / 2);
 	font-size: 3rem;
 	${containers.container()}
 

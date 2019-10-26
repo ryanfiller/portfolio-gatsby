@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import styled from 'styled-components';
-import { animations, fonts, theme, padding } from '../config/styles';
+import { animations, fonts } from '../config/styles';
 
 const ReadMore = (props) => {
     return(
@@ -15,21 +15,21 @@ const ReadMore = (props) => {
 }
 
 const StyledReadMore = styled(ReadMore)`
-    padding: ${padding};
+    padding: var(--padding);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: ${theme.light};
-    background-color: ${theme.dark};
+    color: var(--light);
+    background-color: var(--dark);
     font-size: 2rem;
 
     a {
         display: block;
-        margin-bottom: ${padding};
+        margin-bottom: var(--padding);
         ${fonts.inlineLink()}
-        color: ${theme.light};
-        ${animations.highlight(theme.light, theme.light, theme.active)};
+        color: var(--light);
+        ${animations.highlight('var(--light)', 'var(--light)', 'var(--active)')};
 
         &:last-child {
             margin-bottom: 0;

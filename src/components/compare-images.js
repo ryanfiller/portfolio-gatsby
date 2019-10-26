@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { colors, navBreak, padding, transition } from '../config/styles'
+import { colors, navBreak } from '../config/styles'
 
 // TODO fiiix meee
 
@@ -20,21 +20,21 @@ export default (props) => {
 
 const StyledCompareImages = styled.figure`
     position: relative;
-    width: calc(100% + (2 * ${padding}));
-    margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+    width: calc(100% + (2 * var(--padding)));
+    margin: 0 calc(-1*var(--padding)) var(--padding) calc(-1*var(--padding));
     display: flex;
     flex-wrap: wrap;
 
     &.left {
         width: 50%;
         float: left;
-        margin: 0 ${padding} ${padding} calc(-1*${padding});
+        margin: 0 var(--padding) var(--padding) calc(-1*var(--padding));
     }
 
     &.right {
         width: 50%;
         float: right;
-        margin: 0 calc(-1*${padding}) ${padding} ${padding};
+        margin: 0 calc(-1*var(--padding)) var(--padding) var(--padding);
     }
 
     .gatsby-resp-image-wrapper {
@@ -66,7 +66,7 @@ const StyledCompareImages = styled.figure`
 
             &:nth-child(1) {
                 opacity: 1;
-                transition: ${transition}ms;
+                transition: var(--transitionSpeed);
                 z-index: 2;
             }
 

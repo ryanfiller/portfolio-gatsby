@@ -6,7 +6,7 @@ import { icons } from '../images/socials/icons'
 import SVG  from 'react-inlinesvg';
 
 import styled from 'styled-components';
-import { breaks, transition } from '../config/styles';
+import { breaks } from '../config/styles';
 
 const SocialList = (props) => {
 
@@ -74,7 +74,7 @@ const StyledSocialList = styled(SocialList)`
 			right: 0;
 			bottom: 0;
 			margin-top: 100%;
-			transition: ${transition}ms;
+			transition: var(--transitionSpeed);
 
 			${breaks.phone(`
 				display: block;

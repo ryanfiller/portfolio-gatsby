@@ -1,17 +1,17 @@
-import React, { useContext, useRef } from 'react'
+import React, { useRef } from 'react'
 
 import MediaQuery from 'react-responsive'
 import { breakPoints } from '../config/styles'
-import { slugify, getOwnHeaderIndex } from '../helpers'
+import { slugify } from '../helpers'
 
-import { GalleryContext } from '../templates/portfolio-item';
+// import { GalleryContext } from '../templates/portfolio-item';
 
 import {setConfig} from 'react-hot-loader';
 setConfig({pureSFC: true});
 
 const PortfolioHeader = (props) => {
 	
-	const context = useContext(GalleryContext);
+	// const context = useContext(GalleryContext);
 	const headerRef = useRef(null);
 
 	const header = props.children.find((child) => child.props.mdxType === 'h2');
@@ -21,11 +21,11 @@ const PortfolioHeader = (props) => {
 
 	// const ownIndex = getOwnHeaderIndex(context.portfolioItems, headerText);
 
-	let headerPosition
+	// let headerPosition
 
-	if (headerRef.current != null) {
-		headerPosition = headerRef.current.offsetTop;
-	}
+	// if (headerRef.current != null) {
+	// 	headerPosition = headerRef.current.offsetTop;
+	// }
 
 	// if(Math.abs(context.scroll - headerPosition) <= 50 
 	// 	&& context.current !== ownIndex 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from './buttons';
 
 import styled from 'styled-components';
-import { fonts, padding, transition, theme } from '../config/styles';
+import { fonts } from '../config/styles';
 import { initialFormState, disableFormButton } from '../helpers'
 
 import {setConfig} from 'react-hot-loader';
@@ -122,7 +122,7 @@ const StyledForm = styled(Form)`
         }
 
         & > * {
-            margin-bottom: ${padding};
+            margin-bottom: var(--padding);
 
             &:last-child {
                 margin-bottom: 0;
@@ -143,8 +143,8 @@ const StyledForm = styled(Form)`
 
             label {
                 max-height: 0;
-                color: ${props => props.color || theme.light};
-                background-color: ${props => props.active || theme.highlight};
+                color: ${props => props.color || 'var(--light)'};
+                background-color: ${props => props.active || 'var(--highlight)'};
                 overflow: hidden;
                 font-size: .6em;
                 font-weight: bold;
@@ -154,17 +154,17 @@ const StyledForm = styled(Form)`
                 order: 2;
                 display: flex;
                 align-items: center;
-                transition: ${transition}ms;
+                transition: var(--transitionSpeed);
             }
 
             input, textarea {
-                color: ${props => props.background || theme.dark };
+                color: ${props => props.background || 'var(--dark)' };
                 ${fonts.sansSerif()}
                 font-size: 1em;
-                padding: calc(${padding} / 4);
+                padding: calc(var(--padding) / 4);
                 border: 2px solid transparent;
                 border-radius: 0;
-                transition: ${transition}ms;
+                transition: var(--transitionSpeed);
                 flex: 1;
                 order: 1;
                 -webkit-appearence: none;
@@ -173,21 +173,21 @@ const StyledForm = styled(Form)`
 
                 &::placeholder {
                     text-transform: capitalize;
-                    color: ${theme.disabled}
+                    color: var(--disabled);
                 }
 
                 &:focus {
                     outline: none;
-                    border: 2px solid ${props => props.active || theme.highlight};
+                    border: 2px solid ${props => props.active || 'var(--highlight)'};
                     margin: 0;
 
                     &::-webkit-input-placeholder,
                     &::-moz-placeholder {
-                        transition: ${transition}ms;
+                        transition: var(--transitionSpeed);
                         color: transparent;
                     }
                     + label {
-                        max-height: ${padding};
+                        max-height: var(--padding);
                     }
                 }
             }
