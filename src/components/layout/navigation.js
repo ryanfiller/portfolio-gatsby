@@ -44,6 +44,8 @@ const Navigation = (props) => {
 		})
 	}
 
+	console.log(props.test)
+
 	return (
 		<nav className={props.className} role="navigation">
 			{buildLinks(links)}

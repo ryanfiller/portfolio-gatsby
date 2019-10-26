@@ -20,17 +20,19 @@ const Header = (props) => {
 		isMouseMode,
 	} = layout
 
-console.log('isMouseMode', isMouseMode)
+	let test = jsLoaded ? 'client side' : 'server side'
+
+		console.log('test', test)
 		return (
 			<header className={props.className} id="header">
 				<Logo breakpoint={nav.currentPage === '/' ? 'desktop' : 'phone'}/>
 
-				{!jsLoaded && <Navigation />}
+				{!jsLoaded && <Navigation test={test} />}
 
 				{jsLoaded &&
 					<>
 						{isMouseMode &&
-							<Navigation />
+							<Navigation test={test} />
 						}
 						{!isMouseMode &&
 							<Navicon />

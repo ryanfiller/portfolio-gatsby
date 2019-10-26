@@ -178,7 +178,15 @@ exports.createPages = ({ graphql, actions }) => {
 		})
 
 		fs.writeFileSync("public/syndicate.json", JSON.stringify(syndicated))
-		console.log('syndicated.json file written')
+		console.log("	                                      _  						")				
+		console.log("	_______________________   ________.--'-`--._____  	")									
+		console.log(" |____==================_)  \_'===================`  ")										
+		console.log("				_,--___.-|__|-.______|=====/  `---'  					")					
+		console.log("				`---------._          ~~~~~|  								")		
+		console.log("										`-._ -  -  - ,'  									")	
+		console.log("												\_____,-'  										")
+		console.log("												           										")
+		console.log('syndicated.json file written!')
 	})
 }
 
