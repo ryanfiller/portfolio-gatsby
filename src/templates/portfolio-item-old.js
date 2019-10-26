@@ -27,17 +27,10 @@ export const postQuery = graphql`
 					website
 					color
 				}
-				slides {
-					slide {
-						image {
-							childImageSharp {
-								sizes(maxWidth: 1000 ) {
-									...GatsbyImageSharpSizes
-								}
-							}
-						}
-					}
-				}
+				# slides {
+				# 	slide {
+				# 	}
+				# }
 			}
 			body
 		}

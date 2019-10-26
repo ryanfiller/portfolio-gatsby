@@ -1,43 +1,43 @@
 import React from 'react'
 
 import { StaticQuery, graphql } from 'gatsby'
-import Img from "gatsby-image"
 
 import styled from 'styled-components'
 import { breaks, padding, theme, transition } from '../config/styles'
 
 const Headshot = (props) => {
 	return (
-		<StaticQuery
-			query={graphql`
-				query Headshot {
-					regular: file(
-						relativePath: { regex: "/headshot.png/" }
-					) {
-						childImageSharp {
-							sizes(maxWidth: 500) {
-								...GatsbyImageSharpSizes
-							}
-						}
-					}
-					hover: file(
-						relativePath: { regex: "/headshot-transparent.png/" }
-					) {
-						childImageSharp {
-							sizes(maxWidth: 500) {
-								...GatsbyImageSharpSizes
-							}
-						}
-					}
-				}
-			`}
-			render={ data => (
-				<picture className={`headshot ${props.className}`}>
-					<Img Tag={'span'} className="hover" sizes={data.hover.childImageSharp.sizes} />
-					<Img Tag={'span'} className="regular" sizes={data.regular.childImageSharp.sizes} />
-				</picture>
-			)}
-		/>
+		// <StaticQuery
+		// 	query={graphql`
+		// 		query Headshot {
+		// 			regular: file(
+		// 				relativePath: { regex: "/headshot.png/" }
+		// 			) {
+		// 				childImageSharp {
+		// 					sizes(maxWidth: 500) {
+		// 						...GatsbyImageSharpSizes
+		// 					}
+		// 				}
+		// 			}
+		// 			hover: file(
+		// 				relativePath: { regex: "/headshot-transparent.png/" }
+		// 			) {
+		// 				childImageSharp {
+		// 					sizes(maxWidth: 500) {
+		// 						...GatsbyImageSharpSizes
+		// 					}
+		// 				}
+		// 			}
+		// 		}
+		// 	`}
+		// 	render={ data => (
+		// 		<picture className={`headshot ${props.className}`}>
+		// 			<Img Tag={'span'} className="hover" sizes={data.hover.childImageSharp.sizes} />
+		// 			<Img Tag={'span'} className="regular" sizes={data.regular.childImageSharp.sizes} />
+		// 		</picture>
+		// 	)}
+		// />
+		"headshot needs work"
 	)
 }
 

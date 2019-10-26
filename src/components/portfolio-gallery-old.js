@@ -1,6 +1,5 @@
 import React from 'react'
 import Swiper from 'react-id-swiper'
-import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { arrows, breaks, colors, overlays, padding } from '../config/styles'
@@ -9,24 +8,24 @@ export default class PortfolioGallery extends React.Component {
 	render() {
 
         let params
-		if (this.props.slides.length > 1) {
-			params = {
-				loop: true,
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'bullets',
-					clickable: true
-				},
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev'
-				},
-			}
-		} else {
-			params = {
-				loop: false,
-			}
-		}
+		// if (this.props.slides.length > 1) {
+		// 	params = {
+		// 		loop: true,
+		// 		pagination: {
+		// 			el: '.swiper-pagination',
+		// 			type: 'bullets',
+		// 			clickable: true
+		// 		},
+		// 		navigation: {
+		// 			nextEl: '.swiper-button-next',
+		// 			prevEl: '.swiper-button-prev'
+		// 		},
+		// 	}
+		// } else {
+		// 	params = {
+		// 		loop: false,
+		// 	}
+		// }
 
 		var color = {
 			color: this.props.color,
@@ -34,7 +33,8 @@ export default class PortfolioGallery extends React.Component {
 
 		return (
 			<StyledPortfolioGallery className="portfolio-gallery" style={color}>
-				<Swiper {...params}>
+                "slides go here"
+				{/* <Swiper {...params}>
 					{this.props.slides.map(({ slide, slidetype }, index) => (
 						<div key={index}>
                             <Img outerWrapperClassName="image" 
@@ -43,7 +43,7 @@ export default class PortfolioGallery extends React.Component {
                             />
 						</div>
 					))}
-				</Swiper>
+				</Swiper> */}
 			</StyledPortfolioGallery>
 		)
 	}
@@ -81,7 +81,7 @@ const StyledPortfolioGallery = styled.div`
             align-items: center;
             justify-content: center;
 
-            /* this feels like a lot of work for responsive images :/ */
+            /* this feels like a lot of work for responsive images :/
             .gatsby-image {
                 background: red;
 
@@ -100,7 +100,7 @@ const StyledPortfolioGallery = styled.div`
                         object-fit: contain !important;
                     }
                 }
-            }
+            } */
         }
 
         &-button {

@@ -56,9 +56,6 @@ module.exports = {
 					}
 			}
 		},
-		`gatsby-image`,
-		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`,
 		{
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -67,14 +64,6 @@ module.exports = {
           content: require.resolve("./src/components/markdown-block.js"),
 				},
 				gatsbyRemarkPlugins: [
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							maxWidth: 1400,
-							linkImagesToOriginal: false,	
-							backgroundColor: 'transparent',
-						},
-					},
 					{
 						resolve: `gatsby-remark-prismjs`,
 						options: {
@@ -93,22 +82,22 @@ module.exports = {
 				path: `${__dirname}/src/content/`,
 			},
 		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				name: `img`,
-				path: `${__dirname}/src/images/`
-			}
-		},
+		// {
+		// 	resolve: `gatsby-source-filesystem`,
+		// 	options: {
+		// 		name: `img`,
+		// 		path: `${__dirname}/src/images/`
+		// 	}
+		// },
 
-		{
-			resolve:`gatsby-source-cloudinary`,
-			options:{
-				cloudName: 'ryanfiller',
-				apiKey: '244836398385633',
-				apiSecret: 'K9JubqsYaMlZtwvqzGgKwJl5owk',
-				resourceType: 'image',
-			}
-		}
+		// {
+		// 	resolve:`gatsby-source-cloudinary`,
+		// 	options:{
+		// 		cloudName: 'ryanfiller',
+		// 		apiKey: '244836398385633',
+		// 		apiSecret: 'K9JubqsYaMlZtwvqzGgKwJl5owk',
+		// 		resourceType: 'image',
+		// 	}
+		// }
 	]
 };

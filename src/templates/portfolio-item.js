@@ -33,17 +33,10 @@ export const postQuery = graphql`
 					website
 					color
 				}
-				slides {
-					slide {
-						image {
-							childImageSharp {
-								sizes(maxWidth: 1000 ) {
-									...GatsbyImageSharpSizes
-								}
-							}
-						}
-					}
-				}
+				# slides {
+				# 	slide {
+				# 	}
+				# }
 			}
 			body
 			rawBody
@@ -196,7 +189,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
         }
 
         .meta {
-			font-size: 2em;
+						font-size: 2em;
             margin-top: 1em;
             text-align: center;
 

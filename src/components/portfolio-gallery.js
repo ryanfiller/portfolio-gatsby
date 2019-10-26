@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
@@ -47,10 +46,11 @@ const PortfolioGallery = (props) => {
                                     classNames="fade"
                                     timeout={200}
                                 >
-                                    <Img key={index} outerWrapperClassName="test" 
+                                    {/* <Img key={index} outerWrapperClassName="test" 
                                         sizes={slide} 
                                         alt={slide.alt}
-                                    />
+                                    /> */}
+                                    "slide !"
                                 </CSSTransition>
                                 : null
                             )
