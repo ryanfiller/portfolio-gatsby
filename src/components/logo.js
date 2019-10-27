@@ -18,80 +18,46 @@ const Logo = (props) => {
 }
 
 const StyledLogo = styled(Logo)`
-	display: inline-flex;
-	justify-content: flex-start;
 	position: relative;
 	overflow: hidden;
 	font-size: 1em;
 	height: 1em;
-	width: auto;
 	color: currentColor;
+
+	&:hover {
+		color: red;
+	}
 
 	svg {
 		display: block;
-		height: 1em;	
-		width: 1.3em;
-		pointer-events: none;
-		transition: ${transition2.speed}ms;
+		fill: currentColor;
+		height: 1em;
+		width: 0.55em;
 
-		path {
-			transform-origin: center center;
-			fill: currentColor;
-			transition: ${transition2.speed}ms;
-			transition-timing-function: ${transition2.timing};
+		* {
+				opacity: 0;
+			}
+		.r,
+		.f {
+			opacity: 1;
 		}
-
-		mask path {
-			color: white;
+		
+		.f {
+			transform: translateX(-39.5%);
 		}
-	}
-
-	.r { 
-		transform: translateX(0);
-	}
-
-	.yan {
-		transform: translateX(0);
-		opacity: 0;
-	}
-
-	.f {
-		transform: rotateY(180deg) translateX(85%);
-		mask: url(#mask);
-	}
-
-	.iller {
-		transform: translateX(0);
-		opacity: 0;
-	}
-
-	&:hover,
-	&:focus {
-			color: ${props => props.theme.active};
 	}
 
 	${props => breaks[props.breakpoint](`
-		svg {
-			width: 8.45em;
-
-			.r {
-				filter: none;
-				transform: translateX(0);
-			}
-
-			.yan {
-				transform: translateX(10%);
-				opacity: 1;
-			}
+		font-size: 2em;
 		
-			.f {
-				transform: translateX(50%);
-				mask: none;
-			}
-
-			.iller {
-				transform: translateX(60%);
+		svg {
+			width: 100%;
+			* {
 				opacity: 1;
+			}
+			
+			.f {
+				transform: none;
 			}
 		}
 	`)}
