@@ -103,6 +103,7 @@ Portfolio.propTypes = {
 };
 
 const StyledPortfolio = styled(Portfolio)`
+	width: 100%;
 
 	.portfolio-grid {
 		width: 100%;

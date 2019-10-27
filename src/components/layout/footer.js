@@ -33,9 +33,6 @@ const StyledFooter = styled(Footer)`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		position: sticky;
-		bottom: 0;
-		z-index: 10000;
 	`)}
 
 	p {

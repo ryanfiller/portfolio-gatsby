@@ -421,21 +421,6 @@ const RootStyles = createGlobalStyle`
 	#content {
 		background-color: var(--background);
 		color: var(--color);
-		min-height: 100vh;
-		height: auto;
-		width: 100vw;
-		display: flex;
-		flex-direction: column;
-
-		main {
-			flex: 1;
-			overflow-x: hidden;
-			overflow-y: auto;
-		}
-
-		${breaks.phone(`
-			height: 100vh;
-		`)}
 	}
 `
 

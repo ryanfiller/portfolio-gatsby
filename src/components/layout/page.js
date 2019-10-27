@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useRef } from 'react'
 
+import styled from 'styled-components'
+import { breaks } from '../../config/styles';
+
 import { NavContext } from './layout'
 
 import SkipToContent from './skip-to-content';
@@ -31,14 +34,26 @@ const Page = (props) => {
       {nav.offCanvasOpen ? <OffCanvas /> : null}
 
       <Header />
-
       <main id="content">
         {props.pageContent}
       </main>
-
       <Footer />
     </div>
   )
 }
 
-export default Page;
+const StyledPage = styled(Page)`
+  &#site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+`
+
+export default StyledPage;

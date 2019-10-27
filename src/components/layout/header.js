@@ -65,9 +65,6 @@ const StyledHeader = styled(Header)`
 		font-size: 1rem;
 		flex-direction: row;
 		font-size: 2rem;
-		justify-content: space-between;
-		position: sticky;
-		top: 0;
 	`)}
 ` 
 

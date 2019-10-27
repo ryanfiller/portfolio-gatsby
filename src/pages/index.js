@@ -190,15 +190,16 @@ const StyledHomepage = styled(Homepage)`
 			}
 
 			@supports(display: grid) {
-				height: 100vh;
 				width: auto;
+				height: auto;
 				overflow-x: auto;
 				overflow-y: hidden;
 
 				display: grid;
 				grid-template-columns: repeat(auto-fill, 50vh);
-				grid-template-rows: 50vh 50vh;
+				grid-template-rows: 50fr 50fr;
 				grid-auto-flow: column;
+				align-self: stretch;
 
 					& > * {
 						width: 100vh;

@@ -47,7 +47,7 @@ const StyledOffCanvas = styled(OffCanvas)`
 	width: calc(100% - ((var(--padding)) + ${naviconSize}));
 
 	${breaks.phone(`
-		width: 50%;
+		width: 50vw;
 	`)}
 
 	${breaks.tablet(`
