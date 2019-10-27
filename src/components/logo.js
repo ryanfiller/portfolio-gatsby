@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 import styled from 'styled-components';
-import { animations, breaks } from '../config/styles';
+import { animations, breaks, darkMode } from '../config/styles';
 
 import RyanFiller from "../images/site-assets/logo.svg";
 
@@ -19,23 +19,38 @@ const Logo = (props) => {
 
 const StyledLogo = styled(Logo)`
 	position: relative;
-	overflow: hidden;
-	font-size: 1em;
+	font-size: 2em;
 	height: 1em;
 	color: currentColor;
+	overflow: hidden;
+
+	${darkMode(`
+		overflow: visible;
+	`)}
 
 	&:hover {
-		color: red;
+		svg { 
+			${animations.float}
+		 }
 	}
 
 	svg {
 		display: block;
 		fill: currentColor;
 		height: 1em;
-		width: 0.55em;
+		width: auto;
+		padding: var(--header-padding);
+		
+		.client-side-js & {
+			height: 1.35em;
+			width: 1em;
+			margin-top: -0.2em;
+			padding: 0;
+		}
 
 		* {
 				opacity: 0;
+				transition: var(--transitionSpeed);
 			}
 		.r,
 		.f {
@@ -48,10 +63,17 @@ const StyledLogo = styled(Logo)`
 	}
 
 	${props => breaks[props.breakpoint](`
-		font-size: 2em;
-		
 		svg {
 			width: 100%;
+
+			.client-side-js & {
+				height: 1.83em;
+				width: auto;
+				margin-top: -0.34em;
+				margin-bottom: -0.3em;
+				padding: var(--header-padding) 0;
+			}
+
 			* {
 				opacity: 1;
 			}

@@ -30,7 +30,6 @@ const StyledNavicon = styled(Navicon)`
 	background: transparent;
 	padding: 0;
 	border: 0;
-	align-self: stretch;
 	height: auto;
 	position: relative !important;
 	margin-left: 2rem;

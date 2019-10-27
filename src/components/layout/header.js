@@ -42,6 +42,7 @@ const StyledHeader = styled(Header)`
 	/* overrider header switching for dark mode */
 	--background: var(--dark);
 	--color: var(--light);
+	--header-padding: calc(var(--padding) / 2);
 
 	display: flex;
 	align-items: center;
@@ -50,13 +51,14 @@ const StyledHeader = styled(Header)`
 	background-color: var(--background);
 	color: var(--color);
 
-	padding: calc(var(--padding) / 2);
-	font-size: 3rem;
+	font-size: 2.5rem;
 	${containers.container()}
+	padding: 0 var(--header-padding);
 
 	.client-side-js & {
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center
 	}
 
 	${breaks.nav(`
@@ -64,6 +66,8 @@ const StyledHeader = styled(Header)`
 		flex-direction: row;
 		font-size: 2rem;
 		justify-content: space-between;
+		position: sticky;
+		top: 0;
 	`)}
 ` 
 
