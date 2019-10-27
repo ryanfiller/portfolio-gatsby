@@ -4,7 +4,9 @@ module.exports = {
 		siteUrl: `https://www.ryanfiller.com`,
 		description: 'ryanblog',
 		author: 'Ryan Filler',
-		cloudinaryCloud: 'ryanfiller'
+		cloudinaryCloud: 'ryanfiller',
+		headshot: 'https://res.cloudinary.com/ryanfiller/image/upload/v1570907728/Screen_Shot_2019-04-12_at_8.27.48_AM_irt6b6.png',
+		about: 'I am a designer, developer, and illustrator living and working in Memphis, Tennessee.'
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
