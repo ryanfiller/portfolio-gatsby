@@ -235,8 +235,8 @@ export const darkMode = (styles) => {
 export const containers = {
 	container: () => {
 		return `
-				padding-left: 1rem;
-				padding-right: 1rem;
+				padding-left: var(--padding);
+				padding-right: var(--padding);
 		`;
 	},
 	readable: () => {
@@ -327,6 +327,7 @@ const RootStyles = createGlobalStyle`
 		/* spacing */
 
 		--padding: 2rem;
+		--letterSpacing: .125em;
 
 		/* animations */
 

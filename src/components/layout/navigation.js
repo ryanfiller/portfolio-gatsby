@@ -57,7 +57,7 @@ const vertical = () => (`
 		text-align: center;
 		margin-bottom: 1rem;
 
-		&:last-child() {
+		&:last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -66,14 +66,13 @@ const vertical = () => (`
 const horizontal = () => (`
 	display: flex;
 
-
 	a {
 		display: block;
 		text-align: center;
 		margin: 0;
-		margin-right: 2rem;
+		margin-right: var(--padding);
 
-		&:last-child() {
+		&:last-child {
 			margin-right: 0;
 		}
 	}
@@ -94,6 +93,7 @@ const StyledNavigation = styled(Navigation)`
 		font-size: 1em;
 		color: currentColor;
 		transition: var(--transitionSpeed);
+		letter-spacing: var(--letterSpacing);
 
 		&.active {
 			color: var(--active);
