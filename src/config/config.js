@@ -20,7 +20,7 @@ export const pages = [
 
 export const socialMedia = [
 	{
-		url: 'http://codepen.io/ryanfiller89/',
+		url: 'http://codepen.io/ryanfiller/',
 		name: 'Codepen',
 		color: '#fcd000'
 	},

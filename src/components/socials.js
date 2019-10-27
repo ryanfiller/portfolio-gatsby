@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from "prop-types";
 
 import { socialMedia } from '../config/config';
 import { icons } from '../images/socials/icons'
-import SVG  from 'react-inlinesvg';
 
 import styled from 'styled-components';
 import { breaks } from '../config/styles';
@@ -24,7 +22,7 @@ const SocialList = (props) => {
 					href={social.url}
 					style={{color: oneColor === true ? active : social.color}}
 				>
-					<SVG src={icons[social.name.toLowerCase()]}/>
+					{icons[social.name.toLowerCase()]()}
 				</a>
 			)}
 		</nav> 
@@ -33,34 +31,28 @@ const SocialList = (props) => {
 
 const StyledSocialList = styled(SocialList)`
 	display: flex;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	
-	a {
-		position: relative;
-		flex: 1;
+	justify-content: center;
+	font-size: 2em;
+	width: 100%;
+
+	${breaks.nav(`
 		width: auto;
-		width: 100%;
-		display: block;
+	`)}
+
+	a {
+		display: inline-block;
+		height: 1.25em;
+		width: 1.25em;
+		position: relative;
+		overflow: hidden;
 
 		svg {
 			display: block;
-			height: auto;
+			height: 100%;
 			width: 100%;
 			position: relative;
 			z-index: 2;
-
-			${props => props.oneColor === true ? 
-				`fill: ${props.color};`
-			:
-				`fill: currentColor;`
-			}
-
-			/* TODO something is funky with this when oneColor = true */
-			${breaks.phone(`
-				fill: ${props => props.color};
-			`)}
+			fill: var(--color);
 		}
 
 		&:after {
@@ -68,32 +60,22 @@ const StyledSocialList = styled(SocialList)`
 			display: block;
 			position: absolute;
 			z-index: 1;
-			background: currentColor;
+			background: var(--active);
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
 			margin-top: 100%;
 			transition: var(--transitionSpeed);
-
-			${breaks.phone(`
-				display: block;
-			`)}
 		}
 
+		/* todo bounce animation here*/
 		${breaks.phone(`
-			width: 2rem;
 			&:hover:after {
 				margin-top: 0;
 			}
 		`)}
-		}
+	}
 `
-
-SocialList.propTypes = {
-    color: PropTypes.string.isRequired,
-	active: PropTypes.string.isRequired,
-	oneColor: PropTypes.bool
-};
 
 export default StyledSocialList;

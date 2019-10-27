@@ -49,9 +49,10 @@ const StyledLogo = styled(Logo)`
 		}
 
 		* {
-				opacity: 0;
-				transition: var(--transitionSpeed);
-			}
+			opacity: 0;
+			transition: var(--transitionSpeed);
+		}
+		
 		.r,
 		.f {
 			opacity: 1;

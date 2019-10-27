@@ -15,7 +15,6 @@ const Layout = (props) => {
 
 	const toggleOffCanvas = () => {
     setOffCanvasOpen(!offCanvasOpen);
-    
     if (!!props.location.hash) {
       window.history.back()
     }

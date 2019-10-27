@@ -1,12 +1,12 @@
-import React, { useContext, useLayoutEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 
 import { NavContext } from './layout'
 
-// todo
-// import SkipToContent from './skip-to-content';
+import SkipToContent from './skip-to-content';
 import OffCanvas from './off-canvas';
 import Overlay from './overlay';
 import Header from './header'
+import Footer from './footer'
 
 const Page = (props) => {
   
@@ -14,11 +14,9 @@ const Page = (props) => {
 
   const clientSideRef = useRef(null)
 
-  // layout effect wil run before first paint
-  useLayoutEffect(() => {
+  useEffect(() => {
     clientSideRef.current.classList.add("client-side-js")
   });
-
 
   return (
     <div
@@ -27,15 +25,18 @@ const Page = (props) => {
       id="site"
       tabIndex="0"
     >
-      {/* <SkipToContent /> */}
+      <SkipToContent />
 
       {nav.offCanvasOpen ? <Overlay /> : null}
+      {nav.offCanvasOpen ? <OffCanvas /> : null}
 
-      <div id="content">
-        {nav.offCanvasOpen ? <OffCanvas /> : null}
-        <Header />
+      <Header />
+
+      <main id="content">
         {props.pageContent}
-      </div>
+      </main>
+
+      <Footer />
     </div>
   )
 }
