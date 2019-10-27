@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive' // be super careful with this
 
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme, navBreak } from '../../config/styles';
+import RootStyles, { navBreak } from '../../config/styles';
 import { navigate } from 'gatsby';
 
-import GlobalStyles from './global-styles'
 import Page from './page'
 
 export const ThemeOverrideContext = React.createContext();
@@ -14,9 +12,6 @@ export const NavContext = React.createContext();
 export const LayoutContext = React.createContext();
 
 const Layout = (props) => {
-
-  const [currentTheme, setCurrentTheme] = useState(defaultTheme);
-
   const [offCanvasOpen, setOffCanvasOpen] = useState(false);
 
 	const toggleOffCanvas = (e, target) => {
@@ -47,29 +42,21 @@ const Layout = (props) => {
   const isMouseMode = useMediaQuery({ query: `(min-width: ${navBreak}px)` })
   
   return (
-    <ThemeOverrideContext.Provider value={{
-      setTheme: theme => setCurrentTheme(theme),
-		}}>
-      <ThemeProvider theme={currentTheme}>
-        <>
-          <GlobalStyles />
-          <NavContext.Provider value={{
-            handleNavigate: handleNavigate,
-            closeAndNavigate: closeAndNavigate,
-            toggleOffCanvas: toggleOffCanvas,
-            offCanvasOpen: offCanvasOpen,
-            currentPage: props.location.pathname,
-          }}>
-            <LayoutContext.Provider value={{
-              jsLoaded: jsLoaded,
-              isMouseMode: isMouseMode,
-            }}>
-              <Page pageContent={props.children} />
-            </LayoutContext.Provider>
-          </NavContext.Provider>
-        </>
-      </ThemeProvider>
-    </ThemeOverrideContext.Provider>
+    <NavContext.Provider value={{
+      handleNavigate: handleNavigate,
+      closeAndNavigate: closeAndNavigate,
+      toggleOffCanvas: toggleOffCanvas,
+      offCanvasOpen: offCanvasOpen,
+      currentPage: props.location.pathname,
+    }}>
+      <LayoutContext.Provider value={{
+        jsLoaded: jsLoaded,
+        isMouseMode: isMouseMode,
+      }}>
+        <RootStyles />
+        <Page pageContent={props.children} />
+      </LayoutContext.Provider>
+    </NavContext.Provider>
   )
 }
 

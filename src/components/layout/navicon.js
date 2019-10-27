@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { NavContext } from './layout';
 
 import styled from 'styled-components'
-import { naviconSize, transition } from '../../config/styles'
+import { naviconSize } from '../../config/styles'
 
 const Navicon = (props) => {
 
@@ -49,25 +49,25 @@ const StyledNavicon = styled(Navicon)`
 	&:hover,
 	&:focus {
 		.top, .middle, .bottom {
-				background-color: ${props => props.theme.active};
+				background-color: var(--active);
 		}
 	}
 
 	.top {
 		top: 0;
 		transform: rotate(0deg);
-		transition: top ${transition}ms ease ${transition}ms, transform ${transition}ms ease 0s, background-color ${transition}ms;
+		transition: top var(--transitionSpeed) ease var(--transitionSpeed), transform var(--transitionSpeed) ease 0s, background-color var(--transitionSpeed);
 	}
 
 	.middle {
-		transition: opacity 0s ease ${transition}ms, background-color ${transition}ms;
+		transition: opacity 0s ease var(--transitionSpeed), background-color var(--transitionSpeed);
 		top: 50%;
 		transform: translateY(-50%);
 		opacity: 1;
 	}
 
 	.bottom {
-		transition: bottom ${transition}ms ease ${transition}ms, transform ${transition}ms ease 0s, background-color ${transition}ms;
+		transition: bottom var(--transitionSpeed) ease var(--transitionSpeed), transform var(--transitionSpeed) ease 0s, background-color var(--transitionSpeed);
 		bottom: 0;
 	}
 
@@ -76,22 +76,22 @@ const StyledNavicon = styled(Navicon)`
 		z-index: 100;
 
 		.top, .middle, .bottom {
-				background-color: ${props => props.theme.active};
+				background-color: var(--active);
 		}
 
 		.top {
-				transition: top ${transition}ms ease 0s, transform ${transition}ms ease ${transition}ms;
+				transition: top var(--transitionSpeed) ease 0s, transform var(--transitionSpeed) ease var(--transitionSpeed);
 				top: calc(50% - .125rem);
 				transform: rotate(45deg);
 		}
 
 		.middle {
-				transition: opacity 0s ease ${transition}ms;
+				transition: opacity 0s ease var(--transitionSpeed);
 				opacity: 0;
 		}
 
 		.bottom {
-				transition: bottom ${transition}ms ease 0s, transform ${transition}ms ease ${transition}ms;
+				transition: bottom var(--transitionSpeed) ease 0s, transform var(--transitionSpeed) ease var(--transitionSpeed);
 				bottom: calc(50% - .125rem);
 				transform: rotate(-45deg);
 		}

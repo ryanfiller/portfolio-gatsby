@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components';
-import { breakPoints, padding, breaks, colors } from '../../config/styles'
+import { breakPoints, breaks, colors } from '../../config/styles'
 
 const Image = (props) => {
 	const {
@@ -44,9 +44,9 @@ const Image = (props) => {
 }
 
 const StyledImage = styled(Image)`
-	width: calc(100% + (2 * ${padding}));
+	width: calc(100% + (2 * var(--padding)));
 	height: auto;
-	margin: 0 -${padding} 1em -${padding};
+	margin: 0 -var(--padding) 1em -var(--padding);
 	display: block;
 	clear: both;
 
@@ -75,7 +75,7 @@ const StyledImage = styled(Image)`
 	&.right {
 		${breaks.phone(`
 				float: right;
-				margin: 0 calc(-1*${padding}) ${padding} ${padding};
+				margin: 0 calc(-1*var(--padding)) var(--padding) var(--padding);
 				width: 50%;
 		`)}
 	}
@@ -83,7 +83,7 @@ const StyledImage = styled(Image)`
 	&.left {
 		${breaks.phone(`
 				float: left;
-				margin: 0 ${padding} ${padding} calc(-1*${padding});
+				margin: 0 var(--padding) var(--padding) calc(-1*var(--padding));
 				width: 50%;
 		`)}
 	}
@@ -91,9 +91,9 @@ const StyledImage = styled(Image)`
 	&.full {
 		${breaks.phone(`
 				display: block;
-				width: calc(100% + (2 * ${padding}));
+				width: calc(100% + (2 * var(--padding)));
 				height: auto;
-				margin: 0 calc(-1*${padding}) ${padding} calc(-1*${padding});
+				margin: 0 calc(-1*var(--padding)) var(--padding) calc(-1*var(--padding));
 		`)}
 	}
 

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { breaks, padding } from '../config/styles';
+
+import { breaks } from '../config/styles';
 
 import BlogPreview from '../components/blog-preview';
 
@@ -46,7 +47,7 @@ const Blog = (props) => {
 		<section className={`${props.className} blog-list`}>
 			{props.data.allMdx.edges.map(({ node }, index) => (
 				<BlogPreview {...node} key={index}/>
-			))} 
+				))} 
 		</section>
 	)
 }
@@ -59,7 +60,7 @@ const StyledBlog = styled(Blog)`
 
 	width: 100%;
 	display: block;
-	padding: ${padding};
+	padding: var(--padding);
 
 	& > * {
 		width: 100%;

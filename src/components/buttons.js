@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components'
-import { theme, fonts, transition } from '../config/styles';
+import { fonts } from '../config/styles';
 
 const Button = (props) => {
 
@@ -43,19 +43,19 @@ const StyledButton = styled(Button)`
         text-decoration: none;
         padding: 1em 2em;
         border: 0;
-        transition: ${transition}ms;
+        transition: var(--transitionSpeed);
 
-        color: ${props => props.color || theme.light};
-        background-color: ${props => props.background || theme.highlight};
+        color: ${props => props.color || 'var(--light)'};
+        background-color: ${props => props.background || 'var(--highlight)'};
 
         &:hover,
 	    &:focus {
-            background-color: ${props => props.active || theme.active};
+            background-color: ${props => props.active || 'var(--active)'};
             cursor: pointer;
         }
 
         &:disabled {
-            background-color: ${theme.disabled};
+            background-color: var(--disabled);
             &:hover {
                 cursor: not-allowed;
             }

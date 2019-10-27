@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import { default as SVG } from 'react-inlinesvg'
 
 import styled from 'styled-components'
-import { animations, breaks, fonts, overlays, padding, theme, transition } from '../config/styles'
+import { animations, breaks, fonts, overlays } from '../config/styles'
 
 import ContentMeta from './content-meta'
 
@@ -70,7 +70,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     background-position: center center;
     background-blend-mode: luminosity; //multiply or luminosity?
     background-size: cover;
-    padding: ${padding};
+    padding: var(--padding);
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -78,7 +78,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     ${props => (`
         background-color: ${props.backgroundColor};
         &:hover {
-            background-color: ${theme.highlight};
+            background-color: var(--highlight);
         }
     `)}
 
@@ -90,7 +90,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
     .logo {
         flex: 1;
         width: 100%;
-        padding: 0 ${padding};
+        padding: 0 var(--padding);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -100,8 +100,8 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         left: 50%;
         transform: translate(-50%, -50%);
         backface-visibility: hidden;
-        transition: ${transition}ms;
-        transition-timing-function: steps(4, end);
+        transition: calc(2*var(--transitionSpeed));
+        transition-timing-function: var(--transitionTiming);
 
         svg {
             width: 100%;
@@ -124,10 +124,10 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
 
     .content {
         text-align: center;
-        color: ${theme.light};
+        color: var(--light);
         max-height: 100%;
         overflow: hidden;
-        transition: ${transition}ms;
+        transition: var(--transitionSpeed);
         font-size: 1rem;
 
         position: absolute;
@@ -135,7 +135,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         left: 50%;
         transform: translate(-50%, -50%) rotateX(180deg);
         backface-visibility: hidden;
-        transition-timing-function: steps(4, end);
+        transition-timing-function: var(--transitionTiming);
 
         ${breaks.tablet(`
             // max-height: 0;
@@ -148,17 +148,17 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         text-transform: uppercase;
         text-align: center;
         line-height: 1em;
-        margin: calc(${padding}/2) 0;
+        margin: calc(var(--padding)/2) 0;
 
         &:hover {
-            ${animations.highlight(theme.active, theme.light, theme.active)};
+            ${animations.highlight()};
         }
     }
 
     .meta {
         line-height: 1.125em;
         display: block;
-        margin-bottom: calc(${padding}/2);
+        margin-bottom: calc(var(--padding)/2);
 
         span {
             display: inline-block;
@@ -169,7 +169,7 @@ const StyledPortfolioBlock = styled(PortfolioBlock)`
         ${fonts.inlineLink};
 
         &:hover {
-            ${animations.highlight(theme.active, theme.light, theme.active)};
+            ${animations.highlight()};
         }
     }
 	

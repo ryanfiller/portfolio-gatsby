@@ -7,7 +7,7 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import styled, { createGlobalStyle } from 'styled-components';
-import { breaks, breakPoints, theme } from '../config/styles';
+import { breaks, breakPoints } from '../config/styles';
 
 import { LayoutContext } from '../components/layout/layout';
 
@@ -125,7 +125,8 @@ const Homepage = (props) => {
 		}
 	})
 	
-	const gridColors = useMemo(() => colorizeBlocks(0, 4, theme.primary, portfolio));
+	// todo can't use functions on var, needs to css this : /
+	const gridColors = useMemo(() => colorizeBlocks(0, 4, '#192368', portfolio));
 
 	return (
 		<>

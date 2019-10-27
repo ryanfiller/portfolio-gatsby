@@ -3,8 +3,6 @@ import React from "react"
 import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 
-import { transition } from '../config/styles'
-
 const Transition = (props) => (
 	<TransitionGroup 
 		id={props.id}

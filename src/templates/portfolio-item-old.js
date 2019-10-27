@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { animations, breaks, containers, fonts, padding, theme } from '../config/styles';
+import { animations, breaks, containers, fonts } from '../config/styles';
 
 import PortfolioGallery from '../components/portfolio-gallery-old';
 import ContentMeta from '../components/content-meta';
@@ -27,17 +27,10 @@ export const postQuery = graphql`
 					website
 					color
 				}
-				slides {
-					slide {
-						image {
-							childImageSharp {
-								sizes(maxWidth: 1000 ) {
-									...GatsbyImageSharpSizes
-								}
-							}
-						}
-					}
-				}
+				# slides {
+				# 	slide {
+				# 	}
+				# }
 			}
 			body
 		}
@@ -106,16 +99,16 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 
 		${breaks.tablet(`
 			height: auto;
-			padding-top: calc(3*${padding});
-        	padding-bottom: calc(3*${padding});
+			padding-top: calc(3*var(--padding));
+        	padding-bottom: calc(3*var(--padding));
 		`)}
     }
 
     .header {
 		${containers.container()};
     	${containers.readable()};
-        padding-top: calc(3*${padding});
-        padding-bottom: calc(3*${padding});
+        padding-top: calc(3*var(--padding));
+        padding-bottom: calc(3*var(--padding));
         position: relative;
 		text-align: center;
 		
@@ -131,7 +124,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             text-align: center;
 			text-transform: uppercase;
 			${fonts.condensed()}
-			color: ${theme.primary}
+				color: var(--primary)
         }
 
         .meta {
@@ -140,7 +133,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             text-align: center;
 
             .meta__tag {
-                color: ${theme.disabled};
+                color: var(--disabled);
             }
         }
 
@@ -150,7 +143,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             margin: 0 auto;
             margin-top: .75em;
             text-decoration: none;
-            ${animations.highlight(theme.active, theme.light, theme.active)}
+            ${animations.highlight()}
 		}
 		
 		&:after {
@@ -158,12 +151,12 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 			display: block;
 			width: 1rem;
 			height: 1rem;
-			border-right: 2px solid ${theme.active};
-			border-bottom: 2px solid ${theme.active};
+			border-right: 2px solid var(--active);
+			border-bottom: 2px solid var(--active);
 			margin: 0 auto;
 			transform: rotate(45deg);
 			margin-top: 2rem;
-			${animations.bounce}
+			${animations.float}
 		}
     }
 
@@ -185,10 +178,10 @@ const StyledPortfolioItem = styled(PortfolioItem)`
             position: absolute;
             bottom: 100%;
             right: 0;
-            height: calc(${padding}*6);
+            height: calc(var(--padding)*6);
             width: 50%;
             z-index: 2;
-            background: linear-gradient(to top, ${theme.light}, transparent);
+            background: linear-gradient(to top, var(--light), transparent);
 			pointer-events: none;
 			
 			${breaks.tablet(`
@@ -199,7 +192,7 @@ const StyledPortfolioItem = styled(PortfolioItem)`
 
     .gif-credit {
         ${fonts.condensed()}
-        color: ${theme.primary};
+        color: var(--primary);
         display: none;
         text-align: center;
         margin-top: 4rem;

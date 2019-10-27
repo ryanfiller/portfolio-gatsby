@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 // import Link from 'gatsby-link'
 
 import styled from 'styled-components';
-import { fonts, padding } from '../config/styles';
+import { fonts } from '../config/styles';
 
 const ContentMeta = (props) => {
 
@@ -54,7 +54,7 @@ ContentMeta.propTypes = {
 };
 
 const StyledContentMeta = styled(ContentMeta)`
-    margin: calc(${padding}/4) 0;
+    margin: calc(var(--padding)/4) 0;
     ${fonts.sansSerif()}
 
     .date {

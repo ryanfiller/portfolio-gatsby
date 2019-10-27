@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components';
-import { overlays, breakPoints, padding, breaks, colors } from '../config/styles'
+import { overlays } from '../config/styles'
 
 import Image from './mdx/image'
 
@@ -26,7 +26,7 @@ const StyledBanner = styled(Banner)`
   position: relative;
 
   .content {
-    padding: ${padding};
+    padding: var(--padding);
     position: relative;
     ${overlays.pixels}
     ${overlays.dark}

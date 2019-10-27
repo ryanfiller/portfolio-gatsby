@@ -1,32 +1,31 @@
 import React from 'react'
-import Swiper from 'react-id-swiper'
-import Img from 'gatsby-image'
+// import Swiper from 'react-id-swiper'
 
 import styled from 'styled-components'
-import { arrows, breaks, colors, overlays, padding } from '../config/styles'
+import { arrows, breaks, colors, overlays } from '../config/styles'
 
 export default class PortfolioGallery extends React.Component {
 	render() {
 
-        let params
-		if (this.props.slides.length > 1) {
-			params = {
-				loop: true,
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'bullets',
-					clickable: true
-				},
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev'
-				},
-			}
-		} else {
-			params = {
-				loop: false,
-			}
-		}
+        // let params
+		// if (this.props.slides.length > 1) {
+		// 	params = {
+		// 		loop: true,
+		// 		pagination: {
+		// 			el: '.swiper-pagination',
+		// 			type: 'bullets',
+		// 			clickable: true
+		// 		},
+		// 		navigation: {
+		// 			nextEl: '.swiper-button-next',
+		// 			prevEl: '.swiper-button-prev'
+		// 		},
+		// 	}
+		// } else {
+		// 	params = {
+		// 		loop: false,
+		// 	}
+		// }
 
 		var color = {
 			color: this.props.color,
@@ -34,7 +33,8 @@ export default class PortfolioGallery extends React.Component {
 
 		return (
 			<StyledPortfolioGallery className="portfolio-gallery" style={color}>
-				<Swiper {...params}>
+                "slides go here"
+				{/* <Swiper {...params}>
 					{this.props.slides.map(({ slide, slidetype }, index) => (
 						<div key={index}>
                             <Img outerWrapperClassName="image" 
@@ -43,7 +43,7 @@ export default class PortfolioGallery extends React.Component {
                             />
 						</div>
 					))}
-				</Swiper>
+				</Swiper> */}
 			</StyledPortfolioGallery>
 		)
 	}
@@ -81,7 +81,7 @@ const StyledPortfolioGallery = styled.div`
             align-items: center;
             justify-content: center;
 
-            /* this feels like a lot of work for responsive images :/ */
+            /* this feels like a lot of work for responsive images :/
             .gatsby-image {
                 background: red;
 
@@ -100,7 +100,7 @@ const StyledPortfolioGallery = styled.div`
                         object-fit: contain !important;
                     }
                 }
-            }
+            } */
         }
 
         &-button {
@@ -108,24 +108,24 @@ const StyledPortfolioGallery = styled.div`
             &-prev, &-next {
                 ${arrows()}
                 cursor: pointer;
-                padding: ${padding} 0;
-                width: calc(6*${padding});
+                padding: var(--padding) 0;
+                width: calc(6*var(--padding));
                 background-color: ${colors.darkGray};
                 justify-content: center;
                 align-items: center;
                 position: absolute;
                 z-index: 25;
-                height: calc(3*${padding});
+                height: calc(3*var(--padding));
                 display: none;
                 color: ${colors.white};
 
                 &:before {
-                    right: calc(3*${padding});
+                    right: calc(3*var(--padding));
                 }
 
                 &:after {
                     rigth: 0;
-                    left: calc(3*${padding});
+                    left: calc(3*var(--padding));
                 }
 
                 ${breaks.phone(`
@@ -146,10 +146,10 @@ const StyledPortfolioGallery = styled.div`
         }
 
         &-pagination {
-            height: ${padding};
+            height: var(--padding);
             width: auto;
             position: absolute;
-            bottom: ${padding};
+            bottom: var(--padding);
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;

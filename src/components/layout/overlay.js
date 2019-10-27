@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { NavContext } from './layout';
 
 import styled from 'styled-components';
-import { overlays, transition } from '../../config/styles';
+import { overlays } from '../../config/styles';
 
 const Overlay = (props) => {
 
@@ -24,7 +24,7 @@ const StyledOverlay = styled(Overlay)`
 	bottom: 0;
 	left: 0;
 	z-index: 40;
-	transition: ${transition}ms;
+	transition: var(--transitionSpeed);
 	opacity: 0;
 	mix-blend-mode: multiply;
 	${overlays.dark}

@@ -4,7 +4,6 @@ import { randomNumber } from '../helpers';
 
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import { transition } from '../config/styles';
 
 const Pokemon = (props) => {
     const [pokemon, choosePokemon ] = useState({
@@ -54,7 +53,7 @@ const StyledPokemon = styled(Pokemon)`
     bottom: 0;
     height: 150px;
     width: auto;
-    transition: ${transition}ms;
+    transition: var(--transitionSpeed);
     opacity: 0;
     cursor: e-resize;
 

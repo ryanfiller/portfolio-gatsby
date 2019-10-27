@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
-import { breaks, containers, fonts, theme, transition } from '../config/styles'
+import { breaks, containers, fonts } from '../config/styles'
 
 const Filter = (props) => {
     const { 
@@ -50,7 +50,7 @@ const StyledFilter = styled(Filter)`
         width: 50%;
         padding: .25rem;
         font-size: 1em;
-        color: ${theme.light};
+        color: var(--light);
 
         button {
             font-size: 1em;
@@ -62,8 +62,8 @@ const StyledFilter = styled(Filter)`
             ${fonts.sansSerif()}
             text-transform: uppercase;
             color: currentColor;
-            background-color: ${theme.primary};
-            transition: ${transition}ms;
+            background-color: var(--primary);
+            transition: var(--transitionSpeed);
             cursor: pointer;
 
             &:focus {
@@ -71,13 +71,13 @@ const StyledFilter = styled(Filter)`
             }
 
             &.current {
-                background-color: ${theme.active};
+                background-color: var(--active);
             }
 
             &:hover,
             &:focus {
-                color: ${theme.light};
-                background-color: ${theme.active};
+                color: var(--light);
+                background-color: var(--active);
             }
         }
     }
@@ -97,7 +97,7 @@ const StyledFilter = styled(Filter)`
             width: auto;
             text-align: center;
             text-transform: uppercase;
-            color: ${theme.primary};
+            color: var(--primary);
 
             button {
                 color: currentColor;
@@ -105,12 +105,12 @@ const StyledFilter = styled(Filter)`
 
                 &:hover,
                 &.current {
-                    color: ${theme.active};
+                    color: var(--active);
                     background: transparent;
 
                     &:focus {
-                        color: ${theme.light};
-                        background-color ${theme.active};
+                        color: var(--light);
+                        background-color var(--active);
                     }
                 }
             }

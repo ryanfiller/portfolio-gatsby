@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import styled from 'styled-components';
-import { breaks, theme } from '../config/styles';
+import { breaks } from '../config/styles';
 
 import { colorizeBlocks } from '../helpers';
 
@@ -75,7 +75,7 @@ const Portfolio = ( props ) => {
 		).sort();
 	};
 
-	const gridColors = useMemo(() => colorizeBlocks(0, 4, theme.primary, portfolio));
+	const gridColors = useMemo(() => colorizeBlocks(0, 4, '#192368', portfolio));
 
 	return (
 		<section className={props.className}>

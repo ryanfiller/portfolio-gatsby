@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 
 import styled from 'styled-components'
-import { animations, fonts, padding, transition, theme } from '../config/styles'
+import { animations, fonts } from '../config/styles'
 
 import Image from './mdx/image'
 import ContentMeta from './content-meta'
@@ -17,8 +16,6 @@ const BlogPreview = (props) => {
         title,
         meta
     } = props.frontmatter
-
-    const frontmatter = props.frontmatter;
     
     return (
         <article className={`${props.className} blog-preview`}>
@@ -61,9 +58,9 @@ BlogPreview.propTypes = {
 
 const StyledBlogPreview = styled(BlogPreview)`
     font-size: 1.5rem;
-    transition: ${transition}ms;
+    transition: var(--transitionSpeed);
     text-decoration: none;
-    padding: ${padding};
+    padding: var(--padding);
 
     display: flex;
     flex-direction: column;
@@ -92,7 +89,7 @@ const StyledBlogPreview = styled(BlogPreview)`
             ${fonts.sanSerif}
             text-decoration: none;
             color: currentColor;
-            ${animations.highlight(theme.active, theme.light, theme.active)};
+            ${animations.highlight()};
         }
     }
 
@@ -104,26 +101,26 @@ const StyledBlogPreview = styled(BlogPreview)`
         position: absolute;
         top: .80rem;
         right: 0rem;
-        color: ${theme.disabled};
+        color: var(--disabled);
     }
 
     .excerpt {
         ${fonts.sanSerif}
         font-size: 1em;
         margin: 1rem 0;
-        color: ${theme.dark};
+        color: var(--dark);
     }
 
     ${ContentMeta} {
         font-size: .8em;
         ${fonts.condensed}
         margin: 1.5rem 10em 1rem 0;
-        color: ${theme.disabled};
+        color: var(--disabled);
     }
 
     .link {
         color: currentColor;
-        ${animations.highlight(theme.active, theme.light, theme.active)};
+        ${animations.highlight()};
         ${fonts.inlineLink}
         position: absolute;
         right: 0;
@@ -134,11 +131,11 @@ const StyledBlogPreview = styled(BlogPreview)`
         background-color: ${props.backgroundColor};
 
         * {
-            color: ${theme.light} !important;
+            color: var(--light) !important;
         }
 
         &:hover {
-            background-color: ${theme.highlight};
+            background-color: var(--highlight);
         }
     ` : null)}
 `

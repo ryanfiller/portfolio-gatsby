@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 // import Helmet from 'react-helmet'
 
 import styled from 'styled-components';
-import { animations, breaks, containers, fonts, overlays, theme } from '../config/styles';
+import { animations, breaks, containers, fonts, overlays } from '../config/styles';
 
 import Banner from '../components/banner';
 import ContentMeta from '../components/content-meta';
@@ -38,8 +38,6 @@ const BlogArticle = (props) => {
 
 	const post = props.data.mdx;
 	const { frontmatter } = post;
-
-	console.log(frontmatter)
 
 	return (
 		<article className={props.className} >
@@ -81,13 +79,13 @@ BlogArticle.propTypes = {
 const StyledBlogArticle = styled(BlogArticle)`
 	${Banner} .content {
 		${fonts.sizes('1.5rem', '1.75rem, 2rem')}
-		background: ${theme.highlight};
+		background: var(--highlight);
 		width: 100vw;
 		position: relative;
 		overflow: hidden;
 		${overlays.pixels}
 		font-size: 2rem;
-		color: ${theme.light};
+		color: var(--light);
 
 		${breaks.tablet(`
 			font-size: 2.75rem;
@@ -175,7 +173,7 @@ const StyledBlogArticle = styled(BlogArticle)`
 		}
 
 		.scroll-link {
-			color: ${theme.light};
+			color: var(--light);
 			height: 4rem;
 			width: 4rem;
 			position: absolute;
@@ -194,7 +192,7 @@ const StyledBlogArticle = styled(BlogArticle)`
 				position: absolute;
 				left: 50%;
 				transform: translateX(-50%);
-				${animations.bounce}
+				${animations.float}
 			}
         
 			&:before {
@@ -265,7 +263,7 @@ const StyledBlogArticle = styled(BlogArticle)`
 	}
 
 	#content {
-		background-color: ${theme.light};
+		background-color: var(--light);
 		padding: 6rem 0 4rem 0;
 		position: relative;
 		z-index: 5;
