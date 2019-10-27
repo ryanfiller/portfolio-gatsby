@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { pages } from '../../config/config';
 
@@ -17,13 +16,11 @@ const Navigation = (props) => {
 	const buildLinks = (links) => {
 
 		return links.map((link) => {
-
 			let click;
+			const isHashLink = !!(link.url && link.url.match(/#/))
 
-			if (link.name === 'contact') {
-				click = (e) => {nav.toggleOffCanvas(e, '#contact')};
-			} else if(props.navFunction) {
-				click = props.navFunction;
+			if (isHashLink) {
+				click = (e) => {nav.toggleOffCanvas(e, link.hash)};
 			} else {
 				click = (e) => {nav.handleNavigate(e)};
 			}
@@ -36,7 +33,7 @@ const Navigation = (props) => {
 					onClick={ click }
 					key={link.name} 
 					data-text={link.name}
-					className={nav.currentPage.includes(`/${href}`) ? 'active' : null}
+					className={nav.currentPage.includes(`/${href}`) ? 'active' : ''}
 				>
 					{link.name}
 				</a>
@@ -50,15 +47,6 @@ const Navigation = (props) => {
 		</nav>
 	)
 }
-
-Navigation.propTypes = {
-	// orientation: PropTypes.string.isRequired,
-	navFunction: PropTypes.func
-};
-
-// media queries should always work
-// nav is vertical, turns horizontal at nav breakpoint. 
-// make vert() a mixin because you want to use it on homepage too.
 
 const vertical = () => (`
 	display: block;
@@ -92,7 +80,7 @@ const horizontal = () => (`
 `)
 
 const StyledNavigation = styled(Navigation)`
-	color: ${props => props.color};
+	color: var(--color);
 	${vertical()}
 
 	${breaks.nav(`

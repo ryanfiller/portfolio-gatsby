@@ -79,7 +79,7 @@ const FourOhFour = (props) => {
 }
 
 	useEffect(() => {
-        const handleKeydown = (e) => {
+		const handleKeydown = (e) => {
 			switch(e.which) {
 				case 38:
 				handleArrows('up');
@@ -108,12 +108,12 @@ const FourOhFour = (props) => {
 			e.preventDefault();
 		}
 
-        document.addEventListener('keydown', handleKeydown);
+		document.addEventListener('keydown', handleKeydown);
 
-        return () => {
-          document.removeEventListener('keydown', handleKeydown);
-        };
-      });
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
 		
 	return (
 		<section className={props.className} tab-index="0">

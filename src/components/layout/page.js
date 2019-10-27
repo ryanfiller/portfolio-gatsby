@@ -17,7 +17,7 @@ const Page = (props) => {
   // layout effect wil run before first paint
   useLayoutEffect(() => {
     clientSideRef.current.classList.add("client-side-js")
-  }, []);
+  });
 
 
   return (

@@ -11,14 +11,14 @@ const nav = useContext(NavContext);
 
 	return (
 		<button 
-				id="navicon"
-				aria-label="mobile nav toggle"
-				className={props.className}
-				onClick={nav.toggleOffCanvas}
-		>
-				<span className="top"></span>
-				<span className="middle"></span>
-				<span className="bottom"></span>
+			id="navicon"
+			aria-label="mobile nav toggle"
+			className={props.className}
+			onClick={nav.toggleOffCanvas}
+	>
+			<span className="top"></span>
+			<span className="middle"></span>
+			<span className="bottom"></span>
 		</button>
 	)
 }
@@ -30,7 +30,6 @@ const StyledNavicon = styled(Navicon)`
 	background: transparent;
 	padding: 0;
 	border: 0;
-	align-self: stretch;
 	height: auto;
 	position: relative !important;
 	margin-left: 2rem;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { NavContext } from './layout';
 
@@ -8,6 +8,25 @@ import { overlays } from '../../config/styles';
 const Overlay = (props) => {
 
 	const nav = useContext(NavContext);
+
+	useEffect(() => {
+		const handleKeydown = (e) => {
+			switch(e.which) {
+				case 27: // escape key
+				nav.toggleOffCanvas()
+				break;
+	
+				default: return; // regular keys
+			}
+			e.preventDefault();
+		}
+
+		document.addEventListener('keydown', handleKeydown);
+
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
 
 	return (
 		<div 

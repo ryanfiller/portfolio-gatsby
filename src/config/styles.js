@@ -57,11 +57,10 @@ var overlay = (styles) => {
 
 export const overlays = {
 	dark: overlay(`
-		background-color: var(--grayDark));
+		background-color: var(--grayDark);
 		opacity: .5;
 		@supports (mix-blend-mode: multiply) {
-			background-color: var(--gray));
-			opacity: .25;
+			opacity: .75;
 			mix-blend-mode: multiply;
 		}
 	`),
@@ -315,9 +314,9 @@ const RootStyles = createGlobalStyle`
 
 		--pixelSize: .25rem;
 		--pixels: /images/site-assets/screendoor.png;
-		--r: rgba(255, 0, 0, .10);
-		--g: rgba(0, 255, 0, .10);
-		--b: rgba(0, 0, 255, .10);
+		--r: rgba(255, 0, 0);
+		--g: rgba(0, 255, 0);
+		--b: rgba(0, 0, 255);
 		--rgb: repeating-linear-gradient(
 			to bottom,
 			var(--r) calc(0*var(--pixelSize)), var(--r) calc(1*var(--pixelSize)),

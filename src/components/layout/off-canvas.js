@@ -1,38 +1,45 @@
-// import React, { useContext } from "react";
-import React from "react";
+import React, { useContext } from "react";
 
-// import { NavContext } from './layout';
+import { LayoutContext } from './layout';
 
-// import styled, { ThemeContext } from 'styled-components'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive';
-import { breaks, navBreak, naviconSize } from '../../config/styles';
+import { breaks, naviconSize } from '../../config/styles';
 
-// import Navigation from './navigation';
+import Navigation from './navigation';
 import Form from '../form';
 import { ContactForm } from '../../config/forms';
 
 const OffCanvas = (props) => {
 
-	// const theme = useContext(ThemeContext)
-	// const nav = useContext(NavContext);
+	const layout = useContext(LayoutContext)
+
+	const {
+		jsLoaded,
+		isMouseMode,
+	} = layout
 
 	return (
 		<div className={props.className} id="off-canvas">
-			<MediaQuery query={`(max-width: ${navBreak}px)`}>
-				{/* <Navigation orientation="vertical" navFunction={nav.closeAndNavigate} /> */}
-			</MediaQuery>
+			{(jsLoaded && !isMouseMode) &&
+				<Navigation />
+			}
 			<Form form={ContactForm} />
 		</div>
 	);
 }
 
+// todo - refactors this to work with focus within for the form
+// this won't work in 2% ie11, pre chrome
+
 const StyledOffCanvas = styled(OffCanvas)`
+	--background: var(--primary);
+	--color: var(--light);
+
 	display: block;
 	position: absolute;
 	top: 0;
 	left: 100%;
-	background-color: var(--primary);
+	background-color: var(--background);
 	height: 100%;
 	width: 33.33vw;
 	padding: var(--padding);
